@@ -1,0 +1,305 @@
+[16-Oct-2021 00:52:54 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[16-Oct-2021 00:52:54 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[16-Oct-2021 00:52:54 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[16-Oct-2021 00:52:54 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[15-Oct-2021 19:53:00 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:53:00 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:53:17 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:53:17 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:53:18 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:53:18 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:53:54 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:53:54 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:55:35 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:55:35 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:55:38 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:55:38 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:55:38 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:55:38 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:58:07 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:58:07 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:58:08 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:58:08 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:58:08 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:58:08 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:58:13 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:58:13 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:58:14 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:58:14 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:58:14 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:58:14 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 19:59:36 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 19:59:36 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:01:08 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:01:08 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:02:19 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:02:19 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:02:23 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:02:23 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:02:23 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:02:23 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:04:47 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:04:47 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:04:58 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:04:58 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[15-Oct-2021 20:06:24 America/Mexico_City] PHP Warning:  getimagesize(../../imgfirma/1624493051.jpg): failed to open stream: No such file or directory in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 1240
+[15-Oct-2021 20:06:24 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Missing or incorrect image file: ../../imgfirma/1624493051.jpg in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(1242): FPDF->Error('Missing or inco...')
+#1 /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php(885): FPDF->_parsejpg('../../imgfirma/...')
+#2 /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/pdf_triage.php(297): FPDF->Image('../../imgfirma/...', 95, 253, 25)
+#3 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/fpdf/fpdf.php on line 271
+[16-Oct-2021 02:18:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[16-Oct-2021 02:18:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[16-Oct-2021 02:18:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[16-Oct-2021 02:18:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/triage.php on line 19
+[18-Oct-2021 22:38:48 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[18-Oct-2021 22:38:48 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[18-Oct-2021 22:38:48 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[18-Oct-2021 22:38:48 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[18-Oct-2021 22:38:48 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[21-Oct-2021 00:07:20 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[21-Oct-2021 00:07:20 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[22-Oct-2021 01:29:57 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[22-Oct-2021 01:29:57 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[22-Oct-2021 01:29:57 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[22-Oct-2021 01:29:57 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[22-Oct-2021 01:29:57 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[23-Oct-2021 00:19:09 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[23-Oct-2021 00:19:09 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[23-Oct-2021 00:19:09 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[23-Oct-2021 11:23:51 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[23-Oct-2021 11:23:51 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[23-Oct-2021 11:23:51 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[23-Oct-2021 11:23:51 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[23-Oct-2021 11:23:51 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[25-Oct-2021 13:56:58 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[25-Oct-2021 13:56:58 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[25-Oct-2021 13:56:58 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[25-Oct-2021 13:56:58 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[25-Oct-2021 13:56:58 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[26-Oct-2021 21:52:50 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[26-Oct-2021 21:52:50 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[26-Oct-2021 21:52:50 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[26-Oct-2021 21:52:50 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[26-Oct-2021 21:52:50 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[05-Nov-2021 05:58:40 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[05-Nov-2021 05:58:40 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[05-Nov-2021 05:58:40 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[05-Nov-2021 05:58:40 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[05-Nov-2021 05:58:40 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[05-Nov-2021 05:58:40 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[08-Nov-2021 00:59:11 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[08-Nov-2021 00:59:11 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[08-Nov-2021 00:59:11 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[08-Nov-2021 00:59:11 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[08-Nov-2021 00:59:11 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[08-Nov-2021 00:59:11 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[09-Nov-2021 20:35:10 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[09-Nov-2021 20:35:10 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[09-Nov-2021 20:35:10 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[09-Nov-2021 20:35:10 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[15-Nov-2021 17:25:16 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[15-Nov-2021 17:25:16 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[15-Nov-2021 17:25:16 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[15-Nov-2021 17:25:16 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[15-Nov-2021 17:25:16 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[17-Nov-2021 18:33:03 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[17-Nov-2021 18:33:03 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[17-Nov-2021 18:33:03 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[17-Nov-2021 18:33:03 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[17-Nov-2021 18:33:03 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[17-Nov-2021 18:33:03 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[17-Nov-2021 20:03:24 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[17-Nov-2021 20:03:24 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[17-Nov-2021 20:03:24 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[17-Nov-2021 20:03:24 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[17-Nov-2021 20:03:24 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[17-Nov-2021 20:03:24 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[19-Nov-2021 17:10:53 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[19-Nov-2021 17:10:53 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[19-Nov-2021 17:10:53 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[19-Nov-2021 17:10:53 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[19-Nov-2021 17:10:53 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[19-Nov-2021 17:10:53 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[21-Nov-2021 00:46:43 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[21-Nov-2021 00:46:43 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[21-Nov-2021 00:46:43 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[21-Nov-2021 00:46:43 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[21-Nov-2021 00:46:43 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[21-Nov-2021 00:46:43 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[21-Nov-2021 17:39:47 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[21-Nov-2021 17:39:47 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[21-Nov-2021 17:39:47 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[21-Nov-2021 17:39:47 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[21-Nov-2021 17:39:47 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[21-Nov-2021 23:51:32 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[21-Nov-2021 23:51:32 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[21-Nov-2021 23:51:32 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[21-Nov-2021 23:51:32 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[21-Nov-2021 23:51:32 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[22-Nov-2021 15:22:15 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[22-Nov-2021 15:22:15 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[22-Nov-2021 15:22:15 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[22-Nov-2021 15:22:15 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[22-Nov-2021 15:24:33 UTC] PHP Notice:  Undefined index: diab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 67
+[22-Nov-2021 15:24:33 UTC] PHP Notice:  Undefined index: h_arterial in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 68
+[22-Nov-2021 15:24:33 UTC] PHP Notice:  Undefined index: enf_card_pulm in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 69
+[22-Nov-2021 15:24:33 UTC] PHP Notice:  Undefined index: cancer in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 70
+[22-Nov-2021 15:24:33 UTC] PHP Notice:  Undefined index: emb in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 71
+[22-Nov-2021 15:24:33 UTC] PHP Notice:  Undefined index: otro in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 72
+[25-Nov-2021 11:01:05 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[25-Nov-2021 12:04:14 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[25-Nov-2021 17:33:54 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[25-Nov-2021 19:54:50 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[03-Dec-2021 18:44:17 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[04-Dec-2021 07:02:39 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[04-Dec-2021 13:46:58 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[05-Dec-2021 00:29:50 UTC] PHP Notice:  Undefined index: habitacion in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 86
+[08-Dec-2021 16:17:24 UTC] PHP Notice:  Undefined index: habitacion in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 86
+[09-Dec-2021 20:40:37 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[12-Dec-2021 13:54:56 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[13-Dec-2021 13:26:58 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[13-Dec-2021 20:21:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Dec-2021 20:21:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Dec-2021 20:21:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[15-Dec-2021 20:19:49 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[17-Dec-2021 19:05:43 UTC] PHP Notice:  Undefined index: habitacion in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 86
+[20-Dec-2021 14:12:40 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[21-Dec-2021 20:49:45 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[25-Dec-2021 05:06:00 UTC] PHP Notice:  Undefined index: habitacion in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 86
+[07-Jan-2022 15:54:28 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[22-Jan-2022 18:46:14 UTC] PHP Notice:  Undefined index: habitacion in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 86
+[25-Jan-2022 23:24:44 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[30-Jan-2022 03:38:55 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[02-Feb-2022 00:30:36 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[16-Feb-2022 17:58:18 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[17-Feb-2022 17:19:29 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[23-Feb-2022 15:10:52 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[02-Mar-2022 17:27:06 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[03-Mar-2022 18:42:37 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[08-Mar-2022 12:29:43 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[11-Apr-2022 13:33:52 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[11-Apr-2022 17:46:31 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/urgencias/insertar_triage.php on line 124
+[20-May-2022 12:56:19 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/urgencias/insertar_triage.php on line 124

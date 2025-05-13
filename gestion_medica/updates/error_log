@@ -1,0 +1,926 @@
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[17-Nov-2021 10:02:16 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[17-Nov-2021 10:09:35 America/Mexico_City] PHP Notice:  Undefined variable: id_usua in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 467
+[17-Nov-2021 10:09:35 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php:469
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 469
+[17-Nov-2021 10:09:46 America/Mexico_City] PHP Notice:  Undefined variable: id_usua in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 467
+[17-Nov-2021 10:09:46 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php:469
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 469
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[17-Nov-2021 19:43:10 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[19-Nov-2021 15:17:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Nov-2021 15:17:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Nov-2021 15:17:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Nov-2021 15:17:14 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 63
+[19-Nov-2021 12:44:29 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 12:54:43 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 12:54:54 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 12:56:24 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:51:00 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:51:32 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:51:47 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:52:54 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:53:13 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:53:46 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:54:16 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:54:40 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:54:40 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:54:54 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[19-Nov-2021 13:55:46 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Nov-2021 07:13:18 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[21-Nov-2021 17:13:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[21-Nov-2021 17:13:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[21-Nov-2021 17:13:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[21-Nov-2021 17:13:31 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 63
+[21-Nov-2021 11:54:39 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[21-Nov-2021 11:54:59 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[21-Nov-2021 12:16:39 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[24-Nov-2021 12:06:53 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[26-Nov-2021 10:59:39 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[26-Nov-2021 22:51:53 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[26-Nov-2021 22:52:54 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[27-Nov-2021 06:30:25 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[27-Nov-2021 22:30:58 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[29-Nov-2021 10:53:42 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[29-Nov-2021 13:55:11 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[29-Nov-2021 21:07:47 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[29-Nov-2021 21:21:16 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[29-Nov-2021 21:21:16 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[29-Nov-2021 21:21:16 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[29-Nov-2021 21:21:16 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[29-Nov-2021 21:21:16 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[08-Dec-2021 15:19:59 America/Mexico_City] PHP Notice:  Undefined index: tipo_intervenciony in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 731
+[08-Dec-2021 15:19:59 America/Mexico_City] PHP Notice:  Undefined index: tipo_sangrey in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 745
+[09-Dec-2021 06:40:08 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[09-Dec-2021 06:40:08 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[09-Dec-2021 06:40:08 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[09-Dec-2021 06:40:08 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[09-Dec-2021 06:40:08 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[09-Dec-2021 07:01:57 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[09-Dec-2021 07:01:57 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[09-Dec-2021 07:01:57 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[09-Dec-2021 07:01:57 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[09-Dec-2021 07:01:57 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[13-Dec-2021 11:23:10 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[13-Dec-2021 18:20:35 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[13-Dec-2021 20:42:49 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[13-Dec-2021 20:46:27 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[14-Dec-2021 06:27:50 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[16-Dec-2021 08:35:40 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[17-Dec-2021 16:07:48 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Dec-2021 14:24:55 America/Mexico_City] PHP Notice:  Undefined index: tipo_sangrey in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 745
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[23-Dec-2021 22:48:32 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[27-Dec-2021 12:13:54 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[27-Dec-2021 13:55:08 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[28-Dec-2021 17:04:29 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[28-Dec-2021 17:06:17 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[28-Dec-2021 19:20:23 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[28-Dec-2021 19:20:23 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[28-Dec-2021 19:20:23 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[28-Dec-2021 19:20:23 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[28-Dec-2021 19:20:23 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[30-Dec-2021 16:32:32 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[30-Dec-2021 17:28:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[30-Dec-2021 17:28:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[30-Dec-2021 17:28:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[30-Dec-2021 17:28:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index: glob_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 511
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index: pla_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 512
+[30-Dec-2021 17:28:34 America/Mexico_City] PHP Notice:  Undefined index: crio_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 513
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[01-Jan-2022 23:23:36 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[02-Jan-2022 14:06:29 America/Mexico_City] PHP Notice:  Undefined index: resumen_clin in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_preoperatoria.php on line 460
+[02-Jan-2022 14:06:29 America/Mexico_City] PHP Notice:  Undefined index: result_lab_gab in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_preoperatoria.php on line 461
+[02-Jan-2022 14:06:29 America/Mexico_City] PHP Notice:  Undefined variable: beneficios in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_preoperatoria.php on line 471
+[04-Jan-2022 02:59:23 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[04-Jan-2022 03:00:33 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[04-Jan-2022 19:56:39 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[04-Jan-2022 19:56:39 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[04-Jan-2022 19:56:39 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[04-Jan-2022 19:56:39 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[04-Jan-2022 19:56:39 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[05-Jan-2022 13:10:04 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[05-Jan-2022 13:11:53 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[05-Jan-2022 13:11:53 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[05-Jan-2022 13:11:53 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[05-Jan-2022 13:11:53 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[05-Jan-2022 13:11:53 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[05-Jan-2022 20:15:20 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[10-Jan-2022 14:59:36 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[10-Jan-2022 14:59:41 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[13-Jan-2022 17:17:23 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[13-Jan-2022 17:17:38 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[13-Jan-2022 20:52:58 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[13-Jan-2022 20:52:58 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[13-Jan-2022 20:52:58 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[13-Jan-2022 20:52:58 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[13-Jan-2022 20:52:58 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[15-Jan-2022 06:30:04 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[15-Jan-2022 06:30:04 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[15-Jan-2022 06:30:04 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[15-Jan-2022 06:30:04 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[15-Jan-2022 06:30:04 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[16-Jan-2022 02:33:48 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 08:57:55 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 10:22:32 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 10:22:33 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 10:49:32 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 22:48:00 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Jan-2022 23:04:05 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[25-Jan-2022 09:24:41 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[25-Jan-2022 09:24:45 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[25-Jan-2022 16:59:43 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[25-Jan-2022 17:00:10 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[28-Jan-2022 08:14:32 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[28-Jan-2022 22:16:19 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[29-Jan-2022 16:04:57 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[29-Jan-2022 16:04:57 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[29-Jan-2022 16:04:57 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[29-Jan-2022 16:04:57 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[29-Jan-2022 16:04:57 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[30-Jan-2022 05:31:38 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[30-Jan-2022 05:31:55 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[31-Jan-2022 23:04:28 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[31-Jan-2022 23:04:43 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[01-Feb-2022 20:01:46 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Feb-2022 20:06:00 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: signos in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1052
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: monitoreo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1053
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: diuresis in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1054
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: dex in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1055
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: semif in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1056
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: vigilar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1057
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: oxigeno in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1058
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: nebu in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1059
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: bar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1060
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: baño in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1061
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: foley in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1062
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: ej in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1063
+[01-Feb-2022 20:06:26 America/Mexico_City] PHP Notice:  Undefined index: datsan in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1064
+[01-Feb-2022 20:17:30 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: signos in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1052
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: monitoreo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1053
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: diuresis in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1054
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: dex in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1055
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: semif in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1056
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: vigilar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1057
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: oxigeno in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1058
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: nebu in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1059
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: bar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1060
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: baño in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1061
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: foley in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1062
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: ej in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1063
+[01-Feb-2022 20:23:32 America/Mexico_City] PHP Notice:  Undefined index: datsan in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 1064
+[02-Feb-2022 04:03:37 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[02-Feb-2022 04:03:57 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[02-Feb-2022 04:04:15 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[02-Feb-2022 07:40:13 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[02-Feb-2022 07:53:58 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[04-Feb-2022 07:24:41 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[07-Feb-2022 14:41:14 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[07-Feb-2022 14:54:04 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[07-Feb-2022 15:25:20 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[08-Feb-2022 00:43:48 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[08-Feb-2022 00:44:06 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[10-Feb-2022 23:51:27 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[11-Feb-2022 00:12:43 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[16-Feb-2022 18:35:18 America/Mexico_City] PHP Notice:  Undefined index: tipo_intervenciony in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 731
+[16-Feb-2022 18:35:18 America/Mexico_City] PHP Notice:  Undefined index: tipo_sangrey in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 745
+[16-Feb-2022 18:43:50 America/Mexico_City] PHP Notice:  Undefined index: tipo_intervenciony in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 731
+[16-Feb-2022 18:43:50 America/Mexico_City] PHP Notice:  Undefined index: tipo_sangrey in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_noturgen.php on line 745
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[20-Feb-2022 07:27:29 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[20-Feb-2022 17:07:28 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[20-Feb-2022 17:08:04 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[20-Feb-2022 17:09:04 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[22-Feb-2022 04:47:38 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[22-Feb-2022 04:53:24 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[22-Feb-2022 05:00:15 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[23-Feb-2022 10:42:39 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[24-Feb-2022 12:58:52 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[26-Feb-2022 22:07:06 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[26-Feb-2022 22:07:06 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[26-Feb-2022 22:07:06 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[26-Feb-2022 22:07:06 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[26-Feb-2022 22:07:06 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[27-Feb-2022 08:00:11 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[27-Feb-2022 08:00:11 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[27-Feb-2022 08:00:11 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[27-Feb-2022 08:00:11 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[27-Feb-2022 08:00:11 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[27-Feb-2022 08:01:00 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[27-Feb-2022 08:01:00 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[27-Feb-2022 08:01:00 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[27-Feb-2022 08:01:00 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[27-Feb-2022 08:01:00 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[08-Mar-2022 23:00:13 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[08-Mar-2022 23:02:16 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[08-Mar-2022 23:02:16 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[08-Mar-2022 23:02:16 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[08-Mar-2022 23:02:16 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[08-Mar-2022 23:02:16 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[22-Mar-2022 20:01:50 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[24-Mar-2022 11:23:25 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[24-Mar-2022 11:24:04 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[28-Mar-2022 01:33:17 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[30-Mar-2022 07:19:06 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[30-Mar-2022 07:19:06 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[30-Mar-2022 07:19:06 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[30-Mar-2022 07:19:06 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[30-Mar-2022 07:19:06 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[31-Mar-2022 19:21:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[31-Mar-2022 19:21:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[31-Mar-2022 19:21:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[31-Mar-2022 19:21:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index: glob_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 511
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index: pla_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 512
+[31-Mar-2022 19:25:11 America/Mexico_City] PHP Notice:  Undefined index: crio_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 513
+[01-Apr-2022 00:06:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[01-Apr-2022 00:06:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[01-Apr-2022 00:06:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[01-Apr-2022 00:06:37 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index: glob_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 511
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index: pla_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 512
+[01-Apr-2022 00:10:25 America/Mexico_City] PHP Notice:  Undefined index: crio_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 513
+[01-Apr-2022 00:11:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[01-Apr-2022 00:11:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[01-Apr-2022 00:11:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[01-Apr-2022 00:11:06 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 311
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 317
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 320
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index:  in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 323
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index: glob_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 511
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index: pla_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 512
+[01-Apr-2022 00:11:23 America/Mexico_City] PHP Notice:  Undefined index: crio_tras in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_trasfusion.php on line 513
+[01-Apr-2022 08:36:39 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Apr-2022 08:37:19 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[01-Apr-2022 08:38:44 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[01-Apr-2022 08:38:44 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[01-Apr-2022 08:38:44 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[01-Apr-2022 08:38:44 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[01-Apr-2022 08:38:44 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[01-Apr-2022 09:12:02 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[01-Apr-2022 09:12:14 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[01-Apr-2022 15:35:36 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[01-Apr-2022 15:41:50 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[01-Apr-2022 15:43:48 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[02-Apr-2022 11:57:08 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[04-Apr-2022 08:37:12 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[06-Apr-2022 00:00:48 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[06-Apr-2022 00:01:03 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[06-Apr-2022 00:01:10 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[06-Apr-2022 00:01:15 America/Mexico_City] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ordenes.php on line 256
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[06-Apr-2022 16:26:34 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[07-Apr-2022 01:55:48 America/Mexico_City] PHP Notice:  Undefined index: hc_ges in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 758
+[07-Apr-2022 01:55:48 America/Mexico_City] PHP Notice:  Undefined index: hc_par in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 759
+[07-Apr-2022 01:55:48 America/Mexico_City] PHP Notice:  Undefined index: hc_ces in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 760
+[07-Apr-2022 01:55:48 America/Mexico_City] PHP Notice:  Undefined index: hc_abo in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 761
+[07-Apr-2022 01:55:48 America/Mexico_City] PHP Notice:  Undefined index: hc_fechafur in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/histo_clinic.php on line 762
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[07-Apr-2022 15:08:05 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[13-Apr-2022 19:19:58 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[13-Apr-2022 22:12:59 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[14-Apr-2022 06:25:38 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: edosalud_neon in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 517
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: p_sistol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 518
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: p_diastol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 519
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: fcard in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 520
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: fresp in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 521
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: temper in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 522
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: satoxi in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 523
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: peso in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 524
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: talla in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 525
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: apgar in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 526
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: silver in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 527
+[14-Apr-2022 07:14:46 America/Mexico_City] PHP Notice:  Undefined index: an in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/updates/update_ingreso.php on line 528

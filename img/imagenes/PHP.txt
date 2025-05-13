@@ -1,0 +1,61 @@
+http://187.188.84.74/gestioncm/login.php
+
+<input type="text" name="txtnomusuario" onKeyPress="onKey();" style="border:#959C89 1px solid; color:#5A6446; font-family:Arial; font-size:10px;"
+
+																			size="20" value="" maxlength="16">
+<SCRIPT language=JavaScript>
+<!--
+	function setFocusInicio(){
+		document.frmlogin.txtnomusuario.focus();
+	}
+	function onKey(){
+		if (event.keyCode == 13){
+			event.returnValue=false;
+			document.frmlogin.txtpasswd.focus();
+		}
+	}
+// -->
+</SCRIPT>
+
+<body bgcolor="#7F8787" leftmargin="5" topmargin="5" onLoad="if (self != top) top.location.assign(self.location);setFocusInicio();">
+
+response.setHeader("Cache-Control","no-cache");
+response.setHeader("Cache-Control","no-store");
+response.setDateHeader("Expires", 0);
+
+<% 
+response.setHeader("Pragma", "No-chache"); 
+response.setHeader("Cache-Control","no-cache");
+response.setHeader("Cache-Control","no-store");
+response.setDateHeader("Expires", 0);
+%> 
+
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+
+
+<% 
+response.setHeader("Content-Type", "text/html; charset=UTF-8"); 
+response.setHeader("Pragma", "No-chache"); 
+response.setHeader("Cache-Control","no-cache");
+response.setHeader("Cache-Control","no-store");
+response.setHeader("Cache-Control","must-revalidate");
+response.setDateHeader("Expires", 0);
+HttpSession actual = request.getSession(true);
+String id = actual.getId();
+String nombre = (String)actual.getAttribute("logueado"); 
+
+if (actual.isNew()){
+	response.sendRedirect("inicio.html");
+	return;
+}
+
+if (actual == null){
+	response.sendRedirect("inicio.html");	
+}else{
+	if (actual.getAttribute("logueado") == null){
+		response.sendRedirect("inicio.html");		
+	}
+}
+%> 

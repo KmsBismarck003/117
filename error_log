@@ -1,0 +1,21 @@
+[07-Oct-2021 18:42:51 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u542863078/domains/simavenecia.com/public_html/conexionbd.php on line 6
+[07-Oct-2021 18:42:51 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simavenecia.com/public_html/conexionbd.php on line 7
+[16-Dec-2021 15:40:15 UTC] PHP Notice:  Trying to get property of non-object in /home/u542863078/domains/simavenecia.com/public_html/models/Municipio.php on line 11
+[23-Apr-2022 01:23:55 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u542863078/domains/simatools.com/public_html/sanisidro/SIMA-SI/conexionbd.php on line 7
+[23-Apr-2022 01:23:55 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/SIMA-SI/conexionbd.php on line 8
+[23-Apr-2022 01:24:48 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:24:48 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:26:39 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:26:39 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:27:06 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:27:06 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:27:19 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'u542863078_sanisidro'@'localhost' (using password: NO) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:27:19 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:27:43 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'u542863078_sanisidro'@'localhost' (using password: YES) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:27:43 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:27:49 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'u542863078_sanisidro'@'localhost' (using password: YES) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:27:49 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:28:00 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'u542863078_sanisidro'@'localhost' (using password: YES) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:28:00 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8
+[23-Apr-2022 01:28:02 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'u542863078_sanisidro'@'localhost' (using password: YES) in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 7
+[23-Apr-2022 01:28:02 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u542863078/domains/simatools.com/public_html/sanisidro/conexionbd.php on line 8

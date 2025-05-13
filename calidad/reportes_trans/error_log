@@ -1,0 +1,17 @@
+[07-Dec-2021 20:00:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/cir_anual_grafico.php:108
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/cir_anual_grafico.php on line 108
+[07-Dec-2021 20:00:10 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/cir_anual_grafico.php:108
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/cir_anual_grafico.php on line 108
+[08-Dec-2021 14:52:33 UTC] PHP Notice:  Undefined variable: mess in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/pdf_reporte_cir.php on line 81
+[08-Dec-2021 14:52:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/pdf_reporte_cir.php:94
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/pdf_reporte_cir.php on line 94
+[17-Dec-2021 15:54:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/pdf_10_diag_men.php:145
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/calidad/reportes_trans/pdf_10_diag_men.php on line 145

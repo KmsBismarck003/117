@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="MXN" TipoCambio="1" Total="855.36" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="PUE" Descuento="0.00" TipoDeComprobante="I" SubTotal="737.38" FormaPago="01" LugarExpedicion="52140" Fecha="2024-05-15T02:02:34" Folio="1399" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+
+<cfdi:Emisor Rfc="CMS1501012H9" Nombre="CLINICA MEDICA SI" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="XAXX010101000" Nombre="Carrillo Sanchez Miguel" DomicilioFiscalReceptor="52140" RegimenFiscalReceptor="616" UsoCFDI="S01"/>
+  <cfdi:Conceptos><cfdi:Concepto ClaveProdServ="85101502" Cantidad="1" ClaveUnidad="E48" Unidad="SERVICIO" Descripcion="CONSULTA EN URGENCIAS" ValorUnitario="307.240000" Importe="307.240000" Descuento="0.000000" ObjetoImp="02"><cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="307.240000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="49.158400"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+      </cfdi:Concepto><cfdi:Concepto ClaveProdServ="85121808" Cantidad="1" ClaveUnidad="E48" Unidad="SERVICIO" Descripcion="ELECTROCARDIOGRAMA" ValorUnitario="430.140000" Importe="430.140000" Descuento="0.000000" ObjetoImp="02"><cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="430.140000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="68.822400"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+      </cfdi:Concepto></cfdi:Conceptos>
+     
+      <cfdi:Impuestos TotalImpuestosTrasladados="117.98">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="737.38" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="117.98"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos></cfdi:Comprobante>

@@ -1,0 +1,1022 @@
+[12-Oct-2021 13:48:16 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Oct-2021 14:45:56 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Oct-2021 14:45:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Oct-2021 14:45:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 153
+[12-Oct-2021 16:09:48 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Oct-2021 16:59:47 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Oct-2021 18:42:10 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Oct-2021 18:42:14 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Oct-2021 20:48:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Oct-2021 20:48:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Oct-2021 20:48:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Oct-2021 20:48:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[13-Oct-2021 01:13:37 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Oct-2021 13:25:32 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Oct-2021 13:57:10 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Oct-2021 15:50:55 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 237
+[13-Oct-2021 15:50:55 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 259
+[13-Oct-2021 16:34:20 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Oct-2021 18:31:54 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Oct-2021 20:09:49 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 02:00:03 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 04:30:40 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 04:33:28 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 10:35:23 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 21:18:10 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 21:21:26 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[14-Oct-2021 22:01:06 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[15-Oct-2021 02:57:09 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[15-Oct-2021 04:15:14 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[15-Oct-2021 16:07:43 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[15-Oct-2021 16:07:43 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[15-Oct-2021 16:10:13 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[15-Oct-2021 16:10:13 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[15-Oct-2021 16:16:57 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[15-Oct-2021 16:16:57 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[15-Oct-2021 18:12:11 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[16-Oct-2021 00:03:16 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[16-Oct-2021 00:03:16 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[16-Oct-2021 00:24:28 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[16-Oct-2021 00:24:28 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[16-Oct-2021 01:05:56 UTC] PHP Warning:  file_exists() expects parameter 1 to be a valid path, string given in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 259
+[16-Oct-2021 12:31:30 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[16-Oct-2021 12:31:30 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[16-Oct-2021 13:53:52 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[16-Oct-2021 13:53:52 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[16-Oct-2021 16:32:28 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[16-Oct-2021 20:48:55 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[18-Oct-2021 12:42:55 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[18-Oct-2021 12:42:55 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[18-Oct-2021 12:57:31 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[18-Oct-2021 12:57:31 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[18-Oct-2021 14:33:55 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[18-Oct-2021 17:11:58 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[18-Oct-2021 17:11:58 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[18-Oct-2021 17:27:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[18-Oct-2021 17:27:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[18-Oct-2021 17:27:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[18-Oct-2021 17:27:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[18-Oct-2021 17:33:34 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[19-Oct-2021 05:49:31 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[19-Oct-2021 06:11:08 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[20-Oct-2021 12:57:18 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Oct-2021 01:17:45 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Oct-2021 15:21:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[21-Oct-2021 15:21:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[21-Oct-2021 15:21:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[21-Oct-2021 15:21:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[21-Oct-2021 17:03:12 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Oct-2021 17:13:47 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Oct-2021 17:20:18 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 238
+[21-Oct-2021 17:20:18 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 260
+[21-Oct-2021 17:28:41 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Oct-2021 23:26:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[21-Oct-2021 23:26:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[21-Oct-2021 23:26:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[21-Oct-2021 23:26:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[22-Oct-2021 07:35:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[22-Oct-2021 07:35:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[22-Oct-2021 07:35:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[22-Oct-2021 07:35:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[22-Oct-2021 15:48:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[22-Oct-2021 15:48:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[22-Oct-2021 15:48:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[22-Oct-2021 15:48:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[22-Oct-2021 23:50:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[22-Oct-2021 23:50:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[22-Oct-2021 23:50:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[22-Oct-2021 23:50:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[23-Oct-2021 07:27:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Oct-2021 07:27:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Oct-2021 07:27:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Oct-2021 07:27:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[23-Oct-2021 15:42:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Oct-2021 15:42:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Oct-2021 15:42:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Oct-2021 15:42:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[23-Oct-2021 22:45:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Oct-2021 22:45:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Oct-2021 22:45:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Oct-2021 22:45:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[24-Oct-2021 06:33:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Oct-2021 06:33:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Oct-2021 06:33:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Oct-2021 06:33:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[24-Oct-2021 15:41:18 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Oct-2021 15:41:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Oct-2021 15:41:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Oct-2021 15:41:18 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[24-Oct-2021 23:44:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Oct-2021 23:44:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Oct-2021 23:44:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Oct-2021 23:44:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[25-Oct-2021 00:11:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Oct-2021 00:11:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Oct-2021 00:11:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Oct-2021 00:11:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[25-Oct-2021 08:42:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Oct-2021 08:42:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Oct-2021 08:42:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Oct-2021 08:42:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[25-Oct-2021 13:38:47 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Oct-2021 14:39:00 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Oct-2021 16:18:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Oct-2021 16:18:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Oct-2021 16:18:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Oct-2021 16:18:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[25-Oct-2021 17:21:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Oct-2021 17:21:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Oct-2021 17:21:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Oct-2021 17:21:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Oct-2021 17:21:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Oct-2021 17:21:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Oct-2021 17:21:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Oct-2021 17:21:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Oct-2021 17:21:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Oct-2021 00:34:48 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Oct-2021 00:34:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Oct-2021 00:34:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Oct-2021 00:34:48 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[26-Oct-2021 08:37:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Oct-2021 08:37:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Oct-2021 08:37:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Oct-2021 08:37:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[26-Oct-2021 16:44:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Oct-2021 16:44:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Oct-2021 16:44:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Oct-2021 16:44:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[26-Oct-2021 17:39:36 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[26-Oct-2021 17:39:36 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[26-Oct-2021 17:41:48 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[26-Oct-2021 17:41:48 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[26-Oct-2021 17:45:52 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[26-Oct-2021 21:18:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Oct-2021 21:18:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Oct-2021 21:18:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Oct-2021 21:18:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[26-Oct-2021 23:36:49 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[27-Oct-2021 00:21:43 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[27-Oct-2021 04:46:16 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[27-Oct-2021 04:46:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[27-Oct-2021 04:46:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[27-Oct-2021 04:46:16 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[27-Oct-2021 12:19:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[27-Oct-2021 12:19:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[27-Oct-2021 12:19:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[27-Oct-2021 12:19:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[27-Oct-2021 20:20:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[27-Oct-2021 20:20:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[27-Oct-2021 20:20:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[27-Oct-2021 20:20:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[28-Oct-2021 04:51:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[28-Oct-2021 04:51:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[28-Oct-2021 04:51:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[28-Oct-2021 04:51:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[28-Oct-2021 13:13:08 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[28-Oct-2021 13:13:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[28-Oct-2021 13:13:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[28-Oct-2021 13:13:08 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[28-Oct-2021 14:13:13 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[28-Oct-2021 14:13:13 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[28-Oct-2021 15:52:27 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[28-Oct-2021 21:37:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[28-Oct-2021 21:37:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[28-Oct-2021 21:37:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[28-Oct-2021 21:37:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[28-Oct-2021 22:31:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[28-Oct-2021 22:31:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[28-Oct-2021 22:31:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[28-Oct-2021 22:31:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[29-Oct-2021 01:12:56 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[29-Oct-2021 06:00:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Oct-2021 06:00:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Oct-2021 06:00:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Oct-2021 06:00:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[29-Oct-2021 10:34:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Oct-2021 10:34:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Oct-2021 10:34:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Oct-2021 10:34:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[29-Oct-2021 14:31:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Oct-2021 14:31:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Oct-2021 14:31:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Oct-2021 14:31:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[29-Oct-2021 22:56:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Oct-2021 22:56:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Oct-2021 22:56:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Oct-2021 22:56:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[30-Oct-2021 07:16:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[30-Oct-2021 07:16:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[30-Oct-2021 07:16:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[30-Oct-2021 07:16:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[30-Oct-2021 12:35:33 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[30-Oct-2021 15:41:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[30-Oct-2021 15:41:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[30-Oct-2021 15:41:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[30-Oct-2021 15:41:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[30-Oct-2021 20:06:40 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[30-Oct-2021 20:19:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[30-Oct-2021 20:19:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[30-Oct-2021 20:19:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[30-Oct-2021 20:19:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[31-Oct-2021 03:15:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[31-Oct-2021 03:15:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[31-Oct-2021 03:15:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[31-Oct-2021 03:15:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[31-Oct-2021 16:40:25 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[31-Oct-2021 17:11:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[31-Oct-2021 17:11:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[31-Oct-2021 17:11:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[31-Oct-2021 17:11:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[01-Nov-2021 03:47:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Nov-2021 03:47:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Nov-2021 03:47:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Nov-2021 03:47:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[01-Nov-2021 08:55:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Nov-2021 08:55:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Nov-2021 08:55:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Nov-2021 08:55:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[01-Nov-2021 18:19:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Nov-2021 18:19:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Nov-2021 18:19:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Nov-2021 18:19:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[01-Nov-2021 20:05:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Nov-2021 20:05:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Nov-2021 20:05:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Nov-2021 20:05:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[02-Nov-2021 11:49:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[02-Nov-2021 11:49:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[02-Nov-2021 11:49:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[02-Nov-2021 11:49:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[02-Nov-2021 15:24:04 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[02-Nov-2021 15:24:04 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[02-Nov-2021 18:16:01 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[02-Nov-2021 18:16:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[02-Nov-2021 18:16:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[02-Nov-2021 18:16:01 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[03-Nov-2021 04:37:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[03-Nov-2021 04:37:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[03-Nov-2021 04:37:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[03-Nov-2021 04:37:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[03-Nov-2021 10:38:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[03-Nov-2021 10:38:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[03-Nov-2021 10:38:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[03-Nov-2021 10:38:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[03-Nov-2021 11:07:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[03-Nov-2021 11:07:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[03-Nov-2021 11:07:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[03-Nov-2021 11:07:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[03-Nov-2021 18:10:19 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[03-Nov-2021 18:10:19 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[03-Nov-2021 21:32:38 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[03-Nov-2021 21:40:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[03-Nov-2021 21:40:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[03-Nov-2021 21:40:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[03-Nov-2021 21:40:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[04-Nov-2021 01:26:45 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[04-Nov-2021 01:26:45 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[04-Nov-2021 07:17:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Nov-2021 07:17:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Nov-2021 07:17:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Nov-2021 07:17:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 171
+[04-Nov-2021 08:03:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Nov-2021 08:03:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Nov-2021 08:03:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Nov-2021 08:03:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[04-Nov-2021 16:29:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Nov-2021 16:29:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Nov-2021 16:29:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Nov-2021 16:29:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 171
+[04-Nov-2021 16:44:48 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Nov-2021 16:44:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Nov-2021 16:44:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Nov-2021 16:44:48 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[04-Nov-2021 19:02:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Nov-2021 19:02:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Nov-2021 19:02:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Nov-2021 19:02:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[05-Nov-2021 04:34:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Nov-2021 04:34:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Nov-2021 04:34:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Nov-2021 04:34:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[05-Nov-2021 12:34:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Nov-2021 12:34:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Nov-2021 12:34:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Nov-2021 12:34:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[05-Nov-2021 12:40:01 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[05-Nov-2021 12:40:01 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[05-Nov-2021 13:13:08 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[05-Nov-2021 13:13:08 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[05-Nov-2021 13:24:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Nov-2021 13:24:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Nov-2021 13:24:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Nov-2021 13:24:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[05-Nov-2021 15:48:45 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Nov-2021 22:52:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Nov-2021 22:52:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Nov-2021 22:52:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Nov-2021 22:52:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[06-Nov-2021 09:06:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[06-Nov-2021 09:06:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[06-Nov-2021 09:06:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[06-Nov-2021 09:06:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[06-Nov-2021 14:54:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[06-Nov-2021 14:54:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[06-Nov-2021 14:54:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[06-Nov-2021 14:54:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[06-Nov-2021 16:15:05 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[06-Nov-2021 16:33:17 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 250
+[06-Nov-2021 16:33:17 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 272
+[06-Nov-2021 17:54:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[06-Nov-2021 17:54:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[06-Nov-2021 17:54:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[06-Nov-2021 17:54:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[07-Nov-2021 01:23:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[07-Nov-2021 01:23:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[07-Nov-2021 01:23:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[07-Nov-2021 01:23:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[07-Nov-2021 03:58:32 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[07-Nov-2021 10:41:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[07-Nov-2021 10:41:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[07-Nov-2021 10:41:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[07-Nov-2021 10:41:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[07-Nov-2021 13:08:08 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[07-Nov-2021 16:08:00 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[07-Nov-2021 20:03:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[07-Nov-2021 20:03:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[07-Nov-2021 20:03:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[07-Nov-2021 20:03:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[08-Nov-2021 05:23:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[08-Nov-2021 05:23:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[08-Nov-2021 05:23:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[08-Nov-2021 05:23:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[08-Nov-2021 16:51:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[08-Nov-2021 16:51:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[08-Nov-2021 16:51:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[08-Nov-2021 16:51:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[08-Nov-2021 16:54:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[08-Nov-2021 16:54:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[08-Nov-2021 16:54:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[08-Nov-2021 16:54:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 155
+[09-Nov-2021 02:57:17 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[09-Nov-2021 02:57:17 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[09-Nov-2021 03:16:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Nov-2021 03:16:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Nov-2021 03:16:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Nov-2021 03:16:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[09-Nov-2021 06:10:39 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[09-Nov-2021 06:27:03 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[09-Nov-2021 06:27:03 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[09-Nov-2021 13:34:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Nov-2021 13:34:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Nov-2021 13:34:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Nov-2021 13:34:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[09-Nov-2021 13:46:42 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[10-Nov-2021 00:19:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[10-Nov-2021 00:19:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[10-Nov-2021 00:19:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[10-Nov-2021 00:19:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[10-Nov-2021 00:36:44 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[10-Nov-2021 00:38:55 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[10-Nov-2021 10:48:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[10-Nov-2021 10:48:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[10-Nov-2021 10:48:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[10-Nov-2021 10:48:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[10-Nov-2021 16:21:21 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[10-Nov-2021 16:21:21 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[10-Nov-2021 21:02:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[10-Nov-2021 21:02:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[10-Nov-2021 21:02:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[10-Nov-2021 21:02:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[11-Nov-2021 01:07:09 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[11-Nov-2021 18:21:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[11-Nov-2021 18:21:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[11-Nov-2021 18:21:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[11-Nov-2021 18:21:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[12-Nov-2021 04:48:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Nov-2021 04:48:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Nov-2021 04:48:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Nov-2021 04:48:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[12-Nov-2021 15:21:30 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Nov-2021 15:21:30 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Nov-2021 15:21:30 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Nov-2021 15:21:30 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[12-Nov-2021 18:13:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Nov-2021 18:13:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Nov-2021 18:13:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Nov-2021 18:13:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[12-Nov-2021 20:25:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Nov-2021 20:25:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Nov-2021 20:25:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Nov-2021 20:25:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[12-Nov-2021 21:16:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Nov-2021 21:16:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Nov-2021 21:16:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Nov-2021 21:16:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[13-Nov-2021 06:58:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[13-Nov-2021 06:58:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[13-Nov-2021 06:58:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[13-Nov-2021 06:58:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[13-Nov-2021 16:32:10 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Nov-2021 16:37:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[13-Nov-2021 16:37:16 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[13-Nov-2021 16:37:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[13-Nov-2021 16:37:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[13-Nov-2021 16:37:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[13-Nov-2021 16:37:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[13-Nov-2021 18:29:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[13-Nov-2021 18:29:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[13-Nov-2021 18:29:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[13-Nov-2021 18:29:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Nov-2021 04:27:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[14-Nov-2021 04:27:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[14-Nov-2021 04:27:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[14-Nov-2021 04:27:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Nov-2021 09:18:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[14-Nov-2021 09:18:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[14-Nov-2021 09:18:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[14-Nov-2021 09:18:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Nov-2021 13:50:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[14-Nov-2021 13:50:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[14-Nov-2021 13:50:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[14-Nov-2021 13:50:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Nov-2021 17:44:01 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[14-Nov-2021 17:44:02 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[14-Nov-2021 23:29:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[14-Nov-2021 23:29:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[14-Nov-2021 23:29:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[14-Nov-2021 23:29:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[15-Nov-2021 09:21:48 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[15-Nov-2021 09:21:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[15-Nov-2021 09:21:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[15-Nov-2021 09:21:48 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[15-Nov-2021 17:33:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[15-Nov-2021 17:33:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[15-Nov-2021 17:33:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[15-Nov-2021 17:33:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[16-Nov-2021 03:28:37 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[16-Nov-2021 03:28:37 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[16-Nov-2021 09:27:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[16-Nov-2021 09:27:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[16-Nov-2021 09:27:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[16-Nov-2021 09:27:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[16-Nov-2021 17:40:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[16-Nov-2021 17:40:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[16-Nov-2021 17:40:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[16-Nov-2021 17:40:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[16-Nov-2021 19:02:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[16-Nov-2021 19:02:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[16-Nov-2021 19:02:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[16-Nov-2021 19:02:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[16-Nov-2021 22:00:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[16-Nov-2021 22:00:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[16-Nov-2021 22:00:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[16-Nov-2021 22:00:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[17-Nov-2021 04:32:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[17-Nov-2021 04:32:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[17-Nov-2021 04:32:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[17-Nov-2021 04:32:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[17-Nov-2021 22:37:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[17-Nov-2021 22:37:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[17-Nov-2021 22:37:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[17-Nov-2021 22:37:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[18-Nov-2021 04:19:27 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[18-Nov-2021 04:19:27 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[18-Nov-2021 06:52:38 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[18-Nov-2021 06:52:38 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[18-Nov-2021 08:15:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[18-Nov-2021 08:15:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[18-Nov-2021 08:15:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[18-Nov-2021 08:15:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[18-Nov-2021 18:59:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[18-Nov-2021 18:59:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[18-Nov-2021 18:59:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[18-Nov-2021 18:59:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[19-Nov-2021 04:51:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[19-Nov-2021 04:51:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[19-Nov-2021 04:51:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[19-Nov-2021 04:51:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[19-Nov-2021 16:13:46 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[19-Nov-2021 18:17:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[19-Nov-2021 18:17:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[19-Nov-2021 18:17:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[19-Nov-2021 18:17:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[20-Nov-2021 03:43:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[20-Nov-2021 03:43:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[20-Nov-2021 03:43:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[20-Nov-2021 03:43:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[20-Nov-2021 16:40:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[20-Nov-2021 16:40:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[20-Nov-2021 16:40:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[20-Nov-2021 16:40:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[20-Nov-2021 17:31:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[20-Nov-2021 17:31:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[20-Nov-2021 17:31:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[20-Nov-2021 17:31:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[20-Nov-2021 17:51:36 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[20-Nov-2021 17:51:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[20-Nov-2021 17:51:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[20-Nov-2021 17:51:36 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[21-Nov-2021 04:34:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[21-Nov-2021 04:34:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[21-Nov-2021 04:34:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[21-Nov-2021 04:34:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[21-Nov-2021 16:02:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[21-Nov-2021 16:02:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[21-Nov-2021 16:02:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[21-Nov-2021 16:02:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[22-Nov-2021 03:22:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[22-Nov-2021 03:22:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[22-Nov-2021 03:22:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[22-Nov-2021 03:22:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[22-Nov-2021 16:57:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[22-Nov-2021 16:57:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[22-Nov-2021 16:57:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[22-Nov-2021 16:57:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Nov-2021 03:18:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Nov-2021 03:18:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Nov-2021 03:18:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Nov-2021 03:18:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Nov-2021 13:39:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Nov-2021 13:39:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Nov-2021 13:39:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Nov-2021 13:39:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Nov-2021 19:43:29 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[23-Nov-2021 19:43:29 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[23-Nov-2021 20:13:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Nov-2021 20:13:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Nov-2021 20:13:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Nov-2021 20:13:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Nov-2021 20:50:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Nov-2021 20:50:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Nov-2021 20:50:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Nov-2021 20:50:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Nov-2021 20:50:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Nov-2021 20:50:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Nov-2021 20:50:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Nov-2021 20:50:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[23-Nov-2021 20:50:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Nov-2021 20:50:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Nov-2021 20:50:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Nov-2021 20:50:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[24-Nov-2021 07:01:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Nov-2021 07:01:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Nov-2021 07:01:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Nov-2021 07:01:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[24-Nov-2021 07:31:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Nov-2021 07:31:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Nov-2021 07:31:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Nov-2021 07:31:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[24-Nov-2021 10:13:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Nov-2021 10:13:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Nov-2021 10:13:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Nov-2021 10:13:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[24-Nov-2021 11:37:43 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Nov-2021 11:37:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Nov-2021 11:37:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Nov-2021 11:37:43 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[24-Nov-2021 17:33:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[24-Nov-2021 17:33:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[24-Nov-2021 17:33:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[24-Nov-2021 17:33:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[25-Nov-2021 00:05:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Nov-2021 00:05:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Nov-2021 00:05:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Nov-2021 00:05:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[25-Nov-2021 14:15:49 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[25-Nov-2021 14:15:49 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[25-Nov-2021 17:19:28 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Nov-2021 19:09:41 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Nov-2021 21:03:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[25-Nov-2021 21:03:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[25-Nov-2021 21:03:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[25-Nov-2021 21:03:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[26-Nov-2021 07:48:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Nov-2021 07:48:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Nov-2021 07:48:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Nov-2021 07:48:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[26-Nov-2021 16:42:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Nov-2021 16:42:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Nov-2021 16:42:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Nov-2021 16:42:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[26-Nov-2021 19:23:59 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Nov-2021 19:23:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Nov-2021 19:23:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Nov-2021 19:23:59 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[26-Nov-2021 23:02:59 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[26-Nov-2021 23:02:59 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[27-Nov-2021 03:13:31 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[27-Nov-2021 03:50:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[27-Nov-2021 03:50:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[27-Nov-2021 03:50:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[27-Nov-2021 03:50:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[27-Nov-2021 12:39:50 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[27-Nov-2021 12:39:50 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[27-Nov-2021 14:01:15 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[27-Nov-2021 16:14:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[27-Nov-2021 16:14:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[27-Nov-2021 16:14:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[27-Nov-2021 16:14:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[27-Nov-2021 21:20:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[27-Nov-2021 21:20:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[27-Nov-2021 21:20:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[27-Nov-2021 21:20:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[27-Nov-2021 22:23:00 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[27-Nov-2021 22:23:00 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[28-Nov-2021 08:43:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[28-Nov-2021 08:43:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[28-Nov-2021 08:43:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[28-Nov-2021 08:43:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[28-Nov-2021 20:10:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[28-Nov-2021 20:10:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[28-Nov-2021 20:10:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[28-Nov-2021 20:10:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[29-Nov-2021 06:36:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Nov-2021 06:36:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Nov-2021 06:36:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Nov-2021 06:36:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[29-Nov-2021 19:09:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Nov-2021 19:09:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Nov-2021 19:09:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Nov-2021 19:09:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[30-Nov-2021 05:26:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[30-Nov-2021 05:26:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[30-Nov-2021 05:26:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[30-Nov-2021 05:26:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[30-Nov-2021 16:39:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[30-Nov-2021 16:39:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[30-Nov-2021 16:39:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[30-Nov-2021 16:39:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[01-Dec-2021 04:03:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Dec-2021 04:03:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Dec-2021 04:03:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Dec-2021 04:03:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[01-Dec-2021 10:55:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Dec-2021 10:55:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Dec-2021 10:55:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Dec-2021 10:55:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[01-Dec-2021 16:25:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Dec-2021 16:25:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Dec-2021 16:25:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Dec-2021 16:25:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[01-Dec-2021 18:19:08 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[01-Dec-2021 18:19:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[01-Dec-2021 18:19:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[01-Dec-2021 22:10:21 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[02-Dec-2021 03:13:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[02-Dec-2021 03:13:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[02-Dec-2021 03:13:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[02-Dec-2021 03:13:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[02-Dec-2021 14:34:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[02-Dec-2021 14:34:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[02-Dec-2021 14:34:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[02-Dec-2021 14:34:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[03-Dec-2021 02:44:59 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[03-Dec-2021 03:47:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[03-Dec-2021 03:47:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[03-Dec-2021 03:47:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[03-Dec-2021 03:47:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[03-Dec-2021 04:40:31 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[03-Dec-2021 04:40:31 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[03-Dec-2021 10:16:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[03-Dec-2021 10:16:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[03-Dec-2021 10:16:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[03-Dec-2021 10:16:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[04-Dec-2021 03:42:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Dec-2021 03:42:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Dec-2021 03:42:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Dec-2021 03:42:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[04-Dec-2021 15:07:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[04-Dec-2021 15:07:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[04-Dec-2021 15:07:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[04-Dec-2021 15:07:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[05-Dec-2021 02:18:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Dec-2021 02:18:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Dec-2021 02:18:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Dec-2021 02:18:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[05-Dec-2021 03:19:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Dec-2021 03:19:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Dec-2021 03:19:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Dec-2021 03:19:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[05-Dec-2021 13:19:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Dec-2021 13:19:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Dec-2021 13:19:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Dec-2021 13:19:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[05-Dec-2021 14:16:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Dec-2021 14:16:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Dec-2021 14:16:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Dec-2021 14:16:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[05-Dec-2021 14:17:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Dec-2021 14:17:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Dec-2021 14:17:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Dec-2021 14:17:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[05-Dec-2021 19:51:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Dec-2021 19:51:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Dec-2021 19:51:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Dec-2021 19:51:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[06-Dec-2021 07:58:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[06-Dec-2021 07:58:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[06-Dec-2021 07:58:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[06-Dec-2021 07:58:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[07-Dec-2021 03:02:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[07-Dec-2021 03:02:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[07-Dec-2021 03:02:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[07-Dec-2021 03:02:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[07-Dec-2021 04:43:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[07-Dec-2021 04:43:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[07-Dec-2021 04:43:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[07-Dec-2021 04:43:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[07-Dec-2021 15:08:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[07-Dec-2021 15:08:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[07-Dec-2021 15:08:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[07-Dec-2021 15:08:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[08-Dec-2021 06:18:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[08-Dec-2021 06:18:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[08-Dec-2021 06:18:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[08-Dec-2021 06:18:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[08-Dec-2021 17:00:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[08-Dec-2021 17:00:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[08-Dec-2021 17:00:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[08-Dec-2021 17:00:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[09-Dec-2021 03:31:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Dec-2021 03:31:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Dec-2021 03:31:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Dec-2021 03:31:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[09-Dec-2021 12:20:35 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[09-Dec-2021 12:26:10 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[09-Dec-2021 14:05:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Dec-2021 14:05:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Dec-2021 14:05:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Dec-2021 14:05:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[09-Dec-2021 17:15:57 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[09-Dec-2021 18:18:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Dec-2021 18:18:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Dec-2021 18:18:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Dec-2021 18:18:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[09-Dec-2021 20:25:30 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Dec-2021 20:25:30 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Dec-2021 20:25:30 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Dec-2021 20:25:30 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[10-Dec-2021 08:01:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[10-Dec-2021 08:01:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[10-Dec-2021 08:01:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[10-Dec-2021 08:01:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[10-Dec-2021 18:56:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[10-Dec-2021 18:56:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[10-Dec-2021 18:56:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[10-Dec-2021 18:56:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[11-Dec-2021 05:52:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[11-Dec-2021 05:52:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[11-Dec-2021 05:52:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[11-Dec-2021 05:52:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[11-Dec-2021 16:59:18 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[11-Dec-2021 16:59:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[11-Dec-2021 16:59:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[11-Dec-2021 16:59:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[11-Dec-2021 19:31:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[11-Dec-2021 19:31:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[11-Dec-2021 19:31:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[11-Dec-2021 19:31:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[12-Dec-2021 13:43:05 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[12-Dec-2021 13:43:05 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[12-Dec-2021 15:09:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[12-Dec-2021 15:09:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[12-Dec-2021 15:09:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[12-Dec-2021 15:09:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[12-Dec-2021 20:05:16 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Dec-2021 11:13:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[13-Dec-2021 11:13:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[13-Dec-2021 11:13:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[13-Dec-2021 11:13:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Dec-2021 04:07:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[14-Dec-2021 04:07:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[14-Dec-2021 04:07:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[14-Dec-2021 04:07:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Dec-2021 05:45:33 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[14-Dec-2021 05:45:33 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[14-Dec-2021 21:06:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[14-Dec-2021 21:06:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[14-Dec-2021 21:06:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[14-Dec-2021 21:06:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[14-Dec-2021 22:51:53 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[14-Dec-2021 22:51:53 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[15-Dec-2021 19:12:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[15-Dec-2021 19:12:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[15-Dec-2021 19:12:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[15-Dec-2021 19:12:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[17-Dec-2021 06:27:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[17-Dec-2021 06:27:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[17-Dec-2021 06:27:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[17-Dec-2021 06:27:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[17-Dec-2021 15:56:35 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[18-Dec-2021 07:26:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[18-Dec-2021 07:26:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[18-Dec-2021 07:26:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[18-Dec-2021 07:26:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[19-Dec-2021 04:36:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[19-Dec-2021 04:36:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[19-Dec-2021 04:36:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[19-Dec-2021 04:36:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[20-Dec-2021 04:32:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[20-Dec-2021 04:32:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[20-Dec-2021 04:32:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[20-Dec-2021 04:32:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[21-Dec-2021 01:44:38 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Dec-2021 06:37:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[21-Dec-2021 06:37:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[21-Dec-2021 06:37:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[21-Dec-2021 06:37:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[21-Dec-2021 18:22:32 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[21-Dec-2021 18:22:32 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[21-Dec-2021 19:02:05 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[21-Dec-2021 19:02:05 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[21-Dec-2021 21:48:15 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[21-Dec-2021 21:48:15 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[22-Dec-2021 02:57:22 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[22-Dec-2021 02:57:22 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[22-Dec-2021 10:21:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[22-Dec-2021 10:21:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[22-Dec-2021 10:21:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[22-Dec-2021 10:21:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Dec-2021 08:59:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[23-Dec-2021 08:59:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[23-Dec-2021 08:59:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[23-Dec-2021 08:59:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Dec-2021 17:26:38 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[23-Dec-2021 17:26:38 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[23-Dec-2021 22:47:27 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[24-Dec-2021 03:40:19 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[24-Dec-2021 13:35:43 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[24-Dec-2021 13:35:43 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[24-Dec-2021 22:01:48 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[24-Dec-2021 22:01:48 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[26-Dec-2021 18:57:11 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[28-Dec-2021 19:40:07 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[28-Dec-2021 19:40:07 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[29-Dec-2021 02:18:24 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[29-Dec-2021 04:49:50 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[30-Dec-2021 21:52:21 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[02-Jan-2022 14:06:01 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[02-Jan-2022 14:06:01 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[03-Jan-2022 15:01:57 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[04-Jan-2022 21:49:12 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[04-Jan-2022 21:49:12 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[06-Jan-2022 13:50:35 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[06-Jan-2022 18:00:25 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[06-Jan-2022 18:00:25 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[07-Jan-2022 16:21:22 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[07-Jan-2022 16:28:31 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[07-Jan-2022 16:28:31 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[07-Jan-2022 18:12:58 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[07-Jan-2022 18:12:58 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[07-Jan-2022 22:40:42 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[09-Jan-2022 13:49:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[09-Jan-2022 13:49:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[09-Jan-2022 13:49:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[09-Jan-2022 13:49:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[10-Jan-2022 19:39:51 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[10-Jan-2022 20:24:34 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[11-Jan-2022 10:42:36 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[11-Jan-2022 10:42:36 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[12-Jan-2022 06:11:08 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[12-Jan-2022 06:11:08 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[13-Jan-2022 20:44:37 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[13-Jan-2022 20:44:37 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[13-Jan-2022 21:01:39 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[13-Jan-2022 21:01:39 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[21-Jan-2022 17:49:55 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[23-Jan-2022 02:22:56 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[23-Jan-2022 14:03:58 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[24-Jan-2022 07:51:20 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Jan-2022 00:51:38 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[25-Jan-2022 00:51:38 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[25-Jan-2022 02:01:21 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Jan-2022 17:27:29 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[28-Jan-2022 15:41:35 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[28-Jan-2022 15:41:35 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[28-Jan-2022 18:00:21 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[28-Jan-2022 18:26:41 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[29-Jan-2022 02:09:32 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[29-Jan-2022 02:09:32 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[02-Feb-2022 17:07:16 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[02-Feb-2022 17:27:04 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[02-Feb-2022 17:27:04 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[03-Feb-2022 22:18:49 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[03-Feb-2022 22:18:49 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[05-Feb-2022 02:12:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[05-Feb-2022 02:12:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[05-Feb-2022 02:12:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[05-Feb-2022 02:12:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[05-Feb-2022 17:23:14 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Feb-2022 23:18:00 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[05-Feb-2022 23:18:00 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[05-Feb-2022 23:30:44 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[05-Feb-2022 23:30:44 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[08-Feb-2022 16:58:01 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[08-Feb-2022 17:26:16 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[08-Feb-2022 17:26:16 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[08-Feb-2022 23:24:58 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[11-Feb-2022 00:21:34 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[11-Feb-2022 00:21:34 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[11-Feb-2022 00:44:31 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[11-Feb-2022 01:33:07 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Feb-2022 22:41:40 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Feb-2022 03:49:02 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[17-Feb-2022 06:33:51 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[17-Feb-2022 06:57:16 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[18-Feb-2022 21:35:55 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[19-Feb-2022 09:12:40 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[19-Feb-2022 09:12:40 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[19-Feb-2022 15:21:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[19-Feb-2022 15:21:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[19-Feb-2022 15:21:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[20-Feb-2022 13:55:39 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[20-Feb-2022 13:55:39 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[21-Feb-2022 00:08:34 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Feb-2022 13:36:39 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Feb-2022 17:09:42 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Feb-2022 18:54:41 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Feb-2022 20:57:43 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Feb-2022 21:12:28 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Feb-2022 23:51:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[21-Feb-2022 23:51:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[21-Feb-2022 23:51:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[21-Feb-2022 23:51:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[25-Feb-2022 16:17:12 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[25-Feb-2022 16:17:12 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[26-Feb-2022 13:27:32 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[26-Feb-2022 13:27:32 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[26-Feb-2022 17:21:52 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[27-Feb-2022 00:06:57 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[27-Feb-2022 13:21:40 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[27-Feb-2022 13:23:59 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[01-Mar-2022 15:22:31 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[02-Mar-2022 15:23:52 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[03-Mar-2022 06:06:11 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[03-Mar-2022 06:06:11 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[04-Mar-2022 15:15:27 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[04-Mar-2022 15:55:08 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[04-Mar-2022 16:25:03 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Mar-2022 04:40:19 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Mar-2022 15:06:04 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Mar-2022 18:43:20 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Mar-2022 19:56:24 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[06-Mar-2022 18:09:43 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[06-Mar-2022 21:58:13 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[07-Mar-2022 20:22:21 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[10-Mar-2022 00:40:06 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[10-Mar-2022 00:40:06 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[10-Mar-2022 23:02:52 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[11-Mar-2022 01:20:11 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Mar-2022 20:35:48 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[12-Mar-2022 20:35:48 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[19-Mar-2022 15:09:56 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[20-Mar-2022 02:33:00 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[21-Mar-2022 16:08:11 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[22-Mar-2022 04:52:32 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[22-Mar-2022 21:20:56 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Mar-2022 15:12:08 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[25-Mar-2022 23:06:02 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[26-Mar-2022 03:38:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[26-Mar-2022 03:38:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[26-Mar-2022 03:38:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[26-Mar-2022 03:38:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[26-Mar-2022 15:54:13 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[29-Mar-2022 16:50:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[29-Mar-2022 16:50:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[29-Mar-2022 16:50:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[29-Mar-2022 16:50:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 168
+[30-Mar-2022 20:31:30 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[30-Mar-2022 20:31:30 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[30-Mar-2022 21:45:10 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[30-Mar-2022 21:45:10 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[31-Mar-2022 00:51:46 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[04-Apr-2022 12:21:24 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[05-Apr-2022 23:33:19 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 258
+[05-Apr-2022 23:33:19 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/editar_usuario.php on line 280
+[08-Apr-2022 23:17:03 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[12-Apr-2022 01:35:29 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/insertar_usuario.php on line 45
+[13-Apr-2022 03:39:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 13
+[13-Apr-2022 03:39:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 18
+[13-Apr-2022 03:39:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/configuracion/header_configuracion.php on line 219
+[13-Apr-2022 03:39:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/configuracion/personal/alta_usuarios.php on line 154
+[23-Apr-2022 01:40:32 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 258
+[25-Apr-2022 23:55:47 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[03-May-2022 23:12:42 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[03-May-2022 23:44:16 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[03-May-2022 23:46:31 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 17:42:52 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:03:34 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:03:55 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:04:44 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:06:23 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 18:07:43 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 18:08:24 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:08:34 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:19:37 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 18:20:49 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 18:22:01 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 18:31:39 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[12-May-2022 18:32:20 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[12-May-2022 18:56:51 UTC] PHP Notice:  Undefined index: mat in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/insertar_usuario.php on line 45
+[20-May-2022 17:41:38 UTC] PHP Notice:  Undefined index: sapell in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 225
+[20-May-2022 17:41:38 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simatools.com/public_html/sanisidro/configuracion/personal/editar_usuario.php on line 275

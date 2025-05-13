@@ -1,0 +1,132 @@
+[09-Dec-2021 06:26:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[09-Dec-2021 06:26:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[09-Dec-2021 06:26:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[09-Dec-2021 06:26:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[17-Dec-2021 23:39:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[17-Dec-2021 23:39:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[17-Dec-2021 23:39:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[17-Dec-2021 23:39:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[21-Dec-2021 13:37:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[21-Dec-2021 13:37:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[21-Dec-2021 13:37:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[21-Dec-2021 13:37:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[22-Dec-2021 19:41:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[22-Dec-2021 19:41:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[22-Dec-2021 19:41:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[22-Dec-2021 19:41:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[23-Dec-2021 13:37:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[23-Dec-2021 13:37:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[23-Dec-2021 13:37:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[23-Dec-2021 13:37:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[23-Dec-2021 19:59:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[23-Dec-2021 19:59:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[23-Dec-2021 19:59:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[23-Dec-2021 19:59:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[24-Dec-2021 12:05:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[24-Dec-2021 12:05:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[24-Dec-2021 12:05:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[24-Dec-2021 12:05:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[25-Dec-2021 15:17:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[25-Dec-2021 15:17:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[25-Dec-2021 15:17:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[25-Dec-2021 15:17:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[28-Dec-2021 19:11:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[28-Dec-2021 19:11:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[28-Dec-2021 19:11:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[28-Dec-2021 19:11:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[30-Dec-2021 17:23:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[30-Dec-2021 17:23:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[30-Dec-2021 17:23:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[30-Dec-2021 17:23:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[02-Jan-2022 01:55:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[02-Jan-2022 01:55:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[02-Jan-2022 01:55:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[02-Jan-2022 01:55:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12
+[15-Jan-2022 00:44:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[15-Jan-2022 00:44:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[15-Jan-2022 00:44:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[15-Jan-2022 00:44:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[18-Jan-2022 18:09:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[18-Jan-2022 18:09:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[18-Jan-2022 18:09:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[18-Jan-2022 18:09:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[18-Jan-2022 18:09:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[18-Jan-2022 18:09:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[18-Jan-2022 18:09:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[18-Jan-2022 18:09:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12
+[18-Jan-2022 18:09:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[18-Jan-2022 18:09:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[18-Jan-2022 18:09:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[18-Jan-2022 18:09:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[18-Jan-2022 18:09:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[18-Jan-2022 18:09:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[18-Jan-2022 18:09:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[18-Jan-2022 18:09:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[18-Jan-2022 18:09:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[18-Jan-2022 18:09:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[18-Jan-2022 18:09:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[18-Jan-2022 18:09:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12
+[26-Jan-2022 17:48:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[26-Jan-2022 17:48:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[26-Jan-2022 17:48:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[26-Jan-2022 17:48:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[30-Jan-2022 21:51:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[30-Jan-2022 21:51:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[30-Jan-2022 21:51:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[30-Jan-2022 21:51:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[12-Feb-2022 00:54:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[12-Feb-2022 00:54:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[12-Feb-2022 00:54:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[12-Feb-2022 00:54:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[26-Feb-2022 17:51:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[26-Feb-2022 17:51:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[26-Feb-2022 17:51:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[26-Feb-2022 17:51:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[27-Feb-2022 15:47:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[27-Feb-2022 15:47:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[27-Feb-2022 15:47:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[27-Feb-2022 15:47:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12
+[27-Feb-2022 15:51:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[27-Feb-2022 15:51:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[27-Feb-2022 15:51:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[27-Feb-2022 15:51:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12
+[04-Mar-2022 12:15:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[04-Mar-2022 12:15:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[04-Mar-2022 12:15:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[04-Mar-2022 12:15:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/select_fecha_vista.php on line 12
+[06-Mar-2022 00:04:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[06-Mar-2022 00:04:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[06-Mar-2022 00:04:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[06-Mar-2022 00:04:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[06-Mar-2022 00:04:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[06-Mar-2022 00:04:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[06-Mar-2022 00:04:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[06-Mar-2022 00:04:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[07-Mar-2022 19:35:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[07-Mar-2022 19:35:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[07-Mar-2022 19:35:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[07-Mar-2022 19:35:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[08-Mar-2022 03:18:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[08-Mar-2022 03:18:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[08-Mar-2022 03:18:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[08-Mar-2022 03:18:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12
+[09-Mar-2022 01:36:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[09-Mar-2022 01:36:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[09-Mar-2022 01:36:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[09-Mar-2022 01:36:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[09-Mar-2022 21:05:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[09-Mar-2022 21:05:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[09-Mar-2022 21:05:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[09-Mar-2022 21:05:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[12-Mar-2022 17:04:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[12-Mar-2022 17:04:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[12-Mar-2022 17:04:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[12-Mar-2022 17:04:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[13-Mar-2022 23:10:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[13-Mar-2022 23:10:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[13-Mar-2022 23:10:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[13-Mar-2022 23:10:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas_vista.php on line 11
+[09-Apr-2022 05:21:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[09-Apr-2022 05:21:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[09-Apr-2022 05:21:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232
+[09-Apr-2022 05:21:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/vales_farmacia/salidas.php on line 12

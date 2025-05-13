@@ -1,0 +1,48 @@
+
+
+/*Integracion de fuentes de GOOGLE hacia la p谩gina */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+#letra{
+    font-family: 'Quicksand', sans-serif;
+}
+.nav{
+   margin-top:-150px;
+    background:#407959;
+   padding:20px;
+    border-radius:10px;
+margin-left:0px;
+margin-right:0px;
+}
+#menu{
+     background:#407959;
+}
+button{
+ margin-top: 0px;
+
+}
+
+#side{
+    color:#441f31;
+}
+.thead{
+     font-family: 'Quicksand', sans-serif;
+    background:#407959;
+     color:white;
+}
+.table{
+    font-family: 'Quicksand', sans-serif;
+}
+
+#colocacion{
+ margin-top: -100px;
+margin-left:-35px;
+}
+
+
+@media screen and (max-width: 900px){
+	.car{
+	padding:20px;
+	}
+
+}
+

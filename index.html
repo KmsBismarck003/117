@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="css/select2.css">
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src="js/select2.js"></script>
+</head>
+<body>
+
+<div style="text-align: center;">
+	<h2>Este es mi buscador</h2>
+
+		<select id="mibuscador" style="width: 40%">
+			<option>Mexico</option>
+			<option>Belgica</option>
+			<option>Estado unidos</option>
+			<option>brasil</option>
+			<option>canada</option>
+		</select>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+			$('#mibuscador').select2();
+	});
+</script>

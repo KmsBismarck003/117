@@ -1,0 +1,361 @@
+<?php
+require '../../fpdf/fpdf.php';
+include '../../conexionbd.php';
+$id_atencion = @$_GET['id_atencion'];
+$id_ord = @$_GET['id_ord'];
+$id_med = @$_GET['id_med'];
+
+mysqli_set_charset($conexion, "utf8");
+
+class PDF extends FPDF
+{
+  function Header()
+  {
+    $id = @$_GET['id_atencion'];
+    $id_med = @$_GET['id_med'];
+    include '../../conexionbd.php';
+
+    $id = @$_GET['id_atencion'];;
+    include '../../conexionbd.php';
+    $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
+    while($f = mysqli_fetch_array($resultado)){
+       $bas=$f['img_ipdf'];
+
+    $this->Image("../../configuracion/admin/img2/".$bas, 7, 8, 48, 25);
+    $this->Image("../../configuracion/admin/img3/".$f['img_cpdf'],58,15, 109, 24);
+    $this->Image("../../configuracion/admin/img4/".$f['img_dpdf'], 168, 16, 38, 14);
+}
+
+   $this->Ln(32);
+  }
+  function Footer()
+  {
+    $this->Ln(8);
+    $this->SetY(-15);
+    $this->Cell(0, 10, utf8_decode('Página ' . $this->PageNo() . '/{nb}' ), 0, 0, 'C');
+    $this->Cell(0, 10, utf8_decode('MAC-8.02'), 0, 1, 'R');
+  }
+ 
+}
+
+
+$sql_pac = "SELECT p.papell, p.nom_pac,p.fecnac,p.sapell,p.edad,p.sexo,p.Id_exp,p.dir,p.id_edo,p.id_mun,p.tel,p.ocup,p.resp,p.paren,p.tel_resp, p.religion, p.folio FROM paciente p, dat_ingreso di where di.id_atencion = $id_atencion and di.Id_exp=p.Id_exp";
+$result_pac = $conexion->query($sql_pac);
+
+while ($row_pac = $result_pac->fetch_assoc()) {
+  $papell = $row_pac['papell'];
+  $nom_pac = $row_pac['nom_pac'];
+  $fecnac = $row_pac['fecnac'];
+  $sapell = $row_pac['sapell'];
+  $edad = $row_pac['edad'];
+  $sexo = $row_pac['sexo'];
+  $Id_exp  = $row_pac['Id_exp'];
+  $dir = $row_pac['dir'];
+  $id_edo = $row_pac['id_edo'];
+  $id_mun = $row_pac['id_mun'];
+  $tel = $row_pac['tel'];
+  $ocup = $row_pac['ocup'];
+  $resp = $row_pac['resp'];
+  $paren = $row_pac['paren'];
+  $tel_resp = $row_pac['tel_resp'];
+  $religion = $row_pac['religion'];
+  $folio = $row_pac['folio'];
+}
+
+
+ 
+
+$sql_dati = "SELECT * FROM dat_ingreso where id_atencion = $id_atencion";
+$result_dati = $conexion->query($sql_dati);
+
+while ($row_dati = $result_dati->fetch_assoc()) {
+    $motivo_atn = $row_dati['motivo_atn'];
+    $tipo_a = $row_dati['tipo_a'];
+    $fecha_ing = $row_dati['fecha'];
+}
+
+//consulta ordenes
+$sql_ormed = "SELECT * FROM dat_ordenes_med  where id_ord_med=$id_ord";
+$result_ormed = $conexion->query($sql_ormed);
+
+while ($row_ormed = $result_ormed->fetch_assoc()) {
+  $fecha_ord = $row_ormed['fecha_ord'];
+  $hora_ord = $row_ormed['hora_ord'];
+  $dieta = $row_ormed['dieta'];  
+  $det_dieta = $row_ormed['det_dieta'];  
+  $signos = $row_ormed['signos'];  
+  $monitoreo = $row_ormed['monitoreo'];  
+  $diuresis = $row_ormed['diuresis'];  
+  $dex = $row_ormed['dex'];  
+  $semif = $row_ormed['semif'];  
+  $vigilar = $row_ormed['vigilar'];  
+  $oxigeno = $row_ormed['oxigeno'];  
+  $nebulizacion = $row_ormed['nebulizacion']; 
+  $bar = $row_ormed['bar']; 
+  $baño = $row_ormed['baño']; 
+  $foley = $row_ormed['foley']; 
+  $ej = $row_ormed['ej']; 
+  $datsan = $row_ormed['datsan']; 
+
+  $detsignos = $row_ormed['detsignos'];  
+  $detmonitoreo = $row_ormed['detmonitoreo'];  
+  $detdiuresis = $row_ormed['detdiuresis'];  
+  $detdex = $row_ormed['detdex'];  
+  $detsemif = $row_ormed['detsemif'];  
+  $detvigilar = $row_ormed['detvigilar'];  
+  $detoxigeno = $row_ormed['detoxigeno'];  
+  $detnebu = $row_ormed['detnebu']; 
+  $detbar = $row_ormed['detbar']; 
+  $detbaño = $row_ormed['detbaño']; 
+  $detfoley = $row_ormed['detfoley']; 
+  $detej = $row_ormed['detej']; 
+  $detsan = $row_ormed['detsan']; 
+
+  $cuid_gen = $row_ormed['cuid_gen'];  
+  $med_med = $row_ormed['med_med'];  
+  $soluciones = $row_ormed['soluciones']; 
+  $perfillab = $row_ormed['perfillab'];  
+  $detalle_lab = $row_ormed['detalle_lab'];  
+
+  $sol_pato = $row_ormed['sol_pato'];
+  $det_pato = $row_ormed['det_pato'];  
+  
+  $sol_estudios = $row_ormed['sol_estudios'];
+  $solicitud_sang = $row_ormed['solicitud_sang'];
+  $det_sang = $row_ormed['det_sang'];  
+  $observ_be = $row_ormed['observ_be'];     
+
+  $medico = $row_ormed['medico'];  
+  $enfermera_tes = $row_ormed['enfermera_tes'];  
+
+   $gca = $row_ormed['gca'];  
+    $gcat = $row_ormed['gcat'];  
+     $son = $row_ormed['son'];  
+      $sont = $row_ormed['sont'];  
+       $enfermera_tes = $row_ormed['enfermera_tes'];  
+}
+//termino ordenes
+
+$pdf = new PDF('P');
+$pdf->AliasNbPages();
+$pdf->AddPage();
+
+$pdf->SetFont('Arial', 'B', 9);
+$pdf->SetX(30);
+$pdf->SetTextColor(43, 45, 127);
+$pdf->MultiCell(165, 9.5, utf8_decode('CUIDADOS QUIRÚRGICOS'), 0, 'C');
+
+
+$pdf->SetDrawColor(43, 45, 127);
+$pdf->Line(48, 52, 172, 52);
+$pdf->Line(48, 41, 48, 52);
+$pdf->Line(172, 41, 172, 52);
+$pdf->Line(48, 41, 172, 41);
+
+$pdf->SetX(175);
+$pdf->SetFont('Arial', '', 8);
+
+$fecha_ord = date("d/m/Y");
+$pdf->SetFont('Arial', '', 6);
+$pdf->Cell(25, -2, utf8_decode('Fecha: '.$fecha_ord .' ' .$hora_ord), 0, 1, 'L');
+
+
+$pdf->SetDrawColor(43, 45, 127);
+$pdf->Line(8, 53, 207, 53);
+$pdf->Line(8, 53, 8, 280);
+$pdf->Line(207, 53, 205, 280);
+$pdf->Line(8, 280, 205, 280);
+$pdf->Ln(6);
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(15, 5, 'Servicio: ', 0, 'L');  
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(120, 5, utf8_decode($tipo_a) , 'B', 'L');
+$pdf->SetFont('Arial', 'B', 8);
+$date=date_create($fecha_ing);
+$pdf->Cell(28, 5, utf8_decode(' Fecha de Ingreso:'),0 , 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(32, 5, date_format($date,'d/m/Y H:i:s'), 'B', 0, 'C');
+$pdf->Ln(5);
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(18, 5, utf8_decode('Expediente: '), 0, 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(15, 5, utf8_decode($folio), 'B', 0, 'C');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(16, 5, ' Paciente: ', 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(146, 5, utf8_decode($papell . ' ' . $sapell . ' ' . $nom_pac), 'B', 'L');
+$pdf->SetFont('Arial', 'B', 8);
+
+$pdf->Ln(5);
+$pdf->SetFont('Arial', 'B', 8);
+$date1=date_create($fecnac);
+$pdf->Cell(31, 5, 'Fecha de nacimiento: ', 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(21, 5, date_format($date1,"d/m/Y"), 'B', 'L');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(11, 5, ' Edad: ', 0, 'L');
+
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(13, 5, utf8_decode($edad),'B', 'C');
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(19, 5, utf8_decode(' Ocupación: '), 0, 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(36, 5,  utf8_decode($ocup), 'B', 'L');
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(16, 5, utf8_decode(' Teléfono: '), 0, 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(21, 5,  utf8_decode($tel), 'B', 'L');
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(13, 5, utf8_decode('Género: '), 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(14, 5,  $sexo, 'B', 'L');
+$pdf->Ln(5);
+$pesoh="";
+$tallah="";
+$sql_sig ="select * from dat_hclinica WHERE Id_exp=$id_atencion ORDER by id_hc DESC LIMIT 1";
+$result_sig = $conexion->query($sql_sig);
+while ($row_hc = $result_sig->fetch_assoc()) {
+$pesoh=$row_hc['peso'];
+$tallah=$row_hc['talla'];
+}
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(10, 5, utf8_decode('Peso: '), 0, 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(14, 5,  utf8_decode($pesoh.' Kilos'), 'B', 'L');
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(11, 5, utf8_decode(' Talla: '), 0, 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(18, 5,  utf8_decode($tallah.' Metros'), 'B', 'L');
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(17, 5, utf8_decode(' Domicilio: '), 0, 'L');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(125, 5, utf8_decode($dir), 'B', 'L');
+
+$pdf->Ln(5);
+
+$d="";
+    $sql_motd = "SELECT diagprob_i from dat_not_ingreso where id_atencion=$id_atencion ORDER by id_not_ingreso DESC LIMIT 1";
+    $result_motd = $conexion->query($sql_motd);
+    while ($row_motd = $result_motd->fetch_assoc()) {
+        $d=$row_motd['diagprob_i'];
+    } 
+    $sql_motd = "SELECT diagprob_i from dat_nevol where id_atencion=$id_atencion ORDER by diagprob_i DESC LIMIT 1";
+    $result_motd = $conexion->query($sql_motd);
+    while ($row_motd = $result_motd->fetch_assoc()) {
+        $d=$row_motd['diagprob_i'];
+    } ?>
+    <?php $sql_mot = "SELECT motivo_atn from dat_ingreso where id_atencion=$id_atencion ORDER by motivo_atn ASC LIMIT 1";
+    $result_mot = $conexion->query($sql_mot);
+    while ($row_mot = $result_mot->fetch_assoc()) {
+    $m=$row_mot['motivo_atn'];
+    } 
+if ($d!=null) {
+    $pdf->SetFont('Arial', 'B', 8);
+  $pdf->Cell(20, 5, utf8_decode('Diagnóstico:') , 0, 'C');
+  $pdf->SetFont('Arial', '', 9);
+     $pdf->Cell(175, 5, utf8_decode($d) , 'B', 'C');
+    } else{
+        $pdf->SetFont('Arial', 'B',8);
+         $pdf->Cell(29, 5, utf8_decode('Motivo de atención:') , 0, 'C');
+         $pdf->SetFont('Arial', '', 9);
+         $pdf->Cell(166, 5, utf8_decode($m) , 'B', 'C');
+    }
+
+$sql_sig ="select * from signos_vitales WHERE id_atencion=$id_atencion ORDER by id_sig DESC LIMIT 1";
+$result_sig = $conexion->query($sql_sig);
+while ($row_sig = $result_sig->fetch_assoc()) {
+ $p_sistolica=$row_sig['p_sistol'];
+ $p_diastolica=$row_sig['p_diastol'];
+ $f_card=$row_sig['fcard'];
+ $f_resp=$row_sig['fresp'];
+ $temp=$row_sig['temper'];
+ $sat_oxigeno=$row_sig['satoxi'];
+ $peso=$row_sig['peso'];
+ $talla=$row_sig['talla'];
+ $niv_dolor=$row_sig['niv_dolor'];
+}
+$pdf->Ln(6);
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(200, 4, utf8_decode('SIGNOS VITALES: '), 0, 0, 'L');
+$pdf->Ln(4);
+
+$pdf->SetFont('Arial', '', 7.5);
+$pdf->Cell(48, 3, utf8_decode('Presión arterial: ' .$p_sistolica.'/'.$p_diastolica.' mmHG/mmHG'), 1, 'L');
+$pdf->Cell(40, 3, utf8_decode('Frecuencia cardiaca: ' .$f_card.' Lat/min'), 1, 'L');
+$pdf->Cell(46, 3, utf8_decode('Frecuencia respiratoria: ' .$f_resp.' Resp/min'), 1, 'L');
+$pdf->Cell(28, 3, utf8_decode('Temperatura: ' .$temp.'°C'), 1, 'L');
+$pdf->Cell(33, 3, utf8_decode('Saturación oxígeno: ' .$sat_oxigeno.'%'), 1, 'L');
+
+
+$pdf->Ln(4);
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(32, 3, utf8_decode('1. Drenaje: '), 0, 'L');
+$pdf->SetFont('Arial', '', 8);
+$pdf->MultiCell(163, 3, utf8_decode( $gca.' '.$gcat), 1, 'L');
+$pdf->Ln(1);
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(32, 3, utf8_decode('2. Sonda: '), 0, 'L');
+$pdf->SetFont('Arial', '', 8);
+$pdf->MultiCell(163, 3, utf8_decode( $son.' '.$sont), 1, 'L');
+$pdf->Ln(1);
+
+
+$pdf->SetFont('Arial', 'B', 7.3);
+$pdf->Cell(32, 3, utf8_decode('3. Observaciones(otros): '), 0, 'L');
+$pdf->SetFont('Arial', '', 8);
+$pdf->MultiCell(163, 3, utf8_decode($observ_be), 1, 'L');
+
+$pdf->Ln(1);
+
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->MultiCell(195, 3, utf8_decode('Médico que órdena indicaciones quirúrgicas: ' . ' ' . $medico ), 1, 'L');
+$pdf->Ln(6);
+
+$sql_med_id = "SELECT id_usua FROM  dat_ordenes_med WHERE id_ord_med=$id_ord ";
+    $result_med_id = $conexion->query($sql_med_id);
+
+    while ($row_med_id = $result_med_id->fetch_assoc()) {
+      $id_med = $row_med_id['id_usua'];
+    }
+    $sql_med = "SELECT * FROM reg_usuarios WHERE id_usua = $id_med";
+    $result_med = $conexion->query($sql_med);
+
+    while ($row_med = $result_med->fetch_assoc()) {
+      $nom = $row_med['nombre'];
+      $app = $row_med['papell'];
+      $apm = $row_med['sapell'];
+      $pre = $row_med['pre'];
+      $firma = $row_med['firma'];
+      $ced_p = $row_med['cedp'];
+
+}
+      $pdf->SetY(-25);
+      $pdf->SetFont('Arial', 'B', 7);
+      //$pdf->Image('../../imgfirma/' . $firma, 35, $pdf->SetY(-50), 18, 10);
+       if ($firma==null) {
+ //$pdf->Image('../../imgfirma/FIRMA.jpg', 94, 245 , 25);
+  $pdf->Image('../../imgfirma/FIRMA.jpg', 35, $pdf->SetY(-50), 18, 10);
+} else {
+     $pdf->Image('../../imgfirma/' . $firma, 35, $pdf->SetY(-50), 18, 10);
+}
+      
+      $pdf->Ln(4);
+      $pdf->SetX(10);
+      $pdf->Cell(70, 3, utf8_decode($pre . '. ' . $app ), 0, 0, 'C');
+      $pdf->Cell(160, 3, utf8_decode($enfermera_tes), 0, 0, 'C');
+      $pdf->Ln(4);
+      $pdf->Cell(70, 3, utf8_decode('Cédula Profesional: ' . $ced_p), 0, 0, 'C');
+      $pdf->SetX(10);
+      $pdf->Ln(4);
+      $pdf->Cell(70, 3, utf8_decode('Enfermera que recibe indicaciones quirúrgicas'), 0, 0, 'C');
+      $pdf->Cell(160, 3, utf8_decode('Nombre y Firma de Enfermera Testigo'), 0, 0, 'C');
+
+ $pdf->Output();

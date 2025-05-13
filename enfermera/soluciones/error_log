@@ -1,0 +1,6 @@
+[20-May-2022 12:40:43 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Unsupported image type: /imgfirma/ in /home/u542863078/domains/simatools.com/public_html/sanisidro/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/u542863078/domains/simatools.com/public_html/sanisidro/fpdf/fpdf.php(884): FPDF->Error('Unsupported ima...')
+#1 /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/soluciones/pdf_soluciones.php(319): FPDF->Image('../../imgfirma/', 95, 250, 30)
+#2 {main}
+  thrown in /home/u542863078/domains/simatools.com/public_html/sanisidro/fpdf/fpdf.php on line 271

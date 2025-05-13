@@ -1,0 +1,18 @@
+[13-May-2022 17:05:07 America/Mexico_City] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/reg_urg.php on line 410
+[13-May-2022 17:05:07 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/reg_urg.php:423
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/reg_urg.php on line 423
+[13-May-2022 17:05:32 America/Mexico_City] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/reg_urg.php on line 410
+[13-May-2022 17:05:32 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/reg_urg.php:423
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/reg_urg.php on line 423
+[13-May-2022 19:36:32 America/Mexico_City] PHP Notice:  Undefined variable: tdieta in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 143
+[13-May-2022 19:36:32 America/Mexico_City] PHP Notice:  Undefined variable: fechs in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 143
+[13-May-2022 19:36:32 America/Mexico_City] PHP Notice:  Undefined variable: medico in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 143
+[13-May-2022 19:36:32 America/Mexico_City] PHP Notice:  Undefined variable: sol_e in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 143
+[13-May-2022 19:36:32 America/Mexico_City] PHP Notice:  Undefined variable: fechgab in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 143
+[13-May-2022 19:36:32 America/Mexico_City] PHP Notice:  Undefined variable: pac_imagen in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 143
+[20-May-2022 12:18:19 America/Mexico_City] PHP Notice:  Undefined variable: tdieta in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 127
+[20-May-2022 12:18:19 America/Mexico_City] PHP Notice:  Undefined variable: id_at in /home/u542863078/domains/simatools.com/public_html/sanisidro/enfermera/registro_urgencias/ins_enf_urg.php on line 137

@@ -1,0 +1,7 @@
+[12-Oct-2021 03:28:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Oct-2021 03:28:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Oct-2021 03:33:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Oct-2021 03:38:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Oct-2021 06:33:20 UTC] PHP Notice:  Undefined index: id_rol in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/editar_perfil/editar_perfil.php on line 220
+[13-Oct-2021 18:17:24 UTC] PHP Warning:  unlink(../../imagenes/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/editar_perfil/editar_perfil.php on line 222
+[13-Oct-2021 18:17:24 UTC] PHP Warning:  unlink(../../imgfirma/): Is a directory in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/editar_perfil/editar_perfil.php on line 244

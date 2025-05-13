@@ -1,0 +1,23 @@
+[29-Oct-2021 18:39:08 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/global_pac/connection/Connection.php on line 4
+[29-Oct-2021 18:39:08 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch Connection in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/global_pac/connection/Connection.php on line 5
+[23-Nov-2021 14:35:26 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[23-Nov-2021 14:35:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[23-Nov-2021 14:35:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232
+[24-Nov-2021 20:51:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[24-Nov-2021 20:51:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[24-Nov-2021 20:51:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232
+[26-Nov-2021 10:23:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[26-Nov-2021 10:23:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[26-Nov-2021 10:23:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232
+[30-Nov-2021 05:21:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[30-Nov-2021 05:21:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[30-Nov-2021 05:21:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232
+[03-Dec-2021 06:01:56 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[03-Dec-2021 06:01:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[03-Dec-2021 06:01:56 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232
+[06-Dec-2021 04:10:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[06-Dec-2021 04:10:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[06-Dec-2021 04:10:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232
+[09-Dec-2021 13:59:36 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 13
+[09-Dec-2021 13:59:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 18
+[09-Dec-2021 13:59:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_administrativa/header_administrador.php on line 232

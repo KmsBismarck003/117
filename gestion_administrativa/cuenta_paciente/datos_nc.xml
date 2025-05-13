@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="MXN" TipoCambio="1" Total="8995.74" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="PUE" TipoDeComprobante="E" SubTotal="8995.74" FormaPago="01" LugarExpedicion="52140" Fecha="2024-03-29T13:43:32" Folio="6" Serie="NC" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+        <cfdi:CfdiRelacionado UUID="03597b3a-99ee-4969-98aa-cf6af3c08923" />
+    </cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="CMS1501012H9" Nombre="CLINICA MEDICA SI" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="TIDL670115C40" Nombre="JOSE LUIS TINOCO DIAZ" DomicilioFiscalReceptor="05348" RegimenFiscalReceptor="605" UsoCFDI="G02"/>
+  <cfdi:Conceptos><cfdi:Concepto ClaveProdServ="84111506" Cantidad="1" ClaveUnidad="ACT" Unidad="SER" Descripcion="84111506 Descuento de 8995.74 del CFDI 372 E 03597b3a-99ee-4969-98aa-cf6af3c08923" ValorUnitario="8995.740000" Importe="8995.740000" ObjetoImp="01"></cfdi:Concepto></cfdi:Conceptos>
+</cfdi:Comprobante>

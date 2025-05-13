@@ -1,0 +1,3 @@
+[17-Oct-2021 13:56:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 13
+[17-Oct-2021 13:56:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 19
+[17-Oct-2021 13:56:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/enfermera/header_enfermera.php on line 232

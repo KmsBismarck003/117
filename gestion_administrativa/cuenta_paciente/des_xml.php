@@ -1,0 +1,15 @@
+<?php
+
+$fa=$_GET['ffiscal'];
+$nombre_fichero = 'comprobanteTimbrado.xml';
+$fichero_texto = fopen($nombre_fichero, "r");
+$contenido_fichero = fread($fichero_texto, filesize($nombre_fichero));
+
+header('Content-Type: text/xml');
+header("Content-Disposition:attachment ; filename=$fa.xml");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
+echo $contenido_fichero;
+?>

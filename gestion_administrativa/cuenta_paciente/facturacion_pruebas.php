@@ -1,0 +1,3107 @@
+<?php
+session_start();
+//include "../../conexionbd.php";
+include "../header_facturacion.php";
+$resultado = $conexion->query("select * from reg_usuarios") or die($conexion->error);
+$usuario = $_SESSION['login'];
+$id_usua=$usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+if (isset($_GET['id_datfin'])) {
+  $id_datfin=$_GET['id_datfin'];
+}else{
+
+}
+
+include "conexionbdf.php";
+
+
+
+
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+ <link rel="stylesheet" type="text/css" href="../../gestion_medica/hospitalizacion/css/select2.css">
+ <script src="../../gestion_medica/hospitalizacion/js/select2.js"></script>
+   <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″/>
+
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
+
+
+    <!--  Bootstrap  -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.magnific-popup.min.js"></script>
+    <script src="../../js/aos.js"></script>
+    <script src="../../js/main.js"></script>
+
+
+  <title>Facturación</title>
+  <script type="text/javascript" src="jquery-1.12.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery-ui.css">
+  <script type="text/javascript" src="jquery-ui.js"></script>
+</head>
+
+<body>
+  
+  <div class="container">
+
+<?php 
+       include "../../conexionbd.php";
+$sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.tel, p.fecnac, di.*  FROM paciente p, dat_ingreso di WHERE p.Id_exp=di.Id_exp and di.id_atencion =$id_at";
+
+        $result_pac = $conexion->query($sql_pac);
+
+        while ($row_pac = $result_pac->fetch_assoc()) {
+          $pac_papell = $row_pac['papell'];
+          $pac_sapell = $row_pac['sapell'];
+          $pac_nom_pac = $row_pac['nom_pac'];
+          $pac_dir = $row_pac['dir'];
+          $pac_id_edo = $row_pac['id_edo'];
+          $pac_id_mun = $row_pac['id_mun'];
+          $pac_tel = $row_pac['tel'];
+          $pac_fecnac = $row_pac['fecnac'];
+          $pac_fecing = $row_pac['fecha'];
+          $fec_egreso = $row_pac['fec_egreso'];
+          $area = $row_pac['area'];
+          $alta_med = $row_pac['alta_med'];
+          $alta_adm = $row_pac['alta_adm'];
+          $valida = $row_pac['valida'];
+          $area = $row_pac['area'];
+          $id_exp=$row_pac['Id_exp'];
+          $correo = $row_pac['correo'];
+          $cama_alta = $row_pac['cama_alta'];
+          $dat_now = $row_pac['fec_egreso'];
+        }
+        include "conexionbdf.php";
+?>
+         <label class="control-label">Paciente: </label><strong> &nbsp; <?php echo $id_exp.' - '.$pac_papell.' ' .$pac_sapell.' '.$pac_nom_pac ?></strong>
+
+    <form action="" method="POST">
+  <section class="content container-fluid">
+<?php if(isset($_GET['error'])){
+?>          
+    <div class="alert alert-light alert-dismissible fade show btn-sm" role="alert">
+            <font color="red">*<?php echo $_GET['error'];?></font>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <font color="red"> <span aria-hidden="true">&times;</span></font>
+  </button>
+            </div>
+<?php }?>
+<nav>
+    
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+   
+      <?php
+      
+      $resultado341 = $conexion->query("SELECT * from comprobantes where id_atencion=$id_at") or die($conexion->error);
+                while($f341 = mysqli_fetch_array($resultado341)){
+      $valid=$f341['id_atencion'];
+      $iddat=$f341['id_dat_gen_f'];
+                }
+      ?>
+     
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Datos generales</a>
+    
+   
+    
+    
+    
+    
+<?php if(isset($id_datfin)){ 
+   echo' <a class="btn btn-success" href="facturas.php?id_atencion=' . $id_at . '&id_datfin=' . $id_datfin. '&id_usua=' . $id_usua . '" role="button">Mis facturas</a>';
+}else{
+  echo' <a class="btn btn-success" href="facturas.php?id_atencion='.$id_at.'" role="button">Mis facturas</a>';
+
+}
+?>
+  </div>
+</nav>
+
+
+  <!-- datos generales-->
+<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <strong>*Serie</strong>
+<input type="text" name="serie" value="E" class="form-control" disabled>
+    </div>
+    <div class="col-sm">
+     <strong>*Método de pago</strong>
+<select name="metodo_pago" class="form-control" data-live-search="true" id="opciones1" style="width : 100%; heigth : 100%" required>
+              <option value="">Seleccionar</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_metodopago order by Descripcion ASC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_MetodoPago'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+    <div class="col-sm">
+     <strong>*Moneda</strong>
+<select name="moneda" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+             
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_moneda where Descripcion='Peso mexicano' order by Descripcion ASC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+
+                echo "<option value='" . $row['c_Moneda'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      
+    <?php 
+    $resultadof = $conexion->query("SELECT * from gen_factura") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+
+$id_dat_gen_ff=$f3f['id_dat_gen_f'];
+                }
+                
+  if($id_dat_gen_ff==null){
+  
+    ?>
+<div class="col-sm">
+    <strong>*Folio</strong>
+    <input type="text" name="folio"class="form-control" value="1" disabled>
+    </div>
+
+<?php }
+else if($id_dat_gen_ff>0){
+$resultado34 = $conexion->query("SELECT * from gen_factura") or die($conexion->error);
+
+                while($f34 = mysqli_fetch_array($resultado34)){
+$folio=$f34['folio'];
+$folio++;
+                }
+                 
+            ?>
+<div class="col-sm">
+    <strong>*Folio</strong>
+    <input type="text" name="folio"class="form-control" value="<?php echo $folio ?>" disabled>
+    </div>
+
+<?php
+           }
+               
+    ?>
+    
+      
+      
+      
+    
+    
+    <div class="col-sm">
+     <strong>*Forma de pago</strong>
+<select name="forma_pago" class="form-control" data-live-search="true" id="opciones2" style="width : 100%; heigth : 100%" required>
+              <option value="">Seleccionar</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_formapago where Descripcion='Efectivo' or Descripcion='Por definir' or Descripcion='Transferencia electrónica de fondos' or Descripcion='Tarjeta de crédito' or Descripcion='Tarjeta de débito' or Descripcion='Por definir' or Descripcion='Por definir' order by Descripcion ASC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_FormaPago'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+
+<script>
+    let opciones1 = document.getElementById("opciones1")
+    let opciones2 = document.getElementById("opciones2")
+    
+    opciones1.addEventListener("change", () => {
+      let texto = opciones1.options[opciones1.selectedIndex].text
+      if (texto ==="Seleccionar") {
+        opciones2[0].select = true
+      opciones2[0].disabled = false
+       opciones2[1].disabled = true
+       opciones2[3].disabled = true
+        opciones2[4].disabled = true
+        opciones2[5].disabled = true
+        opciones2[2].disabled = true
+        
+     opciones2.selectedIndex = 0;
+      }
+      else if (texto === "Pago en parcialidades o diferido") {
+      opciones2[0].disabled = true
+       opciones2[1].disabled = true
+       opciones2[3].disabled = true
+        opciones2[4].disabled = true
+        opciones2[5].disabled = true
+        opciones2[2].disabled = false
+          opciones2.selectedIndex = 2;
+      } else  if (texto === "Pago en una sola exhibición"){
+       opciones2[2].disabled = true
+       opciones2[0].disabled = false
+       opciones2[1].disabled = false
+       opciones2[3].disabled = false
+        opciones2[4].disabled = false
+        opciones2[5].disabled = false
+        opciones2.selectedIndex = 0;
+      }
+    })
+</script>
+
+    <div class="col-sm">
+     <strong>*Uso del CFDI</strong>
+<select name="uso_cfdi" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_usocfdi  order by Descripcion ASC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_UsoCFDI'] . "'>".$row['c_UsoCFDI']." - " .$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-sm-4">
+     <strong>*Tipo CFDI</strong>
+<select name="tip_cfdi" class="form-control" data-live-search="true" style="width : 100%;heigth:100%;">
+        
+                <?php
+         include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_tipodecomprobante where Descripcion='Ingreso' || Descripcion='Pago'";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_TipoDeComprobante'] . "'>".$row['c_TipoDeComprobante']."
+- ".$row['Descripcion']."
+                </option>"; 
+                } ?>
+            </select>
+   
+    </div>
+   
+    <div class="col-sm">
+    <!-- <strong>*Fecha</strong>-->
+<?php 
+$fecha = date("Y:m:dTH:i:s"); ?>
+<input type="hidden" name="fecha" class="form-control" value="<?php echo $fecha;?>">
+    </div>
+  </div>
+</div>
+<hr>
+<div class="col-sm">
+Relación CFDI
+</div>
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-sm-7">
+     <strong>CFDI relacionado</strong>
+<select name="cfdi_relacionado" class="form-control" data-live-search="true" style="width : 100%;heigth:100%;">
+        <option value="">Seleccionar factura a relacionar</option>
+                <?php
+         include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM comprobantes where id_atencion=$id_at and tipof='pago'";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['uuid'] . "'>No factura: ".$row['id_comp']." - Total pago: ".$row['total']." - CFDI: ".$row['uuid']."
+                </option>"; 
+                } ?>
+            </select>
+   
+    </div>
+     <div class="col-sm">
+     <strong>*Tipo de relación</strong>
+<select name="tipo_relacion_a" class="form-control" data-live-search="true"style="width : 100%; heigth : 100%" >
+              <option value="">Seleccionar tipo de relación</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_tiporelacion WHERE c_TipoRelacion=7 order by Descripcion DESC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_TipoRelacion'] . "'>" . $row['c_TipoRelacion'] . " - ".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+ 
+  </div>
+     <p></p>
+       <a class="btn btn-light" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa fa-plus" aria-hidden="true"></i> <font size="2">Añadir otra relación</font>
+  </a>
+  
+ <div class="collapse" id="collapseExample">
+  <div class="card card-body">
+  <div class="row">
+    
+    <div class="col-sm-7">
+     <strong>2- CFDI relacionado</strong>
+<select name="cfdi_relacionado2" class="form-control" data-live-search="true" style="width : 100%;heigth:100%;">
+        <option value="">Seleccionar factura a relacionar</option>
+                <?php
+         include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM comprobantes where id_atencion=$id_at and tipof='pago'";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['uuid'] . "'>No factura: ".$row['id_comp']." - Total pago: ".$row['total']." - CFDI: ".$row['uuid']."
+                </option>"; 
+                } ?>
+            </select>
+   
+    </div>
+     <div class="col-sm">
+     <strong>2- *Tipo de relación</strong>
+<select name="tipo_relacion_a2" class="form-control" data-live-search="true"style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar tipo de relación</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_tiporelacion WHERE c_TipoRelacion=7 order by Descripcion DESC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_TipoRelacion'] . "'>" . $row['c_TipoRelacion'] . " - ".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+ 
+  </div>
+  
+  
+  </div>
+  <a class="btn btn-light" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+    <i class="fa fa-plus" aria-hidden="true"></i> <font size="2">Añadir otra relación</font>
+  </a>
+</div>
+
+   <div class="collapse" id="collapseExample2">
+  <div class="card card-body">
+  <div class="row">
+    
+    <div class="col-sm-7">
+     <strong>3- CFDI relacionado</strong>
+<select name="cfdi_relacionado3" class="form-control" data-live-search="true" style="width : 100%;heigth:100%;">
+        <option value="">Seleccionar factura a relacionar</option>
+                <?php
+         include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM comprobantes where id_atencion=$id_at and tipof='pago'";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['uuid'] . "'>No factura: ".$row['id_comp']." - Total pago: ".$row['total']." - CFDI: ".$row['uuid']."
+                </option>"; 
+                } ?>
+            </select>
+   
+    </div>
+     <div class="col-sm">
+     <strong>3- *Tipo de relación</strong>
+<select name="tipo_relacion_a3" class="form-control" data-live-search="true"style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar tipo de relación</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_tiporelacion WHERE c_TipoRelacion=7 order by Descripcion DESC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_TipoRelacion'] . "'>" . $row['c_TipoRelacion'] . " - ".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+ 
+  </div>
+  
+  
+  </div>
+  
+  </a>
+</div>
+  
+  
+</div>
+<!--<div class="container">
+  <div class="row">
+    <div class="col-sm">
+<strong>Tiene información global</strong>
+<input type="checkbox" name="inf_glob" id="check" value="Si" onchange="javascript:showContent()" />
+</div>
+</div>
+</div>-->
+<script type="text/javascript">
+    function showContent() {
+        element = document.getElementById("content");
+        check = document.getElementById("check");
+        if (check.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+        }
+    }
+</script>
+
+<p>
+ <div id="content" style="display: none;">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <strong>Periodicidad</strong>
+<select name="periodicidad" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_periodicidad order by Descripcion ASC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['Descripcion'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+    <div class="col-sm">
+     <strong>Meses</strong>
+<select name="meses" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar</option>
+                <?php
+         //include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_meses order by c_Meses ASC";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['Descripcion'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+    <div class="col-sm">
+     <strong>Año</strong>
+<select name="anio" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+              <option value="2022   ">2022</option>
+            </select>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+<p>
+  
+<?php  
+$servidor="localhost";
+$nombreBd="u542863078_facturacion";
+$usuario="u542863078_sima_fac";
+$pass="Lh?0y=;/";
+$conexion=new mysqli($servidor,$usuario,$pass,$nombreBd);
+$conexion -> set_charset("utf8");
+if($conexion-> connect_error){
+die("No se pudo conectar");
+}
+  
+  
+  $result ="SELECT * FROM c_cliente";
+  $array = array();
+  if($result){
+$result_diag=$conexion->query($result);
+    while ($row =$result_diag-> fetch_assoc()) {
+      $equipo =$row['razon_s'];
+      array_push($array, $equipo); // equipos
+    }
+  }
+?>
+
+<div class="col-sm">
+Datos del cliente
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <strong>Buscador de cliente</strong>
+<input id="tag" type="text" class="form-control" placeholder="Escribe para comenzar a buscar">
+    </div>
+  </div>
+</div>
+<p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <strong>*RFC</strong>
+<input id="nombre" type="text" name="rfc" class="form-control">
+    </div>
+    <div class="col-sm">
+     <strong>*Razón social</strong>
+<input id="razon_s" type="text" name="razon_s" class="form-control">
+    </div>
+    <div class="col-sm">
+    <strong>Calle</strong>
+<input id="calle" type="text" name="calle" class="form-control">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+   
+    <div class="col-sm">
+     <strong>No. Exterior</strong>
+<input id="no_ext" type="text" name="no_ext" class="form-control">
+    </div>
+    <div class="col-sm">
+     <strong>No. Interior</strong>
+<input id="no_int" type="text" name="no_int" class="form-control">
+    </div>
+     <div class="col-sm">
+       
+  
+    </div>
+  </div>
+</div>
+   
+<div class="container">
+  <div class="row">
+        <div class="col-sm-4">
+          
+           <strong>Estado</strong>
+           <input id="id_estado" type="text" name="estado" class="form-control">
+        
+    </div>
+        <div class="col-sm">
+            
+                <strong>Municipio</strong>
+                 <input id="municipiosp" type="text" name="municipio" class="form-control">
+           
+        </div>
+
+     <div class="col-sm-4">
+     <strong>Código postal</strong>
+<input id="cod_postal" type="text" name="cod_postal" class="form-control">
+
+    </div>
+    
+    <div class="col-sm-11">
+     <div id="select2lista"></div>
+    </div>
+
+ <div class="col-sm-8">
+     <strong>Régimen fiscal</strong>
+     <input id="reg_fiscal" type="text" name="reg_fiscal" class="form-control">
+
+    </div>
+    <div class="col-sm">
+   
+     <input hidden id="nom_c" type="text" name="nom_c" class="form-control">
+
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+<strong><font color="steelblue">Conceptos</font></strong>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+        <div class="col-sm-6">
+<strong>Tipo de concepto</strong>
+<select class="form-control pago" id="boton3" name="tipconcep">
+  <option value="">Seleccionar tipo de concepto </option>
+  <option value="Desglose">Desglose </option>
+<option value="Global">Global </option>
+</select>
+</div>
+</div>
+</div>
+<P>
+<script type="text/javascript">
+$(document).ready(function(){
+        $(".pago").click(function(evento){
+          
+            var valor = $(this).val();
+          
+            if(valor == 'Desglose'){
+                $("#div1").css("display", "block");
+                $("#div2").css("display", "none");
+            }else if(valor == 'Global'){
+                $("#div1").css("display", "none");
+                $("#div2").css("display", "block");
+            }else if(valor == ''){
+                $("#div1").css("display", "none");
+                $("#div2").css("display", "none");
+            }
+    });
+});
+
+</script>
+<div class="collapse" id="div1" style="display:none;"><!--DESGLOSE-->
+<div class="card card-body">
+
+
+<table class="table table-bordered" id="mytable">
+                <thead class="thead bg-light">
+              
+                 <th scope="col">Código</th>
+                  <th scope="col">Descripción</th>
+                      <th scope="col">U.M.</th> 
+                       <th scope="col">Cantidad</th> 
+                    <th scope="col">P.U.</th>
+                    <th scope="col">Aplica IVA</th>
+                    <th scope="col">No aplica IVA</th>
+                  <th scope="col">Eliminar</th>
+                    <th scope="col">Editar</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+<?php
+$servidor="localhost";
+$nombreBd="u542863078_facturacion";
+$usuario="u542863078_sima_fac";
+$pass="Lh?0y=;/";
+$conexion=new mysqli($servidor,$usuario,$pass,$nombreBd);
+$conexion -> set_charset("utf8");
+if($conexion-> connect_error){
+die("No se pudo conectar");
+}
+$usuario = $_SESSION['login'];
+$id_usua= $usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+$resultado = $conexion->query("SELECT * from gen_concepto WHERE id_atencion=$id_at ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {             
+    ?>
+<tr> 
+  <td class="fondo"><strong><font size="4"><?php echo $row['codigo'];?></font></strong>
+<td class="fondo"><strong><font size="4"><?php echo $row['descripcion'];?></font></strong></td>
+
+<td class="fondo"><strong> <?php echo $row['clave_unidad'];?> - <?php echo $row['unidad'];?></strong></td>
+
+<td class="fondo"><strong> <?php echo $row['cantidad'];?></strong></td>
+
+ <td class="fondo"><strong> $<?php echo $row['precio'];?></strong></td>
+
+ <?php 
+if ($row['prod_serv']=='H') {
+ ?>
+ <td class="fondo"><strong> </strong></td>
+<td class="fondo"><strong> $<?php echo $row['precio'];?></strong></td>
+<?php }else{ 
+  ?>
+    <td class="fondo"><strong> $<?php echo $row['precio'];?></strong></td>
+    <td class="fondo"><strong> </strong></td>
+<?php } ?>
+
+
+<!--<td class="fondo"><br><strong>Descuento:</strong> $<?php echo $row['descuento'];?>-->
+
+<?php
+$desc=$row['descripcion'];
+$impor=$row['cantidad']*$row['precio'];
+
+if ($row['descuento']==null) {
+  $import=$impor;
+}else{
+$descuento=$row['descuento'];
+  $import=$impor-$descuento;
+}
+?>
+
+ <td class="fondo">
+
+  <a href="elim_conc.php?id_co=<?php echo $row['id_conce'];?>&id_atencion=<?php echo $row['id_atencion'];?>"><button type="button" class="btn btn-danger"><i class="fa fa-trash" style="font-size:17px" aria-hidden="true"></i> </button></a>
+
+ </td>
+
+ <td class="fondo">
+
+ <a href="edita_conc.php?id_co=<?php echo $row['id_conce'];?>&id_atencion=<?php echo $row['id_atencion'];?>"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning"><i class="fa fa-edit" style="font-size:17px" aria-hidden="true"></i> </button></a>
+
+ </td>
+
+                    </tr>
+                    <?php
+} 
+                 
+                ?>
+
+                </tbody>
+
+
+            </table>
+          
+            
+            
+            
+            
+
+<?php
+       $resultado = $conexion->query("SELECT *,sum(importe) as SUMAIVA from gen_concepto WHERE id_atencion=$id_at and prod_serv='H' ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {
+           
+              $SUMAIVAH=$row['SUMAIVA'];
+              //echo '<strong>Subtotal que no genera IVA: ' . number_format($SUMAIVAH, 2).'</strong>';
+
+
+  } 
+
+ $resultado = $conexion->query("SELECT *,sum(importe) as SUMAIVA from gen_concepto WHERE id_atencion=$id_at and prod_serv!='H' ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {
+           
+              $SUMAIVA=$row['SUMAIVA']; // VENDRIA SIENDP EL SUBTOTAL
+              $SIMB=$SUMAIVA*.16;
+              
+              echo '<strong>TOTAL INICIAL: ' . number_format($SIMB+$SUMAIVA+$SUMAIVAH, 2).'</strong>';
+              echo '<strong>Subtotal genera IVA: ' . number_format($SUBCI=$SIMB+$SUMAIVA, 2).'</strong>';
+              echo '<strong>Subtotal no genera IVA: ' . number_format($SUMAIVAH, 2).'</strong>';
+
+             echo '<strong>Subtotal: ' . number_format($SUBTOTAL=$SUBCI/1.16, 2).'</strong>';
+             echo '<strong>IVA: ' . number_format($IVAAA=$SUBTOTAL*.16, 2).'</strong>';
+             echo '<strong>TOTAL FINAL: ' . number_format($SUBTOTAL+$IVAAA+$SUMAIVAH, 2).'</strong>';
+  }
+  
+      ?>
+ 
+ <?php
+    /*$resultado = $conexion->query("SELECT *,sum(importe) as importe from gen_concepto WHERE id_atencion=$id_at  group by id_atencion ") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {
+$importeconiva=$row['importe'];
+$sumaiva = $importeconiva * 0.16;
+$totttttt=$importeconiva+$sumaiva;
+
+$SUBTOTAL=$row['importe']/1.16;
+
+echo '<strong>TOTAL CUENTA INICIAL: ' . number_format($sumaiva+$SUBTOTAL, 2).'</strong>';
+echo '<strong>Subtotal genera IVA: ' . number_format($row['importe']/1.16, 2).'</strong>';
+echo '<strong>Importe de IVA: ' .  number_format($sumaiva, 2).'</strong>';
+              }   
+          $resultado = $conexion->query("SELECT *,sum(importe_noiva) as importe_noiva from gen_concepto WHERE id_atencion=$id_at  group by id_atencion ") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {
+
+echo '<strong>Subtotal no genera IVA: ' .  number_format($row['importe_noiva'], 2).'</strong>';
+
+
+              }   */              
+?>
+<!--<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    <strong>*Cantidad</strong>
+<input type="text" name="cantidadd" class="form-control">
+    </div>
+    <div class="col-sm">
+     <strong>*Descripción</strong>
+<input type="text" name="descripcionn" class="form-control">
+    </div>
+    
+  </div>
+</div>-->
+<p>
+<div class="container">
+  <div class="row">
+   <!-- <div class="col-sm-4">
+    <strong>*Precio</strong>
+<input type="number" name="precioo" class="form-control">
+    </div>-->
+    <!--<div class="col-sm">
+     <strong>*Clave producto/servicio</strong>
+<select name="id_cie_10" class="form-control" data-live-search="true" id="mibuscador1" style="width : 100%;heigth:100%;">
+              <option value="">Seleccionar</option>
+                <?php
+         //include "../conexionbdf.php";
+              //  $sql_diag="SELECT * FROM c_claveprodserv";
+              //  $result_diag=$conexion->query($sql_diag);
+              //  while($row=$result_diag->fetch_assoc()){
+//echo "<option value='" . $row['Descripcion'] . "'>".$row['c_ClaveProdServ']." - ".$row['Descripcion']."</option>; 
+                //} ?>
+            </select>
+    </div>-->
+   <!-- <div class="col-sm">
+     <strong>*Clave unidad</strong>
+<select name="clave_unidadd" class="form-control" data-live-search="true" id="mibuscador2" style="width : 100%;heigth:100%;">
+              <option value="">Seleccionar</option>
+                <?php
+         include "../conexionbdf.php";
+                $sql_diag="SELECT * FROM c_claveunidad";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_cveuni'] . "'>".$row['c_cveuni']."
+- ".$row['Nombre']."
+                </option>"; 
+                } ?>
+            </select>
+    </div>-->
+  </div>
+</div><p>
+  <div class="container">
+  <div class="row">
+      
+<?php
+ include "../../conexionbd.php";
+$resultadoas = $conexion->query("SELECT * from dat_financieros WHERE id_atencion=$id_at and aseg='GNP'") or die($conexion->error);
+              while ($rowas = $resultadoas->fetch_assoc()) {
+                $asegu=$rowas['aseg'];
+              }
+              
+              if($asegu=='GNP'){
+              
+              
+    ?>
+      <div class="col-sm">
+     <strong>Descuento del 10%</strong>
+     <input type="hidden" step="0.01" name="codescded" class="form-control" value="100">
+<input type="hidden" step="0.01" name="daseg" class="form-control" value="10">
+
+    </div>
+      <?php }else  if($asegu!='GNP'){
+      ?>
+<div class="col-sm">
+     <strong>Desc. Coaseg. y Deduc.</strong>
+<input type="number" step="0.01" name="codescded" class="form-control">
+    </div>
+    
+    
+   <div class="col-sm">
+     <strong>Desc. Aseguradora</strong>
+<input type="number" step="0.01" name="daseg" class="form-control">
+    </div>
+    <?php } ?>
+    
+    <?php include "conexionbdf.php"; ?>
+    <div class="col-sm">
+     <strong>*Objeto de Impuesto</strong>
+<select name="obj_impuestoo" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar</option>
+                <?php
+         
+                $sql_diag="SELECT * FROM c_objetoimp";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_ObjetoImp'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+    
+    
+</div>
+</div>
+
+<!-- desglose-->
+<?php 
+$usuario = $_SESSION['login'];
+$id_usua= $usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+$resultado = $conexion->query("SELECT * from gen_concepto WHERE id_atencion=$id_at ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {             
+    ?>
+<?php
+$impor=$row['cantidad']*$row['precio'];
+
+if ($row['descuento']==null) {
+  $import=$impor;
+
+}else{
+$descuento=$row['descuento'];
+  $import=$impor-$descuento;
+}
+?>
+    <!--<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+<strong>Subtotal $<?php echo $impor ?></strong>
+<br>
+<strong>Descuento $<?php echo $descuento?></strong>
+<br>
+<strong>Retenciones $0.00</strong><br>
+<strong>Traslados $0.00</strong>
+<br>
+<strong><h2>Total $<?php echo $import?></h2></strong>
+    </div>
+  </div>
+</div>-->
+<?php
+                }
+                 
+                ?>
+
+<p>
+<div class="row">
+    <div class="col-sm">
+    </div>
+     
+    <div class="col-sm">
+<input type="submit" name="factd" class="btn btn-primary" value="Guardar factura">
+     
+    </div>
+</div>
+
+</div>
+</div>
+
+<div class="collapse" id="div2" style="display:;"> <!--GLOBAL GLOBAL GLOBAL GLOBAL GLOBAL GLOBAL GLOBAL-->
+<div class="card card-body">
+  <table class="table table-bordered" id="mytable">
+                <thead class="thead bg-light">
+              
+                    <!--<th scope="col">Clave prod/serv</th>
+                      <th scope="col">Clave unidad</th> 
+                       <th scope="col">Cantidad</th> 
+                    <th scope="col">Precio</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Importe</th>-->
+                  
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+
+                <tbody>
+<?php
+$usuario = $_SESSION['login'];
+$id_usua= $usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+$resultado = $conexion->query("SELECT *,sum(importe) as precio from gen_concepto WHERE id_atencion=$id_at group by id_atencion ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) { 
+//include "../../conexionbd.php";
+//$resultado4 = $conexion->query("SELECT * FROM dat_financieros where id_atencion = $id_at and id_datfin=$id_datfin") or die($conexion->error);
+              //while ($row4 = $resultado4->fetch_assoc()) { ?>
+<tr> 
+<td class="fondo"><strong><font size="4">ATENCION SERVICIOS HOSPITALARIOS<?php //echo $row['descripcion'];?></font></strong>
+<!--<br><strong>Clave unidad:</strong> <?php echo $row['clave_unidad'];?></td>-->
+
+<!--<td class="fondo"><br><strong>Cantidad:</strong> <?php echo $row['cantidad'];?><br><strong>Precio:</strong> $<?php echo $row['precio'];?></td>-->
+                         
+<!--<td class="fondo"><br><strong>Descuento:</strong> $<?php echo $row['descuento'];?>-->
+
+<?php
+$desc=$row['descripcion'];
+$impor=$row['cantidad']*$row['precio'];
+
+if ($row['descuento']==null) {
+  $import=$impor;
+}else{
+$descuento=$row['descuento'];
+  $import=$impor-$descuento;
+}
+?>
+
+<?php $ivva = $row['precio']*.16;
+
+$subb=$row['precio']+$ivva;
+?>
+
+<br>
+  <?php
+//    descuento validacion si existe descuento en dat finacieros restarle a la factura en base e descuento autmatico
+ include "../../conexionbd.php";
+$resultadoas = $conexion->query("SELECT * from dat_financieros WHERE id_atencion=$id_at") or die($conexion->error);
+              while ($rowas = $resultadoas->fetch_assoc()) {
+                $banco=$rowas['banco'];
+                $deposito=$rowas['deposito'];
+              }
+              
+              if($banco=='DESCUENTO'){
+                  
+              $CanInicial=$row['precio']; // ya esta bien
+
+$DesSiniva=$deposito/1.16;
+
+$bmiva=$CanInicial-$DesSiniva;
+
+$tcondes=$bmiva*.16;
+
+$TOTALPO=$bmiva+$tcondes;
+
+
+        $subb=round($subb,2);
+    ?>
+    <br><strong>Total cuenta inicial:</strong> $<?php echo number_format($subb,2);?>
+     <font color="red"><br><strong>Descuento:</strong> $<?php echo number_format($DesSiniva, 2);?></font>
+     <?php round($SUBBT=$subb/1.16,6);?>
+  <br><strong>Subtotal:</strong> $<?php echo number_format($SUBBT,6);?><br>
+  
+  
+    <strong>Importe: </strong>$<?php echo number_format($SUBBT, 6) ?> 
+     <br>
+   <strong> IVA: </strong>$<?php echo number_format($tcondes, 2);?><hr>
+  <strong> Total final: </strong>$<?php echo number_format($TOTALPO, 2);?><br>
+   <?php }else{
+         $CanInicial=$row['precio']; // ya esta bien
+
+$DesSiniva=$deposito/1.16;
+
+$bmiva=$CanInicial;
+
+$tcondes=$bmiva*.16;
+
+$TOTALPO=$bmiva+$tcondes;
+   ?>
+    
+     <br><strong>Subtotal:</strong> $<?php echo number_format($CanInicial, 2);?><br>
+   <strong>Sin Descuento </strong><br>
+       <strong>Importe: </strong> $<?php echo number_format($bmiva, 2); ?> 
+    <br><strong>IVA:</strong> $<?php echo number_format($tcondes, 2);?><hr>
+   <strong>Total final:</strong> $<?php echo number_format($TOTALPO, 2);?>
+   <?php } ?>
+</td>
+
+ 
+
+
+<td class="fondo">
+<br>
+  
+  <a href="elim_conc.php?id_co=<?php echo $row['id_conce'];?>&id_atencion=<?php echo $row['id_atencion'];?>"><br><button type="button" class="btn btn-danger"><i class="fa fa-trash" style="font-size:17px" aria-hidden="true"></i> </button></a>
+
+ </td>
+</tbody>
+              
+            </table>
+ <!--<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <strong>Nombre:</strong> <?php echo $row4['resp'];?>
+    </div>
+    <div class="col-sm">
+    <strong>Forma de pago:</strong> <?php echo $row4['banco'];?>
+    </div>
+    <div class="col-sm-2">
+   <strong>Cantidad:</strong> $<?php echo $row4['deposito'];?>
+    </div>
+    <div class="col-sm">
+    <strong>Fecha desposito:</strong> <?php echo $row4['fecha'];?>
+    </div>
+    
+  </div>
+</div>-->
+<?php }  ?>
+
+<p>
+
+   <div class="container">
+  <div class="row">
+      
+      <?php
+ include "../../conexionbd.php";
+$resultadoas = $conexion->query("SELECT * from dat_financieros WHERE id_atencion=$id_at and aseg='GNP'") or die($conexion->error);
+              while ($rowas = $resultadoas->fetch_assoc()) {
+                $asegu=$rowas['aseg'];
+                 $banco=$rowas['banco'];
+                $deposito=$rowas['deposito'];
+              }
+              
+              if($asegu=='GNP' and $banco!="DESCUENTO"){
+              
+              
+    ?>
+      <div class="col-sm">
+     <strong>Descuento del 10%</strong>
+<input type="hidden" step="0.01" name="dasegl" class="form-control" value="10">
+<input type="hidden" step="0.01" name="codescdedl" class="form-control" value="100">
+    </div>
+      <?php } else if($banco=='DESCUENTO'){  
+    
+      ?>
+      
+      <div class="col-sm"><font color="red">DESCUENTO YA APLICADO</font></div>
+    
+<?php } else if($banco!='DESCUENTO'){ ?>
+    <div class="col-sm">
+     <strong>Desc. Coaseg. y Deduc.</strong>
+<input type="number" step="0.01" name="codescdedl" class="form-control">
+    </div>
+   <div class="col-sm">
+     <strong>Desc. Aseguradora</strong>
+<input type="number" step="0.01" name="dasegl" class="form-control">
+    </div>
+    <?php } ?>
+ 
+    
+   
+   <?php include "conexionbdf.php"; ?> 
+    <div class="col-sm">
+     <strong>*Objeto de Impuesto</strong>
+<select name="obj_impuesto" class="form-control" data-live-search="true" id="mibuscador3" style="width : 100%; heigth : 100%">
+              <option value="">Seleccionar</option>
+                <?php
+         
+                $sql_diag="SELECT * FROM c_objetoimp";
+                $result_diag=$conexion->query($sql_diag);
+                while($row=$result_diag->fetch_assoc()){
+                echo "<option value='" . $row['c_ObjetoImp'] . "'>".$row['Descripcion']."</option>"; 
+                } ?>
+            </select>
+    </div>
+    
+    <!--<div class="col-sm">
+     <strong>Traslado</strong>
+<input type="number" name="trasladoo" class="form-control">
+    </div>-->
+    
+</div>
+</div>
+<p>
+
+<!-- global-->
+<?php 
+$usuario = $_SESSION['login'];
+$id_usua= $usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+$resultado = $conexion->query("SELECT * from gen_concepto WHERE id_atencion=$id_at ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {             
+    ?>
+<?php
+$impor=$row['cantidad']*$row['precio'];
+
+if ($row['descuento']==null) {
+  $import=$impor;
+
+}else{
+$descuento=$row['descuento'];
+  $import=$impor-$descuento;
+}
+?>
+    <!--<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+<strong>Subtotal $<?php echo $impor ?></strong>
+<br>
+<strong>Descuento $<?php echo $descuento?></strong>
+<br>
+<strong>Retenciones $0.00</strong><br>
+<strong>Traslados $0.00</strong>
+<br>
+<strong><h2>Total $<?php echo $import?></h2></strong>
+    </div>
+  </div>
+</div>-->
+<?php
+                }
+                 
+                ?>
+
+<p>
+<div class="row">
+    <div class="col-sm">
+    </div>
+     
+    <div class="col-sm">
+<input type="submit" name="factglobal" class="btn btn-primary" value="Guardar factura">
+     
+    </div>
+</div>
+
+
+</div>
+</div>
+<hr>
+
+</p>
+
+</form>
+</div>
+
+
+<!-- datos generales fin-->
+
+
+
+
+<?php 
+if (isset($_POST['factd'])) {
+
+$usuario = $_SESSION['login'];
+$id_usua= $usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+
+$fecha_actual = date("Y-m-d H:i:s");
+
+$serie= mysqli_real_escape_string($conexion, (strip_tags($_POST["serie"], ENT_QUOTES)));
+$forma_pago= mysqli_real_escape_string($conexion, (strip_tags($_POST["forma_pago"], ENT_QUOTES)));
+$moneda= mysqli_real_escape_string($conexion, (strip_tags($_POST["moneda"], ENT_QUOTES)));
+//$folio= mysqli_real_escape_string($conexion, (strip_tags($_POST["folio"], ENT_QUOTES)));
+$metodo_pago= mysqli_real_escape_string($conexion, (strip_tags($_POST["metodo_pago"], ENT_QUOTES)));
+$uso_cfdi= mysqli_real_escape_string($conexion, (strip_tags($_POST["uso_cfdi"], ENT_QUOTES)));
+//$exportacion= mysqli_real_escape_string($conexion, (strip_tags($_POST["exportacion"], ENT_QUOTES)));
+$tip_cfdi= mysqli_real_escape_string($conexion, (strip_tags($_POST["tip_cfdi"], ENT_QUOTES)));
+
+$fecha= mysqli_real_escape_string($conexion, (strip_tags($_POST["fecha"], ENT_QUOTES)));
+
+
+if (isset($_POST['inf_glob'])) {
+ $inf_glob=mysqli_real_escape_string($conexion, (strip_tags($_POST["inf_glob"], ENT_QUOTES)));
+}else{
+  $inf_glob="No";
+}
+
+$periodicidad= mysqli_real_escape_string($conexion, (strip_tags($_POST["periodicidad"], ENT_QUOTES)));
+$meses= mysqli_real_escape_string($conexion, (strip_tags($_POST["meses"], ENT_QUOTES)));
+$anio= mysqli_real_escape_string($conexion, (strip_tags($_POST["anio"], ENT_QUOTES)));
+$rfc= mysqli_real_escape_string($conexion, (strip_tags($_POST["rfc"], ENT_QUOTES)));
+$razon_s= mysqli_real_escape_string($conexion, (strip_tags($_POST["razon_s"], ENT_QUOTES)));
+$calle= mysqli_real_escape_string($conexion, (strip_tags($_POST["calle"], ENT_QUOTES)));
+$no_ext= mysqli_real_escape_string($conexion, (strip_tags($_POST["no_ext"], ENT_QUOTES)));
+$no_int= mysqli_real_escape_string($conexion, (strip_tags($_POST["no_int"], ENT_QUOTES)));
+
+$estado= mysqli_real_escape_string($conexion, (strip_tags($_POST["estado"], ENT_QUOTES)));
+$municipio= mysqli_real_escape_string($conexion, (strip_tags($_POST["municipio"], ENT_QUOTES)));
+
+$cod_postal= mysqli_real_escape_string($conexion, (strip_tags($_POST["cod_postal"], ENT_QUOTES)));
+//$asenta= mysqli_real_escape_string($conexion, (strip_tags($_POST["asenta"], ENT_QUOTES)));
+$reg_fiscal= mysqli_real_escape_string($conexion, (strip_tags($_POST["reg_fiscal"], ENT_QUOTES)));
+$nom_c= mysqli_real_escape_string($conexion, (strip_tags($_POST["nom_c"], ENT_QUOTES)));
+
+$cfdi_relacionado= mysqli_real_escape_string($conexion, (strip_tags($_POST["cfdi_relacionado"], ENT_QUOTES)));
+$tipo_relacion_a= mysqli_real_escape_string($conexion, (strip_tags($_POST["tipo_relacion_a"], ENT_QUOTES)));
+
+$cfdi_relacionado2= mysqli_real_escape_string($conexion, (strip_tags($_POST["cfdi_relacionado2"], ENT_QUOTES)));
+$tipo_relacion_a2= mysqli_real_escape_string($conexion, (strip_tags($_POST["tipo_relacion_a2"], ENT_QUOTES)));
+
+$cfdi_relacionado3= mysqli_real_escape_string($conexion, (strip_tags($_POST["cfdi_relacionado3"], ENT_QUOTES)));
+$tipo_relacion_a3= mysqli_real_escape_string($conexion, (strip_tags($_POST["tipo_relacion_a3"], ENT_QUOTES)));
+
+// validacion folio
+
+$resultadof = $conexion->query("SELECT * from gen_factura") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+
+$id_dat_gen_ff=$f3f['id_dat_gen_f'];
+                }
+                
+  if($id_dat_gen_ff==null){
+   $insertfac=mysqli_query($conexion,'INSERT INTO gen_factura(id_atencion,id_usua,serie,forma_pago,moneda,folio,metodo_pago,uso_cfdi,tip_cfdi,exportacion,fecha,inf_glob,periodicidad,meses,anio,rfc,razon_s,calle,no_ext,no_int,estado,municipio,cod_postal,asenta,reg_fiscal,nom_c) values ('.$id_at.','.$id_usua.',"E","'.$forma_pago.'","'.$moneda.'",1,"'.$metodo_pago.'","'.$uso_cfdi.'","'.$tip_cfdi.'","'.$exportacion.'","'.$fecha_actual.'","'.$inf_glob.'","'.$periodicidad.'","'.$meses.'","'.$anio.'","'.$rfc.'","'.$razon_s.'","'.$calle.'","'.$no_ext.'","'.$no_int.'","'.$estado.'","'.$municipio.'","'.$cod_postal.'","'.$asenta.'","'.$reg_fiscal.'","'.$nom_c.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+    
+}
+else if($id_dat_gen_ff>0){
+$resultado34 = $conexion->query("SELECT * from gen_factura") or die($conexion->error);
+
+                while($f34 = mysqli_fetch_array($resultado34)){
+$folio=$f34['folio'];
+   $folio++;
+                }
+              
+            
+$insertfac=mysqli_query($conexion,'INSERT INTO gen_factura(id_atencion,id_usua,serie,forma_pago,moneda,folio,metodo_pago,uso_cfdi,tip_cfdi,exportacion,fecha,inf_glob,periodicidad,meses,anio,rfc,razon_s,calle,no_ext,no_int,estado,municipio,cod_postal,asenta,reg_fiscal,nom_c) values ('.$id_at.','.$id_usua.',"E","'.$forma_pago.'","'.$moneda.'","'.$folio.'","'.$metodo_pago.'","'.$uso_cfdi.'","'.$tip_cfdi.'","'.$exportacion.'","'.$fecha_actual.'","'.$inf_glob.'","'.$periodicidad.'","'.$meses.'","'.$anio.'","'.$rfc.'","'.$razon_s.'","'.$calle.'","'.$no_ext.'","'.$no_int.'","'.$estado.'","'.$municipio.'","'.$cod_postal.'","'.$asenta.'","'.$reg_fiscal.'","'.$nom_c.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+           }
+                  
+              
+
+
+// insert relacion desglose
+
+
+$resultadof = $conexion->query("SELECT * from gen_factura where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+$id_genf=$f3f['id_dat_gen_f'];
+
+                }
+//relacion cfdi si hay
+if($cfdi_relacionado!=null and $tipo_relacion_a!=null){
+$insertrelacioncf=mysqli_query($conexion,'INSERT INTO relacion_cfdi(id_usua,id_atencion,fecha,cfdi_relacionado,tipo_relacion_a,cfdi_relacionado2,tipo_relacion_a2,cfdi_relacionado3,tipo_relacion_a3,id_dat_gen_f) values ('.$id_usua.','.$id_at.',"'.$fecha_actual.'","'.$cfdi_relacionado.'","'.$tipo_relacion_a.'","'.$cfdi_relacionado2.'","'.$tipo_relacion_a2.'","'.$cfdi_relacionado3.'","'.$tipo_relacion_a3.'","'.$id_genf.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+}else{
+    $insertrelacioncf=mysqli_query($conexion,'INSERT INTO relacion_cfdi(id_usua,id_atencion,fecha,cfdi_relacionado,tipo_relacion_a,cfdi_relacionado2,tipo_relacion_a2,cfdi_relacionado3,tipo_relacion_a3,id_dat_gen_f) values ('.$id_usua.','.$id_at.',"'.$fecha_actual.'","'.$cfdi_relacionado.'","'.$tipo_relacion_a.'","'.$cfdi_relacionado2.'","'.$tipo_relacion_a2.'","'.$cfdi_relacionado3.'","'.$tipo_relacion_a3.'","No existe relacion")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+}
+
+
+
+
+//insert a nueva conceptos
+
+$fecha_actual = date("Y-m-d H:i:s");
+
+$resultado = $conexion->query("SELECT * from gen_concepto WHERE id_atencion=$id_at ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) {             
+    
+$row['codigo'];
+ $row['descripcion'];
+
+ $row['clave_unidad'];
+ $row['unidad'];
+$row['cantidad'];
+  $row['precio'];
+   //$row['folio'];
+
+//$cantidadd= mysqli_real_escape_string($conexion, (strip_tags($_POST["cantidadd"], ENT_QUOTES)));
+//$descripcionn= mysqli_real_escape_string($conexion, (strip_tags($_POST["descripcionn"], ENT_QUOTES)));
+//$coaseguroo= mysqli_real_escape_string($conexion, (strip_tags($_POST["coaseguroo"], ENT_QUOTES)));
+//$deduciblee= mysqli_real_escape_string($conexion, (strip_tags($_POST["deduciblee"], ENT_QUOTES)));
+//$trasladoo= mysqli_real_escape_string($conexion, (strip_tags($_POST["trasladoo"], ENT_QUOTES)));
+//$ivaa= mysqli_real_escape_string($conexion, (strip_tags($_POST["ivaa"], ENT_QUOTES))); // sub x iva
+//$precioo= mysqli_real_escape_string($conexion, (strip_tags($_POST["precioo"], ENT_QUOTES)));
+//$clave_unidadd= mysqli_real_escape_string($conexion, (strip_tags($_POST["clave_unidadd"], ENT_QUOTES)));
+$obj_impuestoo= mysqli_real_escape_string($conexion, (strip_tags($_POST["obj_impuestoo"], ENT_QUOTES)));
+$codescded= mysqli_real_escape_string($conexion, (strip_tags($_POST["codescded"], ENT_QUOTES)));
+
+$daseg= mysqli_real_escape_string($conexion, (strip_tags($_POST["daseg"], ENT_QUOTES)));
+
+
+
+$importegraba=$row['importe']-$codescded;
+//$trasl=($importegraba*.16);
+$ivaa=($importegraba)*(.16);
+$importetotal=$importegraba+$ivaa;
+
+
+echo $fechasat = date("Y-m-d");
+$horasat = date("H:i:s");
+
+$fechasat;
+list($anio, $mes, $dia) = explode("-",$fechasat);
+$Fs=$anio.'-'.$mes.'-'.$dia;
+$FechaCompleta=$Fs.'T'.$horasat;
+
+//primero va la creacion de xml despues el timbrado
+//xml preguntar de lugar expedicion
+
+$resultadoimporte = $conexion->query("SELECT *,sum(importe) as base from gen_concepto WHERE id_atencion=$id_at group by id_atencion") or die($conexion->error);
+while ($rowim = $resultadoimporte->fetch_assoc()) {
+$tprecio=$rowim["base"];
+
+
+if($codescded!=null or $daseg!=null){ // caso cuando hay descuentos inicio cuando hay descuentos
+    $daseg=floor(($daseg/100)*100)/100;
+  
+     //nuevo 
+$english_format_number = number_format($dasegg=floor(($rowim["base"])*($daseg)*100)/100, 2, '.', ''); //subtototal * aseguradora
+$english_format_number = number_format($sumadesc=($codescded)+($dasegg), 2, '.', ''); //suma descuentos arriba esto va en descuento 2
+ $english_format_number = number_format($dasegg=floor(($rowim["base"])*($daseg)*100)/100, 2, '.', ''); //subtototal * aseguradora
+  
+ $english_format_number = number_format($sumadescb=floor((($rowim["base"])-($dasegg)-100)*100)/100, 2, '.', ''); //suma descuentos arriba esto va en descuento 2
+ 
+  $ivat=($sumadescb)*(.16); // iva traslado e impuetos trasladados
+
+
+
+
+$cdesc=($sumadesc)/($rowim["base"]); // para sacar $ de descuento
+
+$english_format_number = number_format($ivaa=($tprecio-$sumadesc)*(.16), 2, '.', '');//iva 2 traslado de hasta abajo
+
+
+$english_format_number = number_format($totar=($rowim["base"]-$sumadesc), 2, '.', '');//
+
+
+
+$english_format_number = number_format($tprec=$rowim["base"], 2, '.', '');////se cnvierte en subtotal 2
+     //fin operaciones
+     
+     
+ $insertconc=mysqli_query($conexion,'INSERT INTO gen_concepto_fact(id_atencion,id_usua,codigo,cantidad,descripcion,codescded,iva,precio,importe_traslado,clave_unidad,unidad,obj_impuesto,fecha,tip_concepto,total) values ('.$id_at.','.$id_usua.',"'.$row['codigo'].'","'.$row['cantidad'].'","'.$row['descripcion'].'","'.$codescded.'","'.$ivaa.'","'.$row['precio'].'","'.$trasl.'","'. $row['clave_unidad'].'","'.$row['unidad'].'","'.$obj_impuestoo.'","'.$fecha_actual.'","Desglose","'.$totar.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+
+//para el totla
+$result_xml = $conexion->query("SELECT * from gen_concepto_fact  WHERE id_atencion=$id_at ORDER BY id_con_sat DESC") or die($conexion->error);
+
+ while ($rowf = $result_xml->fetch_assoc()) {
+
+//nuevo conceptos
+$english_format_number = number_format($iim=$rowf['precio']*$rowf['cantidad'], 6, '.', '');
+
+// $english_format_number = number_format($iim=$rowf['total'], 6, '.', '');
+
+//$tra=($iim*$cdesc); //subtototal * aseguradora =descuento de concepto
+
+
+
+$trasbasecon=($iim)-($tra); // impo concep - total descuento ESTO VA EN  base traslado
+
+$importt=$english_format_number = number_format(floor(($trasbasecon)*(.16)*100)/100,2, '.', ''); // traslado base *.16 = importe de traslado
+
+
+
+$trasbase= $english_format_number = number_format(($tprec-$sumadesc),2, '.', ''); // total descuento ESTO VA EN  TRASLADO BASE DE total de impuestos
+
+$trasporc=floor((($iim - $tra)*.16)*100)/100; //traslado por conceptos
+
+
+$sumaconcepto=floor(($iim+$importt)*100)/100;
+
+$tot=($trasbase+$ivaa); //total
+}
+//fin total
+
+/*if($id_dat_gen_ff==null){
+    $folio=1;
+}*/
+
+$resultadof = $conexion->query("SELECT * from gen_factura where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+
+$fol=$f3f['folio'];
+                }
+                
+
+    $xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($totttttt, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($sumadesc, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($rowim["base"], 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="612"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+           
+
+
+
+
+$result_xml = $conexion->query("SELECT * from gen_concepto_fact  WHERE id_atencion=$id_at ORDER BY id_con_sat DESC") or die($conexion->error);
+
+ while ($rowf = $result_xml->fetch_assoc()) {
+
+//nuevo conceptos
+$english_format_number = number_format($iim=$rowf['precio']*$rowf['cantidad'], 6, '.', '');
+
+// $english_format_number = number_format($iim=$rowf['total'], 6, '.', '');
+
+//$tra=($iim*$cdesc); //subtototal * aseguradora =descuento de concepto
+
+$cadar=($cdesc)*($iim); //descuento de  cada concepto
+
+$trasbasecon=($iim)-($tra); // impo concep - total descuento ESTO VA EN  base traslado
+
+$importt=$english_format_number = number_format(floor(($trasbasecon)*(.16)*100)/100,2, '.', ''); // traslado base *.16 = importe de traslado
+
+
+
+$trasbase= $english_format_number = number_format(($tprec-$sumadesc),2, '.', ''); // total descuento ESTO VA EN  TRASLADO BASE DE total de impuestos
+
+$trasporc=floor((($iim - $tra)*.16)*100)/100; //traslado por conceptos
+
+
+$basec=($iim - $cadar); //base or concepto
+$importeconcepto=($basec)*(.16); //base or concepto
+
+$sumaconcepto=floor(($iim+$importt)*100)/100;
+
+$tot=($trasbase+$ivaa); //total
+
+$xml .= '<cfdi:Concepto ClaveProdServ="'.$rowf['codigo'].'" Cantidad="'.$rowf['cantidad'].'" ClaveUnidad="'.$rowf['clave_unidad'].'" Unidad="'.$rowf['unidad'].'" Descripcion="'.$rowf['descripcion'].'" ValorUnitario="'.$english_format_number = number_format($rowf['precio'], 6, '.', '').'" Importe="'.$english_format_number = number_format($rowf['precio']*$rowf['cantidad'], 6, '.', '').'" Descuento="'.$english_format_number = number_format($cadar, 6, '.', '').'" ObjetoImp="'.$obj_impuestoo.'">
+        
+
+<cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="'.$english_format_number = number_format($basec, 6, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($importeconcepto, 6, '.', '').'"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+
+    </cfdi:Concepto>';
+    }
+
+  $xml .= '</cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="'.$english_format_number = number_format($ivat, 2, '.', '').'">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="'.$english_format_number = number_format($sumadescb, 2, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($ivat, 2, '.', '').'"/>
+    </cfdi:Traslados>
+
+  </cfdi:Impuestos>
+</cfdi:Comprobante>';
+$nnombre= "datos.xml";
+$arch=fopen($nnombre, "w");
+fwrite($arch, $xml);
+fclose($arch);
+  //xml
+//termino de creacion de xml
+
+//TIMBRADO
+//$ws="https://v2.timbracfdi33.mx:1449/Timbrado.asmx?wsdl";
+$ws = "https://pruebas.timbracfdi33.mx/Timbrado.asmx?wsdl";/*<- Esta ruta es para el servicio de pruebas, para pasar a productivo cambiar por https://v2.timbracfdi33.mx:1449/Timbrado.asmx*/
+$response = '';
+$workspace="../cuenta_paciente/";
+//$workspace="F:\DemoPHPTimbraCFDI\ArchivosservicioIntegracionTimbrado//";/*<- Configurar la ruta en donde se encuentra nuestro kit de integración para localizar correctamente el archivo V40_Ingreso.xml*/
+/* Ruta del comprobante a timbrar*/
+$rutaArchivo = $workspace.'datos.xml';
+//$rutaArchivo = $workspace.'V40_Ingreso.xml';
+/* El servicio recibe el comprobante (xml) codificado en Base64, el rfc del emisor deberá configurarlo según su necesidad*/ 
+$base64Comprobante = file_get_contents($rutaArchivo);
+$base64Comprobante = base64_encode($base64Comprobante);
+try
+{
+$params = array();
+/*Nombre del usuario integrador asignado, para efecto de pruebas utilizaremos 'mvpNUXmQfK8=' <- Este usuario es para el servicio de pruebas, para pasar a productivo cambiar por el que le asignarán posteriormente es Fwlh2XZwEbz7VQ+hIeo2wQ== */
+$params['usuarioIntegrador'] = 'mvpNUXmQfK8=';
+/* Comprobante en base 64*/
+$params['xmlComprobanteBase64'] = $base64Comprobante;
+/*Id del comprobante, deberá ser un identificador único, para efecto del ejemplo se utilizará un numero aleatorio*/
+$params['idComprobante'] = rand(5, 999999);
+
+$context = stream_context_create(array(
+    'ssl' => array(
+        // set some SSL/TLS specific options
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false
+    ),
+  'http' => array(
+            'user_agent' => 'PHPSoapClient'
+            )
+ ) );
+$options =array();
+$options['stream_context'] = $context;
+$options['cache_wsdl']= WSDL_CACHE_MEMORY;
+$options['trace']= true;
+
+libxml_disable_entity_loader(false);
+echo "SoapClient";
+
+$client = new SoapClient($ws,$options);
+echo "__soapCall";
+$response = $client->__soapCall('TimbraCFDI', array('parameters' => $params));
+
+}
+catch (SoapFault $fault)
+{
+  echo "SOAPFault: ".$fault->faultcode."-".$fault->faultstring."\n";
+}
+/*Obtenemos resultado del response*/
+echo "resultado";
+//echo $response;
+$tipoExcepcion = $response->TimbraCFDIResult->anyType[0];
+$numeroExcepcion = $response->TimbraCFDIResult->anyType[1];
+$descripcionResultado = $response->TimbraCFDIResult->anyType[2];
+$xmlTimbrado = $response->TimbraCFDIResult->anyType[3];
+$codigoQr = $response->TimbraCFDIResult->anyType[4];
+$cadenaOriginal = $response->TimbraCFDIResult->anyType[5];
+$errorInterno = $response->TimbraCFDIResult->anyType[6];
+$mensajeInterno = $response->TimbraCFDIResult->anyType[7];
+$detalleError = $response->TimbraCFDIResult->anyType[8];
+
+if($xmlTimbrado != '')
+{
+  echo "xmlTimbrado";
+/*El comprobante fue timbrado correctamente*/
+
+/*Guardamos comprobante timbrado*/
+file_put_contents($workspace.'comprobanteTimbrado.xml', $xmlTimbrado);
+
+/*Guardamos codigo qr*/
+file_put_contents($workspace.'codigoQr.jpg', $codigoQr);
+
+/*Guardamos cadena original del complemento de certificacion del SAT*/
+file_put_contents($workspace.'cadenaOriginal.txt', $cadenaOriginal);
+
+print_r("Timbrado exitoso");
+
+$fecha_c = date("Y-m-d H:i:s");
+
+//insert a comprobantes
+$file_factura = "comprobanteTimbrado.xml";
+
+$xml_content = file_get_contents($file_factura);
+
+$xml_content = str_replace("<tfd:", "<cfdi:", $xml_content);
+$xml_content = str_replace("<cfdi:", "<", $xml_content);
+$xml_content = str_replace("</cfdi:", "</", $xml_content);
+
+$xml_content = str_replace("<nomina12:", "<", $xml_content);
+$xml_content = str_replace("</nomina12:", "</", $xml_content);
+$xml_content = str_replace("<nomina11:", "<", $xml_content);
+$xml_content = str_replace("</nomina11:", "</", $xml_content);
+
+$xml_content = str_replace("<pago10:", "<", $xml_content);
+$xml_content = str_replace("</pago10:", "</", $xml_content);
+
+$xml_content = str_replace("@attributes", "attributes", $xml_content);
+
+
+$xml_content = simplexml_load_string(utf8_encode($xml_content));
+
+$xml_content = (array) $xml_content;
+
+// xml data
+$xml_data["version"]       = $xml_content["@attributes"]["Version"];
+$xml_data["fecha"]       = $xml_content["@attributes"]["Fecha"];
+$xml_data["total"]       = $xml_content["@attributes"]["Total"];
+$xml_data["subtotal"]       = $xml_content["@attributes"]["SubTotal"] ;
+$xml_data["moneda"]       = $xml_content["@attributes"]["Moneda"] ;
+$xml_data["sello"]       = $xml_content["@attributes"]["Sello"];
+
+$xml_data["nocertificado"]       = $xml_content["@attributes"]["NoCertificado"];
+
+$xml_content["Emisor"] = (array) $xml_content["Emisor"];
+$xml_content["Receptor"] = (array) $xml_content["Receptor"];
+$xml_content["Complemento"] = (array) $xml_content["Complemento"];
+$xml_content["Complemento"]["TimbreFiscalDigital"] = (array) $xml_content["Complemento"]["TimbreFiscalDigital"];
+
+
+$xml_data["rfc_emisor"]  = $xml_content["Emisor"]["@attributes"]["Rfc"];
+$xml_data["rfc_receptor"]  = $xml_content["Receptor"]["@attributes"]["Rfc"];
+$xml_data["uuid"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["UUID"];
+
+$xml_data["sellosat"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloSAT"];
+$xml_data["cfd"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloCFD"];
+
+
+$xml_data["impuestos"]=$xml_content["Impuestos"]["TotalImpuestosTrasladados"];
+
+//print_r ($xml_data);
+//echo $xml_data["cfd"];
+
+$montopag= mysqli_real_escape_string($conexion, (strip_tags($_POST["montopag"], ENT_QUOTES)));
+// insert data
+
+$saldoant=$xml_data["total"]-$montopag;
+
+$insertconc=mysqli_query($conexion,'INSERT INTO comprobantes(id_atencion,id_usua,fecha,cadenaor,sellosat,sellocfd,nocertificado,version, subtotal, total, moneda, sello, rfc_emisor, rfc_receptor,uuid,iva,descuento,descuento_aseg,montopag,saldoant) values ('.$id_at.','.$id_usua.',"'.$xml_data["fecha"].'","'.$cadenaOriginal.'","'.$xml_data["sellosat"] .'","'.$xml_data["cfd"].'","'.$xml_data["nocertificado"].'","'.$xml_data["version"].'","'.$xml_data["subtotal"].'","'.$xml_data["total"].'","'.$xml_data["moneda"].'","'.$xml_data["sello"].'","'.$xml_data["rfc_emisor"].'","'.$xml_data["rfc_receptor"].'","'.$xml_data["uuid"].'","'.$xml_data["impuestos"].'","'.$codescded.'","'.$dasegg.'","'.$montopag.'","'.$saldoant.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+$stm = $conexion->prepare($insertconc);
+$stm->execute($xml_data); 
+print_r("Registro agregado"); exit;
+
+//termino de insert a comprobantes
+
+
+?>
+<h2>Insert XML Data to MySql Table Output</h2>
+<?php
+if ($affectedRow > 0) {
+    $message = $affectedRow . " records inserted";
+    
+    //descarcar xml
+    //$fa=$_GET['ffiscal'];
+$nombre_fichero = 'comprobanteTimbrado.xml';
+$fichero_texto = fopen($nombre_fichero, "r");
+$contenido_fichero = fread($fichero_texto, filesize($nombre_fichero));
+
+header('Content-Type: text/xml');
+header("Content-Disposition:attachment ; filename='".$xml_data["uuid"]."'.xml");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
+echo $contenido_fichero;
+    
+} else {
+    $message = "No records inserted";
+}
+
+
+}
+else
+{
+  echo "else";
+  echo "[".$tipoExcepcion."  ".$numeroExcepcion." ".$descripcionResultado."  ei=".$errorInterno." mi=".$mensajeInterno."]" ;
+}
+
+echo '<script type="text/javascript">window.location.href ="facturacion.php?id_atencion='.$id_at.'" ;</script>';
+  
+ 
+ //termino cuando hay DESCUENTOS   //con descuento termino termino cuando hay descuento 1er caso termino
+}else{
+    //caso cando no hay descuentos cuando no hay 2 caso
+    
+    
+$english_format_number = number_format($tprec=$rowim["base"] , 2, '.', ''); //subtotal cuenta
+$ivaa=($tprec)*(.16); // iva
+
+
+             //echo '<strong>Subtotal: ' . number_format($SUBTOTAL=$SUBCI/1.16, 2).'</strong>';
+             //echo '<strong>IVA: ' . number_format($IVAAA=$SUBTOTAL*.16, 2).'</strong>';
+             //echo '<strong>TOTAL FINAL: ' . number_format($SUBTOTAL+$IVAAA+$SUMAIVAH, 2).'</strong>';
+  
+
+
+if($rowim['descripcion']=="HONORARIOS TRAUMATOLOGIA" || $rowim['descripcion']=="HONORARIOS AYUDANTE" || $rowim['descripcion']=="HONORARIOS ANESTESIOLOGO" || $rowim['descripcion']=="HONORARIOS MEDICINA INTERNA" || $rowim['descripcion']=="HONORARIOS CIRUJANO GENERAL"){
+    
+    
+      $english_format_number = number_format($totar=$tprec , 2, '.', ''); //TOTAL CUENTA
+      
+      
+      
+    }else{
+      $english_format_number = number_format($totar=$tprec+$ivaa , 2, '.', ''); //TOTAL CUENTA
+    }
+
+
+
+$sumadesc=0;
+$english_format_number = number_format($sumadesc , 2, '.', ''); //sumadescuentos
+
+
+
+
+
+
+$insertconc=mysqli_query($conexion,'INSERT INTO gen_concepto_fact(id_atencion,id_usua,codigo,cantidad,descripcion,codescded,iva,precio,importe_traslado,clave_unidad,unidad,obj_impuesto,fecha,tip_concepto,total) values ('.$id_at.','.$id_usua.',"'.$row['codigo'].'","'.$row['cantidad'].'","'.$row['descripcion'].'","'.$codescded.'","'.$ivaa.'","'.$row['precio'].'","'.$trasl.'","'. $row['clave_unidad'].'","'.$row['unidad'].'","'.$obj_impuestoo.'","'.$fecha_actual.'","Desglose","'.$totar.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+$resultadof = $conexion->query("SELECT * from gen_factura where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+$id_genf=$f3f['id_dat_gen_f'];
+$fol=$f3f['folio'];
+$razonpublica=$f3f['razon_s'];
+                }
+              
+if($razonpublica=="PUBLICO EN GENERAL"){
+   $razon_s=$pac_papell.' ' .$pac_sapell.' '.$pac_nom_pac;
+}else{
+    $razon_s=$razonpublica;
+}
+
+
+
+$nuevosub=$totar-$deposito;
+
+
+//xml deslose con val de relacion
+$resultadore = $conexion->query("SELECT * from relacion_cfdi where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3re = mysqli_fetch_array($resultadore)){
+$cfdi_relacionado=$f3re['cfdi_relacionado'];
+$tipo_relacion_a=$f3re['tipo_relacion_a'];
+
+$cfdi_relacionado2=$f3re['cfdi_relacionado2'];
+$tipo_relacion_a2=$f3re['tipo_relacion_a2'];
+
+$cfdi_relacionado3=$f3re['cfdi_relacionado3'];
+$tipo_relacion_a3=$f3re['tipo_relacion_a3'];
+
+                
+
+
+if($f3re['cfdi_relacionado']!=null and $f3re['tipo_relacion_a']!=null and $f3re['cfdi_relacionado2']==null and $f3re['tipo_relacion_a2']==null and $f3re['cfdi_relacionado3']==null and $f3re['tipo_relacion_a3']==null){
+    
+$xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($totar, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($sumadesc, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($tprec, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+
+}else if($f3re['cfdi_relacionado']!=null and $f3re['tipo_relacion_a']!=null and $f3re['cfdi_relacionado2']!=null and $f3re['tipo_relacion_a2']!=null and $f3re['cfdi_relacionado3']==null and $f3re['tipo_relacion_a3']==null){
+    
+$xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($totar, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($sumadesc, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($tprec, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a2.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado2.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+    
+}else if($f3re['cfdi_relacionado']!=null and $f3re['tipo_relacion_a']!=null and $f3re['cfdi_relacionado2']!=null and $f3re['tipo_relacion_a2']!=null and $f3re['cfdi_relacionado3']!=null and $f3re['tipo_relacion_a3']!=null){
+    
+$xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($totar, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($sumadesc, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($tprec, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a2.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado2.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a3.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado3.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+}else{
+$xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($totar, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($sumadesc, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($tprec, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+}
+
+
+
+}
+// xml termino relacion
+
+
+
+         
+// parte conceptos
+
+
+$result_xml = $conexion->query("SELECT * from gen_concepto_fact  WHERE id_atencion=$id_at ORDER BY id_con_sat DESC") or die($conexion->error);
+
+ while ($rowf = $result_xml->fetch_assoc()) {
+
+$deshon=$rowf['descripcion'];
+    
+
+$english_format_number = number_format($iim=$rowf['precio']*$rowf['cantidad'], 6, '.', '');
+
+if($rowf['descripcion']=="HONORARIOS TRAUMATOLOGIA" || $rowf['descripcion']=="HONORARIOS AYUDANTE" || $rowf['descripcion']=="HONORARIOS ANESTESIOLOGO" || $rowf['descripcion']=="HONORARIOS MEDICINA INTERNA" || $rowf['descripcion']=="HONORARIOS CIRUJANO GENERAL"){
+        $importeconceptos=0;
+    }else{
+        $importeconceptos=($iim*.16);
+    }
+
+
+ $cdesc=($sumadesc)*($iim);
+
+
+
+        $xml .= '<cfdi:Concepto ClaveProdServ="'.$rowf['codigo'].'" Cantidad="'.$rowf['cantidad'].'" ClaveUnidad="'.$rowf['clave_unidad'].'" Unidad="'.$rowf['unidad'].'" Descripcion="'.$rowf['descripcion'].'" ValorUnitario="'.$english_format_number = number_format($rowf['precio'], 6, '.', '').'" Importe="'.$english_format_number = number_format($iim, 6, '.', '').'" Descuento="'.$english_format_number = number_format($cdesc, 6, '.', '').'" ObjetoImp="'.$obj_impuestoo.'">';
+        
+        
+        
+if($rowf['descripcion']=="HONORARIOS TRAUMATOLOGIA" || $rowf['descripcion']=="HONORARIOS AYUDANTE" || $rowf['descripcion']=="HONORARIOS ANESTESIOLOGO" || $rowf['descripcion']=="HONORARIOS MEDICINA INTERNA" || $rowf['descripcion']=="HONORARIOS CIRUJANO GENERAL"){
+    
+    
+    $xml.='<cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="'.$english_format_number = number_format($iim, 6, '.', '').'" Impuesto="002" TipoFactor="Exento"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+      </cfdi:Concepto>'; //este si
+    }else{
+       $xml.='<cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="'.$english_format_number = number_format($iim, 6, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($importeconceptos, 6, '.', '').'"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+      </cfdi:Concepto>'; //este si
+      
+    
+   
+    }
+
+    
+  
+
+}
+if($deshon=="HONORARIOS TRAUMATOLOGIA" || $deshon=="HONORARIOS AYUDANTE" || $deshon=="HONORARIOS ANESTESIOLOGO"    || $deshon=="HONORARIOS MEDICINA INTERNA" || $deshon=="HONORARIOS CIRUJANO GENERAL"){
+    $xml.='</cfdi:Conceptos></cfdi:Comprobante>'; //este si
+}else{
+     /*estesi*/  $xml .= '</cfdi:Conceptos>
+     
+      <cfdi:Impuestos TotalImpuestosTrasladados="'.$english_format_number = number_format($ivaa, 2, '.', '').'">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="'.$english_format_number = number_format($tprec, 2, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($ivaa, 2, '.', '').'"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>';
+  $xml.='</cfdi:Comprobante>'; //este si
+}
+
+ 
+
+$nnombre= "datos.xml";
+$arch=fopen($nnombre, "w");
+fwrite($arch, $xml);
+fclose($arch);
+  //xml
+//termino de creacion de xml
+
+//TIMBRADO
+
+//$ws = new SoapClient('http://www.webservicex.com/globalweather.asmx?wsdl', ['trace' => 1, 'cache_wsdl' => WSDL_CACHE_NONE, 'user_agent' => 'Mi cliente SOAP']);
+//var_dump($ws->__getFunctions());
+
+//$ws="https://v2.timbracfdi33.mx:1449/Timbrado.asmx?wsdl";
+$ws = "https://pruebas.timbracfdi33.mx/Timbrado.asmx?wsdl";/*<- Esta ruta es para el servicio de pruebas, para pasar a productivo cambiar por https://v2.timbracfdi33.mx:1449/Timbrado.asmx*/
+$response = '';
+$workspace="../cuenta_paciente/";
+//$workspace="F:\DemoPHPTimbraCFDI\ArchivosservicioIntegracionTimbrado//";/*<- Configurar la ruta en donde se encuentra nuestro kit de integración para localizar correctamente el archivo V40_Ingreso.xml*/
+/* Ruta del comprobante a timbrar*/
+$rutaArchivo = $workspace.'datos.xml';
+//$rutaArchivo = $workspace.'V40_Ingreso.xml';
+/* El servicio recibe el comprobante (xml) codificado en Base64, el rfc del emisor deberá configurarlo según su necesidad*/ 
+$base64Comprobante = file_get_contents($rutaArchivo);
+$base64Comprobante = base64_encode($base64Comprobante);
+try
+{
+$params = array();
+/*Nombre del usuario integrador asignado, para efecto de pruebas utilizaremos 'mvpNUXmQfK8=' <- Este usuario es para el servicio de pruebas, para pasar a productivo cambiar por el que le asignarán posteriormente*/
+//$params['usuarioIntegrador'] = 'Fwlh2XZwEbz7VQ+hIeo2wQ==';
+
+$params['usuarioIntegrador'] = 'mvpNUXmQfK8=';
+
+
+/* Comprobante en base 64*/
+$params['xmlComprobanteBase64'] = $base64Comprobante;
+/*Id del comprobante, deberá ser un identificador único, para efecto del ejemplo se utilizará un numero aleatorio*/
+$params['idComprobante'] = rand(5, 999999);
+
+$context = stream_context_create(array(
+    'ssl' => array(
+        // set some SSL/TLS specific options
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false
+    ),
+  'http' => array(
+            'user_agent' => 'PHPSoapClient'
+            )
+ ) );
+$options =array();
+$options['stream_context'] = $context;
+$options['cache_wsdl']= WSDL_CACHE_MEMORY;
+$options['trace']= true;
+
+libxml_disable_entity_loader(false);
+echo "SoapClient";
+
+$client = new SoapClient($ws,$options);
+echo "__soapCall";
+$response = $client->__soapCall('TimbraCFDI', array('parameters' => $params));
+
+}
+catch (SoapFault $fault)
+{
+  echo "SOAPFault: ".$fault->faultcode."-".$fault->faultstring."\n";
+}
+/*Obtenemos resultado del response*/
+echo "resultado";
+//echo $response;
+$tipoExcepcion = $response->TimbraCFDIResult->anyType[0];
+$numeroExcepcion = $response->TimbraCFDIResult->anyType[1];
+$descripcionResultado = $response->TimbraCFDIResult->anyType[2];
+$xmlTimbrado = $response->TimbraCFDIResult->anyType[3];
+$codigoQr = $response->TimbraCFDIResult->anyType[4];
+$cadenaOriginal = $response->TimbraCFDIResult->anyType[5];
+$errorInterno = $response->TimbraCFDIResult->anyType[6];
+$mensajeInterno = $response->TimbraCFDIResult->anyType[7];
+$detalleError = $response->TimbraCFDIResult->anyType[8];
+
+if($xmlTimbrado != '')
+{
+  echo "xmlTimbrado";
+/*El comprobante fue timbrado correctamente*/
+
+/*Guardamos comprobante timbrado*/
+file_put_contents($workspace.'comprobanteTimbrado.xml', $xmlTimbrado);
+
+/*Guardamos codigo qr*/
+file_put_contents($workspace.'codigoQr.jpg', $codigoQr);
+
+/*Guardamos cadena original del complemento de certificacion del SAT*/
+file_put_contents($workspace.'cadenaOriginal.txt', $cadenaOriginal);
+
+print_r("Timbrado exitoso");
+
+$fecha_c = date("Y-m-d H:i:s");
+
+//insert a comprobantes
+$file_factura = "comprobanteTimbrado.xml";
+
+$xml_content = file_get_contents($file_factura);
+
+$xml_content = str_replace("<tfd:", "<cfdi:", $xml_content);
+$xml_content = str_replace("<cfdi:", "<", $xml_content);
+$xml_content = str_replace("</cfdi:", "</", $xml_content);
+
+$xml_content = str_replace("<nomina12:", "<", $xml_content);
+$xml_content = str_replace("</nomina12:", "</", $xml_content);
+$xml_content = str_replace("<nomina11:", "<", $xml_content);
+$xml_content = str_replace("</nomina11:", "</", $xml_content);
+
+$xml_content = str_replace("<pago10:", "<", $xml_content);
+$xml_content = str_replace("</pago10:", "</", $xml_content);
+
+$xml_content = str_replace("@attributes", "attributes", $xml_content);
+
+
+$xml_content = simplexml_load_string(utf8_encode($xml_content));
+
+$xml_content = (array) $xml_content;
+
+// xml data
+$xml_data["version"]       = $xml_content["@attributes"]["Version"];
+$xml_data["fecha"]       = $xml_content["@attributes"]["Fecha"];
+$xml_data["total"]       = $xml_content["@attributes"]["Total"];
+$xml_data["subtotal"]       = $xml_content["@attributes"]["SubTotal"] ;
+$xml_data["moneda"]       = $xml_content["@attributes"]["Moneda"] ;
+$xml_data["sello"]       = $xml_content["@attributes"]["Sello"];
+
+$xml_data["nocertificado"]       = $xml_content["@attributes"]["NoCertificado"];
+
+$xml_content["Emisor"] = (array) $xml_content["Emisor"];
+$xml_content["Receptor"] = (array) $xml_content["Receptor"];
+$xml_content["Complemento"] = (array) $xml_content["Complemento"];
+$xml_content["Complemento"]["TimbreFiscalDigital"] = (array) $xml_content["Complemento"]["TimbreFiscalDigital"];
+
+
+$xml_data["rfc_emisor"]  = $xml_content["Emisor"]["@attributes"]["Rfc"];
+$xml_data["rfc_receptor"]  = $xml_content["Receptor"]["@attributes"]["Rfc"];
+$xml_data["uuid"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["UUID"];
+
+$xml_data["sellosat"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloSAT"];
+$xml_data["cfd"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloCFD"];
+
+
+$xml_data["impuestos"]=$xml_content["Impuestos"]["TotalImpuestosTrasladados"];
+
+//print_r ($xml_data);
+//echo $xml_data["cfd"];
+$montopag= mysqli_real_escape_string($conexion, (strip_tags($_POST["montopag"], ENT_QUOTES)));
+// insert data
+$saldoant=$xml_data["total"]-$montopag;
+$insertconc=mysqli_query($conexion,'INSERT INTO comprobantes(id_atencion,id_usua,fecha,cadenaor,sellosat,sellocfd,nocertificado,version, subtotal, total, moneda, sello, rfc_emisor, rfc_receptor,uuid,iva,montopag,saldoant,id_dat_gen_f) values ('.$id_at.','.$id_usua.',"'.$xml_data["fecha"].'","'.$cadenaOriginal.'","'.$xml_data["sellosat"] .'","'.$xml_data["cfd"].'","'.$xml_data["nocertificado"].'","'.$xml_data["version"].'","'.$xml_data["subtotal"].'","'.$xml_data["total"].'","'.$xml_data["moneda"].'","'.$xml_data["sello"].'","'.$xml_data["rfc_emisor"].'","'.$xml_data["rfc_receptor"].'","'.$xml_data["uuid"].'","'.$xml_data["impuestos"].'","'.$montopag.'","'.$saldoant.'","'.$id_genf.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+
+
+$stm = $conexion->prepare($insertconc);
+$stm->execute($xml_data); 
+print_r("Registro agregado"); exit;
+
+//termino de insert a comprobantes
+
+
+?>
+<h2>Insert XML Data to MySql Table Output</h2>
+<?php
+if ($affectedRow > 0) {
+    $message = $affectedRow . " records inserted";
+    //descarcar xml
+    //$fa=$_GET['ffiscal'];
+$nombre_fichero = 'comprobanteTimbrado.xml';
+$fichero_texto = fopen($nombre_fichero, "r");
+$contenido_fichero = fread($fichero_texto, filesize($nombre_fichero));
+
+header('Content-Type: text/xml');
+header("Content-Disposition:attachment ; filename='".$xml_data["uuid"]."'.xml");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+} else {
+    $message = "No records inserted";
+}
+
+
+}
+else
+{
+  echo "else";
+  echo "[".$tipoExcepcion."  ".$numeroExcepcion." ".$descripcionResultado."  ei=".$errorInterno." mi=".$mensajeInterno."]" ;
+}
+
+
+
+
+
+
+echo '<script type="text/javascript">window.location.href ="facturacion_pruebas.php?id_atencion='.$id_at.'" ;</script>';
+  }
+
+
+} //termino del caso cuando no hay descuentos
+
+
+
+
+
+}
+
+
+
+
+}
+ ?>
+ 
+ <!--INSERT DE GLOBAL GLOBAL GLOBAL CNCEPTO GLOBAL GLOBAL CONCEPTO GLOBAL-->
+
+ <?php 
+if (isset($_POST['factglobal'])) {
+
+
+
+$usuario = $_SESSION['login'];
+$id_usua= $usuario['id_usua'];
+$id_at = $_GET['id_atencion'];
+
+$fecha_actual = date("Y-m-d H:i:s");
+
+echo $fechasat = date("Y-m-d");
+$horasat = date("H:i:s");
+
+$fechasat;
+list($anio, $mes, $dia) = explode("-",$fechasat);
+$Fs=$anio.'-'.$mes.'-'.$dia;
+$FechaCompleta=$Fs.'T'.$horasat;
+
+$serie= mysqli_real_escape_string($conexion, (strip_tags($_POST["serie"], ENT_QUOTES)));
+$forma_pago= mysqli_real_escape_string($conexion, (strip_tags($_POST["forma_pago"], ENT_QUOTES)));
+$moneda= mysqli_real_escape_string($conexion, (strip_tags($_POST["moneda"], ENT_QUOTES)));
+//$folio= mysqli_real_escape_string($conexion, (strip_tags($_POST["folio"], ENT_QUOTES)));
+$metodo_pago= mysqli_real_escape_string($conexion, (strip_tags($_POST["metodo_pago"], ENT_QUOTES)));
+$uso_cfdi= mysqli_real_escape_string($conexion, (strip_tags($_POST["uso_cfdi"], ENT_QUOTES)));
+$exportacion= mysqli_real_escape_string($conexion, (strip_tags($_POST["exportacion"], ENT_QUOTES)));
+$tip_cfdi= mysqli_real_escape_string($conexion, (strip_tags($_POST["tip_cfdi"], ENT_QUOTES)));
+
+$fecha= mysqli_real_escape_string($conexion, (strip_tags($_POST["fecha"], ENT_QUOTES)));
+
+
+if (isset($_POST['inf_glob'])) {
+ $inf_glob=mysqli_real_escape_string($conexion, (strip_tags($_POST["inf_glob"], ENT_QUOTES)));
+}else{
+  $inf_glob="No";
+}
+
+$periodicidad= mysqli_real_escape_string($conexion, (strip_tags($_POST["periodicidad"], ENT_QUOTES)));
+$meses= mysqli_real_escape_string($conexion, (strip_tags($_POST["meses"], ENT_QUOTES)));
+$anio= mysqli_real_escape_string($conexion, (strip_tags($_POST["anio"], ENT_QUOTES)));
+$rfc= mysqli_real_escape_string($conexion, (strip_tags($_POST["rfc"], ENT_QUOTES)));
+$razon_s= mysqli_real_escape_string($conexion, (strip_tags($_POST["razon_s"], ENT_QUOTES)));
+$calle= mysqli_real_escape_string($conexion, (strip_tags($_POST["calle"], ENT_QUOTES)));
+$no_ext= mysqli_real_escape_string($conexion, (strip_tags($_POST["no_ext"], ENT_QUOTES)));
+$no_int= mysqli_real_escape_string($conexion, (strip_tags($_POST["no_int"], ENT_QUOTES)));
+
+$estado= mysqli_real_escape_string($conexion, (strip_tags($_POST["estado"], ENT_QUOTES)));
+$municipio= mysqli_real_escape_string($conexion, (strip_tags($_POST["municipio"], ENT_QUOTES)));
+
+$cod_postal= mysqli_real_escape_string($conexion, (strip_tags($_POST["cod_postal"], ENT_QUOTES)));
+$asenta= mysqli_real_escape_string($conexion, (strip_tags($_POST["asenta"], ENT_QUOTES)));
+$reg_fiscal= mysqli_real_escape_string($conexion, (strip_tags($_POST["reg_fiscal"], ENT_QUOTES)));
+$nom_c= mysqli_real_escape_string($conexion, (strip_tags($_POST["nom_c"], ENT_QUOTES)));
+
+$cfdi_relacionado= mysqli_real_escape_string($conexion, (strip_tags($_POST["cfdi_relacionado"], ENT_QUOTES)));
+$tipo_relacion_a= mysqli_real_escape_string($conexion, (strip_tags($_POST["tipo_relacion_a"], ENT_QUOTES)));
+
+$cfdi_relacionado2= mysqli_real_escape_string($conexion, (strip_tags($_POST["cfdi_relacionado2"], ENT_QUOTES)));
+$tipo_relacion_a2= mysqli_real_escape_string($conexion, (strip_tags($_POST["tipo_relacion_a2"], ENT_QUOTES)));
+
+$cfdi_relacionado3= mysqli_real_escape_string($conexion, (strip_tags($_POST["cfdi_relacionado3"], ENT_QUOTES)));
+$tipo_relacion_a3= mysqli_real_escape_string($conexion, (strip_tags($_POST["tipo_relacion_a3"], ENT_QUOTES)));
+
+$resultadof = $conexion->query("SELECT * from gen_factura") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+
+$id_dat_gen_ff=$f3f['id_dat_gen_f'];
+                }
+                
+  if($id_dat_gen_ff==null){
+$insertfac=mysqli_query($conexion,'INSERT INTO gen_factura(id_atencion,id_usua,serie,forma_pago,moneda,folio,metodo_pago,uso_cfdi,tip_cfdi,exportacion,fecha,inf_glob,periodicidad,meses,anio,rfc,razon_s,calle,no_ext,no_int,estado,municipio,cod_postal,asenta,reg_fiscal,nom_c) values ('.$id_at.','.$id_usua.',"E","'.$forma_pago.'","'.$moneda.'",1,"'.$metodo_pago.'","'.$uso_cfdi.'","'.$tip_cfdi.'","'.$exportacion.'","'.$fecha_actual.'","'.$inf_glob.'","'.$periodicidad.'","'.$meses.'","'.$anio.'","'.$rfc.'","'.$razon_s.'","'.$calle.'","'.$no_ext.'","'.$no_int.'","'.$estado.'","'.$municipio.'","'.$cod_postal.'","'.$asenta.'","'.$reg_fiscal.'","'.$nom_c.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+    
+}
+else if($id_dat_gen_ff>0){
+$resultado34 = $conexion->query("SELECT * from gen_factura") or die($conexion->error);
+
+                while($f34 = mysqli_fetch_array($resultado34)){
+$folio=$f34['folio'];
+$folio++;
+                }
+                 
+            
+$insertfac=mysqli_query($conexion,'INSERT INTO gen_factura(id_atencion,id_usua,serie,forma_pago,moneda,folio,metodo_pago,uso_cfdi,tip_cfdi,exportacion,fecha,inf_glob,periodicidad,meses,anio,rfc,razon_s,calle,no_ext,no_int,estado,municipio,cod_postal,asenta,reg_fiscal,nom_c) values ('.$id_at.','.$id_usua.',"E","'.$forma_pago.'","'.$moneda.'","'.$folio.'","'.$metodo_pago.'","'.$uso_cfdi.'","'.$tip_cfdi.'","'.$exportacion.'","'.$fecha_actual.'","'.$inf_glob.'","'.$periodicidad.'","'.$meses.'","'.$anio.'","'.$rfc.'","'.$razon_s.'","'.$calle.'","'.$no_ext.'","'.$no_int.'","'.$estado.'","'.$municipio.'","'.$cod_postal.'","'.$asenta.'","'.$reg_fiscal.'","'.$nom_c.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+           }
+
+
+$resultadof = $conexion->query("SELECT * from gen_factura where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+$id_genf=$f3f['id_dat_gen_f'];
+
+                }
+//relacion cfdi si hay
+if($cfdi_relacionado!=null and $tipo_relacion_a!=null){
+$insertrelacioncf=mysqli_query($conexion,'INSERT INTO relacion_cfdi(id_usua,id_atencion,fecha,cfdi_relacionado,tipo_relacion_a,cfdi_relacionado2,tipo_relacion_a2,cfdi_relacionado3,tipo_relacion_a3,id_dat_gen_f) values ('.$id_usua.','.$id_at.',"'.$fecha_actual.'","'.$cfdi_relacionado.'","'.$tipo_relacion_a.'","'.$cfdi_relacionado2.'","'.$tipo_relacion_a2.'","'.$cfdi_relacionado3.'","'.$tipo_relacion_a3.'","'.$id_genf.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+}else{
+    $insertrelacioncf=mysqli_query($conexion,'INSERT INTO relacion_cfdi(id_usua,id_atencion,fecha,cfdi_relacionado,tipo_relacion_a,cfdi_relacionado2,tipo_relacion_a2,cfdi_relacionado3,tipo_relacion_a3,id_dat_gen_f) values ('.$id_usua.','.$id_at.',"'.$fecha_actual.'","'.$cfdi_relacionado.'","'.$tipo_relacion_a.'","'.$cfdi_relacionado2.'","'.$tipo_relacion_a2.'","'.$cfdi_relacionado3.'","'.$tipo_relacion_a3.'","No existe relacion")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+}
+
+//insert a nueva conceptos
+
+$fecha_actual = date("Y-m-d H:i:s");
+
+$cantidad= mysqli_real_escape_string($conexion, (strip_tags($_POST["cantidad"], ENT_QUOTES)));
+//$descripcion= mysqli_real_escape_string($conexion, (strip_tags($_POST["descripcion"], ENT_QUOTES)));
+//$coaseguro= mysqli_real_escape_string($conexion, (strip_tags($_POST["coaseguro"], ENT_QUOTES)));
+$deducible= mysqli_real_escape_string($conexion, (strip_tags($_POST["deducible"], ENT_QUOTES)));
+$traslado= mysqli_real_escape_string($conexion, (strip_tags($_POST["traslado"], ENT_QUOTES)));
+$iva= mysqli_real_escape_string($conexion, (strip_tags($_POST["iva"], ENT_QUOTES)));
+$precio= mysqli_real_escape_string($conexion, (strip_tags($_POST["precio"], ENT_QUOTES)));
+//$clave_unidad= mysqli_real_escape_string($conexion, (strip_tags($_POST["clave_unidad"], ENT_QUOTES)));
+$obj_impuesto= mysqli_real_escape_string($conexion, (strip_tags($_POST["obj_impuesto"], ENT_QUOTES)));
+$otros= mysqli_real_escape_string($conexion, (strip_tags($_POST["otros"], ENT_QUOTES)));
+
+$codescdedl= mysqli_real_escape_string($conexion, (strip_tags($_POST["codescdedl"], ENT_QUOTES)));
+$dasegl= mysqli_real_escape_string($conexion, (strip_tags($_POST["dasegl"], ENT_QUOTES)));
+
+
+
+if($codescdedl!=null or $dasegl!=null){ // caso cuando hay descuentos inicio cuando hay descuentos
+    $dasegl=floor(($dasegl/100)*100)/100;
+    
+    
+     
+
+
+    $resultado = $conexion->query("SELECT * from gen_concepto WHERE id_atencion=$id_at ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) { 
+
+$resultadoimporte = $conexion->query("SELECT *,sum(importe) as base from gen_concepto WHERE id_atencion=$id_at group by id_atencion") or die($conexion->error);
+while ($rowim = $resultadoimporte->fetch_assoc()) {
+//$tprecio=$rowim["base"];
+//parte de arriba inicio
+
+
+
+//nuevo 
+$english_format_number = number_format($dasegg=floor(($rowim["base"])*($dasegl)*100)/100, 2, '.', ''); //subtototal * aseguradora
+$english_format_number = number_format($sumadesc=($codescdedl)+($dasegg), 2, '.', ''); //suma descuentos arriba esto va en descuento 2
+$sumadescb=floor((($rowim["base"])-($dasegg)-100)*100)/100; //suma descuentos arriba esto va en descuento 2
+$ivat=($sumadescb)*(.16); // iva traslado e impuetos trasladados
+
+
+
+
+$cdesc=($sumadesc)/($rowim["base"]); // para sacar $ de descuento
+
+$english_format_number = number_format($ivaa=($tprecio-$sumadesc)*(.16), 2, '.', '');//iva 2 traslado de hasta abajo
+
+
+$english_format_number = number_format($totar=($rowim["base"]-$sumadesc), 2, '.', '');//
+
+
+
+$english_format_number = number_format($tprec=$rowim["base"], 2, '.', '');////se cnvierte en subtotal 2
+     //fin operaciones
+
+
+
+//parte de arriba termino
+
+
+
+//nuevo conceptos
+$english_format_number = number_format($iim=$rowf['precio']*$rowf['cantidad'], 6, '.', '');
+
+// $english_format_number = number_format($iim=$rowf['total'], 6, '.', '');
+
+//$tra=($cdesc/$tprec); //sma de descuentos
+
+$cadar=($cdesc)*($iim); //descuento de  cada concepto
+
+
+$trasbasecon=($iim)-($tra); // impo concep - total descuento ESTO VA EN  base traslado
+
+$importt=$english_format_number = number_format(floor(($trasbasecon)*(.16)*100)/100,2, '.', ''); // traslado base *.16 = importe de traslado
+
+
+
+$trasbase= $english_format_number = number_format(($tprec-$sumadesc),2, '.', ''); // total descuento ESTO VA EN  TRASLADO BASE DE total de impuestos
+
+$basec=($iim - $cadar); //base or concepto
+$importeconcepto=($basec)*(.16); //base or concepto
+
+$sumaconcepto=floor(($iim+$importt)*100)/100;
+
+$tot=floor($sumadescb+$ivat);
+
+
+
+$insertconc=mysqli_query($conexion,'INSERT INTO gen_concepto_fact(id_atencion,id_usua,codigo,cantidad,descripcion,codescded,iva,precio,importe_traslado,clave_unidad,unidad,obj_impuesto,fecha,tip_concepto,total) values ('.$id_at.','.$id_usua.',"42295100","1","ATENCION SERVICIOS HOSPITALARIOS","'.$codescdedl.'","'.$iva.'","'.$tprec.'","'.$trasl.'","'. $row['clave_unidad'].'","'.$row['unidad'].'","'.$obj_impuesto.'","'.$fecha_actual.'","Global","'.$tot.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+$resultadof = $conexion->query("SELECT * from gen_factura where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+
+$fol=$f3f['folio'];
+                }
+$xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($tot, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($sumadesc, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($rowim["base"], 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="612"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+
+// parte conceptos
+
+
+$result_xml = $conexion->query("SELECT * from gen_concepto_fact  WHERE id_atencion=$id_at ORDER BY id_con_sat DESC") or die($conexion->error);
+
+ while ($rowf = $result_xml->fetch_assoc()) {
+
+$codigp=$row['codigo'];
+    $clave_unidad=$row['clave_unidad'];
+      $unidad=$row['unidad'];
+
+$english_format_number = number_format($iim=$rowf['precio']*$rowf['cantidad'], 6, '.', '');
+
+$importeconceptos=($iim*.16);
+ $cdesc=($sumadesc)*($iim);
+
+
+}
+        $xml .= '<cfdi:Concepto ClaveProdServ="42271709" Cantidad="1" ClaveUnidad="E48" Unidad="'.$unidad.'" Descripcion="ATENCION SERVICIOS HOSPITALARIOS" ValorUnitario="'.$english_format_number = number_format($iim, 6, '.', '').'" Importe="'.$english_format_number = number_format($iim, 6, '.', '').'" Descuento="'.$english_format_number = number_format($sumadesc, 6, '.', '').'" ObjetoImp="'.$obj_impuesto.'">
+        
+
+<cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="'.$english_format_number = number_format($sumadescb, 6, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($ivat, 2, '.', '').'"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+
+    </cfdi:Concepto>';
+    
+
+    //fin conceptos
+  $xml .= '</cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="'.$english_format_number = number_format($ivat, 2, '.', '').'">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="'.$english_format_number = number_format($sumadescb, 2, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($ivat, 2, '.', '').'"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+</cfdi:Comprobante>';
+$nnombre= "datos.xml";
+$arch=fopen($nnombre, "w");
+fwrite($arch, $xml);
+fclose($arch);
+  //xml
+//termino de creacion de xml
+
+
+//TIMBRADO
+//$ws="https://v2.timbracfdi33.mx:1449/Timbrado.asmx?wsdl";
+$ws = "https://pruebas.timbracfdi33.mx/Timbrado.asmx?wsdl";/*<- Esta ruta es para el servicio de pruebas, para pasar a productivo cambiar por https://v2.timbracfdi33.mx:1449/Timbrado.asmx*/
+$response = '';
+$workspace="../cuenta_paciente/";
+//$workspace="F:\DemoPHPTimbraCFDI\ArchivosservicioIntegracionTimbrado//";/*<- Configurar la ruta en donde se encuentra nuestro kit de integración para localizar correctamente el archivo V40_Ingreso.xml*/
+/* Ruta del comprobante a timbrar*/
+$rutaArchivo = $workspace.'datos.xml';
+//$rutaArchivo = $workspace.'V40_Ingreso.xml';
+/* El servicio recibe el comprobante (xml) codificado en Base64, el rfc del emisor deberá configurarlo según su necesidad*/ 
+$base64Comprobante = file_get_contents($rutaArchivo);
+$base64Comprobante = base64_encode($base64Comprobante);
+try
+{
+$params = array();
+/*Nombre del usuario integrador asignado, para efecto de pruebas utilizaremos 'mvpNUXmQfK8=' <- Este usuario es para el servicio de pruebas, para pasar a productivo cambiar por el que le asignarán posteriormente*/
+//$params['usuarioIntegrador'] = 'Fwlh2XZwEbz7VQ+hIeo2wQ==';
+$params['usuarioIntegrador'] = 'mvpNUXmQfK8=';
+/* Comprobante en base 64*/
+$params['xmlComprobanteBase64'] = $base64Comprobante;
+/*Id del comprobante, deberá ser un identificador único, para efecto del ejemplo se utilizará un numero aleatorio*/
+$params['idComprobante'] = rand(5, 999999);
+
+$context = stream_context_create(array(
+    'ssl' => array(
+        // set some SSL/TLS specific options
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false
+    ),
+  'http' => array(
+            'user_agent' => 'PHPSoapClient'
+            )
+ ) );
+$options =array();
+$options['stream_context'] = $context;
+$options['cache_wsdl']= WSDL_CACHE_MEMORY;
+$options['trace']= true;
+
+libxml_disable_entity_loader(false);
+echo "SoapClient";
+
+$client = new SoapClient($ws,$options);
+echo "__soapCall";
+$response = $client->__soapCall('TimbraCFDI', array('parameters' => $params));
+
+}
+catch (SoapFault $fault)
+{
+  echo "SOAPFault: ".$fault->faultcode."-".$fault->faultstring."\n";
+}
+/*Obtenemos resultado del response*/
+echo "resultado";
+//echo $response;
+$tipoExcepcion = $response->TimbraCFDIResult->anyType[0];
+$numeroExcepcion = $response->TimbraCFDIResult->anyType[1];
+$descripcionResultado = $response->TimbraCFDIResult->anyType[2];
+$xmlTimbrado = $response->TimbraCFDIResult->anyType[3];
+$codigoQr = $response->TimbraCFDIResult->anyType[4];
+$cadenaOriginal = $response->TimbraCFDIResult->anyType[5];
+$errorInterno = $response->TimbraCFDIResult->anyType[6];
+$mensajeInterno = $response->TimbraCFDIResult->anyType[7];
+$detalleError = $response->TimbraCFDIResult->anyType[8];
+
+if($xmlTimbrado != '')
+{
+  echo "xmlTimbrado";
+/*El comprobante fue timbrado correctamente*/
+
+/*Guardamos comprobante timbrado*/
+file_put_contents($workspace.'comprobanteTimbrado.xml', $xmlTimbrado);
+
+/*Guardamos codigo qr*/
+file_put_contents($workspace.'codigoQr.jpg', $codigoQr);
+
+/*Guardamos cadena original del complemento de certificacion del SAT*/
+file_put_contents($workspace.'cadenaOriginal.txt', $cadenaOriginal);
+
+print_r("Timbrado exitoso");
+
+$fecha_c = date("Y-m-d H:i:s");
+
+//insert a comprobantes
+$file_factura = "comprobanteTimbrado.xml";
+
+$xml_content = file_get_contents($file_factura);
+
+$xml_content = str_replace("<tfd:", "<cfdi:", $xml_content);
+$xml_content = str_replace("<cfdi:", "<", $xml_content);
+$xml_content = str_replace("</cfdi:", "</", $xml_content);
+
+$xml_content = str_replace("<nomina12:", "<", $xml_content);
+$xml_content = str_replace("</nomina12:", "</", $xml_content);
+$xml_content = str_replace("<nomina11:", "<", $xml_content);
+$xml_content = str_replace("</nomina11:", "</", $xml_content);
+
+$xml_content = str_replace("<pago10:", "<", $xml_content);
+$xml_content = str_replace("</pago10:", "</", $xml_content);
+
+$xml_content = str_replace("@attributes", "attributes", $xml_content);
+
+
+$xml_content = simplexml_load_string(utf8_encode($xml_content));
+
+$xml_content = (array) $xml_content;
+
+// xml data
+$xml_data["version"]       = $xml_content["@attributes"]["Version"];
+$xml_data["fecha"]       = $xml_content["@attributes"]["Fecha"];
+$xml_data["total"]       = $xml_content["@attributes"]["Total"];
+$xml_data["subtotal"]       = $xml_content["@attributes"]["SubTotal"] ;
+$xml_data["moneda"]       = $xml_content["@attributes"]["Moneda"] ;
+$xml_data["sello"]       = $xml_content["@attributes"]["Sello"];
+
+$xml_data["nocertificado"]       = $xml_content["@attributes"]["NoCertificado"];
+
+$xml_content["Emisor"] = (array) $xml_content["Emisor"];
+$xml_content["Receptor"] = (array) $xml_content["Receptor"];
+$xml_content["Complemento"] = (array) $xml_content["Complemento"];
+$xml_content["Complemento"]["TimbreFiscalDigital"] = (array) $xml_content["Complemento"]["TimbreFiscalDigital"];
+
+
+$xml_data["rfc_emisor"]  = $xml_content["Emisor"]["@attributes"]["Rfc"];
+$xml_data["rfc_receptor"]  = $xml_content["Receptor"]["@attributes"]["Rfc"];
+$xml_data["uuid"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["UUID"];
+
+$xml_data["sellosat"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloSAT"];
+$xml_data["cfd"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloCFD"];
+
+
+$xml_data["impuestos"]=$xml_content["Impuestos"]["TotalImpuestosTrasladados"];
+
+//print_r ($xml_data);
+//echo $xml_data["cfd"];
+$montopag= mysqli_real_escape_string($conexion, (strip_tags($_POST["montopag"], ENT_QUOTES)));
+// insert data
+$saldoant=$xml_data["total"]-$montopag;
+
+$insertconc=mysqli_query($conexion,'INSERT INTO comprobantes(id_atencion,id_usua,fecha,cadenaor,sellosat,sellocfd,nocertificado,version, subtotal, total, moneda, sello, rfc_emisor, rfc_receptor,uuid,iva,descuento,descuento_aseg,montopag,saldoant) values ('.$id_at.','.$id_usua.',"'.$xml_data["fecha"].'","'.$cadenaOriginal.'","'.$xml_data["sellosat"] .'","'.$xml_data["cfd"].'","'.$xml_data["nocertificado"].'","'.$xml_data["version"].'","'.$xml_data["subtotal"].'","'.$xml_data["total"].'","'.$xml_data["moneda"].'","'.$xml_data["sello"].'","'.$xml_data["rfc_emisor"].'","'.$xml_data["rfc_receptor"].'","'.$xml_data["uuid"].'","'.$xml_data["impuestos"].'","'.$sumadesc.'","'.$codescdedl.'","'.$montopag.'","'.$saldoant.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+$stm = $conexion->prepare($insertconc);
+$stm->execute($xml_data); 
+print_r("Registro agregado"); exit;
+
+//termino de insert a comprobantes
+
+
+?>
+<h2>Insert XML Data to MySql Table Output</h2>
+<?php
+if ($affectedRow > 0) {
+    $message = $affectedRow . " records inserted";
+    //descarcar xml
+    //$fa=$_GET['ffiscal'];
+$nombre_fichero = 'comprobanteTimbrado.xml';
+$fichero_texto = fopen($nombre_fichero, "r");
+$contenido_fichero = fread($fichero_texto, filesize($nombre_fichero));
+
+header('Content-Type: text/xml');
+header("Content-Disposition:attachment ; filename='".$xml_data["uuid"]."'.xml");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+} else {
+    $message = "No records inserted";
+}
+
+
+}
+else
+{
+  echo "else";
+  echo "[".$tipoExcepcion."  ".$numeroExcepcion." ".$descripcionResultado."  ei=".$errorInterno." mi=".$mensajeInterno."]" ;
+}
+
+
+
+}
+}
+
+
+echo '<script type="text/javascript">window.location.href ="facturacion.php?id_atencion='.$id_at.'" ;</script>';
+  
+    
+}else{                          //sin descuentos global
+
+$resultado = $conexion->query("SELECT * from gen_concepto WHERE id_atencion=$id_at ORDER BY id_conce DESC") or die($conexion->error);
+              while ($row = $resultado->fetch_assoc()) { 
+
+$resultadoimporte = $conexion->query("SELECT *,sum(importe) as base from gen_concepto WHERE id_atencion=$id_at group by id_atencion") or die($conexion->error);
+while ($rowim = $resultadoimporte->fetch_assoc()) {
+//$tprecio=$rowim["base"];
+
+  //$deposito
+///////////////////////////////////////////
+$IVVA2=$rowim["base"]* 0.16;
+
+$SUBBIEN=$rowim["base"]+$IVVA2;
+
+$english_format_number = number_format($tprec=$SUBBIEN , 2, '.', ''); //subtotal cuenta
+
+$importebien=$tprec/1.16;
+
+$IVAFINAL=$importebien*.16;
+
+$TOTALFINAL=$importebien+$IVAFINAL;
+
+
+$totalfin=$TOTALFINAL-$deposito;
+
+///////////////////////////////////////////
+$ivaa=($tprec)*(.16); // iva
+$english_format_number = number_format($totar=$tprec+$ivaa , 2, '.', ''); //TOTAL CUENTA
+$sumadesc=0;
+$english_format_number = number_format($sumadesc , 2, '.', ''); //sumadescuentos
+
+
+
+
+
+//////////////////////////////// nueva factura CON DESCUENTO
+
+if($banco=='DESCUENTO'){
+
+round($CanInicial=$rowim["base"] , 6);
+    
+    $english_format_number = number_format($DesSiniva=$deposito/1.16 , 6, '.', ''); 
+    
+        $english_format_number = number_format($bmiva=$CanInicial-$DesSiniva, 6, '.', '');
+        
+         $english_format_number = number_format($tcondes=$bmiva*.16, 6, '.', ''); 
+         $english_format_number = number_format($TOTALPO=$bmiva+$tcondes, 6, '.', '');
+//$CanInicial=$rowim["base"]; // ya esta bien
+
+//$DesSiniva=$deposito/1.16;
+
+//$bmiva=$CanInicial-$DesSiniva;
+
+//$tcondes=$bmiva*.16;
+
+//$TOTALPO=$bmiva+$tcondes;
+
+
+}else{
+    //sin descuento
+$CanInicial=$rowim["base"]; // ya esta bien
+
+$bmiva=$CanInicial;
+
+$tcondes=$bmiva*.16;
+
+$TOTALPO=$bmiva+$tcondes;
+$DesSiniva=0.00;
+
+
+
+}
+
+
+
+
+$insertconc=mysqli_query($conexion,'INSERT INTO gen_concepto_fact(id_atencion,id_usua,codigo,cantidad,descripcion,codescded,iva,precio,importe_traslado,clave_unidad,unidad,obj_impuesto,fecha,tip_concepto,total,total_desc) values ('.$id_at.','.$id_usua.',"85101501","1","SERVICIOS HOSPITALARIOS DE EMERGENCIA O QUIRÚRGICOS","'.$codescdedl.'","'.$tcondes.'","'.$rowim["base"].'","'.$trasl.'","E48","'.$row['unidad'].'","'.$obj_impuesto.'","'.$fecha_actual.'","Global","'.$TOTALPO.'","'.$DesSiniva.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+
+
+
+$resultadof = $conexion->query("SELECT * from gen_factura where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3f = mysqli_fetch_array($resultadof)){
+$id_genf=$f3f['id_dat_gen_f'];
+$fol=$f3f['folio'];
+$razonpublica=$f3f['razon_s'];
+                }
+
+
+
+if($razonpublica=="PUBLICO EN GENERAL"){
+   $razon_s=$pac_papell.' ' .$pac_sapell.' '.$pac_nom_pac;
+}else{
+    $razon_s=$razon_s;
+}
+
+$resultadore = $conexion->query("SELECT * from relacion_cfdi where id_atencion=$id_at") or die($conexion->error);
+
+                while($f3re = mysqli_fetch_array($resultadore)){
+$cfdi_relacionado=$f3re['cfdi_relacionado'];
+$tipo_relacion_a=$f3re['tipo_relacion_a'];
+
+$cfdi_relacionado2=$f3re['cfdi_relacionado2'];
+$tipo_relacion_a2=$f3re['tipo_relacion_a2'];
+
+$cfdi_relacionado3=$f3re['cfdi_relacionado3'];
+$tipo_relacion_a3=$f3re['tipo_relacion_a3'];
+
+                
+
+
+if($f3re['cfdi_relacionado']!=null and $f3re['tipo_relacion_a']!=null and $f3re['cfdi_relacionado2']==null and $f3re['tipo_relacion_a2']==null and $f3re['cfdi_relacionado3']==null and $f3re['tipo_relacion_a3']==null){
+    
+$xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($TOTALPO, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($DesSiniva, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($CanInicial, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+
+}else if($f3re['cfdi_relacionado']!=null and $f3re['tipo_relacion_a']!=null and $f3re['cfdi_relacionado2']!=null and $f3re['tipo_relacion_a2']!=null and $f3re['cfdi_relacionado3']==null and $f3re['tipo_relacion_a3']==null){
+    
+    $xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($TOTALPO, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($DesSiniva, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($CanInicial, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a2.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado2.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+    
+}else if($f3re['cfdi_relacionado']!=null and $f3re['tipo_relacion_a']!=null and $f3re['cfdi_relacionado2']!=null and $f3re['tipo_relacion_a2']!=null and $f3re['cfdi_relacionado3']!=null and $f3re['tipo_relacion_a3']!=null){
+    
+    
+      $xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($TOTALPO, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($DesSiniva, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($CanInicial, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a2.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado2.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:CfdiRelacionados TipoRelacion="'.$tipo_relacion_a3.'">
+<cfdi:CfdiRelacionado UUID="'.$cfdi_relacionado3.'"/>
+</cfdi:CfdiRelacionados>
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+    
+}else{
+    
+   $xml ='<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Moneda="'.$moneda.'" TipoCambio="1" Total="'.$english_format_number = number_format($TOTALPO, 2, '.', '').'" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Exportacion="01" MetodoPago="'.$metodo_pago.'" Descuento="'.$english_format_number = number_format($DesSiniva, 2, '.', '').'" TipoDeComprobante="'.$tip_cfdi.'" SubTotal="'.$english_format_number = number_format($CanInicial, 2, '.', '').'" FormaPago="'.$forma_pago.'" LugarExpedicion="52140" Fecha="'.$FechaCompleta.'" Folio="'.$fol.'" Serie="E" Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+
+<cfdi:Emisor Rfc="IIA040805DZ4" Nombre="INDISTRIA ILUMINADORA DE ALMACENES" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="'.$rfc.'" Nombre="'.$razon_s.'" DomicilioFiscalReceptor="'.$cod_postal.'" RegimenFiscalReceptor="'.$reg_fiscal.'" UsoCFDI="'.$uso_cfdi.'"/>
+  <cfdi:Conceptos>';
+}
+
+
+
+}
+// parte conceptos
+
+
+$result_xml = $conexion->query("SELECT * from gen_concepto_fact  WHERE id_atencion=$id_at ORDER BY id_con_sat DESC") or die($conexion->error);
+
+ while ($rowf = $result_xml->fetch_assoc()) {
+
+
+    
+
+$english_format_number = number_format($iim=$rowf['precio']*$rowf['cantidad'], 6, '.', '');
+
+$importeconceptos=($iim*.16);
+ $cdesc=($sumadesc)*($iim);
+
+
+}
+        $xml .= '<cfdi:Concepto ClaveProdServ="85101501" Cantidad="1" ClaveUnidad="E48" Unidad="SERVICIO" Descripcion="SERVICIOS HOSPITALARIOS DE EMERGENCIA O QUIRURGICOS" ValorUnitario="'.$english_format_number = number_format($CanInicial, 6, '.', '').'" Importe="'.$english_format_number = number_format($CanInicial, 6, '.', '').'" Descuento="'.$english_format_number = number_format($DesSiniva, 6, '.', '').'" ObjetoImp="'.$obj_impuesto.'">
+        
+
+<cfdi:Impuestos>   
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="'.$english_format_number = number_format($bmiva, 6, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($tcondes, 4, '.', '').'"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+
+    </cfdi:Concepto>';
+    
+
+    //fin conceptos
+  $xml .= '</cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="'.$english_format_number = number_format($tcondes, 2, '.', '').'">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="'.$english_format_number = number_format($bmiva, 2, '.', '').'" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="'.$english_format_number = number_format($tcondes, 2, '.', '').'"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+</cfdi:Comprobante>';
+$nnombre= "datos.xml";
+$arch=fopen($nnombre, "w");
+fwrite($arch, $xml);
+fclose($arch);
+  //xml
+//termino de creacion de xml
+
+
+//TIMBRADO
+
+//$ws="https://v2.timbracfdi33.mx:1449/Timbrado.asmx?wsdl";
+$ws = "https://pruebas.timbracfdi33.mx/Timbrado.asmx?wsdl";/*<- Esta ruta es para el servicio de pruebas, para pasar a productivo cambiar por https://v2.timbracfdi33.mx:1449/Timbrado.asmx*/
+$response = '';
+$workspace="../cuenta_paciente/";
+//$workspace="F:\DemoPHPTimbraCFDI\ArchivosservicioIntegracionTimbrado//";/*<- Configurar la ruta en donde se encuentra nuestro kit de integración para localizar correctamente el archivo V40_Ingreso.xml*/
+/* Ruta del comprobante a timbrar*/
+$rutaArchivo = $workspace.'datos.xml';
+//$rutaArchivo = $workspace.'V40_Ingreso.xml';
+/* El servicio recibe el comprobante (xml) codificado en Base64, el rfc del emisor deberá configurarlo según su necesidad*/ 
+$base64Comprobante = file_get_contents($rutaArchivo);
+$base64Comprobante = base64_encode($base64Comprobante);
+try
+{
+$params = array();
+/*Nombre del usuario integrador asignado, para efecto de pruebas utilizaremos 'mvpNUXmQfK8=' <- Este usuario es para el servicio de pruebas, para pasar a productivo cambiar por el que le asignarán posteriormente*/
+//$params['usuarioIntegrador'] = 'Fwlh2XZwEbz7VQ+hIeo2wQ==';
+$params['usuarioIntegrador'] = 'mvpNUXmQfK8=';
+
+
+/* Comprobante en base 64*/
+$params['xmlComprobanteBase64'] = $base64Comprobante;
+/*Id del comprobante, deberá ser un identificador único, para efecto del ejemplo se utilizará un numero aleatorio*/
+$params['idComprobante'] = rand(5, 999999);
+
+$context = stream_context_create(array(
+    'ssl' => array(
+        // set some SSL/TLS specific options
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false
+    ),
+  'http' => array(
+            'user_agent' => 'PHPSoapClient'
+            )
+ ) );
+$options =array();
+$options['stream_context'] = $context;
+$options['cache_wsdl']= WSDL_CACHE_MEMORY;
+$options['trace']= true;
+
+libxml_disable_entity_loader(false);
+echo "SoapClient";
+
+$client = new SoapClient($ws,$options);
+echo "__soapCall";
+$response = $client->__soapCall('TimbraCFDI', array('parameters' => $params));
+
+}
+catch (SoapFault $fault)
+{
+  echo "SOAPFault: ".$fault->faultcode."-".$fault->faultstring."\n";
+}
+/*Obtenemos resultado del response*/
+echo "resultado";
+//echo $response;
+$tipoExcepcion = $response->TimbraCFDIResult->anyType[0];
+$numeroExcepcion = $response->TimbraCFDIResult->anyType[1];
+$descripcionResultado = $response->TimbraCFDIResult->anyType[2];
+$xmlTimbrado = $response->TimbraCFDIResult->anyType[3];
+$codigoQr = $response->TimbraCFDIResult->anyType[4];
+$cadenaOriginal = $response->TimbraCFDIResult->anyType[5];
+$errorInterno = $response->TimbraCFDIResult->anyType[6];
+$mensajeInterno = $response->TimbraCFDIResult->anyType[7];
+$detalleError = $response->TimbraCFDIResult->anyType[8];
+
+if($xmlTimbrado != '')
+{
+  echo "xmlTimbrado";
+/*El comprobante fue timbrado correctamente*/
+
+/*Guardamos comprobante timbrado*/
+file_put_contents($workspace.'comprobanteTimbrado.xml', $xmlTimbrado);
+
+/*Guardamos codigo qr*/
+file_put_contents($workspace.'codigoQr.jpg', $codigoQr);
+
+/*Guardamos cadena original del complemento de certificacion del SAT*/
+file_put_contents($workspace.'cadenaOriginal.txt', $cadenaOriginal);
+
+print_r("Timbrado exitoso");
+
+$fecha_c = date("Y-m-d H:i:s");
+
+//insert a comprobantes
+$file_factura = "comprobanteTimbrado.xml";
+
+$xml_content = file_get_contents($file_factura);
+
+$xml_content = str_replace("<tfd:", "<cfdi:", $xml_content);
+$xml_content = str_replace("<cfdi:", "<", $xml_content);
+$xml_content = str_replace("</cfdi:", "</", $xml_content);
+
+$xml_content = str_replace("<nomina12:", "<", $xml_content);
+$xml_content = str_replace("</nomina12:", "</", $xml_content);
+$xml_content = str_replace("<nomina11:", "<", $xml_content);
+$xml_content = str_replace("</nomina11:", "</", $xml_content);
+
+$xml_content = str_replace("<pago10:", "<", $xml_content);
+$xml_content = str_replace("</pago10:", "</", $xml_content);
+
+$xml_content = str_replace("@attributes", "attributes", $xml_content);
+
+
+$xml_content = simplexml_load_string(utf8_encode($xml_content));
+
+$xml_content = (array) $xml_content;
+
+// xml data
+$xml_data["version"]       = $xml_content["@attributes"]["Version"];
+$xml_data["fecha"]       = $xml_content["@attributes"]["Fecha"];
+$xml_data["total"]       = $xml_content["@attributes"]["Total"];
+$xml_data["subtotal"]       = $xml_content["@attributes"]["SubTotal"] ;
+$xml_data["moneda"]       = $xml_content["@attributes"]["Moneda"] ;
+$xml_data["sello"]       = $xml_content["@attributes"]["Sello"];
+
+$xml_data["nocertificado"]       = $xml_content["@attributes"]["NoCertificado"];
+
+$xml_content["Emisor"] = (array) $xml_content["Emisor"];
+$xml_content["Receptor"] = (array) $xml_content["Receptor"];
+$xml_content["Complemento"] = (array) $xml_content["Complemento"];
+$xml_content["Complemento"]["TimbreFiscalDigital"] = (array) $xml_content["Complemento"]["TimbreFiscalDigital"];
+
+
+$xml_data["rfc_emisor"]  = $xml_content["Emisor"]["@attributes"]["Rfc"];
+$xml_data["rfc_receptor"]  = $xml_content["Receptor"]["@attributes"]["Rfc"];
+$xml_data["uuid"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["UUID"];
+
+$xml_data["sellosat"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloSAT"];
+$xml_data["cfd"]       = $xml_content["Complemento"]["TimbreFiscalDigital"]["@attributes"]["SelloCFD"];
+
+
+$xml_data["impuestos"]=$xml_content["Impuestos"]["TotalImpuestosTrasladados"];
+
+//print_r ($xml_data);
+//echo $xml_data["cfd"];
+$montopag= mysqli_real_escape_string($conexion, (strip_tags($_POST["montopag"], ENT_QUOTES)));
+// insert data
+$saldoant=$xml_data["total"]-$montopag;
+
+$insertconc=mysqli_query($conexion,'INSERT INTO comprobantes(id_atencion,id_usua,fecha,cadenaor,sellosat,sellocfd,nocertificado,version, subtotal, total, moneda, sello, rfc_emisor, rfc_receptor,uuid,iva,descuento,montopag,saldoant,id_dat_gen_f) values ('.$id_at.','.$id_usua.',"'.$xml_data["fecha"].'","'.$cadenaOriginal.'","'.$xml_data["sellosat"] .'","'.$xml_data["cfd"].'","'.$xml_data["nocertificado"].'","'.$xml_data["version"].'","'.$xml_data["subtotal"].'","'.$xml_data["total"].'","'.$xml_data["moneda"].'","'.$xml_data["sello"].'","'.$xml_data["rfc_emisor"].'","'.$xml_data["rfc_receptor"].'","'.$xml_data["uuid"].'","'.$xml_data["impuestos"].'","'.$DesSiniva.'","'.$montopag.'","'.$saldoant.'","'.$id_genf.'")') or die ('<p>Error al registrar</p><br>' . mysqli_error($conexion));
+
+$stm = $conexion->prepare($insertconc);
+$stm->execute($xml_data); 
+print_r("Registro agregado"); exit;
+
+//termino de insert a comprobantes
+
+
+?>
+<h2>Insert XML Data to MySql Table Output</h2>
+<?php
+if ($affectedRow > 0) {
+    $message = $affectedRow . " records inserted";
+    //descarcar xml
+    //$fa=$_GET['ffiscal'];
+$nombre_fichero = 'comprobanteTimbrado.xml';
+$fichero_texto = fopen($nombre_fichero, "r");
+$contenido_fichero = fread($fichero_texto, filesize($nombre_fichero));
+
+header('Content-Type: text/xml');
+header("Content-Disposition:attachment ; filename='".$xml_data["uuid"]."'.xml");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+} else {
+    $message = "No records inserted";
+}
+
+
+}
+else
+{
+  echo "else";
+  echo "[".$tipoExcepcion."  ".$numeroExcepcion." ".$descripcionResultado."  ei=".$errorInterno." mi=".$mensajeInterno."]" ;
+}
+
+
+
+}
+}
+
+
+echo '<script type="text/javascript">window.location.href ="facturacion_pruebas.php?id_atencion='.$id_at.'" ;</script>';
+  }
+}
+
+
+
+
+ ?>
+
+  </div>
+
+
+  <footer class="main-footer">
+    <?php
+    include("../../template/footer.php");
+    ?>
+  </footer>
+<!-- FastClick -->
+<script type="text/javascript">
+    $(document).ready(function () {
+      var items = <?= json_encode($array) ?>
+
+      $("#tag").autocomplete({
+        source: items,
+        select: function (event, item) {
+          var params = {
+            equipo: item.item.value
+          };
+          $.get("getEquipo.php", params, function (response) {
+            var json = JSON.parse(response);
+            if (json.status == 200){
+              $('#nombre').val(json.rfc);
+              $("#razon_s").val(json.razon_s);
+              $("#calle").val(json.calle);
+$("#no_ext").val(json.no_ext);
+$("#no_int").val(json.no_int);
+$("#id_estado").val(json.estado);
+$("#municipiosp").val(json.municipio);
+$("#cod_postal").val(json.cod_postal);
+$("#asentamiento").val(json.asentamiento);
+$("#reg_fiscal").val(json.reg_fiscal);
+    $("#nom_c").val(json.nom_c);          
+
+            }else{
+
+            }
+          }); // ajax
+        }
+      });
+    });
+  </script>
+<script src='../../template/plugins/fastclick/fastclick.min.js'></script>
+<!-- AdminLTE App -->
+<script src="../../template/dist/js/app.min.js" type="text/javascript"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#mibuscador1').select2();
+    });
+    $(document).ready(function () {
+        $('#mibuscador2').select2();
+    });
+    $(document).ready(function () {
+        $('#cod_postal').select2();
+    });
+</script>
+<script>
+    document.querySelector('#id_estado').addEventListener('change', event => {
+        fetch('../../municipios.php?id_estado=' + event.target.value)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Error en la respuesta');
+                }//en if
+                return res.json();
+            })
+            .then(datos => {
+                let html = '<option value=""> Seleccionar municipio</option>';
+                if (datos.data.length > 0) {
+                    for (let i = 0; i < datos.data.length; i++) {
+                        html += `<option value="${datos.data[i].id}">${datos.data[i].nombre}</option>`;
+                    }//end for
+                }//end if
+                document.querySelector('#municipios').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Ocurrió un error ' + error);
+            });
+    });
+</script>
+ 
+
+ <script type="text/javascript">
+  $(document).ready(function(){
+    $('#cod_postal').val(1);
+    recargarLista();
+
+    $('#cod_postal').change(function(){
+      recargarLista();
+    });
+  })
+</script>
+<script type="text/javascript">
+  function recargarLista(){
+    $.ajax({
+      type:"POST",
+      url:"datos.php",
+      data:"asenta=" + $('#cod_postal').val(),
+      success:function(r){
+        $('#select2lista').html(r);
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

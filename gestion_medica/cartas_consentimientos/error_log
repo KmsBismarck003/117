@@ -1,0 +1,1132 @@
+[13-Oct-2021 20:08:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Oct-2021 20:08:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Oct-2021 20:08:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Oct-2021 20:08:23 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[17-Oct-2021 19:30:58 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[17-Oct-2021 19:30:58 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[19-Oct-2021 12:25:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Oct-2021 12:25:14 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Oct-2021 10:56:24 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[19-Oct-2021 10:56:24 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[19-Oct-2021 10:56:28 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[19-Oct-2021 10:56:28 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[24-Oct-2021 17:16:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[24-Oct-2021 17:16:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[24-Oct-2021 17:16:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[24-Oct-2021 17:16:11 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Oct-2021 01:46:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Oct-2021 01:46:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Oct-2021 01:46:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Oct-2021 01:46:12 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Oct-2021 07:32:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Oct-2021 07:32:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Oct-2021 07:32:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Oct-2021 07:32:33 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Oct-2021 10:16:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Oct-2021 10:16:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Oct-2021 10:16:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Oct-2021 10:16:27 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Oct-2021 14:50:43 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Oct-2021 14:50:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Oct-2021 14:50:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Oct-2021 14:50:43 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Oct-2021 16:18:30 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[25-Oct-2021 16:18:30 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[25-Oct-2021 16:18:36 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[25-Oct-2021 16:18:36 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[25-Oct-2021 16:18:41 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[25-Oct-2021 16:18:41 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[25-Oct-2021 16:18:59 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[25-Oct-2021 16:18:59 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[25-Oct-2021 16:19:19 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[25-Oct-2021 16:19:19 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[25-Oct-2021 16:20:19 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[25-Oct-2021 16:20:19 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[25-Oct-2021 23:04:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Oct-2021 23:04:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Oct-2021 23:04:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Oct-2021 23:04:41 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Oct-2021 07:09:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Oct-2021 07:09:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Oct-2021 07:09:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Oct-2021 07:09:27 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Oct-2021 15:14:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Oct-2021 15:14:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Oct-2021 15:14:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Oct-2021 15:14:24 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Oct-2021 16:45:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Oct-2021 16:45:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Oct-2021 16:45:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Oct-2021 16:45:04 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Oct-2021 18:49:23 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Oct-2021 18:49:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Oct-2021 18:49:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Oct-2021 18:49:23 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Oct-2021 02:23:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Oct-2021 02:23:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Oct-2021 02:23:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Oct-2021 02:23:38 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Oct-2021 09:55:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Oct-2021 09:55:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Oct-2021 09:55:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Oct-2021 09:55:20 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Oct-2021 18:00:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Oct-2021 18:00:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Oct-2021 18:00:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Oct-2021 18:00:38 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Oct-2021 15:13:04 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:04 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[27-Oct-2021 15:13:09 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:09 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[27-Oct-2021 15:13:12 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:12 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[27-Oct-2021 15:13:13 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:13 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[27-Oct-2021 15:13:20 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:20 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[27-Oct-2021 15:13:40 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:40 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[27-Oct-2021 15:13:43 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[27-Oct-2021 15:13:43 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[28-Oct-2021 02:33:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Oct-2021 02:33:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Oct-2021 02:33:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Oct-2021 02:33:48 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Oct-2021 04:27:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Oct-2021 04:27:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Oct-2021 04:27:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Oct-2021 04:27:46 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Oct-2021 10:56:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Oct-2021 10:56:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Oct-2021 10:56:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Oct-2021 10:56:07 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Oct-2021 19:18:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Oct-2021 19:18:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Oct-2021 19:18:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Oct-2021 19:18:35 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Oct-2021 21:28:59 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Oct-2021 21:28:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Oct-2021 21:28:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Oct-2021 21:28:59 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Oct-2021 03:39:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Oct-2021 03:39:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Oct-2021 03:39:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Oct-2021 03:39:33 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Oct-2021 12:13:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Oct-2021 12:13:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Oct-2021 12:13:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Oct-2021 12:13:00 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Oct-2021 12:48:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Oct-2021 12:48:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Oct-2021 12:48:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Oct-2021 12:48:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Oct-2021 13:47:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Oct-2021 13:47:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Oct-2021 13:47:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Oct-2021 13:47:22 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Oct-2021 20:36:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Oct-2021 20:36:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Oct-2021 20:36:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Oct-2021 20:36:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Oct-2021 03:52:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Oct-2021 03:52:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Oct-2021 03:52:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Oct-2021 03:52:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Oct-2021 04:58:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Oct-2021 04:58:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Oct-2021 04:58:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Oct-2021 04:58:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Oct-2021 13:22:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Oct-2021 13:22:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Oct-2021 13:22:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Oct-2021 13:22:47 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Oct-2021 20:19:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Oct-2021 20:19:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Oct-2021 20:19:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Oct-2021 20:19:27 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Oct-2021 01:58:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[31-Oct-2021 01:58:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[31-Oct-2021 01:58:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[31-Oct-2021 01:58:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Oct-2021 03:37:16 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[31-Oct-2021 03:37:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[31-Oct-2021 03:37:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[31-Oct-2021 03:37:16 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Oct-2021 12:23:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[31-Oct-2021 12:23:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[31-Oct-2021 12:23:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[31-Oct-2021 12:23:00 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Oct-2021 11:51:36 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:51:36 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:51:38 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:51:38 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:52:29 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:52:29 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:52:34 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:52:34 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:52:39 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:52:39 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:53:18 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:53:18 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:53:23 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:53:23 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:53:32 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:53:32 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:58:56 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:58:56 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:58:58 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:58:58 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 11:59:01 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Oct-2021 11:59:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[31-Oct-2021 23:29:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[31-Oct-2021 23:29:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[31-Oct-2021 23:29:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[31-Oct-2021 23:29:15 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[01-Nov-2021 04:29:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[01-Nov-2021 04:29:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[01-Nov-2021 04:29:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[01-Nov-2021 04:29:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[01-Nov-2021 06:18:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[01-Nov-2021 06:18:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[01-Nov-2021 06:18:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[01-Nov-2021 06:18:32 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[01-Nov-2021 09:14:06 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Nov-2021 09:14:06 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[01-Nov-2021 09:14:20 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Nov-2021 09:14:20 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[01-Nov-2021 09:14:30 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Nov-2021 09:14:30 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[01-Nov-2021 09:14:32 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Nov-2021 09:14:32 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[01-Nov-2021 09:23:33 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Nov-2021 09:23:33 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[01-Nov-2021 09:23:36 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Nov-2021 09:23:36 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[01-Nov-2021 18:09:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[01-Nov-2021 18:09:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[01-Nov-2021 18:09:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[01-Nov-2021 18:09:51 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Nov-2021 01:29:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Nov-2021 01:29:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Nov-2021 01:29:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Nov-2021 01:29:24 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Nov-2021 08:48:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Nov-2021 08:48:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Nov-2021 08:48:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Nov-2021 08:48:35 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Nov-2021 11:54:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Nov-2021 11:54:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Nov-2021 11:54:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Nov-2021 11:54:04 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Nov-2021 15:48:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Nov-2021 15:48:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Nov-2021 15:48:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Nov-2021 15:48:27 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Nov-2021 02:09:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Nov-2021 02:09:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Nov-2021 02:09:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Nov-2021 02:09:54 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Nov-2021 09:10:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Nov-2021 09:10:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Nov-2021 09:10:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Nov-2021 09:10:25 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Nov-2021 09:50:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Nov-2021 09:50:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Nov-2021 09:50:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Nov-2021 09:50:57 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Nov-2021 12:08:01 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Nov-2021 12:08:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Nov-2021 12:08:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Nov-2021 12:08:01 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Nov-2021 22:58:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Nov-2021 22:58:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Nov-2021 22:58:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Nov-2021 22:58:15 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[04-Nov-2021 09:20:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Nov-2021 09:20:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Nov-2021 09:20:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Nov-2021 09:20:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[04-Nov-2021 11:17:24 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[04-Nov-2021 11:17:24 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[04-Nov-2021 13:58:24 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[04-Nov-2021 22:56:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Nov-2021 22:56:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Nov-2021 22:56:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Nov-2021 22:56:11 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[05-Nov-2021 00:42:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[05-Nov-2021 00:42:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[05-Nov-2021 00:42:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[05-Nov-2021 00:42:34 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[05-Nov-2021 08:31:26 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[05-Nov-2021 08:31:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[05-Nov-2021 08:31:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[05-Nov-2021 08:31:26 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[05-Nov-2021 10:47:08 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[05-Nov-2021 10:47:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[05-Nov-2021 10:47:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[05-Nov-2021 10:47:08 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[05-Nov-2021 12:35:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[05-Nov-2021 12:35:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[05-Nov-2021 12:35:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[05-Nov-2021 12:35:38 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[05-Nov-2021 22:54:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[05-Nov-2021 22:54:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[05-Nov-2021 22:54:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[05-Nov-2021 22:54:17 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[06-Nov-2021 09:09:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[06-Nov-2021 09:09:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[06-Nov-2021 09:09:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[06-Nov-2021 09:09:28 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[06-Nov-2021 17:08:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[06-Nov-2021 17:08:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[06-Nov-2021 17:08:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[06-Nov-2021 17:08:03 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[06-Nov-2021 20:46:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[06-Nov-2021 20:46:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[06-Nov-2021 20:46:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[06-Nov-2021 20:46:54 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[07-Nov-2021 06:29:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[07-Nov-2021 06:29:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[07-Nov-2021 06:29:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[07-Nov-2021 06:29:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[07-Nov-2021 08:08:27 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[07-Nov-2021 08:08:27 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[07-Nov-2021 15:52:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[07-Nov-2021 15:52:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[07-Nov-2021 15:52:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[07-Nov-2021 15:52:34 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[08-Nov-2021 01:13:38 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[08-Nov-2021 01:13:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[08-Nov-2021 01:13:38 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[08-Nov-2021 01:13:38 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[08-Nov-2021 15:58:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[08-Nov-2021 15:58:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[08-Nov-2021 15:58:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[08-Nov-2021 15:58:28 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Nov-2021 02:24:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Nov-2021 02:24:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Nov-2021 02:24:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Nov-2021 02:24:27 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Nov-2021 10:34:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Nov-2021 10:34:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Nov-2021 10:34:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Nov-2021 10:34:12 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Nov-2021 12:43:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Nov-2021 12:43:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Nov-2021 12:43:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Nov-2021 12:43:37 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Nov-2021 18:18:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Nov-2021 18:18:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Nov-2021 18:18:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Nov-2021 18:18:49 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Nov-2021 00:17:26 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Nov-2021 00:17:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Nov-2021 00:17:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Nov-2021 00:17:26 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Nov-2021 04:25:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Nov-2021 04:25:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Nov-2021 04:25:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Nov-2021 04:25:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Nov-2021 04:52:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Nov-2021 04:52:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Nov-2021 04:52:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Nov-2021 04:52:44 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[11-Nov-2021 08:28:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[11-Nov-2021 08:28:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[11-Nov-2021 08:28:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[11-Nov-2021 08:28:22 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[11-Nov-2021 20:38:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[11-Nov-2021 20:38:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[11-Nov-2021 20:38:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[11-Nov-2021 20:38:55 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[11-Nov-2021 22:29:43 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[11-Nov-2021 22:29:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[11-Nov-2021 22:29:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[11-Nov-2021 22:29:43 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[12-Nov-2021 07:06:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[12-Nov-2021 07:06:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[12-Nov-2021 07:06:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Nov-2021 07:06:32 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[12-Nov-2021 14:14:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[12-Nov-2021 14:14:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[12-Nov-2021 14:14:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Nov-2021 14:14:22 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[12-Nov-2021 12:16:43 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[12-Nov-2021 12:16:43 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[12-Nov-2021 12:16:49 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[12-Nov-2021 12:16:49 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[12-Nov-2021 12:17:13 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[12-Nov-2021 12:17:13 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[12-Nov-2021 12:17:56 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[12-Nov-2021 12:17:56 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[12-Nov-2021 12:18:42 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[12-Nov-2021 12:18:42 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[12-Nov-2021 12:20:11 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[12-Nov-2021 12:20:11 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[12-Nov-2021 19:34:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[12-Nov-2021 19:34:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[12-Nov-2021 19:34:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Nov-2021 19:34:46 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Nov-2021 06:07:08 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Nov-2021 06:07:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Nov-2021 06:07:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Nov-2021 06:07:08 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Nov-2021 08:45:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Nov-2021 08:45:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Nov-2021 08:45:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Nov-2021 08:45:24 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Nov-2021 15:05:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Nov-2021 15:05:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Nov-2021 15:05:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Nov-2021 15:05:20 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Nov-2021 16:09:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Nov-2021 16:09:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Nov-2021 16:09:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Nov-2021 16:09:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Nov-2021 16:49:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Nov-2021 16:49:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Nov-2021 16:49:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Nov-2021 16:49:42 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 01:55:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[14-Nov-2021 01:55:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[14-Nov-2021 01:55:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[14-Nov-2021 01:55:45 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 04:29:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[14-Nov-2021 04:29:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[14-Nov-2021 04:29:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[14-Nov-2021 04:29:28 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 11:33:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[14-Nov-2021 11:33:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[14-Nov-2021 11:33:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[14-Nov-2021 11:33:02 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 14:04:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[14-Nov-2021 14:04:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[14-Nov-2021 14:04:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[14-Nov-2021 14:04:47 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 19:44:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[14-Nov-2021 19:44:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[14-Nov-2021 19:44:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[14-Nov-2021 19:44:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 23:44:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[14-Nov-2021 23:44:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[14-Nov-2021 23:44:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[14-Nov-2021 23:44:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[14-Nov-2021 20:39:02 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[15-Nov-2021 09:35:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[15-Nov-2021 09:35:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[15-Nov-2021 09:35:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[15-Nov-2021 09:35:19 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[15-Nov-2021 09:15:07 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[15-Nov-2021 09:15:07 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[15-Nov-2021 09:15:10 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[15-Nov-2021 09:15:10 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[15-Nov-2021 09:15:11 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[15-Nov-2021 09:15:11 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[15-Nov-2021 09:15:14 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[15-Nov-2021 09:15:14 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[15-Nov-2021 19:02:54 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[15-Nov-2021 19:02:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[15-Nov-2021 19:02:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[15-Nov-2021 19:02:54 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[16-Nov-2021 11:02:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[16-Nov-2021 11:02:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[16-Nov-2021 11:02:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[16-Nov-2021 11:02:04 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[16-Nov-2021 20:39:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[16-Nov-2021 20:39:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[16-Nov-2021 20:39:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[16-Nov-2021 20:39:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[16-Nov-2021 23:48:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[16-Nov-2021 23:48:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[16-Nov-2021 23:48:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[16-Nov-2021 23:48:37 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[17-Nov-2021 09:38:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[17-Nov-2021 09:38:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[17-Nov-2021 09:38:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[17-Nov-2021 09:38:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[17-Nov-2021 11:16:43 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[17-Nov-2021 11:16:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[17-Nov-2021 11:16:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[17-Nov-2021 11:16:43 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[17-Nov-2021 18:44:47 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[17-Nov-2021 18:44:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[17-Nov-2021 18:44:47 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[17-Nov-2021 18:44:47 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[17-Nov-2021 22:52:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[17-Nov-2021 22:52:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[17-Nov-2021 22:52:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[17-Nov-2021 22:52:57 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[18-Nov-2021 03:59:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[18-Nov-2021 03:59:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[18-Nov-2021 03:59:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[18-Nov-2021 03:59:21 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[18-Nov-2021 04:37:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[18-Nov-2021 04:37:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[18-Nov-2021 04:37:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[18-Nov-2021 04:37:02 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[18-Nov-2021 15:59:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[18-Nov-2021 15:59:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[18-Nov-2021 15:59:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[18-Nov-2021 15:59:21 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[18-Nov-2021 21:30:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[18-Nov-2021 21:30:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[18-Nov-2021 21:30:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[18-Nov-2021 21:30:44 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Nov-2021 01:37:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Nov-2021 01:37:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Nov-2021 01:37:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Nov-2021 01:37:45 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Nov-2021 11:18:03 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Nov-2021 11:18:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Nov-2021 11:18:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Nov-2021 11:18:03 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Nov-2021 18:52:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Nov-2021 18:52:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Nov-2021 18:52:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Nov-2021 18:52:06 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[20-Nov-2021 04:15:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[20-Nov-2021 04:15:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[20-Nov-2021 04:15:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[20-Nov-2021 04:15:29 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[20-Nov-2021 18:06:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[20-Nov-2021 18:06:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[20-Nov-2021 18:06:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[20-Nov-2021 18:06:10 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[21-Nov-2021 05:11:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[21-Nov-2021 05:11:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[21-Nov-2021 05:11:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[21-Nov-2021 05:11:05 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[21-Nov-2021 12:02:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[21-Nov-2021 12:02:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[21-Nov-2021 12:02:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[21-Nov-2021 12:02:21 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[21-Nov-2021 14:50:51 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[21-Nov-2021 14:50:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[21-Nov-2021 14:50:51 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[21-Nov-2021 14:50:51 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[22-Nov-2021 01:52:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[22-Nov-2021 01:52:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[22-Nov-2021 01:52:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[22-Nov-2021 01:52:32 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[22-Nov-2021 02:08:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[22-Nov-2021 02:08:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[22-Nov-2021 02:08:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[22-Nov-2021 02:08:55 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[22-Nov-2021 12:49:08 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[22-Nov-2021 12:49:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[22-Nov-2021 12:49:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[22-Nov-2021 12:49:08 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[22-Nov-2021 23:08:59 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[22-Nov-2021 23:08:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[22-Nov-2021 23:08:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[22-Nov-2021 23:08:59 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[23-Nov-2021 09:32:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[23-Nov-2021 09:32:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[23-Nov-2021 09:32:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[23-Nov-2021 09:32:20 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[23-Nov-2021 17:53:45 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[23-Nov-2021 17:53:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[23-Nov-2021 17:53:45 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[23-Nov-2021 17:53:45 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[24-Nov-2021 00:32:26 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[24-Nov-2021 00:32:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[24-Nov-2021 00:32:26 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[24-Nov-2021 00:32:26 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[24-Nov-2021 11:49:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[24-Nov-2021 11:49:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[24-Nov-2021 11:49:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[24-Nov-2021 11:49:32 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[24-Nov-2021 10:02:02 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[24-Nov-2021 10:02:02 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[24-Nov-2021 10:02:06 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[24-Nov-2021 10:02:06 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[24-Nov-2021 19:01:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[24-Nov-2021 19:01:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[24-Nov-2021 19:01:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[24-Nov-2021 19:01:12 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[24-Nov-2021 23:27:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[24-Nov-2021 23:27:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[24-Nov-2021 23:27:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[24-Nov-2021 23:27:40 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Nov-2021 02:11:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Nov-2021 02:11:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Nov-2021 02:11:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Nov-2021 02:11:24 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[25-Nov-2021 20:09:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Nov-2021 20:09:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Nov-2021 20:09:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Nov-2021 20:09:37 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Nov-2021 23:43:24 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Nov-2021 00:35:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Nov-2021 00:35:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Nov-2021 00:35:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Nov-2021 00:35:41 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Nov-2021 06:54:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Nov-2021 06:54:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Nov-2021 06:54:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Nov-2021 06:54:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Nov-2021 16:12:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Nov-2021 16:12:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Nov-2021 16:12:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Nov-2021 16:12:42 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Nov-2021 03:18:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Nov-2021 03:18:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Nov-2021 03:18:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Nov-2021 03:18:35 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Nov-2021 13:06:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Nov-2021 13:06:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Nov-2021 13:06:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Nov-2021 13:06:58 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Nov-2021 19:43:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Nov-2021 19:43:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Nov-2021 19:43:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Nov-2021 19:43:49 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Nov-2021 07:05:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Nov-2021 07:05:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Nov-2021 07:05:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Nov-2021 07:05:34 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Nov-2021 12:46:24 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Nov-2021 12:46:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Nov-2021 12:46:24 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Nov-2021 12:46:24 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Nov-2021 22:55:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Nov-2021 22:55:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Nov-2021 22:55:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Nov-2021 22:55:15 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Nov-2021 07:45:26 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[29-Nov-2021 07:45:26 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[29-Nov-2021 19:06:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Nov-2021 19:06:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Nov-2021 19:06:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Nov-2021 19:06:05 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Nov-2021 05:26:10 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Nov-2021 05:26:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Nov-2021 05:26:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Nov-2021 05:26:10 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Nov-2021 21:28:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Nov-2021 21:28:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Nov-2021 21:28:23 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Nov-2021 21:28:23 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[01-Dec-2021 08:52:29 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[01-Dec-2021 08:52:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[01-Dec-2021 08:52:29 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[01-Dec-2021 08:52:29 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[01-Dec-2021 14:56:36 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[01-Dec-2021 14:56:36 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[02-Dec-2021 00:21:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Dec-2021 00:21:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Dec-2021 00:21:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Dec-2021 00:21:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Dec-2021 01:33:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Dec-2021 01:33:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Dec-2021 01:33:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Dec-2021 01:33:04 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Dec-2021 11:40:35 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Dec-2021 11:40:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Dec-2021 11:40:35 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Dec-2021 11:40:35 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[02-Dec-2021 12:41:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Dec-2021 12:41:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Dec-2021 12:41:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Dec-2021 12:41:00 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[02-Dec-2021 23:00:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[02-Dec-2021 23:00:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[02-Dec-2021 23:00:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[02-Dec-2021 23:00:05 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Dec-2021 03:14:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Dec-2021 03:14:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Dec-2021 03:14:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Dec-2021 03:14:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Dec-2021 04:19:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Dec-2021 04:19:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Dec-2021 04:19:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Dec-2021 04:19:37 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Dec-2021 15:30:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Dec-2021 15:30:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Dec-2021 15:30:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Dec-2021 15:30:11 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Dec-2021 23:58:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Dec-2021 23:58:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Dec-2021 23:58:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Dec-2021 23:58:31 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[04-Dec-2021 11:21:37 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Dec-2021 11:21:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Dec-2021 11:21:37 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Dec-2021 11:21:37 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[04-Dec-2021 22:08:17 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Dec-2021 22:08:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Dec-2021 22:08:17 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Dec-2021 22:08:17 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[04-Dec-2021 23:53:50 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Dec-2021 23:53:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Dec-2021 23:53:50 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Dec-2021 23:53:50 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[05-Dec-2021 10:51:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[05-Dec-2021 10:51:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[05-Dec-2021 10:51:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[05-Dec-2021 10:51:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[06-Dec-2021 01:57:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[06-Dec-2021 01:57:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[06-Dec-2021 01:57:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[06-Dec-2021 01:57:21 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[06-Dec-2021 13:57:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[06-Dec-2021 13:57:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[06-Dec-2021 13:57:09 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[06-Dec-2021 13:57:09 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[07-Dec-2021 01:36:07 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[07-Dec-2021 01:36:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[07-Dec-2021 01:36:07 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[07-Dec-2021 01:36:07 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[07-Dec-2021 13:30:18 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[07-Dec-2021 13:30:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[07-Dec-2021 13:30:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[07-Dec-2021 13:30:18 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[08-Dec-2021 00:18:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[08-Dec-2021 00:18:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[08-Dec-2021 00:18:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[08-Dec-2021 00:18:22 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[08-Dec-2021 01:21:04 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[08-Dec-2021 01:21:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[08-Dec-2021 01:21:04 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[08-Dec-2021 01:21:04 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[08-Dec-2021 11:06:33 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[08-Dec-2021 11:06:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[08-Dec-2021 11:06:33 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[08-Dec-2021 11:06:33 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Dec-2021 02:29:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Dec-2021 02:29:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Dec-2021 02:29:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Dec-2021 02:29:22 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Dec-2021 14:05:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Dec-2021 14:05:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Dec-2021 14:05:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Dec-2021 14:05:52 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Dec-2021 11:36:00 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[09-Dec-2021 11:36:00 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[09-Dec-2021 19:36:49 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Dec-2021 19:36:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Dec-2021 19:36:49 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Dec-2021 19:36:49 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[09-Dec-2021 21:56:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Dec-2021 21:56:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Dec-2021 21:56:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Dec-2021 21:56:05 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Dec-2021 01:01:30 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Dec-2021 01:01:30 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Dec-2021 01:01:30 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Dec-2021 01:01:30 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Dec-2021 09:31:59 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Dec-2021 09:31:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Dec-2021 09:31:59 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Dec-2021 09:32:00 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[11-Dec-2021 01:04:36 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[11-Dec-2021 01:04:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[11-Dec-2021 01:04:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[11-Dec-2021 01:04:36 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[11-Dec-2021 12:05:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[11-Dec-2021 12:05:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[11-Dec-2021 12:05:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[11-Dec-2021 12:05:12 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[12-Dec-2021 13:55:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[12-Dec-2021 13:55:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[12-Dec-2021 13:55:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[12-Dec-2021 13:55:42 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Dec-2021 05:30:29 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Dec-2021 09:30:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Dec-2021 09:30:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Dec-2021 09:30:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Dec-2021 09:30:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[13-Dec-2021 23:04:01 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[13-Dec-2021 23:04:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[13-Dec-2021 23:04:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[13-Dec-2021 23:04:01 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[15-Dec-2021 07:07:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[15-Dec-2021 07:07:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[15-Dec-2021 07:07:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[15-Dec-2021 07:07:12 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[16-Dec-2021 14:10:16 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[16-Dec-2021 14:10:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[16-Dec-2021 14:10:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[16-Dec-2021 14:10:16 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Dec-2021 04:08:22 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Dec-2021 04:08:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Dec-2021 04:08:22 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Dec-2021 04:08:22 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[19-Dec-2021 09:29:19 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Dec-2021 09:29:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Dec-2021 09:29:19 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Dec-2021 09:29:19 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Dec-2021 17:59:18 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Dec-2021 17:59:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Dec-2021 17:59:18 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Dec-2021 17:59:18 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[20-Dec-2021 15:03:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[20-Dec-2021 15:03:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[20-Dec-2021 15:03:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[20-Dec-2021 15:03:34 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[20-Dec-2021 23:06:52 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[20-Dec-2021 23:06:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[20-Dec-2021 23:06:52 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[20-Dec-2021 23:06:52 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[21-Dec-2021 08:35:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[21-Dec-2021 08:35:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[21-Dec-2021 08:35:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[21-Dec-2021 08:35:58 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[21-Dec-2021 20:48:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[21-Dec-2021 20:48:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[21-Dec-2021 20:48:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[21-Dec-2021 20:48:21 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[22-Dec-2021 01:46:00 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[22-Dec-2021 01:46:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[22-Dec-2021 01:46:00 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[22-Dec-2021 01:46:00 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[22-Dec-2021 20:14:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[22-Dec-2021 20:14:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[22-Dec-2021 20:14:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[22-Dec-2021 20:14:40 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[23-Dec-2021 17:25:05 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[23-Dec-2021 17:25:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[23-Dec-2021 17:25:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[23-Dec-2021 17:25:05 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[24-Dec-2021 00:06:21 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[24-Dec-2021 00:06:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[24-Dec-2021 00:06:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[24-Dec-2021 00:06:21 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Dec-2021 02:57:09 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[25-Dec-2021 02:57:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[25-Dec-2021 02:57:10 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[25-Dec-2021 02:57:10 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Dec-2021 00:00:42 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Dec-2021 00:00:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Dec-2021 00:00:42 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Dec-2021 00:00:42 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Dec-2021 05:06:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Dec-2021 05:06:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Dec-2021 05:06:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Dec-2021 05:06:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Dec-2021 02:11:28 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Dec-2021 02:11:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Dec-2021 02:11:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Dec-2021 02:11:28 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Dec-2021 16:17:11 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Dec-2021 16:17:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Dec-2021 16:17:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Dec-2021 16:17:11 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[27-Dec-2021 21:31:53 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[27-Dec-2021 21:31:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[27-Dec-2021 21:31:53 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[27-Dec-2021 21:31:53 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Dec-2021 06:39:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Dec-2021 06:39:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Dec-2021 06:39:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Dec-2021 06:39:16 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Dec-2021 13:16:14 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Dec-2021 13:16:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Dec-2021 13:16:14 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Dec-2021 13:16:14 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[29-Dec-2021 15:30:40 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Dec-2021 15:30:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Dec-2021 15:30:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Dec-2021 15:30:40 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Dec-2021 11:58:31 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Dec-2021 11:58:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Dec-2021 11:58:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Dec-2021 11:58:31 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Dec-2021 16:05:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[31-Dec-2021 16:05:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[31-Dec-2021 16:05:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[31-Dec-2021 16:05:06 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Dec-2021 18:22:30 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Dec-2021 18:22:41 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Dec-2021 18:22:58 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Dec-2021 18:22:59 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[31-Dec-2021 13:46:08 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[31-Dec-2021 13:46:08 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[02-Jan-2022 09:34:08 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[02-Jan-2022 09:34:08 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[03-Jan-2022 17:22:01 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[03-Jan-2022 17:22:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[03-Jan-2022 17:22:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Jan-2022 17:22:01 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[04-Jan-2022 23:33:12 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Jan-2022 23:33:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Jan-2022 23:33:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Jan-2022 23:33:12 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[04-Jan-2022 23:39:43 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Jan-2022 23:39:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Jan-2022 23:39:43 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Jan-2022 23:39:43 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[16-Jan-2022 13:09:55 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[16-Jan-2022 13:09:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[16-Jan-2022 13:09:55 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[16-Jan-2022 13:09:55 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[25-Jan-2022 08:46:55 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[26-Jan-2022 19:57:32 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Jan-2022 19:57:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Jan-2022 19:57:32 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Jan-2022 19:57:32 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Jan-2022 11:15:16 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Jan-2022 11:15:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Jan-2022 11:15:16 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Jan-2022 11:15:16 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[28-Jan-2022 14:23:41 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[28-Jan-2022 14:23:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[28-Jan-2022 14:23:41 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[28-Jan-2022 14:23:41 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[29-Jan-2022 10:23:34 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[29-Jan-2022 10:23:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[29-Jan-2022 10:23:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[29-Jan-2022 10:23:34 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[30-Jan-2022 10:07:28 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[30-Jan-2022 10:07:28 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[05-Feb-2022 14:02:52 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[07-Feb-2022 15:49:08 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[07-Feb-2022 15:55:12 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[07-Feb-2022 16:15:26 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[14-Feb-2022 17:46:53 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[14-Feb-2022 17:46:53 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[16-Feb-2022 23:21:44 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[19-Feb-2022 14:20:57 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[19-Feb-2022 14:20:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[19-Feb-2022 14:20:57 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[19-Feb-2022 14:20:57 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[23-Feb-2022 13:15:27 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[23-Feb-2022 13:15:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[23-Feb-2022 13:15:27 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[23-Feb-2022 13:15:27 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[26-Feb-2022 21:38:46 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[26-Feb-2022 21:38:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[26-Feb-2022 21:38:46 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[26-Feb-2022 21:38:46 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[01-Mar-2022 22:34:25 America/Mexico_City] PHP Notice:  Undefined variable: cama in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/edit_pdf_consentBI.php on line 133
+[04-Mar-2022 16:21:58 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Mar-2022 16:21:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Mar-2022 16:21:58 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Mar-2022 16:21:58 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[04-Mar-2022 16:22:13 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[04-Mar-2022 16:22:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[04-Mar-2022 16:22:13 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[04-Mar-2022 16:22:13 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Mar-2022 13:20:01 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Mar-2022 13:20:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Mar-2022 13:20:01 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Mar-2022 13:20:01 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-Mar-2022 19:20:44 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[09-Mar-2022 19:20:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[09-Mar-2022 19:20:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[09-Mar-2022 19:20:44 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Mar-2022 06:45:06 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Mar-2022 06:45:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Mar-2022 06:45:06 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Mar-2022 06:45:06 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[10-Mar-2022 14:24:39 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[10-Mar-2022 14:24:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[10-Mar-2022 14:24:39 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[10-Mar-2022 14:24:39 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[19-Mar-2022 15:10:52 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[19-Mar-2022 15:10:52 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[23-Mar-2022 02:38:02 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[23-Mar-2022 02:38:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[23-Mar-2022 02:38:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[23-Mar-2022 02:38:02 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[23-Mar-2022 13:55:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[23-Mar-2022 13:55:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[23-Mar-2022 13:55:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[23-Mar-2022 13:55:25 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
+[24-Mar-2022 09:12:25 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[24-Mar-2022 09:12:25 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[29-Mar-2022 07:45:47 America/Mexico_City] PHP Notice:  Undefined variable: id_med in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 283
+[29-Mar-2022 07:45:47 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php:286
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/pdf_alta.php on line 286
+[30-Mar-2022 15:53:15 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[30-Mar-2022 15:53:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[30-Mar-2022 15:53:15 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[30-Mar-2022 15:53:15 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[03-Apr-2022 14:49:36 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[03-Apr-2022 14:49:36 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[06-Apr-2022 22:21:25 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 14
+[06-Apr-2022 22:21:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 19
+[06-Apr-2022 22:21:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/header_medico.php on line 223
+[06-Apr-2022 22:21:25 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simavenecia.com/public_html/gestion_medica/cartas_consentimientos/consent_medico.php on line 79
+[09-May-2022 14:12:11 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/cartas_consentimientos/pdf_resp_alo.php:182
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/cartas_consentimientos/pdf_resp_alo.php on line 182
+[09-May-2022 14:12:53 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/cartas_consentimientos/pdf_resp_alo.php:182
+Stack trace:
+#0 {main}
+  thrown in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/cartas_consentimientos/pdf_resp_alo.php on line 182
+[25-May-2022 14:27:20 UTC] PHP Notice:  Undefined index: login in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/header_medico.php on line 14
+[25-May-2022 14:27:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/header_medico.php on line 19
+[25-May-2022 14:27:20 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/header_medico.php on line 224
+[25-May-2022 14:27:20 UTC] PHP Notice:  Undefined index: hospital in /home/u542863078/domains/simatools.com/public_html/sanisidro/gestion_medica/cartas_consentimientos/consent_lista.php on line 79
