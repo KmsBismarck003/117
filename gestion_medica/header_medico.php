@@ -296,8 +296,7 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
                     </div>
                 </div>
 
-<<<<<<< HEAD
-        <!-- sidebar menu: : style can be found in sidebar.less -->
+
         <ul class="sidebar-menu">
 <li class="treeview">
   <a href="#">
@@ -309,7 +308,7 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
   </a>
   <ul class="treeview-menu">
     <li>
-      <a href="../gestion_medica/exploraciones/listar_exploraciones.php">
+      <a href="../exploraciones/listar_exploraciones.php">
         <i class="fa fa-eye" aria-hidden="true"></i> Ver exploraciones
       </a>
     </li>
@@ -331,12 +330,12 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
   </a>
   <ul class="treeview-menu">
     <li>
-      <a href="../gestion_medica/exploraciones/listar_segmento.php">
+      <a href="./exploraciones/listar_exploraciones.php">
         <i class="fa fa-list" aria-hidden="true"></i> Ver exploraciones
       </a>
     </li>
     <li>
-      <a href="../gestion_medica/exploraciones/formulario_segmento.php">
+      <a href="../exploraciones/formulario_segmento.php">
         <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar exploración
       </a>
     </li>
@@ -349,16 +348,36 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
     <i class="fa fa-angle-left pull-right"></i>
   </a>
   <ul class="treeview-menu">
-    <li><a href="../gestion_medica/exploraciones/formulario_segmento_posterior.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
-    <li><a href="../gestion_medica/exploraciones/listar_segmento_posterior.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+    <li><a href="../exploraciones/formulario_segmento_posterior.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../exploraciones/listar_segmento_posterior.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
   </ul>
 </li>
-=======
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu">
->>>>>>> 7f4fcea14ba42ce334ab0602f262a7393b23c64c
 
+<li class="treeview">
+  <a href="#">
+    <i class="fa fa-eye" aria-hidden="true"></i> <span>Niño/bebe</span>
+    <i class="fa fa-angle-left pull-right"></i>
+  </a>
+  <ul class="treeview-menu">
+    <li><a href="../exploraciones/formulario_nino_bebe.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../exploraciones/listar_nino_bebe.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+  </ul>
+      <li><a href="../exploraciones/formulario_nino_bebe.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../exploraciones/listar_nino_bebe.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+</li>
 
+<li class="treeview">
+  <a href="#">
+    <i class="fa fa-eye" aria-hidden="true"></i> <span>MEDICIONES DE <br> LA CORNEA </span>
+    <i class="fa fa-angle-left pull-right"></i>
+  </a>
+  <ul class="treeview-menu">
+    <li><a href="../exploraciones/formulario_mediciones_cornea.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../exploraciones/listar_mediciones_cornea.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+  </ul>
+      <li><a href="../exploraciones/formulario_mediciones_cornea.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../exploraciones/listar_mediciones_cornea.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+</li>
                     <li class="treeview">
                         <?php
               if (isset($_SESSION['hospital'])) {

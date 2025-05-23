@@ -1,8 +1,7 @@
 <?php
-require 'conexion.php';
-include("../includes/header.php");
-include("../includes/sidebar.php");
-
+session_start();
+include "../../conexionbd.php";
+include("../header_medico.php");
 $fecha_inicio = $_GET['fecha_inicio'] ?? null;
 $fecha_fin = $_GET['fecha_fin'] ?? null;
 
@@ -14,7 +13,7 @@ if ($fecha_inicio && $fecha_fin) {
 
 $sql .= " ORDER BY fecha_registro DESC";
 
-$resultado = $conn->query($sql);
+$resultado = $conexion->query($sql);
 ?>
 
 <!DOCTYPE html>

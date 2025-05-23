@@ -2,9 +2,9 @@
 date_default_timezone_set('America/Guatemala');
 
 $servidor="localhost";
-$nombreBd="ineo";
-$usuario="admin";
-$pass="01manager1";
+$nombreBd="u542863078_ineo";
+$usuario="root";
+$pass="1234";
 $conexion=new mysqli($servidor,$usuario,$pass,$nombreBd);
 $conexion -> set_charset("utf8");
 if($conexion-> connect_error){

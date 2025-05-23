@@ -1,107 +1,101 @@
 <?php
-include 'conexion.php';
+include("conexion.php");
 
-$id = $_GET['id'] ?? null;
-
-if (!$id) {
-    die("ID no proporcionado.");
-}
-
-// Obtener datos actuales
+$id = $_GET['id']; // ID del registro a editar
 $sql = "SELECT * FROM segmento_anterior WHERE id = $id";
-$result = $conn->query($sql);
-$registro = $result->fetch_assoc();
-
-if (!$registro) {
-    die("Registro no encontrado.");
-}
+$result = mysqli_query($conn, $sql);
+$data = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Editar Segmento Anterior</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Editar Segmento Anterior</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
+
 <div class="container mt-5">
-  <h2 class="mb-4">Editar Exploración - Segmento Anterior</h2>
+    <div class="card shadow-lg">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0">Editar Exploración - Segmento Anterior</h4>
+        </div>
+        <div class="card-body">
+            <form action="actualizar_segmento.php" method="POST">
+                <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
-  <form action="actualizar_segmento.php" method="POST">
-    <input type="hidden" name="id" value="<?= $registro['id'] ?>">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Estructura</th>
+                                <th>Ojo Derecho</th>
+                                <th>Ojo Izquierdo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $campos = [
+                                "parpados" => "Párpados",
+                                "conjuntiva_tarsal" => "Conjuntiva Tarsal",
+                                "conjuntiva_bulbar" => "Conjuntiva Bulbar",
+                                "cornea" => "Córnea",
+                                "camara_anterior" => "Cámara Anterior",
+                                "iris" => "Iris",
+                                "pupila" => "Pupila",
+                                "cristalino" => "Cristalino",
+                                "gonioscopia" => "Gonioscopía"
+                            ];
 
-    <div class="row">
-      <!-- CORNEA -->
-      <div class="col-md-6 mb-3">
-        <label>Córnea</label>
-        <select name="cornea" class="form-control" required>
-          <option value="Transparente" <?= $registro['cornea'] == 'Transparente' ? 'selected' : '' ?>>Transparente</option>
-          <option value="Edematosa" <?= $registro['cornea'] == 'Edematosa' ? 'selected' : '' ?>>Edematosa</option>
-          <option value="Opaca" <?= $registro['cornea'] == 'Opaca' ? 'selected' : '' ?>>Opaca</option>
-          <option value="Úlcera" <?= $registro['cornea'] == 'Úlcera' ? 'selected' : '' ?>>Úlcera</option>
-        </select>
-      </div>
+                            foreach ($campos as $campo => $etiqueta) {
+                                echo "<tr>
+                                    <td><label class='form-label'>$etiqueta</label></td>
+                                    <td><input type='text' name='{$campo}_od' class='form-control' value='{$data[$campo . "_od"]}' required></td>
+                                    <td><input type='text' name='{$campo}_oi' class='form-control' value='{$data[$campo . "_oi"]}' required></td>
+                                </tr>";
+                            }
+                            ?>
+                            <tr>
+                                <td><label class="form-label">LOCS III</label></td>
+                                <td>
+                                    <select name="locs_od" class="form-select">
+                                        <?php
+                                        $locs_options = ["No seleccionado", "NC", "C", "P"];
+                                        foreach ($locs_options as $opt) {
+                                            $selected = $data["locs_od"] === $opt ? "selected" : "";
+                                            echo "<option value='$opt' $selected>$opt</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="locs_oi" class="form-select">
+                                        <?php
+                                        foreach ($locs_options as $opt) {
+                                            $selected = $data["locs_oi"] === $opt ? "selected" : "";
+                                            echo "<option value='$opt' $selected>$opt</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-      <!-- CONJUNTIVA -->
-      <div class="col-md-6 mb-3">
-        <label>Conjuntiva</label>
-        <select name="conjuntiva" class="form-control" required>
-          <option value="Normal" <?= $registro['conjuntiva'] == 'Normal' ? 'selected' : '' ?>>Normal</option>
-          <option value="Hiperemia" <?= $registro['conjuntiva'] == 'Hiperemia' ? 'selected' : '' ?>>Hiperemia</option>
-          <option value="Hemorragia" <?= $registro['conjuntiva'] == 'Hemorragia' ? 'selected' : '' ?>>Hemorragia</option>
-          <option value="Papilas" <?= $registro['conjuntiva'] == 'Papilas' ? 'selected' : '' ?>>Papilas</option>
-        </select>
-      </div>
+                <div class="mb-3">
+                    <label for="observaciones" class="form-label">Observaciones</label>
+                    <textarea name="observaciones" id="observaciones" rows="4" class="form-control" required><?= $data['observaciones'] ?></textarea>
+                </div>
 
-      <!-- CAMARA ANTERIOR -->
-      <div class="col-md-6 mb-3">
-        <label>Cámara anterior</label>
-        <select name="camara_anterior" class="form-control" required>
-          <option value="Profunda" <?= $registro['camara_anterior'] == 'Profunda' ? 'selected' : '' ?>>Profunda</option>
-          <option value="Media" <?= $registro['camara_anterior'] == 'Media' ? 'selected' : '' ?>>Media</option>
-          <option value="Plana" <?= $registro['camara_anterior'] == 'Plana' ? 'selected' : '' ?>>Plana</option>
-          <option value="Con células" <?= $registro['camara_anterior'] == 'Con células' ? 'selected' : '' ?>>Con células</option>
-          <option value="Con flare" <?= $registro['camara_anterior'] == 'Con flare' ? 'selected' : '' ?>>Con flare</option>
-        </select>
-      </div>
-
-      <!-- PUPILA -->
-      <div class="col-md-6 mb-3">
-        <label>Pupila</label>
-        <select name="pupila" class="form-control" required>
-          <option value="Isocórica" <?= $registro['pupila'] == 'Isocórica' ? 'selected' : '' ?>>Isocórica</option>
-          <option value="Anisocórica" <?= $registro['pupila'] == 'Anisocórica' ? 'selected' : '' ?>>Anisocórica</option>
-          <option value="Reactiva a la luz" <?= $registro['pupila'] == 'Reactiva a la luz' ? 'selected' : '' ?>>Reactiva a la luz</option>
-          <option value="No reactiva" <?= $registro['pupila'] == 'No reactiva' ? 'selected' : '' ?>>No reactiva</option>
-          <option value="Midriática" <?= $registro['pupila'] == 'Midriática' ? 'selected' : '' ?>>Midriática</option>
-          <option value="Miótica" <?= $registro['pupila'] == 'Miótica' ? 'selected' : '' ?>>Miótica</option>
-        </select>
-      </div>
-
-      <!-- IRIS -->
-      <div class="col-md-6 mb-3">
-        <label>Iris</label>
-        <select name="iris" class="form-control" required>
-          <option value="Normal" <?= $registro['iris'] == 'Normal' ? 'selected' : '' ?>>Normal</option>
-          <option value="Atrófico" <?= $registro['iris'] == 'Atrófico' ? 'selected' : '' ?>>Atrófico</option>
-          <option value="Sinequias" <?= $registro['iris'] == 'Sinequias' ? 'selected' : '' ?>>Sinequias</option>
-          <option value="Neovascularización" <?= $registro['iris'] == 'Neovascularización' ? 'selected' : '' ?>>Neovascularización</option>
-        </select>
-      </div>
-
-      <!-- OBSERVACIONES -->
-      <div class="col-md-12 mb-3">
-        <label>Observaciones adicionales</label>
-        <textarea name="observaciones" class="form-control" rows="3"><?= htmlspecialchars($registro['observaciones']) ?></textarea>
-      </div>
-
-      <div class="col-md-12 text-end">
-        <button type="submit" class="btn btn-success">Actualizar</button>
-        <a href="listar_segmento.php" class="btn btn-secondary">Cancelar</a>
-      </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-2">Actualizar</button>
+                    <a href="listar_segmento.php" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
-  </form>
 </div>
 </body>
 </html>

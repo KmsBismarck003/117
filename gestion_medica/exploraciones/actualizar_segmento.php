@@ -1,34 +1,37 @@
 <?php
-include 'conexion.php';
+include("conexion.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'];
-    $cornea = $_POST['cornea'];
-    $conjuntiva = $_POST['conjuntiva'];
-    $camara_anterior = $_POST['camara_anterior'];
-    $pupila = $_POST['pupila'];
-    $iris = $_POST['iris'];
-    $observaciones = $_POST['observaciones'];
+$id = $_POST['id'];
 
-    $sql = "UPDATE segmento_anterior SET 
-        cornea = ?, 
-        conjuntiva = ?, 
-        camara_anterior = ?, 
-        pupila = ?, 
-        iris = ?, 
-        observaciones = ? 
-        WHERE id = ?";
+// Recoger datos
+$campos = [
+    "parpados", "conjuntiva_tarsal", "conjuntiva_bulbar", "cornea",
+    "camara_anterior", "iris", "pupila", "cristalino", "gonioscopia"
+];
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssi", $cornea, $conjuntiva, $camara_anterior, $pupila, $iris, $observaciones, $id);
+$updates = [];
 
-    if ($stmt->execute()) {
-        header("Location: listar_segmento.php?mensaje=actualizado");
-        exit();
-    } else {
-        echo "Error al actualizar el registro: " . $conn->error;
-    }
+foreach ($campos as $campo) {
+    $od = mysqli_real_escape_string($conn, $_POST["{$campo}_od"]);
+    $oi = mysqli_real_escape_string($conn, $_POST["{$campo}_oi"]);
+    $updates[] = "{$campo}_od = '$od'";
+    $updates[] = "{$campo}_oi = '$oi'";
+}
+
+$locs_od = mysqli_real_escape_string($conn, $_POST["locs_od"]);
+$locs_oi = mysqli_real_escape_string($conn, $_POST["locs_oi"]);
+$observaciones = mysqli_real_escape_string($conn, $_POST["observaciones"]);
+
+$updates[] = "locs_od = '$locs_od'";
+$updates[] = "locs_oi = '$locs_oi'";
+$updates[] = "observaciones = '$observaciones'";
+
+$update_query = "UPDATE segmento_anterior SET " . implode(", ", $updates) . " WHERE id = $id";
+
+if (mysqli_query($conn, $update_query)) {
+    header("Location: listar_segmento.php?actualizado=1");
+    exit();
 } else {
-    echo "Acceso no permitido.";
+    echo "Error al actualizar: " . mysqli_error($conn);
 }
 ?>

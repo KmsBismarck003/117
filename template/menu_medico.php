@@ -398,7 +398,26 @@ while($f = mysqli_fetch_array($resultado)){
     <li><a href="../gestion_medica/exploraciones/listar_segmento_posterior.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
   </ul>
 </li>
-
+<li class="treeview">
+  <a href="#">
+    <i class="fa fa-eye" aria-hidden="true"></i> <span>Niño/Bebe</span>
+    <i class="fa fa-angle-left pull-right"></i>
+  </a>
+  <ul class="treeview-menu">
+    <li><a href="../gestion_medica/exploraciones/formulario_nino_bebe.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../gestion_medica/exploraciones/listar_nino_bebe.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+  </ul>
+</li>
+<li class="treeview">
+  <a href="#">
+    <i class="fa fa-eye" aria-hidden="true"></i> <span>Mediciones de la cornea</span>
+    <i class="fa fa-angle-left pull-right"></i>
+  </a>
+  <ul class="treeview-menu">
+    <li><a href="../gestion_medica/exploraciones/formulario_mediciones_cornea.php"><i class="fa fa-plus-circle"></i> Registrar Exploración</a></li>
+    <li><a href="../gestion_medica/exploraciones/listar_mediciones_cornea.php"><i class="fa fa-list"></i> Ver Exploraciones</a></li>
+  </ul>
+</li>
 
         <?php
         if (isset($_SESSION['hospital'])) {
