@@ -37,14 +37,14 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Médica del Ángel Custodio</title>
+    <title>INEO Metepec</title>
     <link rel="icon" href="../imagenes/SIF.PNG">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../template/dist/js/pages/dashboard2.js" type="text/javascript"></script>
-
+    <script src="https://kit.fontawesome.com/e547be4475.js" crossorigin="anonymous"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../template/dist/js/demo.js" type="text/javascript"></script>
 
@@ -413,6 +413,7 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
                     <?php
           if (isset($_SESSION['hospital'])) {
           ?>
+<<<<<<< HEAD
             <li class="treeview">
                 <a href="../historia_clinica/h_clinica.php">
                    <i class="fa fa-folder" aria-hidden="true"></i> <span><font size ="2">HISTORIA CLÍNICA</font></span>
@@ -485,55 +486,116 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
                         <li><a href="../nota_anestesica/nota_unidad_cuidados.php"><i class="fa fa-bed"></i>
                         <font size ="2" color="black" >HOJA ANESTESICA <br> COMPLETA</font></a></li>
                         
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/estudios.php">
-                                    <i class="fa fa-folder" aria-hidden="true"></i> ESTUDIOS
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/lente_intraocular.php">
-                                    <i class="fa fa-eye" aria-hidden="true"></i> LENTE INTRAOCULAR
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/diagnostico.php">
-                                    <i class="fa fa-clipboard" aria-hidden="true"></i> DIAGNÓSTICO
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/tratamiento.php">
-                                    <i class="fa fa-notes-medical" aria-hidden="true"></i> TRATAMIENTO
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/tratamiento_laser.php">
-                                    <i class="fa fa-hospital-o" aria-hidden="true"></i> TRATAMIENTO LASER
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/examenes_lab_gabinete.php">
-                                    <i class="fa fa-vials" aria-hidden="true"></i> EXÁMENES DE LABORATORIO Y
-                                    GABINETE
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/gestion_medica/notas_medicas/recomendaciones.php">
-                                    <i class="fa fa-child"></i> RECOMENDACIONES
-                                </a>
-                            </li>
-
-                        </ul>
+=======
+                    <li class="treeview">
+                        <a href="../historia_clinica/h_clinica.php">
+                            <i class="fa fa-folder" aria-hidden="true"></i> <span>
+                                <font size="2">HISTORIA CLÍNICA</font>
+                            </span>
+                        </a>
                     </li>
 
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-stethoscope"></i> <span>NOTAS MÉDICAS</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/gestion_medica/notas_medicas/exploracion_fisica.php">
+                                    <i class="fa fa-magnifying-glass-arrow-right" aria-hidden="true"></i> EXPLORACION FISICA
+                                </a></li>
+                            <li><a href="/gestion_medica/notas_medicas/refraccion_antiguas.php">
+                                    <i class="fa fa-arrows-to-eye" aria-hidden="true"></i> REFRACCIONES ANTIGUAS
+                                </a></li>
+                            <li><a href="/gestion_medica/notas_medicas/refraccion_actual.php">
+                                    <i class="fa fa-eye" aria-hidden="true"></i> AUTOREFRACTOR /<br> QUERATOCONO
+                                </a></li>
+                    </li>
+                    <li><a href="/gestion_medica/notas_medicas/refraccion_actual.php">
+                            <i class="fa fa-glasses" aria-hidden="true"></i> REFRACCION ACTUAL
+                        </a></li>
+>>>>>>> 422e259 (correcciones formularios y menu terminado actualizacion 23-05-2025)
 
-                    <!-- <li class="treeview">
+                    <li><a href="/gestion_medica/notas_medicas/receta_lentes.php">
+                            <i class="fa fa-file-waveform" aria-hidden="true"></i></i> RECETA ANTEOJOS
+                        </a></li>
+                    </li>
+                    <li><a href="/gestion_medica/notas_medicas/receta_lentes_c.php">
+                            <i class="fa fa-file-waveform" aria-hidden="true"></i>RECETA LENTES DE CONTACTO
+                        </a></li>
+                    </li>
+                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                            <i class="fa fa-hourglass-end" aria-hidden="true"></i> PRUEBAS
+                        </a></li>
+                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                            <i class="fa fa-baby" aria-hidden="true"></i> NIÑO/BEBE
+                        </a></li>
+                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                            <i class="fa fa-arrows-to-eye" aria-hidden="true"></i> MEDICIONES DE LA CORNEA
+                        </a></li>
+                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                            <i class="fa fa-file-prescription" aria-hidden="true"></i> PRESION, PARPADOS Y VIAS
+                        </a></li>
+                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                            <i class="fa fa-backward" aria-hidden="true"></i> SEGMENTO ANTERIOR
+                        </a></li>
+                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                            <i class="fa fa-forward" aria-hidden="true"></i> SEGMENTO POSTERIOR
+
+                    <li>
+                        <a href="/gestion_medica/notas_medicas/estudios.php">
+                            <i class="fa fa-folder" aria-hidden="true"></i> ESTUDIOS
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/gestion_medica/notas_medicas/lente_intraocular.php">
+                            <i class="fa fa-eye" aria-hidden="true"></i> LENTE INTRAOCULAR
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/gestion_medica/notas_medicas/diagnostico.php">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i> DIAGNÓSTICO
+                        </a>
+                    </li>
+
+                    <!-- <li>
+                        <a href="/gestion_medica/notas_medicas/tratamiento.php">
+                            <i class="fa fa-notes-medical" aria-hidden="true"></i> TRATAMIENTO
+                        </a>
+                    </li>
+ -->
+                    <!-- <li>
+                        <a href="/gestion_medica/notas_medicas/tratamiento_laser.php">
+                            <i class="fa fa-hospital-o" aria-hidden="true"></i> TRATAMIENTO LASER
+                        </a>
+                    </li> -->
+
+                    <li>
+                        <a href="/gestion_medica/notas_medicas/examenes_lab.php">
+                            <i class="fa fa-vials" aria-hidden="true"></i> EXÁMENES DE LABORATORIO
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/gestion_medica/notas_medicas/examenes_gab.php">
+                            <i class="fa fa-vials" aria-hidden="true"></i> EXÁMENES DE
+                            GABINETE
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/gestion_medica/notas_medicas/recomendaciones.php">
+                            <i class="fa fa-child"></i> RECOMENDACIONES
+                        </a>
+                    </li>
+
+                </ul>
+                </li>
+
+
+                <!-- <li class="treeview">
 
                         <?php
               if (isset($_SESSION['hospital'])) {
@@ -568,21 +630,21 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
 
                     </li> -->
 
-                    <li class="treeview">
-                        <a href="../estudios/estudios.php">
-                            <i class="fa fa-flask" aria-hidden="true"></i>
-                            <font size="2"><span>RESULTADOS DE ESTUDIOS</span></font>
-                        </a>
-                    </li>
-                    <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
-                    <li class="treeview">
-                        <a href="../hospitalizacion/hoja_alta_medica.php">
-                            <i class="fa fa-street-view" aria-hidden="true"></i>
-                            <font size="2"><span>AVISO DE ALTA</span></font>
-                        </a>
-                    </li>
-                    <?php } ?>
-                    <!--        <li class="treeview">
+                <li class="treeview">
+                    <a href="../estudios/estudios.php">
+                        <i class="fa fa-flask" aria-hidden="true"></i>
+                        <font size="2"><span>RESULTADOS DE ESTUDIOS</span></font>
+                    </a>
+                </li>
+                <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
+                <li class="treeview">
+                    <a href="../hospitalizacion/hoja_alta_medica.php">
+                        <i class="fa fa-street-view" aria-hidden="true"></i>
+                        <font size="2"><span>AVISO DE ALTA</span></font>
+                    </a>
+                </li>
+                <?php } ?>
+                <!--        <li class="treeview">
               <a href="#">
                 <i class="fa fa-user-md"></i> <font size ="2"><span>QUIRÓFANO</span></font>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -598,12 +660,13 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
               </ul>
             </li> -->
 
-                    <!--<li class="treeview">
+                <!--<li class="treeview">
               <a href="../cartas_consentimientos/consent_medico.php">
                 <i class="fa fa-print" aria-hidden="true"></i> <font size ="2"><span>IMPRIMIR DOCUMENTOS</span></font>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>        
           </li>-->
+<<<<<<< HEAD
           
           <?php if($usuario['id_rol'] == 2 || $usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
           <li class="treeview">
@@ -612,151 +675,161 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
               </a>        
           </li>
         <?php } ?>
+=======
+                <?php if($usuario['id_rol'] == 2 || $usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
+                <li class="treeview">
+                    <a href="../selectpac_sincama/select_pac.php">
+                        <i class="fa fa-print" aria-hidden="true"></i>
+                        <font size="2"><span>SELECCIONAR <br>OTROS PACIENTES</span></font>
+                    </a>
+                </li>
+                <?php } ?>
+>>>>>>> 422e259 (correcciones formularios y menu terminado actualizacion 23-05-2025)
 
 
-                    <?php
+                <?php
           } else {
           ?>
 
-                    <li class="treeview">
-                        <a href="../../template/select_pac_hosp.php">
-                            <i class="fa fa-address-book" aria-hidden="true"></i> <span>
-                                <font size="2">HISTORIA CLÍNICA</font>
-                            </span>
-                        </a>
-                    </li>
+                <li class="treeview">
+                    <a href="../../template/select_pac_hosp.php">
+                        <i class="fa fa-address-book" aria-hidden="true"></i> <span>
+                            <font size="2">HISTORIA CLÍNICA</font>
+                        </span>
+                    </a>
+                </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-stethoscope"></i> <span>
-                                <font size="2">NOTAS MÉDICAS</font>
-                            </span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-stethoscope"></i> <span>
+                            <font size="2">NOTAS MÉDICAS</font>
+                        </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
 
-                        <ul class="treeview-menu">
+                    <ul class="treeview-menu">
 
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA DE URGENCIAS</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA DE INGRESO</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA DE EVOLUCIÓN</font>
-                                </a></li>
-                            <!--<li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA DE URGENCIAS</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA DE INGRESO</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA DE EVOLUCIÓN</font>
+                            </a></li>
+                        <!--<li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
                     <font size ="2"> NOTA DE POST-PARTO</font></a></li>-->
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA DE INTERCONSULTA</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA REFERENCIA/TRASLADO</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA NEONATOLÓGICA</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2"> NOTA PARTOGRAMA</font>
-                                </a></li>
-                            <!-- <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA DE INTERCONSULTA</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA REFERENCIA/TRASLADO</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA NEONATOLÓGICA</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2"> NOTA PARTOGRAMA</font>
+                            </a></li>
+                        <!-- <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
                     <font size ="2"> NOTA DE TRANSFUSIÓN</font></a></li>-->
-                            <li><a href="../../template/select_pac_hosp.php">
-                                    <i class="fa fa-street-view" aria-hidden="true"></i>
-                                    <font size="2"> NOTA DE EGRESO</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2">NOTA DE DEFUNCIÓN</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                    <font size="2">RESUMEN CLÍNICO</font>
-                                </a></li>
-                            <!-- NOTAS QUIRÚRGICAS-->
-                            <li>
-                                <center><strong>QUIRÚRGICAS</strong></center>
-                            </li>
-                            <li><a href="../../template/select_pac_hosp.php">
-                                    <i class="fa fa-bed" aria-hidden="true"></i>
-                                    <font size="2">PRE-OPERATORIA </font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php">
-                                    <i class="fa fa-medkit" aria-hidden="true"></i>
-                                    <font size="2"> CIRUGÍA SEGURA</font>
-                                </a></li>
-                            <li><a href="../../template/select_pac_hosp.php">
-                                    <i class="fa fa-user-md" aria-hidden="true"></i>
-                                    <font size="2"> DESCRIPCIÓN INTERVENCIÓN <br> QUIRÚRGICA</font>
-                                </a></li>
+                        <li><a href="../../template/select_pac_hosp.php">
+                                <i class="fa fa-street-view" aria-hidden="true"></i>
+                                <font size="2"> NOTA DE EGRESO</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2">NOTA DE DEFUNCIÓN</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                <font size="2">RESUMEN CLÍNICO</font>
+                            </a></li>
+                        <!-- NOTAS QUIRÚRGICAS-->
+                        <li>
+                            <center><strong>QUIRÚRGICAS</strong></center>
+                        </li>
+                        <li><a href="../../template/select_pac_hosp.php">
+                                <i class="fa fa-bed" aria-hidden="true"></i>
+                                <font size="2">PRE-OPERATORIA </font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php">
+                                <i class="fa fa-medkit" aria-hidden="true"></i>
+                                <font size="2"> CIRUGÍA SEGURA</font>
+                            </a></li>
+                        <li><a href="../../template/select_pac_hosp.php">
+                                <i class="fa fa-user-md" aria-hidden="true"></i>
+                                <font size="2"> DESCRIPCIÓN INTERVENCIÓN <br> QUIRÚRGICA</font>
+                            </a></li>
 
-                            <!-- NOTAS ANESTÉSICAS-->
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-stethoscope"></i> <span>NOTAS ANESTÉSICAS</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                            <font size="2"> PRE-ANESTÉSICA</font>
-                                        </a></li>
-                                    <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                            <font size="2"> EVALUACIÓN <br> PRE-ANESTÉSICA </font>
-                                        </a></li>
-                                    <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                            <font size="2"> REGISTRO DESCRIPTIVO <br> TRANS-ANESTÉSICO</font>
-                                        </a></li>
-                                    <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                            <font size="2"> CUIDADOS <br>POST ANESTÉSICOS<br>(NOTA DE RECUPERACIÓN)
-                                            </font>
-                                        </a></li>
-                                    <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
-                                            <font size="2"> POST-ANESTÉSICA</font>
-                                        </a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                        <!-- NOTAS ANESTÉSICAS-->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-stethoscope"></i> <span>NOTAS ANESTÉSICAS</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                        <font size="2"> PRE-ANESTÉSICA</font>
+                                    </a></li>
+                                <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                        <font size="2"> EVALUACIÓN <br> PRE-ANESTÉSICA </font>
+                                    </a></li>
+                                <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                        <font size="2"> REGISTRO DESCRIPTIVO <br> TRANS-ANESTÉSICO</font>
+                                    </a></li>
+                                <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                        <font size="2"> CUIDADOS <br>POST ANESTÉSICOS<br>(NOTA DE RECUPERACIÓN)
+                                        </font>
+                                    </a></li>
+                                <li><a href="../../template/select_pac_hosp.php"><i class="fa fa-circle"></i>
+                                        <font size="2"> POST-ANESTÉSICA</font>
+                                    </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
 
-                    <li class="treeview">
-                        <a href="../../template/select_pac_hosp.php">
-                            <i class="fa fa-id-card"></i> <span>
-                                <font size="2">RECETA HOSPITALIZACIÓN</font>
-                            </span>
-                        </a>
-                    </li>
+                <li class="treeview">
+                    <a href="../../template/select_pac_hosp.php">
+                        <i class="fa fa-id-card"></i> <span>
+                            <font size="2">RECETA HOSPITALIZACIÓN</font>
+                        </span>
+                    </a>
+                </li>
 
-                    <li class="treeview">
-                        <a href="../../template/select_pac_hosp.php">
-                            <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>
-                                <font size="2">VISUALIZAR SIGNOS VTALES</font>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="treeview">
-                        <a href="../../template/select_pac_hosp.php">
-                            <i class="fa fa-files-o" aria-hidden="true"></i> <span>
-                                <font size="2">INDICACIONES MÉDICAS</font>
-                            </span>
-                        </a>
-                    </li>
+                <li class="treeview">
+                    <a href="../../template/select_pac_hosp.php">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>
+                            <font size="2">VISUALIZAR SIGNOS VTALES</font>
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="../../template/select_pac_hosp.php">
+                        <i class="fa fa-files-o" aria-hidden="true"></i> <span>
+                            <font size="2">INDICACIONES MÉDICAS</font>
+                        </span>
+                    </a>
+                </li>
 
-                    <li class="treeview">
-                        <a href="../../template/select_pac_hosp.php">
-                            <i class="fa fa-flask" aria-hidden="true"></i> <span>
-                                <font size="2">RESULTADO DE ESTUDIOS</font>
-                            </span>
-                        </a>
-                    </li>
-                    <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
-                    <li class="treeview">
-                        <a href="../../template/select_pac_hosp.php">
-                            <i class="fa fa-street-view" aria-hidden="true"></i> <span>
-                                <font size="2">AVISO DE ALTA MÉDICA</font>
-                            </span>
-                        </a>
-                    </li>
-                    <?php } ?>
-                    <!--           <li class="treeview">
+                <li class="treeview">
+                    <a href="../../template/select_pac_hosp.php">
+                        <i class="fa fa-flask" aria-hidden="true"></i> <span>
+                            <font size="2">RESULTADO DE ESTUDIOS</font>
+                        </span>
+                    </a>
+                </li>
+                <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
+                <li class="treeview">
+                    <a href="../../template/select_pac_hosp.php">
+                        <i class="fa fa-street-view" aria-hidden="true"></i> <span>
+                            <font size="2">AVISO DE ALTA MÉDICA</font>
+                        </span>
+                    </a>
+                </li>
+                <?php } ?>
+                <!--           <li class="treeview">
               <a href="#">
                 <i class="fa fa-user-md"></i> <span><font size ="2">QUIRÓFANO</font></span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -780,21 +853,21 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
                 <i class="fa fa-angle-left pull-right"></i>
               </a>        
             </li>-->
-                    <?php if($usuario['id_rol'] == 2 || $usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
-                    <li class="treeview">
-                        <a href="../selectpac_sincama/select_pac.php">
-                            <i class="fa fa-print" aria-hidden="true"></i>
-                            <font size="2"><span>SELECCIONAR <br>OTROS PACIENTES</span></font>
-                        </a>
-                    </li>
-                    <?php } ?>
+                <?php if($usuario['id_rol'] == 2 || $usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
+                <li class="treeview">
+                    <a href="../selectpac_sincama/select_pac.php">
+                        <i class="fa fa-print" aria-hidden="true"></i>
+                        <font size="2"><span>SELECCIONAR <br>OTROS PACIENTES</span></font>
+                    </a>
+                </li>
+                <?php } ?>
 
-                    <?php
+                <?php
           }
           ?>
 
 
-                    <!-- <li class="treeview">
+                <!-- <li class="treeview">
             <a href="#">
               <i class="fa fa-user-md"></i> <span><font size ="2">CIRUGÍA AMBULATORIA</font></span>
               <i class="fa fa-angle-left pull-right"></i>
@@ -852,7 +925,7 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
             </ul>
           </li>-->
 
-                    <!-- /.sidebar -->
+                <!-- /.sidebar -->
         </aside>
 
         <!-- Right side column. Contains the navbar and content of the page -->

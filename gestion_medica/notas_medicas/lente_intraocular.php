@@ -78,245 +78,204 @@ $usuario = $_SESSION['login'];
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
-
-                <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 22px;"><strong>
-                        <center>HISTORIA CLÍNICA </center>
-                    </strong></div>
-
-                <?php
-    if (isset($_SESSION['hospital'])) {
-      $id_atencion = $_SESSION['hospital'];
-
-      $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac,p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup FROM paciente p, dat_ingreso di WHERE p.Id_exp=di.Id_exp and di.id_atencion =$id_atencion";
-
-      $result_pac = $conexion->query($sql_pac);
-
-      while ($row_pac = $result_pac->fetch_assoc()) {
-        $pac_papell = $row_pac['papell'];
-        $pac_sapell = $row_pac['sapell'];
-        $pac_nom_pac = $row_pac['nom_pac'];
-        $pac_dir = $row_pac['dir'];
-
-        $pac_id_edo = $row_pac['id_edo'];
-        $pac_id_mun = $row_pac['id_mun'];
-        $pac_tel = $row_pac['tel'];
-        $pac_fecnac = $row_pac['fecnac'];
-        $pac_fecing = $row_pac['fecha'];
-        $pac_tip_sang = $row_pac['tip_san'];
-        $pac_sexo = $row_pac['sexo'];
-        $area = $row_pac['area'];
-        $alta_med = $row_pac['alta_med'];
-        $id_exp = $row_pac['Id_exp'];
-        $folio = $row_pac['folio'];
-        $alergias = $row_pac['alergias'];
-        $ocup = $row_pac['ocup'];
-        $activo = $row_pac['activo'];
-      }
-
-      if ($activo === 'SI') {
-          $sql_now = "SELECT DATE_ADD(NOW(), INTERVAL 12 HOUR) as dat_now FROM dat_ingreso WHERE id_atencion = $id_atencion";
-          $result_now = $conexion->query($sql_now);
-          while ($row_now = $result_now->fetch_assoc()) {
-            $dat_now = $row_now['dat_now'];
-          }
-          $sql_est = "SELECT DATEDIFF( '$dat_now' , fecha) as estancia FROM dat_ingreso WHERE id_atencion = $id_atencion";
-          $result_est = $conexion->query($sql_est);
-          while ($row_est = $result_est->fetch_assoc()) {
-            $estancia = $row_est['estancia'];
-          }
-      }
-      else {
-          $sql_est = "SELECT DATEDIFF(fec_egreso, fecha) as estancia FROM dat_ingreso WHERE id_atencion = $id_atencion";
-          $result_est = $conexion->query($sql_est);
-          while ($row_est = $result_est->fetch_assoc()) {
-            if($row_est['estancia']==0){
-               $estancia = $row_est['estancia']+1;
-            }else{
-              $estancia = $row_est['estancia'];
-            }
-          }
-      }
-    ?>
-
-
-                <div class="row">
-                    <div class="col-sm-2">
-                        Expediente: <strong><?php echo $folio?> </strong>
-                    </div>
-                    <div class="col-sm-6">
-                        Paciente: <strong><?php echo $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac ?></strong>
-                    </div>
-
-                    <?php $date = date_create($pac_fecing);
-   ?>
-                    <div class="col-sm-4">
-                        Fecha de ingreso: <strong><?php echo date_format($date, "d/m/Y H:i:s") ?></strong>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <?php $date1 = date_create($pac_fecnac);
-   ?>
-                        <!-- INICIO DE FUNCION DE CALCULAR EDAD -->
-                        <?php 
-
-function bisiesto($anio_actual){
-    $bisiesto=false;
-    //probamos si el mes de febrero del año actual tiene 29 días
-      if (checkdate(2,29,$anio_actual))
-      {
-        $bisiesto=true;
-    }
-    return $bisiesto;
-}
-
-
-$fecha_actual = date("Y-m-d");
-$fecha_nac=$pac_fecnac;
-$fecha_de_nacimiento =strval($fecha_nac);
-// separamos en partes las fechas
-$array_nacimiento = explode ( "-", $fecha_de_nacimiento );
-$array_actual = explode ( "-", $fecha_actual );
-$anos =  $array_actual[0] - $array_nacimiento[0]; // calculamos años
-$meses = $array_actual[1] - $array_nacimiento[1]; // calculamos meses
-$dias =  $array_actual[2] - $array_nacimiento[2]; // calculamos días
-
-//ajuste de posible negativo en $días
-if ($dias < 0)
-{
-    --$meses;
-    //ahora hay que sumar a $dias los dias que tiene el mes anterior de la fecha actual
-    switch ($array_actual[1]) {
-           case 1:     $dias_mes_anterior=31; break;
-           case 2:     $dias_mes_anterior=31; break;
-           case 3:     
-               if (bisiesto($array_actual[0]))
-                {
-                    $dias_mes_anterior=29; break;
-                } else {
-                    $dias_mes_anterior=28; break;
-                }
-           case 4:     $dias_mes_anterior=31; break;
-           case 5:     $dias_mes_anterior=30; break;
-           case 6:     $dias_mes_anterior=31; break;
-           case 7:     $dias_mes_anterior=30; break;
-           case 8:     $dias_mes_anterior=31; break;
-           case 9:     $dias_mes_anterior=31; break;
-           case 10:     $dias_mes_anterior=30; break;
-           case 11:     $dias_mes_anterior=31; break;
-           case 12:     $dias_mes_anterior=30; break;
-    }
-
-    $dias=$dias + $dias_mes_anterior;
-}
-
-//ajuste de posible negativo en $meses
-if ($meses < 0)
-{
-    --$anos;
-    $meses=$meses + 12;
-}
-
-//echo "<br>Tu edad es: $anos años con $meses meses y $dias días";
- ?>
-                        <!-- TERMINO DE FUNCION DE CALCULAR EDAD -->
-                        Fecha de nacimiento: <strong><?php echo date_format($date1, "d/m/Y") ?></strong>
-                    </div>
-                    <div class="col-sm-4">
-                        Edad: <strong><?php if($anos > "0" ){
-   echo $anos." años";
-}elseif($anos <="0" && $meses>"0"){
-    echo $meses." meses";
-}elseif($anos <="0" && $meses<="0" && $dias>"0"){
-    echo $dias." días";
-}
-?></strong>
-                    </div>
-
-                    <div class="col-sm-2">
-                        Habitación: <strong><?php $sql_hab = "SELECT num_cama from cat_camas where id_atencion =$id_atencion";
-$result_hab = $conexion->query($sql_hab);                                                                                    while ($row_hab = $result_hab->fetch_assoc()) {
-  echo $row_hab['num_cama'];
-} ?></strong>
-                    </div>
-                </div>
-                <div class="row">
-                    <?php 
-$d="";
-$sql_motd = "SELECT diagprob_i from dat_not_ingreso where id_atencion=$id_atencion ORDER by id_not_ingreso DESC LIMIT 1";
-    $result_motd = $conexion->query($sql_motd);
-    while ($row_motd = $result_motd->fetch_assoc()) {
-        $d=$row_motd['diagprob_i'];
-    } 
-$sql_motd = "SELECT diagprob_i from dat_nevol where id_atencion=$id_atencion ORDER by id_ne DESC LIMIT 1";
-$result_motd = $conexion->query($sql_motd);
-while ($row_motd = $result_motd->fetch_assoc()) {
-    $d=$row_motd['diagprob_i'];
-} ?>
-                    <?php $sql_mot = "SELECT motivo_atn from dat_ingreso where id_atencion=$id_atencion ORDER by motivo_atn ASC LIMIT 1";
-$result_mot = $conexion->query($sql_mot);
-while ($row_mot = $result_mot->fetch_assoc()) {
-$m=$row_mot['motivo_atn'];
-} ?>
-
-                    <?php if ($d!=null) {
-   echo '<div class="col-sm-8"> Diagnóstico: <strong>' . $d .'</strong></div>';
-} else{
-      echo '<div class="col-sm-8"> Motivo de atención: <strong>' . $m .'</strong></div>';
-}?>
-                    <div class="col-sm">
-                        Días estancia: <strong><?php echo $estancia ?> días</strong>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        Alergias: <strong><?php echo $alergias ?></strong>
-                    </div>
-                    <div class="col-sm-4">
-                        Estado de salud: <strong><?php $sql_edo = "SELECT edo_salud from dat_ingreso where id_atencion=$id_atencion ORDER by edo_salud ASC LIMIT 1";
-      $result_edo = $conexion->query($sql_edo);while ($row_edo = $result_edo->fetch_assoc()) {
-      echo $row_edo['edo_salud'];
-} ?></strong>
-                    </div>
-                    <div class="col-sm-3">
-                        Tipo de sangre: <strong><?php echo $pac_tip_sang ?></strong>
-                    </div>
-                </div>
-                <?php $sql_edo = "SELECT * from dat_hclinica where Id_exp=$id_exp ORDER by id_hc DESC LIMIT 1";
-$result_edo = $conexion->query($sql_edo);
-while ($row_edo = $result_edo->fetch_assoc()) {
-  $peso=$row_edo['peso'];
-  $talla=$row_edo['talla'];
-} 
-if (!isset($peso)){
-    $peso=0;
-    $talla=0;
-}?>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        Peso: <strong><?php echo $peso ?></strong>
-                    </div>
-                    <div class="col-sm-3">
-                        Talla: <strong><?php echo $talla ?></strong>
-                    </div>
-                </div>
-
-
+        <div class="mt-3">
+            <?php if (isset($_SESSION['message']) && isset($_SESSION['message_type'])): ?>
+            <div class="alert alert-<?php echo htmlspecialchars($_SESSION['message_type']); ?> alert-dismissible fade show"
+                role="alert">
+                <?php echo htmlspecialchars($_SESSION['message']); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <?php
-      } else {
-        echo '<script type="text/javascript"> window.location.href="../lista_pacientes/lista_pacientes.php";</script>';
-      }
-        ?>
+            // Limpiar el mensaje
+            unset($_SESSION['message']);
+            unset($_SESSION['message_type']);
+            ?>
+            <?php endif; ?>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="thead"><strong>
+                        <center>HISTORIA CLÍNICA</center>
+                    </strong></div>
+                <?php
+                include "../../conexionbd.php";
+                if (isset($_SESSION['hospital'])) {
+                    $id_atencion = $_SESSION['hospital'];
+                    $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac, p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup 
+                                FROM paciente p, dat_ingreso di 
+                                WHERE p.Id_exp=di.Id_exp AND di.id_atencion = ?";
+                    $stmt = $conexion->prepare($sql_pac);
+                    $stmt->bind_param("i", $id_atencion);
+                    $stmt->execute();
+                    $result_pac = $stmt->get_result();
+                    while ($row_pac = $result_pac->fetch_assoc()) {
+                        $pac_papell = $row_pac['papell'];
+                        $pac_sapell = $row_pac['sapell'];
+                        $pac_nom_pac = $row_pac['nom_pac'];
+                        $pac_dir = $row_pac['dir'];
+                        $pac_id_edo = $row_pac['id_edo'];
+                        $pac_id_mun = $row_pac['id_mun'];
+                        $pac_tel = $row_pac['tel'];
+                        $pac_fecnac = $row_pac['fecnac'];
+                        $pac_fecing = $row_pac['fecha'];
+                        $pac_tip_sang = $row_pac['tip_san'];
+                        $pac_sexo = $row_pac['sexo'];
+                        $area = $row_pac['area'];
+                        $alta_med = $row_pac['alta_med'];
+                        $id_exp = $row_pac['Id_exp'];
+                        $folio = $row_pac['folio'];
+                        $alergias = $row_pac['alergias'];
+                        $ocup = $row_pac['ocup'];
+                        $activo = $row_pac['activo'];
+                    }
+                    $stmt->close();
+
+                    if ($activo === 'SI') {
+                        $sql_now = "SELECT DATE_ADD(NOW(), INTERVAL 12 HOUR) as dat_now FROM dat_ingreso WHERE id_atencion = ?";
+                        $stmt = $conexion->prepare($sql_now);
+                        $stmt->bind_param("i", $id_atencion);
+                        $stmt->execute();
+                        $result_now = $stmt->get_result();
+                        while ($row_now = $result_now->fetch_assoc()) {
+                            $dat_now = $row_now['dat_now'];
+                        }
+                        $stmt->close();
+                        $sql_est = "SELECT DATEDIFF(?, fecha) as estancia FROM dat_ingreso WHERE id_atencion = ?";
+                        $stmt = $conexion->prepare($sql_est);
+                        $stmt->bind_param("si", $dat_now, $id_atencion);
+                        $stmt->execute();
+                        $result_est = $stmt->get_result();
+                        while ($row_est = $result_est->fetch_assoc()) {
+                            $estancia = $row_est['estancia'];
+                        }
+                        $stmt->close();
+                    } else {
+                        $sql_est = "SELECT DATEDIFF(fec_egreso, fecha) as estancia FROM dat_ingreso WHERE id_atencion = ?";
+                        $stmt = $conexion->prepare($sql_est);
+                        $stmt->bind_param("i", $id_atencion);
+                        $stmt->execute();
+                        $result_est = $stmt->get_result();
+                        while ($row_est = $result_est->fetch_assoc()) {
+                            $estancia = ($row_est['estancia'] == 0) ? 1 : $row_est['estancia'];
+                        }
+                        $stmt->close();
+                    }
+
+                    $d = "";
+                    $sql_motd = "SELECT diagprob_i FROM dat_not_ingreso WHERE id_atencion = ? ORDER BY id_not_ingreso DESC LIMIT 1";
+                    $stmt = $conexion->prepare($sql_motd);
+                    $stmt->bind_param("i", $id_atencion);
+                    $stmt->execute();
+                    $result_motd = $stmt->get_result();
+                    while ($row_motd = $result_motd->fetch_assoc()) {
+                        $d = $row_motd['diagprob_i'];
+                    }
+                    $stmt->close();
+
+                    if (!$d) {
+                        $sql_motd = "SELECT diagprob_i FROM dat_nevol WHERE id_atencion = ? ORDER BY id_ne DESC LIMIT 1";
+                        $stmt = $conexion->prepare($sql_motd);
+                        $stmt->bind_param("i", $id_atencion);
+                        $stmt->execute();
+                        $result_motd = $stmt->get_result();
+                        while ($row_motd = $result_motd->fetch_assoc()) {
+                            $d = $row_motd['diagprob_i'];
+                        }
+                        $stmt->close();
+                    }
+
+                    $sql_mot = "SELECT motivo_atn FROM dat_ingreso WHERE id_atencion = ? ORDER BY motivo_atn ASC LIMIT 1";
+                    $stmt = $conexion->prepare($sql_mot);
+                    $stmt->bind_param("i", $id_atencion);
+                    $stmt->execute();
+                    $result_mot = $stmt->get_result();
+                    while ($row_mot = $result_mot->fetch_assoc()) {
+                        $m = $row_mot['motivo_atn'];
+                    }
+                    $stmt->close();
+
+                    $sql_edo = "SELECT edo_salud FROM dat_ingreso WHERE id_atencion = ? ORDER BY edo_salud ASC LIMIT 1";
+                    $stmt = $conexion->prepare($sql_edo);
+                    $stmt->bind_param("i", $id_atencion);
+                    $stmt->execute();
+                    $result_edo = $stmt->get_result();
+                    while ($row_edo = $result_edo->fetch_assoc()) {
+                        $edo_salud = $row_edo['edo_salud'];
+                    }
+                    $stmt->close();
+
+                    $sql_hab = "SELECT num_cama FROM cat_camas WHERE id_atencion = ?";
+                    $stmt = $conexion->prepare($sql_hab);
+                    $stmt->bind_param("i", $id_atencion);
+                    $stmt->execute();
+                    $result_hab = $stmt->get_result();
+                    $num_cama = $result_hab->fetch_assoc()['num_cama'] ?? '';
+                    $stmt->close();
+
+                    $sql_hclinica = "SELECT peso, talla FROM dat_hclinica WHERE Id_exp = ? ORDER BY id_hc DESC LIMIT 1";
+                    $stmt = $conexion->prepare($sql_hclinica);
+                    $stmt->bind_param("s", $id_exp);
+                    $stmt->execute();
+                    $result_hclinica = $stmt->get_result();
+                    $peso = 0;
+                    $talla = 0;
+                    while ($row_hclinica = $result_hclinica->fetch_assoc()) {
+                        $peso = $row_hclinica['peso'] ?? 0;
+                        $talla = $row_hclinica['talla'] ?? 0;
+                    }
+                    $stmt->close();
+                } else {
+                    echo '<script type="text/javascript">window.location.href="../lista_pacientes/lista_pacientes.php";</script>';
+                }
+                ?>
+                <div class="row">
+                    <div class="col-sm-2">Expediente: <strong><?php echo $folio; ?></strong></div>
+                    <div class="col-sm-6">Paciente:
+                        <strong><?php echo $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac; ?></strong>
+                    </div>
+                    <div class="col-sm-4">Fecha de ingreso:
+                        <strong><?php echo date_format(date_create($pac_fecing), "d/m/Y H:i:s"); ?></strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">Fecha de nacimiento:
+                        <strong><?php echo date_format(date_create($pac_fecnac), "d/m/Y"); ?></strong>
+                    </div>
+                    <div class="col-sm-4">Edad: <strong><?php
+                        $fecha_actual = date("Y-m-d");
+                        $fecha_nac = $pac_fecnac;
+                        $array_nacimiento = explode("-", $fecha_nac);
+                        $array_actual = explode("-", $fecha_actual);
+                        $anos = $array_actual[0] - $array_nacimiento[0];
+                        $meses = $array_actual[1] - $array_nacimiento[1];
+                        $dias = $array_actual[2] - $array_nacimiento[2];
+                        if ($dias < 0) { --$meses; $dias += ($array_actual[1] == 3 && date("L", strtotime($fecha_actual)) ? 29 : 28); }
+                        if ($meses < 0) { --$anos; $meses += 12; }
+                        echo ($anos > 0 ? $anos . " años" : ($meses > 0 ? $meses . " meses" : $dias . " días"));
+                    ?></strong></div>
+                    <div class="col-sm-2">Habitación: <strong><?php echo $num_cama; ?></strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <?php echo $d ? "Diagnóstico: <strong>$d</strong>" : "Motivo de atención: <strong>$m</strong>"; ?>
+                    </div>
+                    <div class="col-sm">Días estancia: <strong><?php echo $estancia; ?> días</strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">Alergias: <strong><?php echo $alergias; ?></strong></div>
+                    <div class="col-sm-4">Estado de salud: <strong><?php echo $edo_salud; ?></strong></div>
+                    <div class="col-sm-3">Tipo de sangre: <strong><?php echo $pac_tip_sang; ?></strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">Peso: <strong><?php echo $peso; ?></strong></div>
+                    <div class="col-sm-3">Talla: <strong><?php echo $talla; ?></strong></div>
+                </div>
+            </div>
         </div>
     </div>
-     <br><br>
+    <br><br>
     <div class="container">
         <div class="thead">
             <strong>
@@ -489,7 +448,7 @@ if (!isset($peso)){
             </div>
 
             <center class="mt-3">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Firmar</button>
                 <button type="button" class="btn btn-danger" onclick="history.back()">Cancelar</button>
             </center>
         </form>

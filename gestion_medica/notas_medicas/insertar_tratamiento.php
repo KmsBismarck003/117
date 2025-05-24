@@ -7,74 +7,84 @@ if (!isset($_SESSION['hospital'])) {
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_atencion = $_SESSION['hospital'];
+    $usuario = $_SESSION['login'];
+
+    // Get Id_exp from dat_ingreso
     $stmt = $conexion->prepare("SELECT Id_exp FROM dat_ingreso WHERE id_atencion = ?");
     $stmt->bind_param("i", $id_atencion);
     $stmt->execute();
     $result = $stmt->get_result();
-    $id_exp = $result->fetch_assoc()['Id_exp'];
+    $row = $result->fetch_assoc();
+    $id_exp = $row['Id_exp'] ?? null;
     $stmt->close();
 
     if (!$id_exp) {
-        echo '<script>alert("Error: No se encontró el expediente del paciente."); window.location.href="tratamiento.php";</script>';
+        $_SESSION['message'] = "Error: No se encontró el expediente para esta atención.";
+        $_SESSION['message_type'] = "danger";
+        header("Location: diagnostico.php");
         exit();
     }
 
-    $oftalmologicamente_sano = isset($_POST['oftalmologicamente_sano']) ? 1 : 0;
-    $sin_tratamiento = isset($_POST['sin_tratamiento']) ? 1 : 0;
-    $tratamiento_previo_derecho = $_POST['tratamiento_previo_derecho'] ?? '';
-    $tratamiento_previo_izquierdo = $_POST['tratamiento_previo_izquierdo'] ?? '';
-    $medicamento_derecho = $_POST['medicamento_derecho'] ?? '';
-    $codigo_tratamiento_derecho = $_POST['codigo_tratamiento_derecho'] ?? '';
-    $desc_tratamiento_derecho = $_POST['desc_tratamiento_derecho'] ?? '';
-    $tipo_tratamiento_derecho = $_POST['tipo_tratamiento_derecho'] ?? 'Primera Vez';
-    $procedimientos_derecho = $_POST['procedimientos_derecho'] ?? '';
-    $quirurgico_derecho = $_POST['quirurgico_derecho'] ?? '';
-    $medicamento_izquierdo = $_POST['medicamento_izquierdo'] ?? '';
-    $codigo_tratamiento_izquierdo = $_POST['codigo_tratamiento_izquierdo'] ?? '';
-    $desc_tratamiento_izquierdo = $_POST['desc_tratamiento_izquierdo'] ?? '';
-    $tipo_tratamiento_izquierdo = $_POST['tipo_tratamiento_izquierdo'] ?? 'Primera Vez';
-    $procedimientos_izquierdo = $_POST['procedimientos_izquierdo'] ?? '';
-    $quirurgico_izquierdo = $_POST['quirurgico_izquierdo'] ?? '';
+    // Get form data
+    $medicamento_derecho = trim($_POST['medicamento_derecho'] ?? '');
+    $tipo_tratamiento_derecho = trim($_POST['tipo_tratamiento_derecho'] ?? '');
+    $procedimientos_derecho = trim($_POST['procedimientos_derecho'] ?? '');
+    $quirurgico_derecho = trim($_POST['quirurgico_derecho'] ?? '');
+    $medicamento_izquierdo = trim($_POST['medicamento_izquierdo'] ?? '');
+    $tipo_tratamiento_izquierdo = trim($_POST['tipo_tratamiento_izquierdo'] ?? '');
+    $procedimientos_izquierdo = trim($_POST['procedimientos_izquierdo'] ?? '');
+    $quirurgico_izquierdo = trim($_POST['quirurgico_izquierdo'] ?? '');
 
-    $stmt = $conexion->prepare("INSERT INTO ocular_tratamiento (
-        id_atencion, Id_exp, oftalmologicamente_sano, sin_tratamiento,
-        tratamiento_previo_derecho, tratamiento_previo_izquierdo,
-        medicamento_derecho, codigo_tratamiento_derecho, desc_tratamiento_derecho, tipo_tratamiento_derecho, procedimientos_derecho, quirurgico_derecho,
-        medicamento_izquierdo, codigo_tratamiento_izquierdo, desc_tratamiento_izquierdo, tipo_tratamiento_izquierdo, procedimientos_izquierdo, quirurgico_izquierdo
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // Check if at least one field is filled
+    if (empty($medicamento_derecho) && empty($tipo_tratamiento_derecho) && empty($procedimientos_derecho) && empty($quirurgico_derecho) &&
+        empty($medicamento_izquierdo) && empty($tipo_tratamiento_izquierdo) && empty($procedimientos_izquierdo) && empty($quirurgico_izquierdo)) {
+        $_SESSION['message'] = "Error: Debe completar al menos un campo de tratamiento.";
+        $_SESSION['message_type'] = "danger";
+        header("Location: diagnostico.php");
+        exit();
+    }
+
+    // Insert into ocular_tratamiento
+    $stmt = $conexion->prepare("
+        INSERT INTO ocular_tratamiento (
+            Id_exp, id_atencion, medicamento_derecho, tipo_tratamiento_derecho, procedimientos_derecho, quirurgico_derecho,
+            medicamento_izquierdo, tipo_tratamiento_izquierdo, procedimientos_izquierdo, quirurgico_izquierdo,
+            usuario_registro
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ");
     $stmt->bind_param(
-        "isiiisssssssssssss",
-        $id_atencion,
+        "sisssssssss",
         $id_exp,
-        $oftalmologicamente_sano,
-        $sin_tratamiento,
-        $tratamiento_previo_derecho,
-        $tratamiento_previo_izquierdo,
+        $id_atencion,
         $medicamento_derecho,
-        $codigo_tratamiento_derecho,
-        $desc_tratamiento_derecho,
         $tipo_tratamiento_derecho,
         $procedimientos_derecho,
         $quirurgico_derecho,
         $medicamento_izquierdo,
-        $codigo_tratamiento_izquierdo,
-        $desc_tratamiento_izquierdo,
         $tipo_tratamiento_izquierdo,
         $procedimientos_izquierdo,
-        $quirurgico_izquierdo
+        $quirurgico_izquierdo,
+        $usuario
     );
 
     if ($stmt->execute()) {
-        echo '<script>alert("Tratamiento registrado correctamente."); window.location.href="tratamiento.php";</script>';
+        $_SESSION['message'] = "Tratamiento registrado exitosamente.";
+        $_SESSION['message_type'] = "success";
     } else {
-        echo '<script>alert("Error al registrar el tratamiento: ' . $stmt->error . '"); window.location.href="tratamiento.php";</script>';
+        $_SESSION['message'] = "Error al registrar el tratamiento: " . $stmt->error;
+        $_SESSION['message_type'] = "danger";
     }
+
     $stmt->close();
     $conexion->close();
+    header("Location: diagnostico.php");
+    exit();
 } else {
-    header("Location: tratamiento.php");
+    $_SESSION['message'] = "Método no permitido.";
+    $_SESSION['message_type'] = "danger";
+    header("Location: diagnostico.php");
     exit();
 }
 ?>

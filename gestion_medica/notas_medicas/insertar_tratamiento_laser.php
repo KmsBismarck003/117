@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
 
     if (!$id_exp) {
-        echo '<script>alert("Error: No se encontró el expediente del paciente."); window.location.href="tratamiento_laser.php";</script>';
+        echo '<script>alert("Error: No se encontró el expediente del paciente."); window.location.href="diagnostico.php";</script>';
         exit();
     }
 
@@ -40,13 +40,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     if ($stmt->execute()) {
-        echo '<script>alert("Tratamiento láser registrado correctamente."); window.location.href="tratamiento_laser.php";</script>';
+        $_SESSION['message'] = "Tratamiento láser guardado exitosamente.";
+        $_SESSION['message_type'] = "success";
     } else {
-        echo '<script>alert("Error al registrar el tratamiento láser: ' . $stmt->error . '"); window.location.href="tratamiento_laser.php";</script>';
+        $_SESSION['message'] = "Error al guardar el tratamiento láser: " . $stmt->error;
+        $_SESSION['message_type'] = "danger";
     }
     $stmt->close();
     $conexion->close();
+    header("Location: diagnostico.php");
+    exit();
 } else {
+    $_SESSION['message'] = "Método no permitido.";
+    $_SESSION['message_type'] = "danger";
     header("Location: tratamiento_laser.php");
     exit();
 }

@@ -210,7 +210,7 @@ $pdf->MultiCell(193, 4, utf8_decode('8. En caso de no existir este documento en 
 
 $pdf->Cell(125, 4, utf8_decode('En virtud de lo anterior, doy mi consentimiento por escrito para que los médicos anestesiólogos de'), 0, 0, 'L');
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(67, 4, utf8_decode('Médica del Ángel Custodio'), 'B', 0, 'C');
+$pdf->Cell(67, 4, utf8_decode('INEO Metepec'), 'B', 0, 'C');
 $pdf->SetFont('Arial', '', 8);
 
 $pdf->Ln(4);

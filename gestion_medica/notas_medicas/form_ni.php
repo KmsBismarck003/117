@@ -55,18 +55,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Refracción Visual</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #ecf0f3;
             margin: 0;
             padding: 0;
         }
+
         h2 {
             text-align: center;
             padding: 20px;
@@ -75,53 +80,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 0;
             border-bottom: 3px solid #1abc9c;
         }
+
         form {
             background: white;
             max-width: 1000px;
             margin: 40px auto;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
         }
+
         h3 {
             margin-top: 40px;
             color: #1abc9c;
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
         }
+
         .row {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 20px;
         }
+
         .field {
             flex: 1;
             min-width: 150px;
         }
+
         label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
             color: #2d3e50;
         }
-        input, select {
+
+        input,
+        select {
             width: 100%;
             padding: 10px;
             border-radius: 6px;
             border: 1px solid #ccc;
             font-size: 14px;
         }
+
         .checkbox-label {
             display: flex;
             align-items: center;
             gap: 5px;
             font-weight: bold;
         }
+
         .actions {
             text-align: center;
             margin-top: 30px;
         }
+
         button {
             padding: 14px 30px;
             background: #1abc9c;
@@ -131,76 +146,79 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 16px;
             cursor: pointer;
         }
+
         button:hover {
             background: #17a88b;
         }
     </style>
 </head>
+
 <body>
 
-<h2>Formulario de Refracción Visual</h2>
-<form method="post">
+    <h2>Formulario de Refracción Visual</h2>
+    <form method="post">
 
-    <?php foreach (['Derecho', 'Izquierdo'] as $ojo): ?>
-        <h3>Ojo <?= $ojo ?></h3>
+        <?php foreach (['Derecho', 'Izquierdo'] as $ojo): ?>
+            <h3>Ojo <?= $ojo ?></h3>
 
+            <div class="row">
+                <div class="field">
+                    <label>AV Lejana</label>
+                    <input name="av_lejana_<?= $ojo ?>">
+                </div>
+                <div class="field">
+                    <label>AV con Lentes</label>
+                    <input name="av_lejana_lentes_<?= $ojo ?>">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field"><label>Esf</label><input name="esf_lejana_<?= $ojo ?>"></div>
+                <div class="field"><label>Cil</label><input name="cil_lejana_<?= $ojo ?>"></div>
+                <div class="field"><label>Eje</label><input name="eje_lejana_<?= $ojo ?>"></div>
+                <div class="field"><label>Add</label><input name="add_lejana_<?= $ojo ?>"></div>
+                <div class="field checkbox-label">
+                    <input type="checkbox" name="prisma_lejana_<?= $ojo ?>">
+                    <label>Prisma</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>AV Cercana</label>
+                    <input name="av_cercana_<?= $ojo ?>">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field"><label>Esf</label><input name="esf_cercana_<?= $ojo ?>"></div>
+                <div class="field"><label>Cil</label><input name="cil_cercana_<?= $ojo ?>"></div>
+                <div class="field"><label>Eje</label><input name="eje_cercana_<?= $ojo ?>"></div>
+                <div class="field"><label>Add</label><input name="add_cercana_<?= $ojo ?>"></div>
+                <div class="field checkbox-label">
+                    <input type="checkbox" name="prisma_cercana_<?= $ojo ?>">
+                    <label>Prisma</label>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+        <h3>Refracción Actual</h3>
         <div class="row">
-            <div class="field">
-                <label>AV Lejana</label>
-                <input name="av_lejana_<?= $ojo ?>">
-            </div>
-            <div class="field">
-                <label>AV con Lentes</label>
-                <input name="av_lejana_lentes_<?= $ojo ?>">
-            </div>
+            <div class="field"><label>AV Binocular</label><input name="av_binocular"></div>
+            <div class="field"><label>AV sin Corrección</label><input name="av_sin_correccion"></div>
+            <div class="field"><label>AV Estenopeico</label><input name="av_estenopeico"></div>
+        </div>
+        <div class="row">
+            <div class="field"><label>AV Corrección Propia</label><input name="av_corr_propia"></div>
+            <div class="field"><label>AV Mejor Corregida</label><input name="av_mejor_corr"></div>
+            <div class="field"><label>AV Potencial</label><input name="av_potencial"></div>
         </div>
 
-        <div class="row">
-            <div class="field"><label>Esf</label><input name="esf_lejana_<?= $ojo ?>"></div>
-            <div class="field"><label>Cil</label><input name="cil_lejana_<?= $ojo ?>"></div>
-            <div class="field"><label>Eje</label><input name="eje_lejana_<?= $ojo ?>"></div>
-            <div class="field"><label>Add</label><input name="add_lejana_<?= $ojo ?>"></div>
-            <div class="field checkbox-label">
-                <input type="checkbox" name="prisma_lejana_<?= $ojo ?>">
-                <label>Prisma</label>
-            </div>
+        <div class="actions">
+            <button type="submit">Guardar Refracción</button>
         </div>
-
-        <div class="row">
-            <div class="field">
-                <label>AV Cercana</label>
-                <input name="av_cercana_<?= $ojo ?>">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="field"><label>Esf</label><input name="esf_cercana_<?= $ojo ?>"></div>
-            <div class="field"><label>Cil</label><input name="cil_cercana_<?= $ojo ?>"></div>
-            <div class="field"><label>Eje</label><input name="eje_cercana_<?= $ojo ?>"></div>
-            <div class="field"><label>Add</label><input name="add_cercana_<?= $ojo ?>"></div>
-            <div class="field checkbox-label">
-                <input type="checkbox" name="prisma_cercana_<?= $ojo ?>">
-                <label>Prisma</label>
-            </div>
-        </div>
-    <?php endforeach; ?>
-
-    <h3>Refracción Actual</h3>
-    <div class="row">
-        <div class="field"><label>AV Binocular</label><input name="av_binocular"></div>
-        <div class="field"><label>AV sin Corrección</label><input name="av_sin_correccion"></div>
-        <div class="field"><label>AV Estenopeico</label><input name="av_estenopeico"></div>
-    </div>
-    <div class="row">
-        <div class="field"><label>AV Corrección Propia</label><input name="av_corr_propia"></div>
-        <div class="field"><label>AV Mejor Corregida</label><input name="av_mejor_corr"></div>
-        <div class="field"><label>AV Potencial</label><input name="av_potencial"></div>
-    </div>
-
-    <div class="actions">
-        <button type="submit">Guardar Refracción</button>
-    </div>
-</form>
+    </form>
 
 </body>
+
 </html>

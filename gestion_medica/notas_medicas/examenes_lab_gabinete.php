@@ -1,89 +1,77 @@
 <?php
 session_start();
 include "../../conexionbd.php";
-include ("../header_medico.php");
+if (!isset($_SESSION['hospital'])) {
+    header("Location: ../login.php");
+    exit();
+}
+include("../header_medico.php");
 ?>
+
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DocumentExámenes de Laboratorio y Gabinete - Instituto de Enfermedades Oculares</title>
-
-    <!-- Select2 CSS -->
-    <link rel="stylesheet" type="text/css" href="css/select2.css">
-
-    <!-- FontAwesome -->
+    <meta charset="UTF-8">
+    <title>EXÁMENES DE LABORATORIO Y GABINETE</title>
+    <link rel="stylesheet" type="text/css" href="../../css/select2.css">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-    <!-- Bootstrap 4.5 CSS (usar sólo uno, aquí no incluiste el CSS pero lo ideal sería incluirlo) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFMw5uZjQz4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-
-    <!-- jQuery (usar solo una versión) -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-    <!-- Select2 JS -->
-    <script src="js/select2.js"></script>
-
-    <!-- Popper.js necesario para Bootstrap 4 -->
+    <script src="../../js/select2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldLv/Pr4nhuBviF5jGqQK/5i2Q5iZ64dxBl+zOZ" crossorigin="anonymous">
     </script>
-
-    <!-- Bootstrap 4.5 JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
-
-    <!-- Tus scripts adicionales -->
     <script src="../../js/jquery-ui.js"></script>
     <script src="../../js/jquery.magnific-popup.min.js"></script>
     <script src="../../js/aos.js"></script>
     <script src="../../js/main.js"></script>
-
     <script>
-    // Filtro de busqueda en tabla
-    $($document).ready(function() {
-        $("#search").keyup(function() {
-            var valor = $(this).val().toLowerCase();
-            $("#mytable tbody tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(valor) > -1)
-            });
+    let enviando = false; // Reset on page load
+    $(document).ready(function() {
+        // Clear input if quimica_sanguinea is unchecked
+        $('#quimica_sanguinea').change(function() {
+            if (!this.checked) {
+                $('#quimica_sanguinea_valores').val('');
+            }
+        });
+
+        // Form submission validation
+        $('form').submit(function(event) {
+            if (enviando) {
+                alert('El formulario ya se está enviando');
+                event.preventDefault();
+                return false;
+            }
+            if ($('#quimica_sanguinea').is(':checked') && !$('#quimica_sanguinea_valores').val()) {
+                alert('Por favor, ingrese un valor para Química Sanguínea.');
+                event.preventDefault();
+                return false;
+            }
+            enviando = true;
+            return true;
         });
     });
+
+    // Reset enviando on page reload or navigation
+    window.onbeforeunload = function() {
+        enviando = false;
+    };
     </script>
     <style>
-    .modal-lg {
-        max-width: 70% !important;
-    }
-
-    .botones {
-        margin-bottom: 5px;
-    }
-
-    .thead {
-        background-color: #2b2d7f;
-        color: white;
-        font-size: 22px;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .accordion .card {
-        border: none;
-    }
-
-    .accordion .card-header {
-        background-color: #e9ecef;
-        cursor: pointer;
-    }
+    .modal-lg { max-width: 70% !important; }
+    .botones { margin-bottom: 5px; }
+    .thead { background-color: #2b2d7f; color: white; font-size: 22px; padding: 10px; text-align: center; }
+    .quimica-sanguinea-container { display: flex; align-items: center; }
+    .quimica-sanguinea-container .form-check { margin-right: 15px; }
+    .quimica-sanguinea-container .form-control { width: 100px; }
     </style>
 </head>
-
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col">
@@ -552,36 +540,56 @@ include ("../header_medico.php");
             </center>
         </form>
     </div>
-
-    <script>
-    let enviando = false;
-
-    function checkSubmit() {
-        if (!enviando) {
-            enviando = true;
-            return true;
-        } else {
-            alert("El formulario ya se esta enviando");
-            return false;
-        }
-    }
-    </script>
     <footer class="main-footer">
-        <?php
-include("../../template/footer.php");
-?>
+        <?php include("../../template/footer.php"); ?>
     </footer>
-
-    <!-- FastClick -->
     <script src='../../template/plugins/fastclick/fastclick.min.js'></script>
-    <!-- AdminLTE App -->
     <script src="../../template/dist/js/app.min.js" type="text/javascript"></script>
-
     <script>
-    document.oncontextmenu = function() {
-        return false;
-    }
+    document.oncontextmenu = function() { return false; }
+    </script>
+    <script>
+        $(document).ready(function() {
+            let enviando = false;
+
+            // Initialize Select2 for dropdowns
+            $('#topografia_corneal_opcion, #angiografia_opcion, #campos_visuales_opcion, #ecografia_opcion').select2();
+
+            // Clear quimica_sanguinea_valores if checkbox is unchecked
+            $('#quimica_sanguinea').change(function() {
+                if (!this.checked) {
+                    $('#quimica_sanguinea_valores').val('');
+                }
+            });
+
+            // Form validation
+            $('#examenesForm').submit(function(event) {
+                if (enviando) {
+                    alert('El formulario ya se está enviando');
+                    event.preventDefault();
+                    return false;
+                }
+
+                // Validate quimica_sanguinea
+                if ($('#quimica_sanguinea').is(':checked')) {
+                    const valor = $('#quimica_sanguinea_valores').val();
+                    if (!valor || isNaN(valor) || valor < 0) {
+                        alert('Por favor, ingrese un valor numérico válido para Química Sanguínea.');
+                        event.preventDefault();
+                        return false;
+                    }
+                }
+
+                // Add validation for other fields if needed
+                enviando = true;
+                return true;
+            });
+
+            // Reset enviando on page unload
+            window.onbeforeunload = function() {
+                enviando = false;
+            };
+        });
     </script>
 </body>
-
 </html>

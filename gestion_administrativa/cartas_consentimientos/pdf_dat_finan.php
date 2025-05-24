@@ -179,7 +179,7 @@ $pdf->Line(8, 280, 205, 280);
 $pdf->SetY(50);
 $pdf->SetFont('Arial', '', 8);
 $pdf->Ln(5);
-$pdf->MultiCell(198, 6, utf8_decode('CELEBRADO POR "MÉDICA DEL ÁNGEL CUSTODIO", Y POR OTRA PARTE EL SR. (A):'), 0, 'J');
+$pdf->MultiCell(198, 6, utf8_decode('CELEBRADO POR "INEO Metepec", Y POR OTRA PARTE EL SR. (A):'), 0, 'J');
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->MultiCell(194, 6, utf8_decode($pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac), 'B', 'C');
 $pdf->SetFont('Arial', '', 8);
@@ -207,14 +207,14 @@ $pdf->SetFont('Arial', 'B', 11);
 $pdf->MultiCell(200, 6, utf8_decode('CLÁUSULAS'), 0, 'C');
 $pdf->Ln(4);
 $pdf->SetFont('Arial', '', 9);
-$pdf->MultiCell(195, 6, utf8_decode('P R I M E R A.- "MÉDICA DEL ÁNGEL CUSTODIO" obliga a solicitud del "PACIENTE" a proporcionarle los siguientes servicios hospitalarios: habitación, servicios de enfermería, dieta prescrita por el Médico tratante del "PACIENTE".'), 0, 'J');
-$pdf->MultiCell(195, 6, utf8_decode('S E G U N D A.- El "PACIENTE" se obliga a pagar a "MÉDICA DEL ÁNGEL CUSTODIO" el importe de los servicios antes mencionados, además de los derivados de Rayos X, Laboratorio, Oncología, Medicinas, Material de Curación, Terapia Intensiva y aquellos que sean solicitados por el Médico tratante del "PACIENTE", cuyos gastos se cargarán a la cuenta respectiva.'), 0, 'J'); 
-$pdf->MultiCell(195, 6, utf8_decode('T E R C E R A.- El "PACIENTE" entrega en este acto a  "MÉDICA DEL ÁNGEL CUSTODIO"  en  calidad  de  anticipo  la  cantidad  de    $                         pesos en Moneda Nacional y se obliga a hacer pagos diarios por los gastos incurridos y liquidar el total de la cuenta al ser dado de ata por su Médico, o al retirarse de "MÉDICA DEL ÁNGEL CUSTODIO" en caso de alta voluntaria.'), 0, 'J');
+$pdf->MultiCell(195, 6, utf8_decode('P R I M E R A.- "INEO Metepec" obliga a solicitud del "PACIENTE" a proporcionarle los siguientes servicios hospitalarios: habitación, servicios de enfermería, dieta prescrita por el Médico tratante del "PACIENTE".'), 0, 'J');
+$pdf->MultiCell(195, 6, utf8_decode('S E G U N D A.- El "PACIENTE" se obliga a pagar a "INEO Metepec" el importe de los servicios antes mencionados, además de los derivados de Rayos X, Laboratorio, Oncología, Medicinas, Material de Curación, Terapia Intensiva y aquellos que sean solicitados por el Médico tratante del "PACIENTE", cuyos gastos se cargarán a la cuenta respectiva.'), 0, 'J'); 
+$pdf->MultiCell(195, 6, utf8_decode('T E R C E R A.- El "PACIENTE" entrega en este acto a  "INEO Metepec"  en  calidad  de  anticipo  la  cantidad  de    $                         pesos en Moneda Nacional y se obliga a hacer pagos diarios por los gastos incurridos y liquidar el total de la cuenta al ser dado de ata por su Médico, o al retirarse de "INEO Metepec" en caso de alta voluntaria.'), 0, 'J');
 $pdf->SetY(135);
 $pdf->SetX(14);
 $pdf->MultiCell(20, 6, number_format($deposito,2), 'B', 'R');
 $pdf->Ln(14);
-$pdf->MultiCell(195, 6, utf8_decode('C U A R T A.- El "PACIENTE" se obliga a cumplir con el Reglamento interno y demás disposiciones de "MÉDICA DEL ÁNGEL CUSTODIO" y como esta es una institución abierta al cuerpo Médico lo revela de cualquier responsabilidad médica.'), 0, 'J');
+$pdf->MultiCell(195, 6, utf8_decode('C U A R T A.- El "PACIENTE" se obliga a cumplir con el Reglamento interno y demás disposiciones de "INEO Metepec" y como esta es una institución abierta al cuerpo Médico lo revela de cualquier responsabilidad médica.'), 0, 'J');
 $pdf->MultiCell(195, 6, utf8_decode('Q U I N T A.- El "PACIENTE" autoriza al Médico tratante Dr.'.'                                                                                           '.' y a sus colaboradores para que prescriban, lleven a cabo el tratamiento Médico y/o quirúrgico que requiera su persona; así como la administración de medicamentos y anestésicos prescritos.'), 0, 'J');
 $pdf->SetY(167);
 $pdf->SetX(98);
@@ -241,7 +241,7 @@ $pdf->Cell(100, 6, utf8_decode('NOMBRE Y FIRMA'), 0, 0, 'C');
 $pdf->Cell(100, 6, utf8_decode('NOMBRE Y FIRMA'), 0, 0, 'C');
 
 $pdf->Ln(14);
-$pdf->Cell(200, 6, utf8_decode('MÉDICA DEL ÁNGEL CUSTODIO'), 0, 0, 'C');
+$pdf->Cell(200, 6, utf8_decode('INEO Metepec'), 0, 0, 'C');
 $pdf->Ln(10);
 $pdf->Cell(200, 6, utf8_decode('___________________________________'), 0, 0, 'C');
 $pdf->Ln(6);
@@ -254,13 +254,13 @@ $pdf->Cell(40, 6, utf8_decode('FECHA'), 1, 0, 'C');
 
 $pdf->Ln(6);
 $pdf->Cell(30, 8, utf8_decode('1'), 1, 0, 'C');
-$pdf->Cell(80, 8, utf8_decode('MÉDICA DEL ÁNGEL CUSTODIO METEPEC'), 1, 0, 'C');
+$pdf->Cell(80, 8, utf8_decode('INEO Metepec METEPEC'), 1, 0, 'C');
 $pdf->Cell(40, 8, date('d/m/Y'), 1, 0, 'C');
 
 $pdf->Ln(9);
 
 
-$pdf->MultiCell(190, 5, utf8_decode('DEBO (EMOS) Y PAGARE (EMOS) SIN PRETEXTO ESTE PAGARE EN EL LUGAR Y FECHA CITADAS DONDE ELIJA EL TENEDOR EL DÍA DE SU VENCIMENTO A LA ORDEN DE MÉDICA DEL ÁNGEL CUSTODIO METEPEC EL DÍA ' . date('d/m/Y')), 0, 'J');
+$pdf->MultiCell(190, 5, utf8_decode('DEBO (EMOS) Y PAGARE (EMOS) SIN PRETEXTO ESTE PAGARE EN EL LUGAR Y FECHA CITADAS DONDE ELIJA EL TENEDOR EL DÍA DE SU VENCIMENTO A LA ORDEN DE INEO Metepec METEPEC EL DÍA ' . date('d/m/Y')), 0, 'J');
 $pdf->Cell(35, 6, utf8_decode('LA CANTIDAD DE: '), 0, 0, 'C');
 $pdf->SetFont('Arial', 'B', 8);
 $pdf->MultiCell(150, 6, utf8_decode('CINCUENTA MIL PESOS 00/100 M.N.'), 1, 'L');
