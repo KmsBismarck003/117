@@ -44,7 +44,7 @@ while ($row = $result_exams->fetch_assoc()) {
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="thead"><strong><center>HISTORIA CLÍNICA</center></strong></div>
+                <div class="thead"><strong><center>DATOS DEL PACIENTE</center></strong></div>
                 <?php
                 if (isset($_SESSION['hospital'])) {
                     $id_atencion = $_SESSION['hospital'];

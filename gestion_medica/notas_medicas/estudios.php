@@ -77,7 +77,7 @@ $usuario = $_SESSION['login'];
         <div class="row">
             <div class="col">
                 <div class="thead"><strong>
-                        <center>HISTORIA CLÍNICA</center>
+                        <center>DATOS DEL PACIENTE</center>
                     </strong></div>
                 <?php
                 include "../../conexionbd.php";

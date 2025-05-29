@@ -186,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proxima_cita']) && is
         <div class="row">
             <div class="col">
                 <div class="thead"><strong>
-                        <center>HISTORIA CLÍNICA</center>
+                        <center>DATOS DEL PACIENTE</center>
                     </strong></div>
                 <?php
                 include "../../conexionbd.php";
