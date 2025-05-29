@@ -298,9 +298,26 @@ if ($stmt->execute()) {
     if ($stmt_labo->execute()) {
         if ($pdf->Output('F', $nombreFinal) === false) {
             error_log("Failed to save PDF: $nombreFinal");
+            ob_end_clean();
+            header("Location: examenes_lab.php?error=" . urlencode("Error al guardar el PDF."));
+            exit();
         }
+        
+        // Store success message in session
+        $_SESSION['message'] = "Solicitud registrada y PDF generado exitosamente.";
+        $_SESSION['message_type'] = "success";
+        
+        // Clean output buffer
         ob_end_clean();
-        $pdf->Output('D', $nombre_pdf); // Send to browser for download
+        
+        // Construct the URL for the PDF
+        $pdf_url = "/gestion_medica/notas_medicas/solicitudes/" . $nombre_pdf;
+        
+        // Redirect to the front-end page with a JavaScript command to open the PDF in a new tab
+        echo "<script>
+                window.open('$pdf_url', '_blank');
+                window.location.href = 'examenes_lab.php';
+            </script>";
         exit();
     } else {
         error_log("Insert failed for notificaciones_labo: " . $stmt_labo->error);

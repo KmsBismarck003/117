@@ -12,13 +12,21 @@ $rol = $usuario['id_rol'];
 
 <head>
     <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
     <!--  Bootstrap  -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="../../js/jquery-3.3.1.min.js"></script>
     <script src="../../js/jquery-ui.js"></script>
     <script src="../../js/popper.min.js"></script>
@@ -28,19 +36,19 @@ $rol = $usuario['id_rol'];
     <script src="../../js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
-        // Write on keyup event of keyword input element
-        $(document).ready(function() {
-            $("#search").keyup(function() {
-                _this = this;
-                // Show only matching TR, hide rest of them
-                $.each($("#mytable tbody tr"), function() {
-                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                        $(this).hide();
-                    else
-                        $(this).show();
-                });
+    // Write on keyup event of keyword input element
+    $(document).ready(function() {
+        $("#search").keyup(function() {
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#mytable tbody tr"), function() {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
             });
         });
+    });
     </script>
 
     <title>Menu Gestión administrativa </title>
@@ -48,25 +56,27 @@ $rol = $usuario['id_rol'];
 </head>
 
 <div class="container-fluid">
-           
+
     <div class="row">
-         <div class="col-sm-2">
-                <a type="submit" class="btn btn-danger btn-sm" onclick="history.back()"><font color="white">Regresar</font></a>
+        <div class="col-sm-2">
+            <a type="submit" class="btn btn-danger btn-sm" onclick="history.back()">
+                <font color="white">Regresar</font>
+            </a>
         </div>
-         <?php
+        <?php
             if ($usuario['id_usua'] == 1 ) {
             ?>
         <div class="col-sm-4"><a href="vista_pagadas.php">
-            <button type="button" class="btn btn-primary col-md-8" data-target="#exampleModal">
-                <i class="fa fa-plus"></i>
-                <font id="letra">Cuentas pagadas</font>
-            </button>
+                <button type="button" class="btn btn-primary col-md-8" data-target="#exampleModal">
+                    <i class="fa fa-plus"></i>
+                    <font id="letra">Cuentas pagadas</font>
+                </button>
         </div>
         <div class="col-sm">
-             <a href="excel_cuentas_activas.php">
-              <!--<button type="button" class="btn btn-warning"><img src="https://img.icons8.com/color/48/000000/ms-excel.png"/><strong>Exporta a excel</strong></a>-->
+            <a href="excel_cuentas_activas.php">
+                <!--<button type="button" class="btn btn-warning"><img src="https://img.icons8.com/color/48/000000/ms-excel.png"/><strong>Exporta a excel</strong></a>-->
         </div>
-         <?php } ?>
+        <?php } ?>
     </div>
 </div>
 <br>
@@ -74,53 +84,56 @@ $rol = $usuario['id_rol'];
 <div class="container-fluid">
     <div class="row">
         <div class="col col-12">
-            <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars" id="side"></i></a>
+            <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"
+                    id="side"></i></a>
             <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
-                <tr><strong><center>CUENTA DE PACIENTES ACTIVOS</center></strong>
+                <tr><strong>
+                        <center>CUENTA DE PACIENTES ACTIVOS</center>
+                    </strong>
             </div>
             <br>
-        </div>     
-    </div>        
-   
+        </div>
+    </div>
+
 </div>
 <?php
         
 ?>
-                <h2>
-                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars" id="side"></i></a>
-                </h2>
-               
-                <div class="form-group">
-                    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Buscar...">
-                </div>
+<h2>
+    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars" id="side"></i></a>
+</h2>
 
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped" id="mytable">
-                        <thead class="thead">
-                            <tr>
-                                <th scope="col">Cuenta</th>
-                                <th scope="col">Exp</th>
-                                <th scope="col">Id <br> Atencion</th>
-                                <th scope="col">Hab</th>
-                                <th scope="col">Paciente</th>
-                                <th scope="col">Médico</th>
-                                <th scope="col">Especialidad</th>
-                                <th scope="col">Cliente</th>
-                                <th scope="col">Subtotal</th>
-                                <th scope="col">IVA</th>
-                                <th style="text-align: center" bgcolor="green">Total </th>
-                                <th scope="col">Anticipos</th>
-                               
-                               
-                            <?php
+<div class="form-group">
+    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Buscar...">
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped" id="mytable">
+        <thead class="thead">
+            <tr>
+                <th scope="col">Cuenta</th>
+                <th scope="col">Exp</th>
+                <th scope="col">Id <br> Atencion</th>
+                <th scope="col">Hab</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Médico</th>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">IVA</th>
+                <th style="text-align: center" bgcolor="green">Total </th>
+                <th scope="col">Anticipos</th>
+
+
+                <?php
                            
                             ?>
-                                <th scope="col">Fecha de Ingreso</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <th scope="col">Fecha de Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                        <?php
+            <?php
                         $resultado = $conexion->query("SELECT * from cat_camas c, dat_ingreso di, paciente p  WHERE c.id_atencion=di.id_atencion and p.Id_exp=di.Id_exp and di.activo='SI'  ORDER BY di.fecha DESC") or die($conexion->error);
                         while ($f = $resultado->fetch_assoc()) {
                             $nombre=$f['papell'].' '.$f['sapell'].' ' .$f['nom_pac'];
@@ -151,10 +164,14 @@ $rol = $usuario['id_rol'];
                             while($filam = mysqli_fetch_array($resultadom)){ 
                                 $nom_medico=$filam["pre"].'. '.$filam["papell"];
                              }
-                            $resultadot = $conexion ->query("SELECT tip_precio FROM cat_aseg WHERE aseg='$asegura'")or die($conexion->error);
-                            while($filat = mysqli_fetch_array($resultadot)){ 
-                                $tr=$filat["tip_precio"];
-                             }
+                                                        // Initialize $tr with a default value
+                            $tr = 0; // Default to 0 or another fallback value that makes sense in your context
+                            $resultadot = $conexion->query("SELECT tip_precio FROM cat_aseg WHERE aseg='$asegura'") or die($conexion->error);
+                            if ($resultadot && mysqli_num_rows($resultadot) > 0) {
+                                while ($filat = mysqli_fetch_array($resultadot)) { 
+                                    $tr = $filat["tip_precio"];
+                                }
+                            }
        
                             $resultado3 = $conexion->query("SELECT * FROM dat_ctapac where id_atencion = $id_atencion ORDER BY id_atencion") or die($conexion->error);
                             while ($row3 = $resultado3->fetch_assoc()) {
@@ -184,49 +201,55 @@ $rol = $usuario['id_rol'];
                     $flag != 'S' && 
                     $flag != 'H' && 
                     $flag != 'P' && 
-                    $flag != 'PC' ) {
+                    $flag != 'PC') {
                     $precio = $precioh;
                     $subtottal = $precio * $cant;
-                    $iva =  $subtottal * 0.16;
-                }elseif ($flag == 'H') {
-                       $preciog12h = $precioh;
-                       $subtotalg12h = $preciog12h * $cant;
-                       $iva = 0.00;
-                }elseif ($flag == 'S') {
-                    $resultado_serv = $conexion->query("SELECT * FROM cat_servicios where id_serv = $insumo") or die($conexion->error);
+                    $iva = $subtottal * 0.16;
+                } elseif ($flag == 'H') {
+                    $preciog12h = $precioh;
+                    $subtotalg12h = $preciog12h * $cant;
+                    $iva = 0.00;
+                } elseif ($flag == 'S') {
+                    $resultado_serv = $conexion->query("SELECT * FROM cat_servicios WHERE id_serv = $insumo") or die($conexion->error);
                     while ($row_serv = $resultado_serv->fetch_assoc()) {
                         $tip_servi = $row_serv['tip_insumo'];
-                    
-                        if ($tr==1) $precio = $row_serv['serv_costo'];
-                        if ($tr==2) $precio = $row_serv['serv_costo2'];
-                        if ($tr==3) $precio = $row_serv['serv_costo3'];
-                        if ($tr==4) $precio = $row_serv['serv_costo4'];
                         
-                        if ($precio == 0) $precio = $precioh;
+                        // Use $tr with a fallback to $precioh if $tr is invalid or undefined
+                        if ($tr == 1) {
+                            $precio = $row_serv['serv_costo'];
+                        } elseif ($tr == 2) {
+                            $precio = $row_serv['serv_costo2'];
+                        } elseif ($tr == 3) {
+                            $precio = $row_serv['serv_costo3'];
+                        } elseif ($tr == 4) {
+                            $precio = $row_serv['serv_costo4'];
+                        } else {
+                            $precio = $precioh; // Fallback price
+                        }
+                        
+                        if ($precio == 0) {
+                            $precio = $precioh;
+                        }
                         
                         $subtottal = $precio * $cant;
                         $iva = $subtottal * 0.16;
                         
                         $tip_s = $row_serv['tipo'];
                         
-                        if ($insumo == 1 || $insumo == 3 ){
+                        if ($insumo == 1 || $insumo == 3) {
                             $num_gasto = $num_gasto + 1;
                         }
                         
-                        if ($tip_servi=="RENTA EQUIPO"){
+                        if ($tip_servi == "RENTA EQUIPO") {
                             $preciog12 = $precioh;
                             $subtotalg12 = ($preciog12 * $cant) * 1.16;
                         }
-                           
-                        
                     }
-                } else if ($flag == 'P' || $flag == 'PC' ) {
+                } elseif ($flag == 'P' || $flag == 'PC') {
                     $costo = 0;
-                   
                     $precio = $precioh;
                     $subtottal = $precio * $cant;
-                    $iva =  $subtottal * 0.16;
-                   
+                    $iva = $subtottal * 0.16;
                 }
                 
                 $totalg12    = $totalg12 + $subtotalg12;
@@ -253,29 +276,43 @@ $rol = $usuario['id_rol'];
             $totaldep=$totaldep+$subtotaldep;
         }
         ?>
-        <tr>
-            <td><center><a type="submit" class="btn btn-warning btn-sm" href="detalle_cuenta.php?id_at=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp ?>&id_usua=<?php echo $usuario1; ?>&rol=<?php echo $rol ?>"><span class="fas fa-dollar-sign" style="font-size:22px"></span></a>
-            <a type="submit" class="btn btn-danger btn-sm" href="cuenta.php?id_atencion=<?php echo $id_atencion ?>&id_usua=<?php echo $usuario1 ?>" target="blank">
-                <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a> 
-            </center> </td>
-            <td><strong><?php echo $id_exp; ?></strong></td>
-            <td style="background:grey;"><strong><font color="white"> <?php echo $id_atencion; ?></font></strong></td>
-            <td bgcolor="green"><strong><font color="white"> <?php echo $cama; ?></font></strong></td>
-            <td><strong><?php echo $nombre; ?></strong></td>
-            <td><strong><?php echo $nom_medico; ?></strong></td>
-            <td><strong><?php echo $especialidad; ?></strong></td>
-            <td><strong><?php echo $asegura; ?></strong></td>
-            <td><strong><?php echo number_format($total, 2); ?></strong></td>
-            <td><strong><?php echo number_format($totaliva, 2); ?></strong></td>
-            <td style="text-align: center; font-weight:bold; background:white;"><font size ="3", color ="red"><strong><?php echo number_format($Stotal, 2); ?></strong></td>
-            <td><strong><?php echo number_format($totaldep, 2); ?></strong></td>
-            
-            <?php
+            <tr>
+                <td>
+                    <center><a type="submit" class="btn btn-warning btn-sm"
+                            href="detalle_cuenta.php?id_at=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp ?>&id_usua=<?php echo $usuario1; ?>&rol=<?php echo $rol ?>"><span
+                                class="fas fa-dollar-sign" style="font-size:22px"></span></a>
+                        <a type="submit" class="btn btn-danger btn-sm"
+                            href="cuenta.php?id_atencion=<?php echo $id_atencion ?>&id_usua=<?php echo $usuario1 ?>"
+                            target="blank">
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                    </center>
+                </td>
+                <td><strong><?php echo $id_exp; ?></strong></td>
+                <td style="background:grey;"><strong>
+                        <font color="white"> <?php echo $id_atencion; ?></font>
+                    </strong></td>
+                <td bgcolor="green"><strong>
+                        <font color="white"> <?php echo $cama; ?></font>
+                    </strong></td>
+                <td><strong><?php echo $nombre; ?></strong></td>
+                <td><strong><?php echo $nom_medico; ?></strong></td>
+                <td><strong><?php echo $especialidad; ?></strong></td>
+                <td><strong><?php echo $asegura; ?></strong></td>
+                <td><strong><?php echo number_format($total, 2); ?></strong></td>
+                <td><strong><?php echo number_format($totaliva, 2); ?></strong></td>
+                <td style="text-align: center; font-weight:bold; background:white;">
+                    <font size="3" , color="red"><strong><?php echo number_format($Stotal, 2); ?></strong>
+                </td>
+                <td><strong><?php echo number_format($totaldep, 2); ?></strong></td>
+
+                <?php
            
             ?>
-            <td><strong><font size="3"><?php echo $fecing; ?></strong></td>
+                <td><strong>
+                        <font size="3"><?php echo $fecing; ?>
+                    </strong></td>
             </tr>
-        <?php
+            <?php
         }
         ?>
         </tbody>
@@ -287,12 +324,11 @@ $rol = $usuario['id_rol'];
 
 
 <script type="text/javascript">
-      $(document).ready(function() {        
-        setTimeout(function() {
-          $("#alerts").hide(500);
-          }, 500);
-        });
-
+$(document).ready(function() {
+    setTimeout(function() {
+        $("#alerts").hide(500);
+    }, 500);
+});
 </script>
 <footer class="main-footer">
     <?php

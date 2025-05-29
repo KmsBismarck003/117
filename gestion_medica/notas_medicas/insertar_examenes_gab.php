@@ -273,9 +273,21 @@ if ($success) {
     if ($stmt_gab->execute()) {
         if ($pdf->Output('F', $nombreFinal) === false) {
             error_log("Failed to save PDF: $nombreFinal");
+            ob_end_clean();
+            header("Location: examenes_gab.php?error=" . urlencode("Error al guardar el PDF."));
+            exit();
         }
+
+        $_SESSION['message'] = "Solicitud registrada y PDF generado exitosamente.";
+        $_SESSION['message_type'] = "success";
+
         ob_end_clean();
-        $pdf->Output('D', $nombre_pdf); // Send to browser for download
+        $pdf_url = "/gestion_medica/notas_medicas/solicitudes_gabinete/" . $nombre_pdf;
+
+        echo "<script>
+                window.open('$pdf_url', '_blank');
+                window.location.href = 'examenes_gab.php';
+            </script>";
         exit();
     } else {
         error_log("Insert failed for notificaciones_gabinete: " . $stmt_gab->error);
