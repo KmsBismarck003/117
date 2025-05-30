@@ -369,19 +369,19 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
                     <li><a href="/gestion_medica/notas_medicas/pruebas.php">
                             <i class="fa fa-hourglass-end"></i> PRUEBAS
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_nino_bebe.php">
                             <i class="fa fa-baby"></i> NIÑO/BEBE
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_mediciones_cornea.php">
                             <i class="fa fa-arrows-to-eye"></i> MEDICIONES DE LA CORNEA
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
-                            <i class="fa fa-file-prescription"></i> PRESION, PARPADOS Y VIAS
+                    <li><a href="/gestion_medica/notas_medicas/formulario_exploracion.php">
+                            <i class="fa fa-file-prescription"></i> PRESION, PARPADOS Y <br> VIAS LAGRIMALES
                         </a></li>
                     <li><a href="/gestion_medica/notas_medicas/pruebas.php">
                             <i class="fa fa-backward"></i> SEGMENTO ANTERIOR
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_segmento_posterior.php">
                             <i class="fa fa-forward"></i> SEGMENTO POSTERIOR
 
                     <li>
