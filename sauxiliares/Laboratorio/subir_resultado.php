@@ -2,151 +2,119 @@
 session_start();
 include "../../conexionbd.php";
 
-
-$resultado = $conexion->query("select paciente.*, dat_ingreso.id_atencion, triage.id_triage
-from paciente 
-inner join dat_ingreso on paciente.Id_exp=dat_ingreso.Id_exp
-inner join triage on dat_ingreso.id_atencion=triage.id_atencion where id_triage=id_triage
-") or die($conexion->error);
-
-$usuario = $_SESSION['login'];
-
-
-if ($usuario['id_rol'] == 10) {
-    include "../header_labo.php";
-
-} else if ($usuario['id_rol'] == 4 or 5) {
-    include "../header_labo.php";
-} else {
-    //session_unset();
-    // session_destroy();
-    echo "<script>window.Location='../../index.php';</script>";
-
+if (!isset($_SESSION['login']) || !in_array($_SESSION['login']['id_rol'], [4, 5, 10])) {
+    header("Location: ../../index.php");
+    exit();
 }
 
+$not_id = isset($_GET['not_id']) ? (int)$_GET['not_id'] : 0;
+$usuario = $_SESSION['login'];
+$upload_error = '';
+$upload_success = '';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['resultado'])) {
+    $files = $_FILES['resultado'];
+    $carpeta = $_SERVER['DOCUMENT_ROOT'] . '/gestion_medica/notas_medicas/resultados/';
+    if (!file_exists($carpeta)) {
+        mkdir($carpeta, 0777, true);
+    }
+
+    $file_names = [];
+    $all_uploaded = true;
+
+    // Handle multiple files
+    for ($i = 0; $i < count($files['name']); $i++) {
+        if ($files['error'][$i] === UPLOAD_ERR_OK) {
+            $nombre_archivo = "resultado_" . $not_id . "_" . date('Ymd_His') . "_$i.pdf";
+            $ruta_archivo = $carpeta . $nombre_archivo;
+
+            if (move_uploaded_file($files['tmp_name'][$i], $ruta_archivo)) {
+                $file_names[] = $nombre_archivo; // Store only the filename
+            } else {
+                $all_uploaded = false;
+                $upload_error = "Error al mover el archivo: " . htmlspecialchars($files['name'][$i]);
+                break;
+            }
+        } else {
+            $all_uploaded = false;
+            $upload_error = "Error al subir el archivo: " . $files['error'][$i];
+            break;
+        }
+    }
+
+    if ($all_uploaded && !empty($file_names)) {
+        // Encode filenames as JSON
+        $file_names_json = json_encode($file_names);
+
+        $sql = "UPDATE notificaciones_labo SET realizado = 'SI', resultado = ?, fecha_resultado = NOW(), id_usua_resul = ? WHERE not_id = ?";
+        $stmt = $conexion->prepare($sql);
+        if (!$stmt) {
+            $upload_error = "Error al preparar la consulta: " . $conexion->error;
+        } else {
+            $stmt->bind_param("sii", $file_names_json, $usuario['id_usua'], $not_id);
+            if ($stmt->execute()) {
+                $upload_success = "Archivos subidos correctamente.";
+                header("Location: sol_laboratorio.php?success=" . urlencode($upload_success));
+                exit();
+            } else {
+                $upload_error = "Error al actualizar la base de datos: " . $conexion->error;
+            }
+            $stmt->close();
+        }
+    }
+}
+
+// Fetch notification details
+$sql = "SELECT n.sol_estudios, n.det_labo, n.habitacion, p.papell, p.sapell, p.nom_pac 
+        FROM notificaciones_labo n 
+        JOIN dat_ingreso d ON n.id_atencion = d.id_atencion 
+        JOIN paciente p ON d.Id_exp = p.Id_exp 
+        WHERE n.not_id = ?";
+$stmt = $conexion->prepare($sql);
+if ($stmt) {
+    $stmt->bind_param("i", $not_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $notificacion = $result->fetch_assoc();
+    $stmt->close();
+} else {
+    $upload_error = "Error al preparar la consulta de notificación: " . $conexion->error;
+}
+
+include "../header_labo.php";
 ?>
 
+<!DOCTYPE html>
+<html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
-    <!--  Bootstrap  -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-    <script src="../../js/jquery-3.3.1.min.js"></script>
-    <script src="../../js/jquery-ui.js"></script>
-    <script src="../../js/popper.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.magnific-popup.min.js"></script>
-    <script src="../../js/aos.js"></script>
-    <script src="../../js/main.js"></script>
-
-    <script src="../../template/plugins/jQuery/jQuery-2.1.3.min.js"></script>
-    <!-- FastClick -->
-    <script src='../../template/plugins/fastclick/fastclick.min.js'></script>
-    <!-- AdminLTE App -->
-    <script src="../../template/dist/js/app.min.js" type="text/javascript"></script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-
-<div>
-    <section class="content container-fluid">
-        <div class="container box">
-            <div class="container-fluid">
-
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <h1>SUBIR RESULTADOS DE LABORATORIO</h1>
-                        <?php
-                        $id = $_GET['not_id'];
-
-                        $sql = "SELECT * FROM notificaciones_labo where realizado = 'NO'";
-                        $result = $conexion->query($sql);
-
-                        ?>
-                        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-
-
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">SELECCIONAR ARCHIVO PDF</label>
-                                <input type="file" class="form-control-file" id="pdf_resultadolab"
-                                       name="pdf_resultadolab">
-                            </div>
-
-
-                         
-
-                    <br>
-                    <hr>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">&nbsp;</label>
-                        <div class="col-sm-12">
-                            <a href="../../template/menu_laboratorio.php" class="btn btn-danger">CANCELAR</a>
-                            <input type="submit" name="edit" class="btn btn-success" value="GUARGAR">
-                        </div>
-                    </div>
-
-                    </form>
-                </div>
+<body>
+<div class="container-fluid">
+    <a href="sol_laboratorio.php" class="btn btn-danger">Regresar</a>
+    <h2>Subir Resultado de Estudio</h2>
+    <?php if ($notificacion): ?>
+        <p><strong>Paciente:</strong> <?php echo htmlspecialchars($notificacion['papell'] . ' ' . $notificacion['sapell'] . ' ' . $notificacion['nom_pac']); ?></p>
+        <p><strong>Habitación:</strong> <?php echo htmlspecialchars($notificacion['habitacion']); ?></p>
+        <p><strong>Estudio(s):</strong> <?php echo htmlspecialchars($notificacion['sol_estudios'] . ' ' . $notificacion['det_labo']); ?></p>
+        <?php if ($upload_error): ?>
+            <div class="alert alert-danger"><?php echo htmlspecialchars($upload_error); ?></div>
+        <?php endif; ?>
+        <?php if ($upload_success): ?>
+            <div class="alert alert-success"><?php echo htmlspecialchars($upload_success); ?></div>
+        <?php endif; ?>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="resultado">Seleccionar archivo(s) PDF:</label>
+                <input type="file" class="form-control-file" id="resultado" name="resultado[]" accept=".pdf" multiple required>
             </div>
-            <div class="col-md-2"></div>
-        </div>
-        <?php
-
-$fecha_actual = date("Y-m-d H:i:s");
-
-
-        if (isset($_POST['edit'])) {
-            //$terminado = mysqli_real_escape_string($conexion, (strip_tags($_POST["realizado"], ENT_QUOTES))); //Escanpando caracteres
-
-//PDF
-$name6 = $_FILES['pdf_resultadolab']['name'];
-$carpeta6='./resultados/';
-$temp6=explode('.' ,$name6);
-$extension6= end($temp6);
-$nombreFinal6=time().'.'.$extension6;
-
-if($extension6=='jpg' || $extension6=='png' || $extension6=='dcm' || $extension6=='pdf' || $extension6=='jpeg' || $extension6=='PDF'){
- if(move_uploaded_file($_FILES['pdf_resultadolab']['tmp_name'], $carpeta6.$nombreFinal6)){
-
-            $usuario = $_SESSION['login'];
-            $id_usua= $usuario['id_usua'];
-         
-               $sql2 = "UPDATE notificaciones_labo SET realizado = 'SI',resultado = '$nombreFinal6',fecha_resul = '$fecha_actual' ,id_usua_resul ='.$id_usua.' WHERE not_id = $id";   
-              
-                $result = $conexion->query($sql2);
-                echo '<script type="text/javascript">window.location ="../../template/menu_laboratorio.php"</script>';
-
-
-            }
-        }
-        }
-        ?>
+            <button type="submit" class="btn btn-success">Subir Resultados</button>
+        </form>
+    <?php else: ?>
+        <div class="alert alert-danger">Notificación no encontrada.</div>
+    <?php endif; ?>
 </div>
-</section>
-</div>
-</div>
-
-
-<footer class="main-footer">
-    <?php
-    include("../../template/footer.php");
-    ?>
-</footer>
-
 </body>
-
 </html>
+<?php $conexion->close(); ?>

@@ -29,47 +29,46 @@ $usuario = $_SESSION['login'];
     <script src="../../js/main.js"></script>
 
     <script>
-        $($document).ready(function() {
-            $("#search").keyup(function() {
-                var valor = $(this).val().toLowerCase();
-                $("#mytable tbody tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(valor) > -1)
-                });
+    $($document).ready(function() {
+        $("#search").keyup(function() {
+            var valor = $(this).val().toLowerCase();
+            $("#mytable tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(valor) > -1)
             });
         });
+    });
     </script>
     <style>
-        .modal-lg {
-            max-width: 70% !important;
-        }
+    .modal-lg {
+        max-width: 70% !important;
+    }
 
-        .botones {
-            margin-bottom: 5px;
-        }
+    .botones {
+        margin-bottom: 5px;
+    }
 
-        .thead {
-            background-color: #2b2d7f;
-            color: white;
-            font-size: 22px;
-            padding: 10px;
-            text-align: center;
-        }
+    .thead {
+        background-color: #2b2d7f;
+        color: white;
+        font-size: 22px;
+        padding: 10px;
+        text-align: center;
+    }
 
-        .accordion .card {
-            border: none;
-        }
+    .accordion .card {
+        border: none;
+    }
 
-        .accordion .card-header {
-            background-color: #e9ecef;
-            cursor: pointer;
-        }
+    .accordion .card-header {
+        background-color: #e9ecef;
+        cursor: pointer;
+    }
     </style>
 </head>
 
 <body>
-
-   <div class="container">
-    <div class="mt-3">
+    <div class="container">
+        <div class="mt-3">
             <?php if (isset($_SESSION['message']) && isset($_SESSION['message_type'])): ?>
             <div class="alert alert-<?php echo htmlspecialchars($_SESSION['message_type']); ?> alert-dismissible fade show"
                 role="alert">
@@ -88,85 +87,82 @@ $usuario = $_SESSION['login'];
         <div class="row">
             <div class="col">
                 <div class="thead"><strong>
-                        <center>HISTORIA CLÍNICA</center>
+                        <center>DATOS DEL PACIENTE</center>
                     </strong></div>
                 <?php
-                include "../../conexionbd.php";
-                if (isset($_SESSION['hospital'])) {
-                    $id_atencion = $_SESSION['hospital'];
-                    $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac, p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup 
-                                FROM paciente p, dat_ingreso di 
-                                WHERE p.Id_exp=di.Id_exp AND di.id_atencion = ?";
-                    $stmt = $conexion->prepare($sql_pac);
-                    $stmt->bind_param("i", $id_atencion);
-                    $stmt->execute();
-                    $result_pac = $stmt->get_result();
-                    while ($row_pac = $result_pac->fetch_assoc()) {
-                        $pac_papell = $row_pac['papell'];
-                        $pac_sapell = $row_pac['sapell'];
-                        $pac_nom_pac = $row_pac['nom_pac'];
-                        $pac_dir = $row_pac['dir'];
-                        $pac_id_edo = $row_pac['id_edo'];
-                        $pac_id_mun = $row_pac['id_mun'];
-                        $pac_tel = $row_pac['tel'];
-                        $pac_fecnac = $row_pac['fecnac'];
-                        $pac_fecing = $row_pac['fecha'];
-                        $pac_tip_sang = $row_pac['tip_san'];
-                        $pac_sexo = $row_pac['sexo'];
-                        $area = $row_pac['area'];
-                        $alta_med = $row_pac['alta_med'];
-                        $id_exp = $row_pac['Id_exp'];
-                        $folio = $row_pac['folio'];
-                        $alergias = $row_pac['alergias'];
-                        $ocup = $row_pac['ocup'];
-                        $activo = $row_pac['activo'];
-                    }
-                    $stmt->close();
-
-                    if ($activo === 'SI') {
-                        $sql_now = "SELECT DATE_ADD(NOW(), INTERVAL 12 HOUR) as dat_now FROM dat_ingreso WHERE id_atencion = ?";
-                        $stmt = $conexion->prepare($sql_now);
+                    include "../../conexionbd.php";
+                    if (isset($_SESSION['hospital'])) {
+                        $id_atencion = $_SESSION['hospital'];
+                        $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac, p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup FROM paciente p, dat_ingreso di WHERE p.Id_exp=di.Id_exp AND di.id_atencion = ?";
+                        $stmt = $conexion->prepare($sql_pac);
                         $stmt->bind_param("i", $id_atencion);
                         $stmt->execute();
-                        $result_now = $stmt->get_result();
-                        while ($row_now = $result_now->fetch_assoc()) {
-                            $dat_now = $row_now['dat_now'];
+                        $result_pac = $stmt->get_result();
+                        while ($row_pac = $result_pac->fetch_assoc()) {
+                            $pac_papell = $row_pac['papell'];
+                            $pac_sapell = $row_pac['sapell'];
+                            $pac_nom_pac = $row_pac['nom_pac'];
+                            $pac_dir = $row_pac['dir'];
+                            $pac_id_edo = $row_pac['id_edo'];
+                            $pac_id_mun = $row_pac['id_mun'];
+                            $pac_tel = $row_pac['tel'];
+                            $pac_fecnac = $row_pac['fecnac'];
+                            $pac_fecing = $row_pac['fecha'];
+                            $pac_tip_sang = $row_pac['tip_san'];
+                            $pac_sexo = $row_pac['sexo'];
+                            $area = $row_pac['area'];
+                            $alta_med = $row_pac['alta_med'];
+                            $id_exp = $row_pac['Id_exp'];
+                            $folio = $row_pac['folio'];
+                            $alergias = $row_pac['alergias'];
+                            $ocup = $row_pac['ocup'];
+                            $activo = $row_pac['activo'];
                         }
                         $stmt->close();
-                        $sql_est = "SELECT DATEDIFF(?, fecha) as estancia FROM dat_ingreso WHERE id_atencion = ?";
-                        $stmt = $conexion->prepare($sql_est);
-                        $stmt->bind_param("si", $dat_now, $id_atencion);
-                        $stmt->execute();
-                        $result_est = $stmt->get_result();
-                        while ($row_est = $result_est->fetch_assoc()) {
-                            $estancia = $row_est['estancia'];
-                        }
-                        $stmt->close();
-                    } else {
-                        $sql_est = "SELECT DATEDIFF(fec_egreso, fecha) as estancia FROM dat_ingreso WHERE id_atencion = ?";
-                        $stmt = $conexion->prepare($sql_est);
+                        $stmt = $conexion->prepare("SELECT area FROM dat_ingreso WHERE id_atencion = ?");
                         $stmt->bind_param("i", $id_atencion);
                         $stmt->execute();
-                        $result_est = $stmt->get_result();
-                        while ($row_est = $result_est->fetch_assoc()) {
-                            $estancia = ($row_est['estancia'] == 0) ? 1 : $row_est['estancia'];
+                        $resultado1 = $stmt->get_result();
+
+                        $area = "No asignada"; // Default value
+                        if ($f1 = $resultado1->fetch_assoc()) {
+                            $area = $f1['area'];
                         }
                         $stmt->close();
-                    }
 
-                    $d = "";
-                    $sql_motd = "SELECT diagprob_i FROM dat_not_ingreso WHERE id_atencion = ? ORDER BY id_not_ingreso DESC LIMIT 1";
-                    $stmt = $conexion->prepare($sql_motd);
-                    $stmt->bind_param("i", $id_atencion);
-                    $stmt->execute();
-                    $result_motd = $stmt->get_result();
-                    while ($row_motd = $result_motd->fetch_assoc()) {
-                        $d = $row_motd['diagprob_i'];
-                    }
-                    $stmt->close();
+                        if ($activo === 'SI') {
+                            $sql_now = "SELECT DATE_ADD(NOW(), INTERVAL 12 HOUR) as dat_now FROM dat_ingreso WHERE id_atencion = ?";
+                            $stmt = $conexion->prepare($sql_now);
+                            $stmt->bind_param("i", $id_atencion);
+                            $stmt->execute();
+                            $result_now = $stmt->get_result();
+                            while ($row_now = $result_now->fetch_assoc()) {
+                                $dat_now = $row_now['dat_now'];
+                            }
+                            $stmt->close();
+                            $sql_est = "SELECT DATEDIFF( ?, fecha) as estancia FROM dat_ingreso WHERE id_atencion = ?";
+                            $stmt = $conexion->prepare($sql_est);
+                            $stmt->bind_param("si", $dat_now, $id_atencion);
+                            $stmt->execute();
+                            $result_est = $stmt->get_result();
+                            while ($row_est = $result_est->fetch_assoc()) {
+                                $estancia = $row_est['estancia'];
+                            }
+                            $stmt->close();
+                        } else {
+                            $sql_est = "SELECT DATEDIFF(fec_egreso, fecha) as estancia FROM dat_ingreso WHERE id_atencion = ?";
+                            $stmt = $conexion->prepare($sql_est);
+                            $stmt->bind_param("i", $id_atencion);
+                            $stmt->execute();
+                            $result_est = $stmt->get_result();
+                            while ($row_est = $result_est->fetch_assoc()) {
+                                $estancia = ($row_est['estancia'] == 0) ? 1 : $row_est['estancia'];
+                            }
+                            $stmt->close();
+                        }
 
-                    if (!$d) {
-                        $sql_motd = "SELECT diagprob_i FROM dat_nevol WHERE id_atencion = ? ORDER BY id_ne DESC LIMIT 1";
+                        $d = "";
+                        $sql_motd = "SELECT diagprob_i FROM dat_not_ingreso WHERE id_atencion = ? ORDER BY id_not_ingreso DESC LIMIT 1";
                         $stmt = $conexion->prepare($sql_motd);
                         $stmt->bind_param("i", $id_atencion);
                         $stmt->execute();
@@ -175,55 +171,66 @@ $usuario = $_SESSION['login'];
                             $d = $row_motd['diagprob_i'];
                         }
                         $stmt->close();
-                    }
 
-                    $sql_mot = "SELECT motivo_atn FROM dat_ingreso WHERE id_atencion = ? ORDER BY motivo_atn ASC LIMIT 1";
-                    $stmt = $conexion->prepare($sql_mot);
-                    $stmt->bind_param("i", $id_atencion);
-                    $stmt->execute();
-                    $result_mot = $stmt->get_result();
-                    while ($row_mot = $result_mot->fetch_assoc()) {
-                        $m = $row_mot['motivo_atn'];
-                    }
-                    $stmt->close();
+                        if (!$d) {
+                            $sql_motd = "SELECT diagprob_i FROM dat_nevol WHERE id_atencion = ? ORDER BY id_ne DESC LIMIT 1";
+                            $stmt = $conexion->prepare($sql_motd);
+                            $stmt->bind_param("i", $id_atencion);
+                            $stmt->execute();
+                            $result_motd = $stmt->get_result();
+                            while ($row_motd = $result_motd->fetch_assoc()) {
+                                $d = $row_motd['diagprob_i'];
+                            }
+                            $stmt->close();
+                        }
 
-                    $sql_edo = "SELECT edo_salud FROM dat_ingreso WHERE id_atencion = ? ORDER BY edo_salud ASC LIMIT 1";
-                    $stmt = $conexion->prepare($sql_edo);
-                    $stmt->bind_param("i", $id_atencion);
-                    $stmt->execute();
-                    $result_edo = $stmt->get_result();
-                    while ($row_edo = $result_edo->fetch_assoc()) {
-                        $edo_salud = $row_edo['edo_salud'];
-                    }
-                    $stmt->close();
+                        $sql_mot = "SELECT motivo_atn FROM dat_ingreso WHERE id_atencion = ? ORDER BY motivo_atn ASC LIMIT 1";
+                        $stmt = $conexion->prepare($sql_mot);
+                        $stmt->bind_param("i", $id_atencion);
+                        $stmt->execute();
+                        $result_mot = $stmt->get_result();
+                        while ($row_mot = $result_mot->fetch_assoc()) {
+                            $m = $row_mot['motivo_atn'];
+                        }
+                        $stmt->close();
 
-                    $sql_hab = "SELECT num_cama FROM cat_camas WHERE id_atencion = ?";
-                    $stmt = $conexion->prepare($sql_hab);
-                    $stmt->bind_param("i", $id_atencion);
-                    $stmt->execute();
-                    $result_hab = $stmt->get_result();
-                    $num_cama = $result_hab->fetch_assoc()['num_cama'] ?? '';
-                    $stmt->close();
+                        $sql_edo = "SELECT edo_salud FROM dat_ingreso WHERE id_atencion = ? ORDER BY edo_salud ASC LIMIT 1";
+                        $stmt = $conexion->prepare($sql_edo);
+                        $stmt->bind_param("i", $id_atencion);
+                        $stmt->execute();
+                        $result_edo = $stmt->get_result();
+                        while ($row_edo = $result_edo->fetch_assoc()) {
+                            $edo_salud = $row_edo['edo_salud'];
+                        }
+                        $stmt->close();
 
-                    $sql_hclinica = "SELECT peso, talla FROM dat_hclinica WHERE Id_exp = ? ORDER BY id_hc DESC LIMIT 1";
-                    $stmt = $conexion->prepare($sql_hclinica);
-                    $stmt->bind_param("s", $id_exp);
-                    $stmt->execute();
-                    $result_hclinica = $stmt->get_result();
-                    $peso = 0;
-                    $talla = 0;
-                    while ($row_hclinica = $result_hclinica->fetch_assoc()) {
-                        $peso = $row_hclinica['peso'] ?? 0;
-                        $talla = $row_hclinica['talla'] ?? 0;
+                        $sql_hab = "SELECT num_cama FROM cat_camas WHERE id_atencion = ?";
+                        $stmt = $conexion->prepare($sql_hab);
+                        $stmt->bind_param("i", $id_atencion);
+                        $stmt->execute();
+                        $result_hab = $stmt->get_result();
+                        $num_cama = $result_hab->fetch_assoc()['num_cama'] ?? '';
+                        $stmt->close();
+
+                        $sql_hclinica = "SELECT peso, talla FROM dat_hclinica WHERE Id_exp = ? ORDER BY id_hc DESC LIMIT 1";
+                        $stmt = $conexion->prepare($sql_hclinica);
+                        $stmt->bind_param("s", $id_exp);
+                        $stmt->execute();
+                        $result_hclinica = $stmt->get_result();
+                        $peso = 0;
+                        $talla = 0;
+                        while ($row_hclinica = $result_hclinica->fetch_assoc()) {
+                            $peso = $row_hclinica['peso'] ?? 0;
+                            $talla = $row_hclinica['talla'] ?? 0;
+                        }
+                        $stmt->close();
+                    } else {
+                        echo '<script type="text/javascript">window.location.href="../lista_pacientes/lista_pacientes.php";</script>';
                     }
-                    $stmt->close();
-                } else {
-                    echo '<script type="text/javascript">window.location.href="../lista_pacientes/lista_pacientes.php";</script>';
-                }
-                ?>
+                    ?>
                 <div class="row">
-                    <div class="col-sm-2">Expediente: <strong><?php echo $folio; ?></strong></div>
-                    <div class="col-sm-6">Paciente:
+                    <div class="col-sm-4">Expediente: <strong><?php echo $folio; ?></strong></div>
+                    <div class="col-sm-4">Paciente:
                         <strong><?php echo $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac; ?></strong>
                     </div>
                     <div class="col-sm-4">Fecha de ingreso:
@@ -250,9 +257,11 @@ $usuario = $_SESSION['login'];
                 </div>
                 <div class="row">
                     <div class="col-sm-8">
-                        <?php echo $d ? "Diagnóstico: <strong>$d</strong>" : "Motivo de atención: <strong>$m</strong>"; ?>
+                        <?php echo $d ? "Diagnóstico: <strong>$d</strong>" : "Motivo de atención: <strong>$m</strong>"; 
+                        ?>
                     </div>
                     <div class="col-sm">Días estancia: <strong><?php echo $estancia; ?> días</strong></div>
+
                 </div>
                 <div class="row">
                     <div class="col-sm-4">Alergias: <strong><?php echo $alergias; ?></strong></div>
@@ -261,189 +270,216 @@ $usuario = $_SESSION['login'];
                 </div>
                 <div class="row">
                     <div class="col-sm-4">Peso: <strong><?php echo $peso; ?></strong></div>
-                    <div class="col-sm-3">Talla: <strong><?php echo $talla; ?></strong></div>
+                    <div class="col-sm-4">Talla: <strong><?php echo $talla; ?></strong></div>
+                    <div class="col-sm-4">Área: <strong><?php echo $area;?> </strong></div>
                 </div>
             </div>
         </div>
-        <br><br>
-    <div class="thead">
-        <strong><center>RECETA DE ANTEOJOS</center></strong>
     </div>
+    <br><br>
+    <div class="container">
 
-    <form method="POST" action="insertar_refraccion.php">
-
-        <!-- Refracción Lejana -->
-        <h4 class="mt-4"><strong>Refracción Lejana</strong></h4>
-        <div class="table-responsive">
-            <table class="table table-bordered text-center">
-                <thead class="thead-light">
-                    <tr>
-                        <th></th><th>Esf</th><th>Cil</th><th>Eje</th><th>Add</th><th>DIP</th><th>Prisma</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>OD</td>
-                        <td><input class="form-control" name="esf_lejana_od" type="text"></td>
-                        <td><input class="form-control" name="cil_lejana_od" type="text"></td>
-                        <td><input class="form-control" name="eje_lejana_od" type="text"></td>
-                        <td><input class="form-control" name="add_lejana_od" type="text"></td>
-                        <td><input class="form-control" name="dip_lejana_od" type="text"></td>
-                        <td><input class="form-check-input" name="prisma_lejana_od" type="checkbox" value="1"></td>
-                    </tr>
-                    <tr>
-                        <td>OI</td>
-                        <td><input class="form-control" name="esf_lejana_oi" type="text"></td>
-                        <td><input class="form-control" name="cil_lejana_oi" type="text"></td>
-                        <td><input class="form-control" name="eje_lejana_oi" type="text"></td>
-                        <td><input class="form-control" name="add_lejana_oi" type="text"></td>
-                        <td><input class="form-control" name="dip_lejana_oi" type="text"></td>
-                        <td><input class="form-check-input" name="prisma_lejana_oi" type="checkbox" value="1"></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="thead">
+            <strong>
+                <center>RECETA DE ANTEOJOS</center>
+            </strong>
         </div>
 
-        <!-- Refracción Cercana -->
-        <h4 class="mt-4"><strong>Refracción Cercana</strong></h4>
-        <div class="table-responsive">
-            <table class="table table-bordered text-center">
-                <thead class="thead-light">
-                    <tr>
-                        <th></th><th>Esf</th><th>Cil</th><th>Eje</th><th>DIP</th><th>Prisma</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>OD</td>
-                        <td><input class="form-control" name="esf_cercana_od" type="text"></td>
-                        <td><input class="form-control" name="cil_cercana_od" type="text"></td>
-                        <td><input class="form-control" name="eje_cercana_od" type="text"></td>
-                        <td><input class="form-control" name="dip_cercana_od" type="text"></td>
-                        <td><input class="form-check-input" name="prisma_cercana_od" type="checkbox" value="1"></td>
-                    </tr>
-                    <tr>
-                        <td>OI</td>
-                        <td><input class="form-control" name="esf_cercana_oi" type="text"></td>
-                        <td><input class="form-control" name="cil_cercana_oi" type="text"></td>
-                        <td><input class="form-control" name="eje_cercana_oi" type="text"></td>
-                        <td><input class="form-control" name="dip_cercana_oi" type="text"></td>
-                        <td><input class="form-check-input" name="prisma_cercana_oi" type="checkbox" value="1"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <form method="POST" action="insertar_refraccion.php">
 
-        <!-- Refracción Intermedia -->
-        <h4 class="mt-4"><strong>Refracción Intermedia</strong></h4>
-        <div class="table-responsive">
-            <table class="table table-bordered text-center">
-                <thead class="thead-light">
-                    <tr><th></th><th>Esf</th><th>Cil</th><th>Eje</th><th>DIP</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>OD</td>
-                        <td><input class="form-control" name="esf_intermedia_od" type="text"></td>
-                        <td><input class="form-control" name="cil_intermedia_od" type="text"></td>
-                        <td><input class="form-control" name="eje_intermedia_od" type="text"></td>
-                        <td><input class="form-control" name="dip_intermedia_od" type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>OI</td>
-                        <td><input class="form-control" name="esf_intermedia_oi" type="text"></td>
-                        <td><input class="form-control" name="cil_intermedia_oi" type="text"></td>
-                        <td><input class="form-control" name="eje_intermedia_oi" type="text"></td>
-                        <td><input class="form-control" name="dip_intermedia_oi" type="text"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-<h4 class="mt-4"><strong>Tipo de Lentes</strong></h4>
-<div class="form-row">
-    <div class="form-group col-md-6">
-        <label for="tipo_lente_od">Tipo de Lente OD</label>
-        <select class="form-control" name="tipo_lente_od" id="tipo_lente_od">
-            <option value="">Seleccione una opción</option>
-            <option value="monofocal">Monofocal</option>
-            <option value="bifocal">Bifocal</option>
-            <option value="progresivo">Progresivo</option>
-            <option value="ocupacional">Ocupacional</option>
-            <option value="fotocromático">Fotocromático</option>
-            <option value="polarizado">Polarizado</option>
-            <option value="antirreflejo">Con Antirreflejo</option>
-            <option value="lente_contacto">Lente de Contacto</option>
-        </select>
-    </div>
-    <div class="form-group col-md-6">
-        <label for="tipo_lente_oi">Tipo de Lente OI</label>
-        <select class="form-control" name="tipo_lente_oi" id="tipo_lente_oi">
-            <option value="">Seleccione una opción</option>
-            <option value="monofocal">Monofocal</option>
-            <option value="bifocal">Bifocal</option>
-            <option value="progresivo">Progresivo</option>
-            <option value="ocupacional">Ocupacional</option>
-            <option value="fotocromático">Fotocromático</option>
-            <option value="polarizado">Polarizado</option>
-            <option value="antirreflejo">Con Antirreflejo</option>
-            <option value="lente_contacto">Lente de Contacto</option>
-        </select>
-    </div>
-</div>
-
-        <!-- Observaciones -->
-        <h4 class="mt-4"><strong>Observaciones</strong></h4>
-        <div class="form-group">
-            <div class="botones mb-2">
-                <button type="button" class="btn btn-danger btn-sm" id="re_izquierdo_grabar"><i class="fas fa-microphone"></i></button>
-                <button type="button" class="btn btn-primary btn-sm" id="re_izquierdo_detener"><i class="fas fa-microphone-slash"></i></button>
-                <button type="button" class="btn btn-success btn-sm" id="play_re_izquierdo"><i class="fas fa-play"></i></button>
+            <!-- Refracción Lejana -->
+            <h4 class="mt-4"><strong>Refracción Lejana</strong></h4>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th></th>
+                            <th>Esf</th>
+                            <th>Cil</th>
+                            <th>Eje</th>
+                            <th>Add</th>
+                            <th>DIP</th>
+                            <th>Prisma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OD</td>
+                            <td><input class="form-control" name="esf_lejana_od" type="text"></td>
+                            <td><input class="form-control" name="cil_lejana_od" type="text"></td>
+                            <td><input class="form-control" name="eje_lejana_od" type="text"></td>
+                            <td><input class="form-control" name="add_lejana_od" type="text"></td>
+                            <td><input class="form-control" name="dip_lejana_od" type="text"></td>
+                            <td><input class="form-check-input" name="prisma_lejana_od" type="checkbox" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td>OI</td>
+                            <td><input class="form-control" name="esf_lejana_oi" type="text"></td>
+                            <td><input class="form-control" name="cil_lejana_oi" type="text"></td>
+                            <td><input class="form-control" name="eje_lejana_oi" type="text"></td>
+                            <td><input class="form-control" name="add_lejana_oi" type="text"></td>
+                            <td><input class="form-control" name="dip_lejana_oi" type="text"></td>
+                            <td><input class="form-check-input" name="prisma_lejana_oi" type="checkbox" value="1"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <textarea class="form-control" name="observaciones" rows="3" placeholder="Observaciones generales sobre la receta de anteojos"></textarea>
-            
-        </div>
 
-    </form>
-</div>
+            <!-- Refracción Cercana -->
+            <h4 class="mt-4"><strong>Refracción Cercana</strong></h4>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th></th>
+                            <th>Esf</th>
+                            <th>Cil</th>
+                            <th>Eje</th>
+                            <th>DIP</th>
+                            <th>Prisma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OD</td>
+                            <td><input class="form-control" name="esf_cercana_od" type="text"></td>
+                            <td><input class="form-control" name="cil_cercana_od" type="text"></td>
+                            <td><input class="form-control" name="eje_cercana_od" type="text"></td>
+                            <td><input class="form-control" name="dip_cercana_od" type="text"></td>
+                            <td><input class="form-check-input" name="prisma_cercana_od" type="checkbox" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td>OI</td>
+                            <td><input class="form-control" name="esf_cercana_oi" type="text"></td>
+                            <td><input class="form-control" name="cil_cercana_oi" type="text"></td>
+                            <td><input class="form-control" name="eje_cercana_oi" type="text"></td>
+                            <td><input class="form-control" name="dip_cercana_oi" type="text"></td>
+                            <td><input class="form-check-input" name="prisma_cercana_oi" type="checkbox" value="1"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Refracción Intermedia -->
+            <h4 class="mt-4"><strong>Refracción Intermedia</strong></h4>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th></th>
+                            <th>Esf</th>
+                            <th>Cil</th>
+                            <th>Eje</th>
+                            <th>DIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OD</td>
+                            <td><input class="form-control" name="esf_intermedia_od" type="text"></td>
+                            <td><input class="form-control" name="cil_intermedia_od" type="text"></td>
+                            <td><input class="form-control" name="eje_intermedia_od" type="text"></td>
+                            <td><input class="form-control" name="dip_intermedia_od" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>OI</td>
+                            <td><input class="form-control" name="esf_intermedia_oi" type="text"></td>
+                            <td><input class="form-control" name="cil_intermedia_oi" type="text"></td>
+                            <td><input class="form-control" name="eje_intermedia_oi" type="text"></td>
+                            <td><input class="form-control" name="dip_intermedia_oi" type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="mt-4"><strong>Tipo de Lentes</strong></h4>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="tipo_lente_od">Tipo de Lente OD</label>
+                    <select class="form-control" name="tipo_lente_od" id="tipo_lente_od">
+                        <option value="">Seleccione una opción</option>
+                        <option value="monofocal">Monofocal</option>
+                        <option value="bifocal">Bifocal</option>
+                        <option value="progresivo">Progresivo</option>
+                        <option value="ocupacional">Ocupacional</option>
+                        <option value="fotocromático">Fotocromático</option>
+                        <option value="polarizado">Polarizado</option>
+                        <option value="antirreflejo">Con Antirreflejo</option>
+                        <option value="lente_contacto">Lente de Contacto</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="tipo_lente_oi">Tipo de Lente OI</label>
+                    <select class="form-control" name="tipo_lente_oi" id="tipo_lente_oi">
+                        <option value="">Seleccione una opción</option>
+                        <option value="monofocal">Monofocal</option>
+                        <option value="bifocal">Bifocal</option>
+                        <option value="progresivo">Progresivo</option>
+                        <option value="ocupacional">Ocupacional</option>
+                        <option value="fotocromático">Fotocromático</option>
+                        <option value="polarizado">Polarizado</option>
+                        <option value="antirreflejo">Con Antirreflejo</option>
+                        <option value="lente_contacto">Lente de Contacto</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Observaciones -->
+            <h4 class="mt-4"><strong>Observaciones</strong></h4>
+            <div class="form-group">
+                <div class="botones mb-2">
+                    <button type="button" class="btn btn-danger btn-sm" id="re_izquierdo_grabar"><i
+                            class="fas fa-microphone"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm" id="re_izquierdo_detener"><i
+                            class="fas fa-microphone-slash"></i></button>
+                    <button type="button" class="btn btn-success btn-sm" id="play_re_izquierdo"><i
+                            class="fas fa-play"></i></button>
+                </div>
+                <textarea class="form-control" name="observaciones" rows="3"
+                    placeholder="Observaciones generales sobre la receta de anteojos"></textarea>
+
+            </div>
+
+        </form>
+    </div>
 
 
     <script>
-        const det_re_derecho_grabar = document.getElementById('re_derecho_grabar');
-        const det_re_derecho_detener = document.getElementById('re_derecho_detener');
-        const detalles_re_derecho = document.getElementById('detalles_laser_derecho');
-        const btn_det_derecho = document.getElementById('play_re_derecho');
+    const det_re_derecho_grabar = document.getElementById('re_derecho_grabar');
+    const det_re_derecho_detener = document.getElementById('re_derecho_detener');
+    const detalles_re_derecho = document.getElementById('detalles_laser_derecho');
+    const btn_det_derecho = document.getElementById('play_re_derecho');
 
-        btn_det_derecho.addEventListener('click', () => {
-            leerTexto(detalles_re_derecho.value);
-        });
+    btn_det_derecho.addEventListener('click', () => {
+        leerTexto(detalles_re_derecho.value);
+    });
 
-        let recognition_det_laser_derecho = new webkitSpeechRecognition();
-        recognition_det_laser_derecho.lang = "es-ES";
-        recognition_det_laser_derecho.continuous = true;
-        recognition_det_laser_derecho.interimResults = false;
-        recognition_det_laser_derecho.onresult = (event) => {
-            const results = event.results;
-            const frase = results[results.length - 1][0].transcript;
-            detalles_re_derecho.value += frase;
-        };
+    let recognition_det_laser_derecho = new webkitSpeechRecognition();
+    recognition_det_laser_derecho.lang = "es-ES";
+    recognition_det_laser_derecho.continuous = true;
+    recognition_det_laser_derecho.interimResults = false;
+    recognition_det_laser_derecho.onresult = (event) => {
+        const results = event.results;
+        const frase = results[results.length - 1][0].transcript;
+        detalles_re_derecho.value += frase;
+    };
 
-        det_re_derecho_grabar.addEventListener('click', () => {
-            recognition_det_laser_derecho.start();
-        });
+    det_re_derecho_grabar.addEventListener('click', () => {
+        recognition_det_laser_derecho.start();
+    });
 
-        det_re_derecho_detener.addEventListener('click', () => {
-            recognition_det_laser_derecho.abort();
-        });
+    det_re_derecho_detener.addEventListener('click', () => {
+        recognition_det_laser_derecho.abort();
+    });
 
-        function leerTexto(texto) {
-            const speech = new SpeechSynthesisUtterance();
-            speech.text = texto;
-            speech.volume = 1;
-            speech.rate = 1;
-            speech.pitch = 0;
-            window.speechSynthesis.speak(speech);
-        }
+    function leerTexto(texto) {
+        const speech = new SpeechSynthesisUtterance();
+        speech.text = texto;
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 0;
+        window.speechSynthesis.speak(speech);
+    }
     </script>
     </div>
 
@@ -456,17 +492,17 @@ $usuario = $_SESSION['login'];
     </div>
 
     <script>
-        let enviando = false;
+    let enviando = false;
 
-        function checkSubmit() {
-            if (!enviando) {
-                enviando = true;
-                return true;
-            } else {
-                alert("El formulario ya se esta enviando");
-                return false;
-            }
+    function checkSubmit() {
+        if (!enviando) {
+            enviando = true;
+            return true;
+        } else {
+            alert("El formulario ya se esta enviando");
+            return false;
         }
+    }
     </script>
     <footer class="main-footer">
         <?php
@@ -480,9 +516,9 @@ $usuario = $_SESSION['login'];
     <script src="../../template/dist/js/app.min.js" type="text/javascript"></script>
 
     <script>
-        document.oncontextmenu = function() {
-            return false;
-        }
+    document.oncontextmenu = function() {
+        return false;
+    }
     </script>
 </body>
 
