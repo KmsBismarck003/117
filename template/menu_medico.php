@@ -420,6 +420,9 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                     <li><a href="/gestion_medica/notas_medicas/pruebas.php">
                             <i class="fa fa-file-prescription" aria-hidden="true"></i> PRESION, PARPADOS Y VIAS
                         </a></li>
+                        <li><a href="/gestion_medica/notas_medicas/formulario_PIO.php">
+                            <i class="fa fa-file-prescription"></i> PRESION INTRAOCULAR
+                        </a></li>
                     <li><a href="/gestion_medica/notas_medicas/pruebas.php">
                             <i class="fa fa-backward" aria-hidden="true"></i> SEGMENTO ANTERIOR
                         </a></li>
@@ -591,6 +594,9 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                         </a></li>
                     <li><a href="select_pac_hosp.php">
                             <i class="fa fa-file-prescription" aria-hidden="true"></i> PRESION, PARPADOS Y VIAS
+                        </a></li>
+                        <li><a href="/gestion_medica/notas_medicas/formulario_PIO.php">
+                            <i class="fa fa-file-prescription"></i> PRESION INTRAOCULAR
                         </a></li>
                     <li><a href="select_pac_hosp.php">
                             <i class="fa fa-backward" aria-hidden="true"></i> SEGMENTO ANTERIOR

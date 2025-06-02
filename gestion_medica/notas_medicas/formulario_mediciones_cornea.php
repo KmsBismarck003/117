@@ -35,16 +35,47 @@ $activo = $row_pac['activo'] ?? 'No disponible';
     <meta charset="UTF-8">
     <title>Formulario Mediciones de la córnea</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .thead { background-color: #2b2d7f; color: white; font-size: 22px; padding: 10px; text-align: center; }
-    </style>
+      <link rel="stylesheet" type="text/css" href="css/select2.css">
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFMw5uZjQz4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldLv/Pr4nhuBviF5jGqQK/5i2Q5iZ64dxBl+zOZ" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.magnific-popup.min.js"></script>
+    <script src="../../js/aos.js"></script>
+    <script src="../../js/main.js"></script>
+  <style>
+    .thead {
+      background-color: #2b2d7f;
+      color: white;
+      font-size: 22px;
+      padding: 10px;
+      text-align: center;
+    }
+    .section-title {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #2b2d7f;
+      border-bottom: 2px solid #2b2d7f;
+      padding-bottom: 5px;
+    }
+  </style>
 </head>
 <body class="bg-light">
 
 <div class="container mt-5">
     <!-- Información del Paciente -->
     <div class="card mb-4">
-        <div class="card-header bg-primary text-white">
+        <div class="thead">
             <h4 class="mb-0">Información del Paciente</h4>
         </div>
         <div class="card-body">
@@ -63,7 +94,7 @@ $activo = $row_pac['activo'] ?? 'No disponible';
 
     <!-- Formulario de Mediciones -->
     <div class="card shadow">
-        <div class="card-header bg-primary text-white">
+        <div class="section-title">
             <h4 class="mb-0">Mediciones de la Córnea</h4>
         </div>
         <div class="card-body">
@@ -136,9 +167,20 @@ $activo = $row_pac['activo'] ?? 'No disponible';
     </div>
 </div>
 
+
 <footer class="main-footer mt-5">
     <?php include("../../template/footer.php"); ?>
 </footer>
 
+    <!-- FastClick -->
+    <script src='../../template/plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="../../template/dist/js/app.min.js" type="text/javascript"></script>
+
+    <script>
+        document.oncontextmenu = function() {
+            return false;
+        }
+    </script>
 </body>
 </html>

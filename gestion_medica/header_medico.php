@@ -378,6 +378,9 @@ if (!in_array($usuario['id_rol'], [2, 5, 12])) {
                     <li><a href="/gestion_medica/notas_medicas/formulario_exploracion.php">
                             <i class="fa fa-file-prescription"></i> PRESION, PARPADOS Y <br> VIAS LAGRIMALES
                         </a></li>
+                        <li><a href="/gestion_medica/notas_medicas/formulario_PIO.php">
+                            <i class="fa fa-file-prescription"></i> PRESION INTRAOCULAR
+                        </a></li>
                     <li><a href="/gestion_medica/notas_medicas/pruebas.php">
                             <i class="fa fa-backward"></i> SEGMENTO ANTERIOR
                         </a></li>

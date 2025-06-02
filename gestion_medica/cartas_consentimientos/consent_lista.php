@@ -411,7 +411,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                
                . '<td> <strong>
                   <a type="submit" class="btn btn-danger btn-sm"
-                    href="../vistas_pdf/vista_nutricion.php"><span class="fa fa-file-pdf-o"
+                    href="../vistas_pdf/vista_nino_bebe.php"><span class="fa fa-file-pdf-o"
                                            style="font-size:20px"></span></a>
                   </strong></td>';
                 $no++;
@@ -435,7 +435,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                
                . '<td> <strong>
                   <a type="submit" class="btn btn-danger btn-sm"
-                    href="../vistas_pdf/vista_def.php"><span class="fa fa-file-pdf-o"
+                    href="../vistas_pdf/vista_mediciones_cornea.php"><span class="fa fa-file-pdf-o"
                                            style="font-size:20px"></span></a>
                   </strong></td>';
                 $no++;
@@ -460,7 +460,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                
                . '<td> <strong>
                   <a type="submit" class="btn btn-danger btn-sm"
-                    href="../vistas_pdf/vista_resumen.php"><span class="fa fa-file-pdf-o"
+                    href="../vistas_pdf/vista_presion_intraocular.php"><span class="fa fa-file-pdf-o"
                                            style="font-size:20px"></span></a>
                   </strong></td>';
                 $no++;
@@ -482,7 +482,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                
                . '<td> <strong>
                   <a type="submit" class="btn btn-danger btn-sm"
-                    href="../vistas_pdf/vista_resumen.php"><span class="fa fa-file-pdf-o"
+                    href="../vistas_pdf/vista_vias.php"><span class="fa fa-file-pdf-o"
                                            style="font-size:20px"></span></a>
                   </strong></td>';
                 $no++;
@@ -527,7 +527,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                
                . '<td> <strong>
                   <a type="submit" class="btn btn-danger btn-sm"
-                    href="../vistas_pdf/vista_resumen.php"><span class="fa fa-file-pdf-o"
+                    href="../vistas_pdf/vista_segmento_post.php"><span class="fa fa-file-pdf-o"
                                            style="font-size:20px"></span></a>
                   </strong></td>';
                 $no++;
