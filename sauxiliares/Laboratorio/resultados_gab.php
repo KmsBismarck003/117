@@ -121,11 +121,11 @@ $resultados_dir = '/gestion_medica/notas_medicas/resultados_gabinete/';
                         while ($row = $result->fetch_assoc()) {
                             $habi = $row['habitacion'];
                             $id_atencion = $row['id_atencion'];
-                            $id_not_gabinete = $row['id_not_gabinete'];
+                            $not_id = $row['id_not_gabinete'];
 
                             // Skip invalid rows
-                            if (empty($id_atencion) || empty($id_not_gabinete)) {
-                                error_log("Invalid data: id_atencion=$id_atencion, id_not_gabinete=$id_not_gabinete");
+                            if (empty($id_atencion) || empty($not_id)) {
+                                error_log("Invalid data: id_atencion=$id_atencion, id_not_gabinete=$not_id");
                                 continue;
                             }
 
@@ -183,19 +183,19 @@ $resultados_dir = '/gestion_medica/notas_medicas/resultados_gabinete/';
                             }
                             echo '</td>'
                                 . '<td><center>'
-                                . '<a href="../Laboratorio/pdf_solicitud_gabinete.php?id_not_gabinete=' . (int)$id_not_gabinete . '&id_atencion=' . (int)$id_atencion . '" target="_blank">'
+                                . '<a href="../Laboratorio/pdf_solicitud_gabinete.php?not_id=' . (int)$not_id . '&id_atencion=' . (int)$id_atencion . '" target="_blank">'
                                 . '<button type="button" class="btn btn-success"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>'
                                 . '</a></center></td>'
                                 . '<td><center>'
-                                . '<a href="../Laboratorio/editar_gabinete.php?id_not_gabinete=' . (int)$id_not_gabinete . '" title="Editar resultados" class="btn btn-danger"><i class="fa fa-edit" aria-hidden="true"></i></a>'
+                                . '<a href="../Laboratorio/editar_gab.php?id_not_gabinete=' . (int)$not_id . '" title="Editar resultados" class="btn btn-danger"><i class="fa fa-edit" aria-hidden="true"></i></a>'
                                 . '</center></td>'
                                 . '<td><center>'
-                                . '<a href="../Laboratorio/verpdf_gabinete.php?id_not_gabinete=' . (int)$id_not_gabinete . '" title="Ver resultados" class="btn btn-danger"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>'
+                                . '<a href="../Laboratorio/verpdf_gabinete.php?not_id=' . (int)$not_id . '" title="Ver resultados" class="btn btn-danger"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>'
                                 . '</center></td>';
 
                             if ($usuario1['id_rol'] == 5) {
                                 echo '<td><center>'
-                                    . '<a href="el_gabinete.php?id_not_gabinete=' . (int)$id_not_gabinete . '" title="Eliminar estudio" class="btn btn-warning"><i class="fa fa-trash" aria-hidden="true"></i></a>'
+                                    . '<a href="el_gab.php?id_not_gabinete=' . (int)$not_id . '" title="Eliminar estudio" class="btn btn-warning"><i class="fa fa-trash" aria-hidden="true"></i></a>'
                                     . '</center></td>';
                             }
 
