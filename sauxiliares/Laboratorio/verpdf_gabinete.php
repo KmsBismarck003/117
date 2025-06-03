@@ -199,24 +199,6 @@ if ($not_id === 0) {
                         <div class="alert alert-danger">No se encontraron resultados para la notificación ID <?php echo $not_id; ?>.</div>
                     <?php endif; ?>
                 </div>
-                <div class="col-md-4">
-                    <div class="annotation-area">
-                        <h4>Anotaciones</h4>
-                        <?php if ($row && !empty($row['det_gab'])): ?>
-                            <div id="det_gab_display"><?php echo htmlspecialchars($row['det_gab']); ?></div>
-                        <?php else: ?>
-                            <p>No hay anotaciones disponibles.</p>
-                        <?php endif; ?>
-                        <form method="POST" action="">
-                            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
-                            <div class="form-group">
-                                <label for="anotacion">Nueva Anotación:</label>
-                                <textarea class="form-control" id="anotacion" name="anotacion" rows="4" placeholder="Escribe tu anotación aquí..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Guardar Anotación</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
