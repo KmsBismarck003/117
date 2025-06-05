@@ -505,7 +505,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                
                . '<td> <strong>
                   <a type="submit" class="btn btn-danger btn-sm"
-                    href="../vistas_pdf/vista_resumen.php"><span class="fa fa-file-pdf-o"
+                    href="../vistas_pdf/vista_seg_ant.php"><span class="fa fa-file-pdf-o"
                                            style="font-size:20px"></span></a>
                   </strong></td>';
                 $no++;
