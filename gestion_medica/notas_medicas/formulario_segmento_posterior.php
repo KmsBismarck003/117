@@ -60,42 +60,77 @@ if ($conexion) {
       border-bottom: 2px solid #2b2d7f;
       padding-bottom: 5px;
     }
-    .contenedor {
+      .contenedor {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 30px;
   }
 
   .columna {
     flex: 1;
+    min-width: 300px;
     border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 10px;
-    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9ff;
   }
 
   .columna h3 {
-    text-align: center;
-    margin-bottom: 10px;
+    color: #2b2d7f;
+    border-bottom: 1px solid #2b2d7f;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
   }
 
-  .columna label {
-    display: block;
+  label {
+    font-weight: 500;
     margin-top: 10px;
-    font-weight: bold;
+    display: block;
+    color: #333;
   }
 
   textarea {
     width: 100%;
-    height: 60px;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     resize: vertical;
-    padding: 5px;
+    font-size: 14px;
   }
 
   .form-footer {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
   }
+
+  .form-footer button,
+  .form-footer a {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .form-footer .btn-primary {
+    background-color: #2b2d7f;
+    border-color: #2b2d7f;
+  }
+
+  .form-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+
+  @media (max-width: 768px) {
+    .contenedor {
+      flex-direction: column;
+    }
+  }
+
   </style>
 <div class="thead">
       Formulario de Segmento Posterior 
@@ -154,7 +189,6 @@ if ($conexion) {
     <input type="hidden" name="bajo_dilatacion" value="si">
 
   <div class="contenedor">
-    
     <!-- Columna Ojo Derecho -->
     <div class="columna">
       <h3>Ojo Derecho</h3>
@@ -164,16 +198,32 @@ if ($conexion) {
       </label>
 
       <label for="vitreo_od">Vítreo OD:</label>
-      <textarea name="vitreo_od" id="vitreo_od" placeholder="Ej: Transparente, sin opacidades"></textarea>
+      <textarea name="vitreo_od" id="vitreo_od" class="form-control" rows="3" placeholder="Ej: Transparente, sin opacidades"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="vitreo_od"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="vitreo_od"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="vitreo_od"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
 
       <label for="nervio_optico_od">Nervio Óptico OD:</label>
-      <textarea name="nervio_optico_od" id="nervio_optico_od" placeholder="Ej: Bordes definidos, excavación 0.3"></textarea>
+      <textarea name="nervio_optico_od" id="nervio_optico_od" class="form-control" rows="3" placeholder="Ej: Bordes definidos, excavación 0.3"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="nervio_optico_od"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="nervio_optico_od"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="nervio_optico_od"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
 
       <label for="retina_periferica_od">Retina Periférica OD:</label>
-      <textarea name="retina_periferica_od" id="retina_periferica_od" placeholder="Ej: Sin desgarros ni degeneraciones"></textarea>
+      <textarea name="retina_periferica_od" id="retina_periferica_od" class="form-control" rows="3" placeholder="Ej: Sin desgarros ni degeneraciones"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="retina_periferica_od"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="retina_periferica_od"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="retina_periferica_od"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
 
       <label for="macula_od">Mácula OD:</label>
-      <textarea name="macula_od" id="macula_od" placeholder="Ej: Fóvea centrada, reflejo foveal presente"></textarea>
+      <textarea name="macula_od" id="macula_od" class="form-control" rows="3" placeholder="Ej: Fóvea centrada, reflejo foveal presente"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="macula_od"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="macula_od"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="macula_od"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
     </div>
 
     <!-- Columna Ojo Izquierdo -->
@@ -185,20 +235,33 @@ if ($conexion) {
       </label>
 
       <label for="vitreo_oi">Vítreo OI:</label>
-      <textarea name="vitreo_oi" id="vitreo_oi" placeholder="Ej: Transparente, sin opacidades"></textarea>
+      <textarea name="vitreo_oi" id="vitreo_oi" class="form-control" rows="3" placeholder="Ej: Transparente, sin opacidades"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="vitreo_oi"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="vitreo_oi"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="vitreo_oi"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
 
       <label for="nervio_optico_oi">Nervio Óptico OI:</label>
-      <textarea name="nervio_optico_oi" id="nervio_optico_oi" placeholder="Ej: Bordes definidos, excavación 0.3"></textarea>
+      <textarea name="nervio_optico_oi" id="nervio_optico_oi" class="form-control" rows="3" placeholder="Ej: Bordes definidos, excavación 0.3"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="nervio_optico_oi"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="nervio_optico_oi"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="nervio_optico_oi"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
 
       <label for="retina_periferica_oi">Retina Periférica OI:</label>
-      <textarea name="retina_periferica_oi" id="retina_periferica_oi" placeholder="Ej: Sin desgarros ni degeneraciones"></textarea>
+      <textarea name="retina_periferica_oi" id="retina_periferica_oi" class="form-control" rows="3" placeholder="Ej: Sin desgarros ni degeneraciones"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="retina_periferica_oi"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="retina_periferica_oi"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="retina_periferica_oi"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
 
       <label for="macula_oi">Mácula OI:</label>
-      <textarea name="macula_oi" id="macula_oi" placeholder="Ej: Fóvea centrada, reflejo foveal presente"></textarea>
+      <textarea name="macula_oi" id="macula_oi" class="form-control" rows="3" placeholder="Ej: Fóvea centrada, reflejo foveal presente"></textarea>
+      <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="macula_oi"><i class="fas fa-microphone"></i></button>
+      <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="macula_oi"><i class="fas fa-microphone-slash"></i></button>
+      <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="macula_oi"><i class="fas fa-play"></i></button>
+      <small class="estado-dictado form-text text-muted">Dictado apagado</small>
     </div>
-
-  </div>
-
   <div class="form-footer">
     <button type="submit" class="btn btn-primary">FIRMAR</button>
 <a href="../hospitalizacion/vista_pac_hosp.php" class="btn btn-secondary">Cancelar</a>
@@ -252,5 +315,79 @@ window.addEventListener('DOMContentLoaded', () => {
             return false;
         }
     </script>
+    <script>
+  // Soporte para SpeechRecognition en distintos navegadores
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Tu navegador no soporta reconocimiento de voz.");
+  } else {
+    const recognitions = {};
+    const recognitionStates = {};
+
+    document.querySelectorAll('.btn-start-dictado').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const textarea = document.getElementById(targetId);
+        const status = textarea.parentElement.querySelector('.estado-dictado');
+
+        if (!recognitions[targetId]) {
+          const recognition = new SpeechRecognition();
+          recognition.lang = 'es-MX';
+          recognition.continuous = true;
+          recognition.interimResults = true;
+
+          recognition.onresult = event => {
+            let texto = '';
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+              texto += event.results[i][0].transcript;
+            }
+            textarea.value = texto;
+          };
+
+          recognition.onerror = e => {
+            status.textContent = 'Error en dictado: ' + e.error;
+          };
+
+          recognition.onend = () => {
+            recognitionStates[targetId] = false;
+            status.textContent = 'Dictado detenido';
+          };
+
+          recognitions[targetId] = recognition;
+        }
+
+        if (!recognitionStates[targetId]) {
+          recognitions[targetId].start();
+          recognitionStates[targetId] = true;
+          status.textContent = 'Dictado en curso...';
+        }
+      });
+    });
+
+    document.querySelectorAll('.btn-stop-dictado').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const status = document.getElementById(targetId).parentElement.querySelector('.estado-dictado');
+        if (recognitions[targetId] && recognitionStates[targetId]) {
+          recognitions[targetId].stop();
+          recognitionStates[targetId] = false;
+          status.textContent = 'Dictado detenido';
+        }
+      });
+    });
+
+    document.querySelectorAll('.btn-play-dictado').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const texto = document.getElementById(targetId).value;
+        const utterance = new SpeechSynthesisUtterance(texto);
+        utterance.lang = 'es-MX';
+        window.speechSynthesis.speak(utterance);
+      });
+    });
+  }
+</script>
+
 </body>
 </html>

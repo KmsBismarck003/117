@@ -1,41 +1,50 @@
 <?php
 session_start();
-include '../../conexionbd.php';
-include '../header_medico.php';
+include "../../conexionbd.php";
+include "../header_medico.php";
 
 if (!isset($_SESSION['hospital'])) {
     header("Location: ../login.php");
     exit();
 }
 
-// Obtener información del paciente
-$id_atencion = $_SESSION['hospital'];
-$sql_pac = "SELECT p.Id_exp, p.sapell, p.papell, p.nom_pac, p.fecnac, di.fecha, di.activo 
-            FROM paciente p, dat_ingreso di 
-            WHERE p.Id_exp = di.Id_exp AND di.id_atencion = ?";
-$stmt = $conexion->prepare($sql_pac);
-$stmt->bind_param("i", $id_atencion);
-$stmt->execute();
-$result_pac = $stmt->get_result();
-$row_pac = $result_pac->fetch_assoc();
-$stmt->close();
+if ($conexion) {
+    $id_atencion = $_SESSION['hospital'];
+    $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac, p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup, di.id_usua
+                FROM paciente p
+                INNER JOIN dat_ingreso di ON p.Id_exp = di.Id_exp
+                WHERE di.id_atencion = ?";
+    $stmt = $conexion->prepare($sql_pac);
+    $stmt->bind_param("i", $id_atencion);
+    $stmt->execute();
+    $result_pac = $stmt->get_result();
+    while ($row_pac = $result_pac->fetch_assoc()) {
+        $pac_papell = $row_pac['papell'];
+        $pac_sapell = $row_pac['sapell'];
+        $pac_nom_pac = $row_pac['nom_pac'];
+        $pac_folio = $row_pac['folio'];
+        $pac_fecha_ingreso = $row_pac['fecha'];
+        $pac_fecnac = $row_pac['fecnac'];
+        $activo = $row_pac['activo'];
+        $pac_id_exp = $row_pac['Id_exp'];
+        $pac_sexo = $row_pac['sexo'];
+        $pac_tip_san = $row_pac['tip_san'];
+        $pac_ocup = $row_pac['ocup'];
+        $pac_tel = $row_pac['tel'];
+        $pac_dir = $row_pac['dir'];
+        $pac_area = $row_pac['area'];
+        $pac_alta_med = $row_pac['alta_med'];
+        $pac_alergias = $row_pac['alergias'];
+        $pac_id_usua = $row_pac['id_usua'];
+    }
 
-$pac_id_exp = $row_pac['Id_exp'] ?? null;
-$pac_nom_pac = $row_pac['nom_pac'] ?? 'No disponible';
-$pac_papell = $row_pac['papell'] ?? 'No disponible';
-$pac_sapell = $row_pac['sapell'] ?? 'No disponible';
-$pac_fecnac = $row_pac['fecnac'] ?? 'No disponible';
-$pac_fecha_ingreso = $row_pac['fecha'] ?? 'No disponible';
-$activo = $row_pac['activo'] ?? 'No disponible';
+    $stmt->close();
+    $conexion->close();
+} else {
+    echo '<p style="color: red;">Error de conexión a la base de datos</p>';
+}
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Formulario Mediciones de la córnea</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="css/select2.css">
+  <link rel="stylesheet" type="text/css" href="css/select2.css">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -69,100 +78,103 @@ $activo = $row_pac['activo'] ?? 'No disponible';
       padding-bottom: 5px;
     }
   </style>
-</head>
-<body class="bg-light">
-
-<div class="container mt-5">
+  <div class="container mt-5">
     <!-- Información del Paciente -->
-    <div class="card mb-4">
-        <div class="thead">
-            <h4 class="mb-0">Información del Paciente</h4>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4">Nombre: <strong><?= htmlspecialchars($pac_nom_pac) ?></strong></div>
-                <div class="col-sm-4">Apellido Paterno: <strong><?= htmlspecialchars($pac_papell) ?></strong></div>
-                <div class="col-sm-4">Apellido Materno: <strong><?= htmlspecialchars($pac_sapell) ?></strong></div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-sm-4">Fecha de Nacimiento: <strong><?= date_format(date_create($pac_fecnac), "d/m/Y") ?></strong></div>
-                <div class="col-sm-4">Fecha de Ingreso: <strong><?= date_format(date_create($pac_fecha_ingreso), "d/m/Y H:i:s") ?></strong></div>
-                <div class="col-sm-4">Estado: <strong><?= $activo === 'SI' ? 'Activo' : 'Inactivo' ?></strong></div>
-            </div>
-        </div>
+         <div class="thead">
+      Formulario de Exploración Clínica - Mediciones de la Cornea
     </div>
-
+<div class="row mt-4">
+      <div class="col-md-6">
+        <p><strong>Nombre del Paciente:</strong> <?= htmlspecialchars($pac_nom_pac . ' ' . $pac_papell . ' ' . $pac_sapell) ?></p>
+        <p><strong>Fecha de Nacimiento:</strong> <?= htmlspecialchars($pac_fecnac) ?></p>
+        <p><strong>Sexo:</strong> <?= htmlspecialchars($pac_sexo) ?></p>
+        <p><strong>Tipo de Sangre:</strong> <?= htmlspecialchars($pac_tip_san) ?></p>
+        <p><strong>Ocupación:</strong> <?= htmlspecialchars($pac_ocup) ?></p>
+        <p><strong>Teléfono:</strong> <?= htmlspecialchars($pac_tel) ?></p>
+        <p><strong>Dirección:</strong> <?= htmlspecialchars($pac_dir) ?></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Fecha de Ingreso:</strong> <?= htmlspecialchars($pac_fecha_ingreso) ?></p>
+        <p><strong>Área:</strong> <?= htmlspecialchars($pac_area) ?></p>
+        <p><strong>Alta Médica:</strong> <?= htmlspecialchars($pac_alta_med) ?></p>
+        <p><strong>Alergias:</strong> <?= htmlspecialchars($pac_alergias) ?></p>
+        <p><strong>Estado del Paciente:</strong> <?= htmlspecialchars($activo) ?></p>
+        <input type="hidden" name="id_exp" value="<?= htmlspecialchars($pac_id_exp) ?>">
+      </div>
+    </div>
     <!-- Formulario de Mediciones -->
-    <div class="card shadow">
         <div class="section-title">
             <h4 class="mb-0">Mediciones de la Córnea</h4>
         </div>
         <div class="card-body">
             <form action="guardar_mediciones_cornea.php" method="POST">
-                <!-- Campo oculto con el ID del paciente -->
-                <input type="hidden" name="paciente_id" value="<?= htmlspecialchars($pac_id_exp) ?>">
+    <!-- Hidden Inputs -->
+    <input type="hidden" name="id_exp" value="<?= htmlspecialchars($pac_id_exp) ?>">
+    <input type="hidden" name="id_usua" value="<?= htmlspecialchars($pac_id_usua) ?>">
+    <input type="hidden" name="id_atencion" value="<?= htmlspecialchars($id_atencion) ?>">
 
-                <h5 class="text-primary">Ojo Derecho (OD)</h5>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Diámetro corneal vertical</label>
-                        <input type="text" name="od_dcv" class="form-control" placeholder="Ej: 11.5 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Diámetro corneal horizontal</label>
-                        <input type="text" name="od_dch" class="form-control" placeholder="Ej: 12.0 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Pupilar fotópico</label>
-                        <input type="text" name="od_dpf" class="form-control" placeholder="Ej: 3.0 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Pupilar mesópico</label>
-                        <input type="text" name="od_dpm" class="form-control" placeholder="Ej: 5.5 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Microscopía</label>
-                        <input type="text" name="od_micro" class="form-control" placeholder="Ej: Endotelio 2600 cels/mm²" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Paquimetría</label>
-                        <input type="text" name="od_paq" class="form-control" placeholder="Ej: 540 µm" required>
-                    </div>
-                </div>
+    <h5 class="text-primary">Ojo Derecho (OD)</h5>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Diámetro corneal vertical</label>
+            <input type="text" name="od_dcv" class="form-control" placeholder="Ej: 11.5 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Diámetro corneal horizontal</label>
+            <input type="text" name="od_dch" class="form-control" placeholder="Ej: 12.0 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Pupilar fotópico</label>
+            <input type="text" name="od_dpf" class="form-control" placeholder="Ej: 3.0 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Pupilar mesópico</label>
+            <input type="text" name="od_dpm" class="form-control" placeholder="Ej: 5.5 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Microscopía</label>
+            <input type="text" name="od_micro" class="form-control" placeholder="Ej: Endotelio 2600 cels/mm²" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Paquimetría</label>
+            <input type="text" name="od_paq" class="form-control" placeholder="Ej: 540 µm" required>
+        </div>
+    </div>
 
-                <h5 class="text-success">Ojo Izquierdo (OI)</h5>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Diámetro corneal vertical</label>
-                        <input type="text" name="oi_dcv" class="form-control" placeholder="Ej: 11.7 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Diámetro corneal horizontal</label>
-                        <input type="text" name="oi_dch" class="form-control" placeholder="Ej: 12.1 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Pupilar fotópico</label>
-                        <input type="text" name="oi_dpf" class="form-control" placeholder="Ej: 3.2 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Pupilar mesópico</label>
-                        <input type="text" name="oi_dpm" class="form-control" placeholder="Ej: 5.7 mm" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Microscopía</label>
-                        <input type="text" name="oi_micro" class="form-control" placeholder="Ej: Endotelio 2550 cels/mm²" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Paquimetría</label>
-                        <input type="text" name="oi_paq" class="form-control" placeholder="Ej: 530 µm" required>
-                    </div>
-                </div>
+    <h5 class="text-success">Ojo Izquierdo (OI)</h5>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Diámetro corneal vertical</label>
+            <input type="text" name="oi_dcv" class="form-control" placeholder="Ej: 11.7 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Diámetro corneal horizontal</label>
+            <input type="text" name="oi_dch" class="form-control" placeholder="Ej: 12.1 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Pupilar fotópico</label>
+            <input type="text" name="oi_dpf" class="form-control" placeholder="Ej: 3.2 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Pupilar mesópico</label>
+            <input type="text" name="oi_dpm" class="form-control" placeholder="Ej: 5.7 mm" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Microscopía</label>
+            <input type="text" name="oi_micro" class="form-control" placeholder="Ej: Endotelio 2550 cels/mm²" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Paquimetría</label>
+            <input type="text" name="oi_paq" class="form-control" placeholder="Ej: 530 µm" required>
+        </div>
+    </div>
 
-                <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Guardar Registro</button>
-                    <a href="../hospitalizacion/vista_pac_hosp.php" class="btn btn-secondary">Cancelar</a>
-                </div>
-            </form>
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">Guardar Registro</button>
+        <a href="../hospitalizacion/vista_pac_hosp.php" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
         </div>
     </div>
 </div>

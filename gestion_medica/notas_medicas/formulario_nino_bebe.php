@@ -8,13 +8,12 @@ if (!isset($_SESSION['hospital'])) {
     exit();
 }
 
-$usuario = $_SESSION['login'] ?? '';
-
 if ($conexion) {
     $id_atencion = $_SESSION['hospital'];
-    $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac, p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup
-                FROM paciente p, dat_ingreso di
-                WHERE p.Id_exp=di.Id_exp AND di.id_atencion = ?";
+    $sql_pac = "SELECT p.sapell, p.papell, p.nom_pac, p.dir, p.id_edo, p.id_mun, p.Id_exp, p.folio, p.tel, p.fecnac, p.tip_san, di.fecha, di.area, di.alta_med, di.activo, p.sexo, di.alergias, p.ocup, di.id_usua
+                FROM paciente p
+                INNER JOIN dat_ingreso di ON p.Id_exp = di.Id_exp
+                WHERE di.id_atencion = ?";
     $stmt = $conexion->prepare($sql_pac);
     $stmt->bind_param("i", $id_atencion);
     $stmt->execute();
@@ -36,6 +35,7 @@ if ($conexion) {
         $pac_area = $row_pac['area'];
         $pac_alta_med = $row_pac['alta_med'];
         $pac_alergias = $row_pac['alergias'];
+        $pac_id_usua = $row_pac['id_usua'];
     }
 
     $stmt->close();
@@ -44,11 +44,6 @@ if ($conexion) {
     echo '<p style="color: red;">Error de conexión a la base de datos</p>';
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Formulario Oftalmológico - Niño/Bebé</title>
   <link rel="stylesheet" type="text/css" href="css/select2.css">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -114,79 +109,127 @@ if ($conexion) {
     <h4 class="section-title">Exploración NIÑO/BEBÉ</h4>
 
     <form action="guardar_ninoBebe.php" method="POST">
-      <input type="hidden" name="id_exp" value="<?= htmlspecialchars($pac_id_exp) ?>">
-      <div class="row">
-        <!-- Ojo Derecho -->
-        <div class="col-md-6">
-          <h5>Ojo Derecho (OD)</h5>
-          <div class="form-group">
-            <label for="reflejo_od">Reflejo Fotomotor</label>
-            <input type="text" class="form-control" id="reflejo_od" name="reflejo_od" placeholder="Ej: Presente, Ausente">
-          </div>
-          <div class="form-group">
-            <label for="eje_visual_od">Eje Visual</label>
-            <input type="text" class="form-control" id="eje_visual_od" name="eje_visual_od" placeholder="Ej: 0°, 15° exo">
-          </div>
-          <div class="form-group">
-            <label for="fijacion_od">Fijación</label>
-            <select class="form-control" id="fijacion_od" name="fijacion_od">
-              <option value="">Seleccione una opción</option>
-              <option value="Central">Central</option>
-              <option value="Excéntrica">Excéntrica</option>
-              <option value="Inestable">Inestable</option>
-              <option value="Ausente">Ausente</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="esquiascopia_od">Esquiascopia</label>
-            <input type="text" class="form-control" id="esquiascopia_od" name="esquiascopia_od" placeholder="Ej: +1.00 -0.50 x 180">
-          </div>
-          <div class="form-group">
-            <label for="posicion_od">Posición Compensadora</label>
-            <input type="text" class="form-control" id="posicion_od" name="posicion_od" placeholder="Ej: Inclinación de cabeza a la derecha">
+  <!-- Hidden Inputs -->
+  <input type="hidden" name="id_exp" value="<?= htmlspecialchars($pac_id_exp) ?>">
+  <input type="hidden" name="id_usua" value="<?= htmlspecialchars($pac_id_usua) ?>">
+  <input type="hidden" name="id_atencion" value="<?= htmlspecialchars($id_atencion) ?>">
+
+  <div class="row">
+    <!-- Ojo Derecho -->
+    <div class="col-md-6">
+      <h5>Ojo Derecho (OD)</h5>
+
+      <!-- Reflejo Fotomotor OD -->
+      <div class="form-group">
+        <label for="reflejo_od">Reflejo Fotomotor</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="reflejo_od" name="reflejo_od" placeholder="Ej: Presente, Ausente">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="reflejo_od"><i class="fas fa-microphone"></i></button>
+            <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="reflejo_od"><i class="fas fa-microphone-slash"></i></button>
+            <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="reflejo_od"><i class="fas fa-play"></i></button>
           </div>
         </div>
+        <small class="estado-dictado form-text text-muted" id="estado-reflejo_od">Dictado apagado</small>
+      </div>
 
-        <!-- Ojo Izquierdo -->
-        <div class="col-md-6">
-          <h5>Ojo Izquierdo (OI)</h5>
-          <div class="form-group">
-            <label for="reflejo_oi">Reflejo Fotomotor</label>
-            <input type="text" class="form-control" id="reflejo_oi" name="reflejo_oi" placeholder="Ej: Presente, Ausente">
-          </div>
-          <div class="form-group">
-            <label for="eje_visual_oi">Eje Visual</label>
-            <input type="text" class="form-control" id="eje_visual_oi" name="eje_visual_oi" placeholder="Ej: 0°, 10° eso">
-          </div>
-          <div class="form-group">
-            <label for="fijacion_oi">Fijación</label>
-            <select class="form-control" id="fijacion_oi" name="fijacion_oi">
-              <option value="">Seleccione una opción</option>
-              <option value="Central">Central</option>
-              <option value="Excéntrica">Excéntrica</option>
-              <option value="Inestable">Inestable</option>
-              <option value="Ausente">Ausente</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="esquiascopia_oi">Esquiascopia</label>
-            <input type="text" class="form-control" id="esquiascopia_oi" name="esquiascopia_oi" placeholder="Ej: +0.50 -1.00 x 90">
-          </div>
-          <div class="form-group">
-            <label for="posicion_oi">Posición Compensadora</label>
-            <input type="text" class="form-control" id="posicion_oi" name="posicion_oi" placeholder="Ej: Cabeza inclinada hacia izquierda">
+      <div class="form-group">
+        <label for="eje_visual_od">Eje Visual</label>
+        <input type="text" class="form-control" id="eje_visual_od" name="eje_visual_od" placeholder="Ej: 0°, 15° exo">
+      </div>
+
+      <div class="form-group">
+        <label for="fijacion_od">Fijación</label>
+        <select class="form-control" id="fijacion_od" name="fijacion_od">
+          <option value="">Seleccione una opción</option>
+          <option value="Central">Central</option>
+          <option value="Excéntrica">Excéntrica</option>
+          <option value="Inestable">Inestable</option>
+          <option value="Ausente">Ausente</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="esquiascopia_od">Esquiascopia</label>
+        <input type="text" class="form-control" id="esquiascopia_od" name="esquiascopia_od" placeholder="Ej: +1.00 -0.50 x 180">
+      </div>
+
+      <!-- Posición Compensadora OD -->
+      <div class="form-group">
+        <label for="posicion_od">Posición Compensadora</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="posicion_od" name="posicion_od" placeholder="Ej: Inclinación de cabeza a la derecha">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="posicion_od"><i class="fas fa-microphone"></i></button>
+            <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="posicion_od"><i class="fas fa-microphone-slash"></i></button>
+            <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="posicion_od"><i class="fas fa-play"></i></button>
           </div>
         </div>
+        <small class="estado-dictado form-text text-muted" id="estado-posicion_od">Dictado apagado</small>
+      </div>
+    </div>
+
+    <!-- Ojo Izquierdo -->
+    <div class="col-md-6">
+      <h5>Ojo Izquierdo (OI)</h5>
+
+      <!-- Reflejo Fotomotor OI -->
+      <div class="form-group">
+        <label for="reflejo_oi">Reflejo Fotomotor</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="reflejo_oi" name="reflejo_oi" placeholder="Ej: Presente, Ausente">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="reflejo_oi"><i class="fas fa-microphone"></i></button>
+            <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="reflejo_oi"><i class="fas fa-microphone-slash"></i></button>
+            <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="reflejo_oi"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <small class="estado-dictado form-text text-muted" id="estado-reflejo_oi">Dictado apagado</small>
       </div>
 
-      <div class="mt-4">
-        <button type="submit" class="btn btn-primary">Firmar Exploración</button>
-        <a href="../hospitalizacion/vista_pac_hosp.php" class="btn btn-secondary">Cancelar</a>
+      <div class="form-group">
+        <label for="eje_visual_oi">Eje Visual</label>
+        <input type="text" class="form-control" id="eje_visual_oi" name="eje_visual_oi" placeholder="Ej: 0°, 10° eso">
       </div>
-    </form>
+
+      <div class="form-group">
+        <label for="fijacion_oi">Fijación</label>
+        <select class="form-control" id="fijacion_oi" name="fijacion_oi">
+          <option value="">Seleccione una opción</option>
+          <option value="Central">Central</option>
+          <option value="Excéntrica">Excéntrica</option>
+          <option value="Inestable">Inestable</option>
+          <option value="Ausente">Ausente</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="esquiascopia_oi">Esquiascopia</label>
+        <input type="text" class="form-control" id="esquiascopia_oi" name="esquiascopia_oi" placeholder="Ej: +0.50 -1.00 x 90">
+      </div>
+
+      <!-- Posición Compensadora OI -->
+      <div class="form-group">
+        <label for="posicion_oi">Posición Compensadora</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="posicion_oi" name="posicion_oi" placeholder="Ej: Cabeza inclinada hacia izquierda">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="posicion_oi"><i class="fas fa-microphone"></i></button>
+            <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="posicion_oi"><i class="fas fa-microphone-slash"></i></button>
+            <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="posicion_oi"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <small class="estado-dictado form-text text-muted" id="estado-posicion_oi">Dictado apagado</small>
+      </div>
+    </div>
   </div>
 
- 
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary">Firmar Exploración</button>
+    <a href="../hospitalizacion/vista_pac_hosp.php" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>
+
   <footer class="main-footer">
         <?php
         include("../../template/footer.php");
@@ -203,5 +246,61 @@ if ($conexion) {
             return false;
         }
     </script>
+    <script>
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = 'es-ES';
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  let currentTargetInput = null;
+
+  document.querySelectorAll('.btn-start-dictado').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const inputId = btn.getAttribute('data-target');
+      currentTargetInput = document.getElementById(inputId);
+      const estado = document.getElementById('estado-' + inputId);
+      recognition.start();
+      estado.textContent = 'Escuchando...';
+    });
+  });
+
+  document.querySelectorAll('.btn-stop-dictado').forEach(btn => {
+    btn.addEventListener('click', () => {
+      recognition.stop();
+      const inputId = btn.getAttribute('data-target');
+      const estado = document.getElementById('estado-' + inputId);
+      estado.textContent = 'Dictado detenido';
+    });
+  });
+
+  document.querySelectorAll('.btn-play-dictado').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const inputId = btn.getAttribute('data-target');
+      const texto = document.getElementById(inputId).value;
+      const estado = document.getElementById('estado-' + inputId);
+      if (texto.trim() !== '') {
+        const speech = new SpeechSynthesisUtterance(texto);
+        speech.lang = 'es-ES';
+        window.speechSynthesis.speak(speech);
+        estado.textContent = 'Reproduciendo dictado';
+      }
+    });
+  });
+
+  recognition.onresult = function(event) {
+    const result = event.results[0][0].transcript;
+    if (currentTargetInput) {
+      currentTargetInput.value = result;
+      document.getElementById('estado-' + currentTargetInput.id).textContent = 'Texto insertado por dictado';
+    }
+  };
+
+  recognition.onerror = function(event) {
+    if (currentTargetInput) {
+      document.getElementById('estado-' + currentTargetInput.id).textContent = 'Error en el dictado: ' + event.error;
+    }
+  };
+</script>
+
 </body>
 </html>

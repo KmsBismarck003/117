@@ -160,11 +160,33 @@ if ($conexion) {
         <div class="form-group">
             <label for="tratamiento_pio_OD">Tratamiento PIO</label>
             <textarea name="tratamiento_pio_OD" id="tratamiento_pio_OD" class="form-control" rows="3" placeholder="Describa tratamiento"></textarea>
+             <div class="botones">
+<button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="tratamiento_pio_OD">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="tratamiento_pio_OD">
+        <i class="fas fa-microphone-slash"></i>
+    </button>
+    <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="tratamiento_pio_OD">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <small class="estado-dictado form-text text-muted">Dictado apagado</small>
         </div>
 
         <div class="form-group">
             <label for="correlacion_paquimetrica_OD">Correlación Paquimétrica a PIO</label>
             <textarea name="correlacion_paquimetrica_OD" id="correlacion_paquimetrica_OD" class="form-control" rows="3" placeholder="Describa correlación"></textarea>
+             <div class="botones">
+   <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="correlacion_paquimetrica_OD">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="correlacion_paquimetrica_OD">
+        <i class="fas fa-microphone-slash"></i>
+    </button>
+    <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="correlacion_paquimetrica_OD">
+        <i class="fas fa-play"></i>
+    </button>
         </div>
     </fieldset>
 
@@ -214,15 +236,40 @@ if ($conexion) {
             <input type="number" step="0.1" min="0" class="form-control" name="pio_tnc_OI" id="pio_tnc_OI" placeholder="Ej: 13.5" required>
         </div>
 
-        <div class="form-group">
-            <label for="tratamiento_pio_OI">Tratamiento PIO</label>
-            <textarea name="tratamiento_pio_OI" id="tratamiento_pio_OI" class="form-control" rows="3" placeholder="Describa tratamiento"></textarea>
-        </div>
+<div class="form-group">
+    <label for="tratamiento_pio_OI">Tratamiento PIO</label>
+    <textarea name="tratamiento_pio_OI" id="tratamiento_pio_OI" class="form-control" rows="3" placeholder="Describa tratamiento"></textarea>
+    
+    <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="tratamiento_pio_OI">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="tratamiento_pio_OI">
+        <i class="fas fa-microphone-slash"></i>
+    </button>
+    <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="tratamiento_pio_OI">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <small class="estado-dictado form-text text-muted">Dictado apagado</small>
+</div>
 
-        <div class="form-group">
-            <label for="correlacion_paquimetrica_OI">Correlación Paquimétrica a PIO</label>
-            <textarea name="correlacion_paquimetrica_OI" id="correlacion_paquimetrica_OI" class="form-control" rows="3" placeholder="Describa correlación"></textarea>
-        </div>
+<div class="form-group">
+    <label for="correlacion_paquimetrica_OI">Correlación Paquimétrica a PIO</label>
+    <textarea name="correlacion_paquimetrica_OI" id="correlacion_paquimetrica_OI" class="form-control" rows="3" placeholder="Describa correlación"></textarea>
+    
+    <button type="button" class="btn btn-danger btn-sm btn-start-dictado" data-target="correlacion_paquimetrica_OI">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-sm btn-stop-dictado" data-target="correlacion_paquimetrica_OI">
+        <i class="fas fa-microphone-slash"></i>
+    </button>
+    <button type="button" class="btn btn-success btn-sm btn-play-dictado" data-target="correlacion_paquimetrica_OI">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <small class="estado-dictado form-text text-muted">Dictado apagado</small>
+</div>
+
     </fieldset>
 
     <div class="text-center">
@@ -251,4 +298,80 @@ function toggleInput(checkboxId, inputId) {
         input.disabled = false;
     }
 }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        document.querySelectorAll('.estado-dictado').forEach(el => {
+            el.textContent = '❌ Dictado por voz no compatible';
+        });
+        return;
+    }
+
+    let recognition = null;
+    let currentTarget = null;
+    let currentEstado = null;
+
+    function iniciarDictado(textarea, estadoElement) {
+        if (recognition) recognition.abort(); // Detener si ya hay uno activo
+
+        recognition = new SpeechRecognition();
+        recognition.lang = 'es-ES';
+        recognition.interimResults = true;
+        recognition.continuous = true;
+
+        currentTarget = textarea;
+        currentEstado = estadoElement;
+
+        recognition.onstart = () => currentEstado.textContent = '🎙️ Dictado en curso...';
+        recognition.onend = () => currentEstado.textContent = '⏹️ Dictado detenido';
+        recognition.onerror = (e) => currentEstado.textContent = `❌ Error: ${e.error}`;
+
+        recognition.onresult = function (event) {
+            let transcript = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                transcript += event.results[i][0].transcript;
+            }
+            currentTarget.value += transcript;
+        };
+
+        recognition.start();
+    }
+
+    function detenerDictado() {
+        if (recognition) recognition.stop();
+    }
+
+    document.querySelectorAll('.btn-start-dictado').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const textarea = document.getElementById(btn.dataset.target);
+            const estado = btn.closest('.form-group').querySelector('.estado-dictado');
+            iniciarDictado(textarea, estado);
+        });
+    });
+
+    document.querySelectorAll('.btn-stop-dictado').forEach(btn => {
+        btn.addEventListener('click', () => {
+            detenerDictado();
+            const estado = btn.closest('.form-group').querySelector('.estado-dictado');
+            estado.textContent = '⏹️ Dictado detenido';
+        });
+    });
+
+    document.querySelectorAll('.btn-play-dictado').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const textarea = document.getElementById(btn.dataset.target);
+            const texto = textarea.value.trim();
+            if (!texto) return;
+
+            if (recognition) recognition.abort(); // Detener dictado si está en curso
+
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'es-MX';
+            speechSynthesis.speak(utterance);
+        });
+    });
+});
 </script>
