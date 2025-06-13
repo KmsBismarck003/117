@@ -411,21 +411,24 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                     <li><a href="/gestion_medica/notas_medicas/pruebas.php">
                             <i class="fa fa-hourglass-end" aria-hidden="true"></i> PRUEBAS
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_nino_bebe.php">
                             <i class="fa fa-baby" aria-hidden="true"></i> NIÑO/BEBE
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_mediciones_cornea.php">
                             <i class="fa fa-arrows-to-eye" aria-hidden="true"></i> MEDICIONES DE LA CORNEA
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_exploracion.php">
                             <i class="fa fa-file-prescription" aria-hidden="true"></i> PRESION, PARPADOS Y VIAS
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                        <li><a href="/gestion_medica/notas_medicas/formulario_PIO.php">
+                            <i class="fa fa-file-prescription"></i> PRESION INTRAOCULAR
+                        </a></li>
+                    <li><a href="/gestion_medica/notas_medicas/formulario_seg_ant.php">
                             <i class="fa fa-backward" aria-hidden="true"></i> SEGMENTO ANTERIOR
                         </a></li>
-                    <li><a href="/gestion_medica/notas_medicas/pruebas.php">
+                    <li><a href="/gestion_medica/notas_medicas/formulario_segmento_posterior.php">
                             <i class="fa fa-forward" aria-hidden="true"></i> SEGMENTO POSTERIOR
-
+                    <li>
                     <li>
                         <a href="/gestion_medica/notas_medicas/estudios.php">
                             <i class="fa fa-folder" aria-hidden="true"></i> ESTUDIOS
@@ -593,11 +596,13 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                             <i class="fa fa-file-prescription" aria-hidden="true"></i> PRESION, PARPADOS Y VIAS
                         </a></li>
                     <li><a href="select_pac_hosp.php">
+                            <i class="fa fa-file-prescription"></i> PRESION INTRAOCULAR
+                        </a></li>
+                    <li><a href="select_pac_hosp.php">
                             <i class="fa fa-backward" aria-hidden="true"></i> SEGMENTO ANTERIOR
                         </a></li>
                     <li><a href="select_pac_hosp.php">
                             <i class="fa fa-forward" aria-hidden="true"></i> SEGMENTO POSTERIOR
-
                     <li>
                         <a href="select_pac_hosp.php">
                             <i class="fa fa-folder" aria-hidden="true"></i> ESTUDIOS
