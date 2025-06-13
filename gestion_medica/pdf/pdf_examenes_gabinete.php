@@ -48,22 +48,18 @@ if (!$gab = $result_gab->fetch_assoc()) {
 $stmt_gab->close();
 
 // Fetch patient data
-$sql_pac = "SELECT p.papell, p.sapell, p.nom_pac, p.fecnac, p.folio, di.fecha, p.sexo, di.alergias 
+$sql_pac = "SELECT p.papell, p.sapell, p.nom_pac, p.fecnac, p.folio, p.sexo, p.tel, p.ocup, p.dir, di.fecha, di.tipo_a 
             FROM paciente p 
             JOIN dat_ingreso di ON p.Id_exp = di.Id_exp 
             WHERE di.id_atencion = ?";
 $stmt_pac = $conexion->prepare($sql_pac);
-if (!$stmt_pac) {
-    error_log("Error preparando consulta de paciente: " . $conexion->error);
-    die("Error preparando consulta de paciente: " . $conexion->error);
-}
 $stmt_pac->bind_param("i", $id_atencion);
 $stmt_pac->execute();
 $result_pac = $stmt_pac->get_result();
 if (!$row_pac = $result_pac->fetch_assoc()) {
-    error_log("Paciente no encontrado para id_atencion: $id_atencion");
     die("Paciente no encontrado.");
 }
+$tipo_a = $row_pac['tipo_a'];
 $pac_papell = $row_pac['papell'];
 $pac_sapell = $row_pac['sapell'];
 $pac_nom_pac = $row_pac['nom_pac'];
@@ -71,37 +67,36 @@ $pac_fecnac = $row_pac['fecnac'] ?? null;
 $folio = $row_pac['folio'];
 $pac_fecing = $row_pac['fecha'];
 $pac_sexo = $row_pac['sexo'];
-$pac_alergias = $row_pac['alergias'] ?? 'No especificado';
+$pac_tel = $row_pac['tel'] ?? 'No especificado';
+$pac_ocup = $row_pac['ocup'] ?? 'No especificado';
+$pac_dir = $row_pac['dir'] ?? 'No especificado';
 $stmt_pac->close();
 
 // Fetch doctor data
+$sql_doc = "SELECT pre, papell, sapell, nombre, firma, cedp, cargp FROM reg_usuarios WHERE id_usua = ?";
+$stmt_doc = $conexion->prepare($sql_doc);
+$stmt_doc->bind_param("i", $gab['id_usua']);
+$stmt_doc->execute();
+$result_doc = $stmt_doc->get_result();
 $medico = "Médico no asignado";
-$doctor = $medico;
-if ($gab['pre'] || $gab['papell'] || $gab['sapell']) {
-    $medico = ($gab['pre'] ? $gab['pre'] . ". " : "") . $gab['papell'] . " " . ($gab['sapell'] ?? "");
-    $doctor = $gab['papell'];
+$pre_med = '';
+$app_med = '';
+$apm_med = '';
+$nom_med = '';
+$firma = '';
+$ced_p = '';
+$cargp = '';
+if ($row_doc = $result_doc->fetch_assoc()) {
+    $pre_med = $row_doc['pre'] ?? '';
+    $app_med = $row_doc['papell'] ?? '';
+    $apm_med = $row_doc['sapell'] ?? '';
+    $nom_med = $row_doc['nombre'] ?? '';
+    $firma = $row_doc['firma'] ?? '';
+    $ced_p = $row_doc['cedp'] ?? '';
+    $cargp = $row_doc['cargp'] ?? '';
+    $medico = ($pre_med ? $pre_med . ". " : "") . $app_med . " " . $apm_med . " " . $nom_med;
 }
-
-// Fetch vital signs
-$sql_signs = "SELECT presion_sistolica, presion_diastolica, frecuencia_respiratoria, temperatura, spo2 
-              FROM exploracion_fisica 
-              WHERE id_atencion = ? 
-              ORDER BY fecha DESC LIMIT 1";
-$stmt_signs = $conexion->prepare($sql_signs);
-if (!$stmt_signs) {
-    error_log("Error preparando consulta de signos vitales: " . $conexion->error);
-    die("Error preparando consulta de signos vitales: " . $conexion->error);
-}
-$stmt_signs->bind_param("i", $id_atencion);
-$stmt_signs->execute();
-$result_signs = $stmt_signs->get_result();
-$row_signs = $result_signs->fetch_assoc();
-$p_sistolica = $row_signs['presion_sistolica'] ?? '';
-$p_diastolica = $row_signs['presion_diastolica'] ?? '';
-$f_resp = $row_signs['frecuencia_respiratoria'] ?? '';
-$temp = $row_signs['temperatura'] ?? '';
-$sat_oxigeno = $row_signs['spo2'] ?? '';
-$stmt_signs->close();
+$stmt_doc->close();
 
 // Extract result details
 $resultado_file = $gab['resultado'] ?? null;
@@ -158,7 +153,7 @@ function calculaedad($fechanacimiento) {
 $edad = calculaedad($pac_fecnac);
 
 // Current date and time
-$fecha_actual = date("d/m/Y H:i:s");
+$fecha_actual = date("d/m/Y H:i");
 
 // Create PDF class
 class PDF extends FPDF {
@@ -166,118 +161,153 @@ class PDF extends FPDF {
         include "../../conexionbd.php";
         $resultado = $conexion->query("SELECT * FROM img_sistema ORDER BY id_simg DESC LIMIT 1") or die($conexion->error);
         while ($f = mysqli_fetch_assoc($resultado)) {
-            $bas = $f['img_ipdf'];
-            $this->Image("../../configuracion/admin/img2/{$bas}", 7, 9, 40, 25);
+            $this->Image("../../configuracion/admin/img2/{$f['img_ipdf']}", 7, 11, 40, 25);
             $this->Image("../../configuracion/admin/img3/{$f['img_cpdf']}", 58, 15, 109, 24);
             $this->Image("../../configuracion/admin/img4/{$f['img_dpdf']}", 168, 16, 38, 14);
         }
-        $this->Ln(32);
+        $this->SetY(40);
+        $this->SetFont('Arial', 'B', 15);
+        $this->SetTextColor(40, 40, 40);
+        $this->Cell(0, 12, utf8_decode('NOTA EXÁMENES DE GABINETE'), 0, 1, 'C');
+        $this->SetFont('Arial', '', 10);
+        $this->SetTextColor(100, 100, 100);
+        $this->Cell(0, 6, utf8_decode('Fecha: ') . date('d/m/Y H:i'), 0, 1, 'R');
+        $this->Ln(5);
     }
 
     function Footer() {
-        $this->SetY(-15);
-        $this->SetFont('Arial', '', 8);
+        $this->SetY(-20);
+        $this->SetFont('Arial', 'I', 8);
+        $this->SetTextColor(120, 120, 120);
         $this->Cell(0, 10, utf8_decode('Página ' . $this->PageNo() . '/{nb}'), 0, 0, 'C');
         $this->Cell(0, 10, utf8_decode('INEO-000'), 0, 1, 'R');
     }
 }
 
 // Generate PDF
-$pdf = new PDF('P', 'mm', 'A4');
+$pdf = new PDF('P', 'mm', 'Letter');
 $pdf->AliasNbPages();
 $pdf->AddPage();
+$pdf->SetMargins(15, 15, 15);
+$pdf->SetAutoPageBreak(true, 30);
 
-$pdf->SetDrawColor(43, 45, 127);
-
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 10, utf8_decode('REPORTE DE EXÁMENES DE GABINETE'), 0, 1, 'C');
-$pdf->Ln(5);
+// Patient Data Section
+$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFillColor(230, 240, 255);
+$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
 
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 5, utf8_decode("Paciente: {$folio} - {$pac_papell} {$pac_sapell} {$pac_nom_pac}"), 0, 1, 'L');
-$pdf->Cell(0, 5, utf8_decode("Signos vitales:"), 0, 1, 'L');
-$pdf->Cell(0, 5, utf8_decode("Presión arterial: {$p_sistolica}/{$p_diastolica} mmHg    Frecuencia: {$f_resp} Resp/min    Temperatura: {$temp} °C    Saturación: {$sat_oxigeno}%"), 0, 1, 'L');
-$pdf->Cell(0, 5, utf8_decode("Edad: {$edad}    Sexo: {$pac_sexo}    Fecha de ingreso: {$pac_fecing}"), 0, 1, 'L');
-$pdf->Cell(0, 5, utf8_decode("Fecha de registro: {$fecha_actual}"), 0, 1, 'L');
-$pdf->Cell(0, 5, utf8_decode("Médico tratante: {$doctor}"), 0, 1, 'L');
+$pdf->SetFillColor(255, 255, 255);
+$pdf->Cell(35, 7, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 7, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 7, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 7, $pac_fecing ? date('d/m/Y H:i', strtotime($pac_fecing)) : 'N/A', 0, 1, 'L');
+$pdf->Cell(35, 7, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 7, utf8_decode($folio . ' - ' . $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 7, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 7, utf8_decode($pac_tel), 0, 1, 'L');
+$pdf->Cell(35, 7, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 7, $pac_fecnac ? date('d/m/Y', strtotime($pac_fecnac)) : 'N/A', 0, 0, 'L');
+$pdf->Cell(10, 7, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 7, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 7, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 7, utf8_decode($pac_sexo), 0, 0, 'L');
+$pdf->Cell(20, 7, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 7, utf8_decode($pac_ocup), 0, 1, 'L');
+$pdf->Cell(20, 7, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 7, utf8_decode($pac_dir), 0, 1, 'L');
+
 $pdf->Ln(5);
 
-// List requested exams
+// Ocular Studies Section
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFillColor(220, 230, 250);
+$pdf->Cell(0, 10, utf8_decode('EXÁMENES DE GABINETE'), 0, 1, 'C', true);
+$pdf->Ln(5);
+
+// Exámenes Solicitados Table
 $exams = [
     'Estudios Solicitados' => $gab['sol_estudios'] ? $gab['sol_estudios'] : null,
 ];
 
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode('Exámenes Solicitados'), 0, 1, 'L');
-$pdf->SetFont('Arial', '', 9);
+$pdf->SetFillColor(245, 245, 245);
+$pdf->Cell(185, 8, utf8_decode('Exámenes Solicitados'), 1, 1, 'C', true);
+
+$pdf->SetFont('Arial', '', 10);
 foreach ($exams as $exam => $value) {
     if ($value && $value !== 0) {
-        $pdf->SetX(15);
-        $pdf->MultiCell(175, 5, utf8_decode($exam . ': ' . $value), 0, 'L');
-        $pdf->Ln(2);
+        $pdf->Cell(185, 8, utf8_decode($value), 1, 1, 'L');
     }
 }
-$pdf->Ln(3);
 
-// Result details
-$image_added = false;
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode('Resultados de Gabinete'), 0, 1, 'L');
-$pdf->SetFont('Arial', '', 9);
-if ($realizado === 'SI' && $resultado_file) {
-    $file_path = realpath("../notas_medicas/resultados_gabinete/$resultado_file");
-    $ext = strtolower(pathinfo($resultado_file, PATHINFO_EXTENSION));
-    $pdf->SetX(15);
-    $pdf->MultiCell(175, 5, utf8_decode('Fecha de resultado: ' . ($fecha_resultado ? date_format(date_create($fecha_resultado), "d/m/Y H:i") : 'N/A')), 0, 'L');
-    $pdf->Ln(2);
-    $pdf->SetX(15);
-    $pdf->MultiCell(175, 5, utf8_decode('Detalles: ' . extractComment($det_gab)), 0, 'L');
-    $pdf->Ln(2);
-
-    if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
-        if ($file_path && file_exists($file_path)) {
-            $pdf->AddPage();
-            $pdf->Image($file_path, 10, 50, 190, 0);
-            $image_added = true;
-            $pdf->SetY($pdf->GetY() + 120);
-        } else {
-            $pdf->SetX(15);
-            $pdf->MultiCell(175, 5, utf8_decode('Archivo de resultado no encontrado: ' . $resultado_file . ' (Ruta: ' . ($file_path ?: 'No resuelto') . ')'), 0, 'L');
-        }
-    } elseif ($ext === 'pdf') {
-        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-        $host = $_SERVER['HTTP_HOST'];
-        $base_url = "$protocol://$host";
-        $pdf_result_url = "$base_url/gestion_medica/notas_medicas/resultados_gabinete/$resultado_file";
-        
-        $pdf->SetX(15);
-        $pdf->SetTextColor(0, 0, 255);
-        $pdf->Cell(0, 5, utf8_decode('Ver resultado PDF: ' . $pdf_result_url), 'L', 1, 'L', false, $pdf_result_url);
-        $pdf->SetTextColor(0, 0, 0);
-    } else {
-        $pdf->SetX(15);
-        $pdf->MultiCell(175, 5, utf8_decode('Formato de archivo no soportado: ' . $resultado_file), 0, 'L');
-    }
-} else {
-    $pdf->SetX(15);
-    $pdf->MultiCell(175, 5, utf8_decode('Comentarios: ' . extractComment($det_gab)), 0, 'L');
-}
 $pdf->Ln(5);
 
-if (!$image_added) {
-    $pdf->Ln(5);
-}
+// Resultados de Gabinete Table
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFillColor(245, 245, 245);
+$pdf->Cell(185, 8, utf8_decode('Detalles de Resultados'), 1, 1, 'C', true);
+
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 5, utf8_decode("Solicitado por: {$medico}"), 0, 1, 'C');
+if ($realizado === 'SÍ' && $resultado_file) {
+    $file_path = realpath("../notas_medicas/resultados_gabinete/$resultado_file");
+    $ext = strtolower(pathinfo($resultado_file, PATHINFO_EXTENSION));
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'];
+    $base_url = "$protocol://$host";
+    $pdf_result_url = "$base_url/gestion_medica/notas_medicas/resultados_gabinete/$resultado_file";
+
+    $result_fields = [
+        'Fecha de resultado' => $fecha_resultado ? date_format(date_create($fecha_resultado), "d/m/Y H:i") : 'N/A',
+        'Detalles' => extractComment($det_gab),
+    ];
+
+    if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
+        $result_fields['Resultado'] = 'Imagen disponible en la siguiente página';
+    } elseif ($ext === 'pdf') {
+        $result_fields['Resultado'] = "Ver PDF: $pdf_result_url";
+    } else {
+        $result_fields['Resultado'] = "Formato no soportado: $resultado_file";
+    }
+
+    foreach ($result_fields as $label => $value) {
+        $pdf->Cell(40, 8, utf8_decode($label), 1, 0, 'L');
+        if ($label === 'Resultado' && $ext === 'pdf') {
+            $pdf->SetTextColor(0, 0, 255);
+            $pdf->Cell(145, 8, utf8_decode($value), 1, 1, 'J', false, $pdf_result_url);
+            $pdf->SetTextColor(0, 0, 0);
+        } else {
+            $pdf->Cell(145, 8, utf8_decode($value), 1, 1, 'J');
+        }
+    }
+
+    if (in_array($ext, ['jpg', 'jpeg', 'png']) && $file_path && file_exists($file_path)) {
+        $pdf->AddPage();
+        $pdf->Image($file_path, 10, 50, 190, 0);
+    }
+} else {
+    $pdf->Cell(40, 8, utf8_decode('Comentarios'), 1, 0, 'L');
+    $pdf->Cell(145, 8, utf8_decode(extractComment($det_gab)), 1, 1, 'J');
+}
+
 $pdf->Ln(10);
 
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell(0, 5, utf8_decode("_____________________"), 0, 1, 'C');
-$pdf->Cell(0, 5, utf8_decode("Firma"), 0, 1, 'C');
+$pdf->SetY(-48);
+if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
+    $imgWidth = 40;
+    $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
+    $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
+    $pdf->Ln(22);
+}
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 6, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 6, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 6, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
 
 // Output PDF
 header('Content-Type: application/pdf');
 header('Content-Disposition: inline; filename="examenes_gabinete.pdf"');
-$pdf->Output('I', '');
+$pdf->Output('I', 'examenes_gabinete.pdf');
 exit();
 ?>
