@@ -6,8 +6,10 @@ if (!isset($_SESSION['hospital'])) {
     exit();
 }
 $id_atencion = $_SESSION['hospital'] ?? null;
-
-$observaciones = $_POST['observaciones'] ?? '';
+$id_usua = $_SESSION['id_usua'];if (empty($id_usua)) {
+    die("Error: id_usua está vacío o no definido.");
+}
+    $observaciones = $_POST['observaciones'] ?? '';
 $sinto = isset($_POST['sinto']) ? implode(',', $_POST['sinto']) : '';
 $sinto_otros = $_POST['sinto_otros'] ?? '';
 $heredo = isset($_POST['heredo']) ? implode(',', $_POST['heredo']) : '';
@@ -21,15 +23,18 @@ $pat_otras_alergias = isset($_POST['pat_otras_alergias']) ? implode(',', $_POST[
 $pat_oculares = isset($_POST['pat_oculares']) ? implode(',', $_POST['pat_oculares']) : '';
 $pat_otras_cirugias = isset($_POST['pat_otras_cirugias']) ? implode(',', $_POST['pat_otras_cirugias']) : '';
 
-$stmt = $conexion->prepare("INSERT INTO historia_clinica (
-    id_atencion, observaciones, sinto, sinto_otros, heredo, heredo_otros, nopat, nopat_otros,
-    pat_interrogados, pat_enf, pat_medicamentos, pat_otras_alergias, pat_oculares, pat_otras_cirugias
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$sql = "INSERT INTO historia_clinica (
+    id_atencion, id_usua, observaciones, sinto, sinto_otros, heredo, heredo_otros,
+    nopat, nopat_otros, pat_interrogados, pat_enf, pat_medicamentos, pat_otras_alergias,
+    pat_oculares, pat_otras_cirugias, fecha
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+$stmt = $conexion->prepare($sql);
 $stmt->bind_param(
-    "isssssssssssss",
-    $id_atencion, $observaciones, $sinto, $sinto_otros, $heredo, $heredo_otros, $nopat, $nopat_otros,
-    $pat_interrogados, $pat_enf, $pat_medicamentos, $pat_otras_alergias, $pat_oculares, $pat_otras_cirugias
+    "iissssssssssssss",
+    $id_atencion, $id_usua, $observaciones, $sinto, $sinto_otros, $heredo, $heredo_otros,
+    $nopat, $nopat_otros, $pat_interrogados, $pat_enf, $pat_medicamentos, $pat_otras_alergias,
+    $pat_oculares, $pat_otras_cirugias, $fecha
 );
 if ($stmt->execute()) {
     $_SESSION['message'] = "Historial clinico guardada correctamente.";
