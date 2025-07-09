@@ -135,8 +135,8 @@ class PDF extends FPDF {
         $this->Cell(0, 10, utf8_decode('EVALUACIÓN PREANESTÉSICA'), 0, 1, 'C');
         $this->SetFont('Arial', '', 10);
         $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 6, utf8_decode('Fecha: ') . date('d/m/Y H:i'), 0, 1, 'R');
-        $this->Ln(5);
+        $this->Cell(0, 5, utf8_decode('Fecha: ') . date('d/m/Y H:i'), 0, 1, 'R');
+        $this->Ln(1);
     }
 
     function Footer() {
@@ -156,43 +156,43 @@ $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 25);
 
 // Patient Data Section (Full Width)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 4, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetFillColor(255, 255, 255);
-$pdf->Cell(35, 6, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 6, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 6, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 6, $pac_fecing ? date('d/m/Y H:i', strtotime($pac_fecing)) : 'N/A', 0, 1, 'L');
-$pdf->Cell(35, 6, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 6, utf8_decode($folio . ' - ' . $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 6, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 6, utf8_decode($pac_tel), 0, 1, 'L');
-$pdf->Cell(35, 6, utf8_decode('Nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 6, $pac_fecnac ? date('d/m/Y', strtotime($pac_fecnac)) : 'N/A', 0, 0, 'L');
-$pdf->Cell(10, 6, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 6, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 6, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 6, utf8_decode($pac_sexo), 0, 0, 'L');
-$pdf->Cell(20, 6, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 6, utf8_decode($pac_ocup), 0, 1, 'L');
-$pdf->Cell(20, 6, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 6, utf8_decode($pac_dir), 0, 1, 'L');
-$pdf->Ln(8);
+$pdf->Cell(35, 4, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 4, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 4, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 4, $pac_fecing ? date('d/m/Y H:i', strtotime($pac_fecing)) : 'N/A', 0, 1, 'L');
+$pdf->Cell(35, 4, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 4, utf8_decode($folio . ' - ' . $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 4, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($pac_tel), 0, 1, 'L');
+$pdf->Cell(35, 4, utf8_decode('Nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 4, $pac_fecnac ? date('d/m/Y', strtotime($pac_fecnac)) : 'N/A', 0, 0, 'L');
+$pdf->Cell(10, 4, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 4, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 4, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 4, utf8_decode($pac_sexo), 0, 0, 'L');
+$pdf->Cell(20, 4, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($pac_ocup), 0, 1, 'L');
+$pdf->Cell(20, 4, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($pac_dir), 0, 1, 'L');
+$pdf->Ln(1);
 
 // Pre-anesthetic Evaluation Section
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Evaluación Preanestésica'), 0, 1, 'C', true);
-$pdf->Ln(5);
+$pdf->Cell(0, 5, utf8_decode('Evaluación Preanestésica'), 0, 1, 'C', true);
+$pdf->Ln(2);
 
 // General Information (Left Column)
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
 $pdf->SetX(15);
-$pdf->Cell(90, 8, utf8_decode('Información General'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(90, 4, utf8_decode('Información General'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $y_left = $pdf->GetY();
 $general_fields = [
     'Anestesiólogo' => $preanest['anestesiologo'] ?? 'N/A',
@@ -205,17 +205,17 @@ $general_fields = [
 foreach ($general_fields as $label => $value) {
     if ($value !== 'N/A') {
         $pdf->SetX(15);
-        $pdf->MultiCell(90, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->MultiCell(90, 4, utf8_decode($label . ': ' . $value), 1, 'J');
         $y_left = $pdf->GetY();
     }
 }
 
 // Medical History (Right Column)
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->SetXY(110, 109); // Align with left column
-$pdf->Cell(90, 8, utf8_decode('Antecedentes Médicos'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetXY(110, 79); // Align with left column
+$pdf->Cell(90, 4, utf8_decode('Antecedentes Médicos'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $y_right = $pdf->GetY();
 $medical_history = [
     'Tabaquismo' => $preanest['tabaquismo'] . ($preanest['tabaquismo_detalle'] ? ': ' . $preanest['tabaquismo_detalle'] : ''),
@@ -240,19 +240,19 @@ $medical_history = [
 foreach ($medical_history as $label => $value) {
     if ($value !== 'No' && $value !== 'N/A') {
         $pdf->SetX(110);
-        $pdf->MultiCell(90, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->MultiCell(90, 4, utf8_decode($label . ': ' . $value), 1, 'J');
         $y_right = $pdf->GetY();
     }
 }
 $pdf->SetY(max($y_left, $y_right));
-$pdf->Ln(8);
+$pdf->Ln(2);
 
 // Vital Signs and Physical Exam (Horizontal Table)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Signos Vitales y Exploración Física'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 5, utf8_decode('Signos Vitales y Exploración Física'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 7);
 $pdf->SetFillColor(245, 245, 245);
 $vital_signs = [
     'Peso' => $preanest['peso'] ? $preanest['peso'] . ' kg' : 'N/A',
@@ -275,31 +275,28 @@ $columns = 4; // Number of columns per row
 $col_widths = [46, 46, 46, 46]; // Fixed widths for each column
 $row_fields = array_chunk(array_keys($filtered_vitals), $columns);
 $row_values = array_chunk(array_values($filtered_vitals), $columns);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 9);
 foreach ($row_fields as $index => $fields_row) {
     $pdf->SetX(15);
     foreach ($fields_row as $i => $label) {
-        $pdf->Cell($col_widths[$i], 8, utf8_decode($label), 1, 0, 'L', true);
+        $pdf->Cell($col_widths[$i], 4, utf8_decode($label), 1, 0, 'L', true);
     }
     $pdf->Ln();
-    $pdf->SetFont('Arial', '', 10);
+    $pdf->SetFont('Arial', '', 7);
     $pdf->SetX(15);
     foreach ($row_values[$index] as $i => $value) {
-        $pdf->Cell($col_widths[$i], 6, utf8_decode($value), 1, 0, 'L');
+        $pdf->Cell($col_widths[$i], 4, utf8_decode($value), 1, 0, 'L');
     }
     $pdf->Ln();
 }
-$pdf->Ln(8);
-
-// Force page break for second page
-$pdf->AddPage();
+$pdf->Ln(2);
 
 // Laboratory and Studies (Horizontal Table)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Estudios de Laboratorio y Gabinete'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 5, utf8_decode('Estudios de Laboratorio y Gabinete'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
 $lab_fields = [
     'Hemoglobina (Hb)' => $preanest['hb'] ? $preanest['hb'] . ' g/dL' : 'N/A',
@@ -316,28 +313,28 @@ $lab_fields = [
 $filtered_labs = array_filter($lab_fields, fn($value) => $value !== 'N/A');
 $row_fields = array_chunk(array_keys($filtered_labs), $columns);
 $row_values = array_chunk(array_values($filtered_labs), $columns);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 7);
 foreach ($row_fields as $index => $fields_row) {
     $pdf->SetX(15);
     foreach ($fields_row as $i => $label) {
-        $pdf->Cell($col_widths[$i], 8, utf8_decode($label), 1, 0, 'L', true);
+        $pdf->Cell($col_widths[$i], 4, utf8_decode($label), 1, 0, 'L', true);
     }
     $pdf->Ln();
-    $pdf->SetFont('Arial', '', 10);
+    $pdf->SetFont('Arial', '', 7);
     $pdf->SetX(15);
     foreach ($row_values[$index] as $i => $value) {
-        $pdf->Cell($col_widths[$i], 6, utf8_decode($value), 1, 0, 'L');
+        $pdf->Cell($col_widths[$i], 4, utf8_decode($value), 1, 0, 'L');
     }
     $pdf->Ln();
 }
-$pdf->Ln(8);
+$pdf->Ln(2);
 
 // Anesthetic Plan (Full Width)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Plan Anestésico'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 5, utf8_decode('Plan Anestésico'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 7);
 $pdf->SetFillColor(245, 245, 245);
 $plan_fields = [
     'Clasificación ASA' => $preanest['asa'] ?? 'N/A',
@@ -346,7 +343,7 @@ $plan_fields = [
 ];
 foreach ($plan_fields as $label => $value) {
     if ($value !== 'N/A') {
-        $pdf->MultiCell(0, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->MultiCell(0, 4, utf8_decode($label . ': ' . $value), 1, 'J');
     }
 }
 $pdf->Ln(8);

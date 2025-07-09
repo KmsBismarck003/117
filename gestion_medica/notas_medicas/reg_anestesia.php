@@ -202,6 +202,7 @@ if (isset($_SESSION['hospital'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -210,7 +211,7 @@ if (isset($_SESSION['hospital'])) {
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline' https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; style-src 'self' 'unsafe-inline' https://use.fontawesome.com https://stackpath.bootstrapcdn.com;">
     <title>Registro Anestésico - Instituto de Enfermedades Oculares</title>
-    <link rel="stylesheet" type="text/css" href="css/select2.css">
+    <link rel="stylesheet" type="text/css" href="../../css/select2.css">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -235,31 +236,38 @@ if (isset($_SESSION['hospital'])) {
         padding: 10px;
         text-align: center;
     }
+
     .botones {
         margin-bottom: 5px;
     }
+
     .form-check-inline {
         margin-right: 20px;
     }
+
     .form-section {
         margin-bottom: 20px;
         padding: 15px;
         border: 1px solid #dee2e6;
         border-radius: 5px;
     }
+
     .hidden {
         display: none;
     }
+
     .data-display {
         background-color: #f8f9fa;
         padding: 15px;
         border-radius: 5px;
         margin-bottom: 20px;
     }
+
     .nav-tabs {
         border-bottom: 2px solid #2b2d7f;
         background-color: #f8f9fa;
     }
+
     .nav-tabs .nav-link {
         color: #2b2d7f;
         font-weight: 600;
@@ -267,15 +275,18 @@ if (isset($_SESSION['hospital'])) {
         border: none;
         border-bottom: 3px solid transparent;
     }
+
     .nav-tabs .nav-link:hover {
         border-bottom: 3px solid #2b2d7f;
         background-color: #e9ecef;
     }
+
     .nav-tabs .nav-link.active {
         color: #2b2d7f;
         border-bottom: 3px solid #2b2d7f;
         background-color: #fff;
     }
+
     .tab-content {
         padding: 20px;
         border: 1px solid #dee2e6;
@@ -283,42 +294,52 @@ if (isset($_SESSION['hospital'])) {
         border-radius: 0 0 5px 5px;
         background-color: #fff;
     }
+
     .form-group label {
         font-weight: 600;
     }
+
     .invalid-feedback {
         display: none;
     }
+
     .is-invalid~.invalid-feedback {
         display: block;
     }
+
     .tooltip-icon {
         margin-left: 5px;
         cursor: help;
     }
+
     .vital-signs-table th,
     .vital-signs-table td {
         padding: 5px;
         border: 1px solid #dee2e6;
         text-align: center;
     }
+
     .graph-section {
         margin-top: 20px;
     }
+
     .aldrete-table th,
     .aldrete-table td {
         padding: 5px;
         border: 1px solid #dee2e6;
     }
+
     .select2-assistants {
         width: 100%;
     }
+
     .selected-assistants {
         margin-top: 10px;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
     }
+
     .selected-assistant {
         display: inline-flex;
         align-items: center;
@@ -327,6 +348,7 @@ if (isset($_SESSION['hospital'])) {
         border-radius: 15px;
         font-size: 14px;
     }
+
     .selected-assistant .remove-assistant {
         margin-left: 8px;
         cursor: pointer;
@@ -334,11 +356,13 @@ if (isset($_SESSION['hospital'])) {
         font-weight: bold;
         font-size: 16px;
     }
+
     .selected-assistant .remove-assistant:hover {
         color: #a71d2a;
     }
     </style>
 </head>
+
 <body>
     <div class="container mt-4">
         <?php if (isset($_SESSION['message']) && isset($_SESSION['message_type'])): ?>
@@ -354,7 +378,9 @@ if (isset($_SESSION['hospital'])) {
 
         <div class="row">
             <div class="col">
-                <div class="thead"><strong><center>DATOS DEL PACIENTE</center></strong></div>
+                <div class="thead"><strong>
+                        <center>DATOS DEL PACIENTE</center>
+                    </strong></div>
                 <div class="row">
                     <div class="col-sm-4">Expediente: <strong><?php echo $folio; ?></strong></div>
                     <div class="col-sm-4">Paciente:
@@ -405,7 +431,8 @@ if (isset($_SESSION['hospital'])) {
 
         <div class="thead"><strong>REGISTRO ANESTÉSICO</strong></div>
         <br>
-        <form action="insertar_registro_anestesico.php" method="POST" onsubmit="return checkSubmit();" id="anestheticRecordForm">
+        <form action="insertar_registro_anestesico.php" method="POST"
+            id="anestheticRecordForm" accept-charset="UTF-8">
             <input type="hidden" name="Id_exp" value="<?php echo htmlspecialchars($id_exp); ?>">
             <input type="hidden" name="id_usua" value="<?php echo htmlspecialchars($_SESSION['login']['id_usua']); ?>">
             <input type="hidden" name="id_atencion" value="<?php echo htmlspecialchars($_SESSION['hospital']); ?>">
@@ -422,7 +449,8 @@ if (isset($_SESSION['hospital'])) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="intubationVentilation-tab" data-toggle="tab" href="#intubationVentilation"
-                        role="tab" aria-controls="intubationVentilation" aria-selected="false">Intubación y Ventilación</a>
+                        role="tab" aria-controls="intubationVentilation" aria-selected="false">Intubación y
+                        Ventilación</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="fluidsBalance-tab" data-toggle="tab" href="#fluidsBalance" role="tab"
@@ -440,16 +468,13 @@ if (isset($_SESSION['hospital'])) {
                     <a class="nav-link" id="timings-tab" data-toggle="tab" href="#timings" role="tab"
                         aria-controls="timings" aria-selected="false">Tiempos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="vitalSigns-tab" data-toggle="tab" href="#vitalSigns" role="tab"
-                        aria-controls="vitalSigns" aria-selected="false">Signos Vitales</a>
-                </li>
             </ul>
 
             <!-- Tab Content -->
             <div class="tab-content" id="anestheticTabContent">
                 <!-- Información General -->
-                <div class="tab-pane fade show active" id="generalInfo" role="tabpanel" aria-labelledby="generalInfo-tab">
+                <div class="tab-pane fade show active" id="generalInfo" role="tabpanel"
+                    aria-labelledby="generalInfo-tab">
                     <div class="form-section">
                         <div class="form-group">
                             <label for="anestesiologo_id">Anestesiólogo:</label>
@@ -476,39 +501,192 @@ if (isset($_SESSION['hospital'])) {
                         </div>
                         <div class="form-group">
                             <label for="diagnostico_preoperatorio">Diagnóstico Preoperatorio:</label>
+                            <select class="form-control select2" name="diagnostico_preoperatorio"
+                                id="diagnostico_preoperatorio">
+                                <option value="">Selecciona un diagnóstico</option>
+                                <?php
+                include "../../conexionbd.php";
+                if ($conexion) {
+                    $query = "SELECT id_cie10, diagnostico FROM cat_diag WHERE activo = 'SI' ORDER BY diagnostico ASC";
+                    $result = $conexion->query($query);
+                    if ($result) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . htmlspecialchars($row['id_cie10']) . "' data-diagnostico='" . htmlspecialchars($row['diagnostico']) . "'>" . htmlspecialchars($row['diagnostico']) . " (" . htmlspecialchars($row['id_cie10']) . ")</option>";
+                        }
+                        $result->free();
+                    } else {
+                        echo "<option value='' disabled>Error al cargar diagnósticos</option>";
+                    }
+                    $conexion->close();
+                } else {
+                    echo "<option value='' disabled>Error de conexión a la base de datos</option>";
+                }
+                ?>
+                            </select>
+                            <br>
                             <div class="botones">
-                                <button type="button" class="btn btn-danger btn-sm voice-btn" data-target="diagnostico_preoperatorio"><i class="fas fa-microphone"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm mute-btn" data-target="diagnostico_preoperatorio"><i class="fas fa-volume-mute"></i></button>
-                                <button type="button" class="btn btn-success btn-sm play-btn" data-target="diagnostico_preoperatorio"><i class="fas fa-play"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm voice-btn"
+                                    data-target="desc_diagnostico_preoperatorio"><i class="fas fa-microphone"></i></button>
+                                <button type="button" class="btn btn-primary btn-sm mute-btn"
+                                    data-target="desc_diagnostico_preoperatorio"><i class="fas fa-volume-mute"></i></button>
+                                <button type="button" class="btn btn-success btn-sm play-btn"
+                                    data-target="desc_diagnostico_preoperatorio"><i class="fas fa-play"></i></button>
                             </div>
-                            <textarea class="form-control" name="diagnostico_preoperatorio" id="diagnostico_preoperatorio" rows="4" placeholder="Ejemplo: Catarata en ojo derecho (OD)"></textarea>
+                            <textarea class="form-control mt-2" name="desc_diagnostico_preoperatorio"
+                                id="desc_diagnostico_preoperatorio" rows="2"
+                                placeholder="Descripción del diagnóstico seleccionado"></textarea>
+                            <script>
+                            $(document).ready(function() {
+                                $('#diagnostico_preoperatorio').select2({
+                                    placeholder: "Selecciona un diagnóstico",
+                                    allowClear: true
+                                });
+                                $('#diagnostico_preoperatorio').on('change', function() {
+                                    const selectedOption = this.options[this.selectedIndex];
+                                    $('#desc_diagnostico_preoperatorio').val(selectedOption ?
+                                        selectedOption.getAttribute('data-diagnostico') : '');
+                                });
+                                const diag_pre_grabar = document.querySelector(
+                                    '.voice-btn[data-target="desc_diagnostico_preoperatorio"]');
+                                const diag_pre_detener = document.querySelector(
+                                    '.mute-btn[data-target="desc_diagnostico_preoperatorio"]');
+                                const diag_pre_reproducir = document.querySelector(
+                                    '.play-btn[data-target="desc_diagnostico_preoperatorio"]');
+                                const desc_diag_pre = document.getElementById('desc_diagnostico_preoperatorio');
+                                let recognition_diag_pre = new(window.SpeechRecognition || window
+                                    .webkitSpeechRecognition)();
+                                recognition_diag_pre.lang = "es-ES";
+                                recognition_diag_pre.continuous = true;
+                                recognition_diag_pre.interimResults = false;
+                                recognition_diag_pre.onresult = (event) => {
+                                    const results = event.results;
+                                    const frase = results[results.length - 1][0].transcript;
+                                    desc_diag_pre.value += frase;
+                                };
+                                diag_pre_grabar.addEventListener('click', () => {
+                                    recognition_diag_pre.start();
+                                });
+                                diag_pre_detener.addEventListener('click', () => {
+                                    recognition_diag_pre.stop();
+                                });
+                                diag_pre_reproducir.addEventListener('click', () => {
+                                    const speech = new SpeechSynthesisUtterance();
+                                    speech.text = desc_diag_pre.value;
+                                    speech.volume = 1;
+                                    speech.rate = 1;
+                                    speech.pitch = 0;
+                                    window.speechSynthesis.speak(speech);
+                                });
+                            });
+                            </script>
                         </div>
                         <div class="form-group">
                             <label for="cirugia_programada">Cirugía Programada:</label>
                             <div class="botones">
-                                <button type="button" class="btn btn-danger btn-sm voice-btn" data-target="cirugia_programada"><i class="fas fa-microphone"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm mute-btn" data-target="cirugia_programada"><i class="fas fa-volume-mute"></i></button>
-                                <button type="button" class="btn btn-success btn-sm play-btn" data-target="cirugia_programada"><i class="fas fa-play"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm voice-btn"
+                                    data-target="cirugia_programada"><i class="fas fa-microphone"></i></button>
+                                <button type="button" class="btn btn-primary btn-sm mute-btn"
+                                    data-target="cirugia_programada"><i class="fas fa-volume-mute"></i></button>
+                                <button type="button" class="btn btn-success btn-sm play-btn"
+                                    data-target="cirugia_programada"><i class="fas fa-play"></i></button>
                             </div>
-                            <textarea class="form-control" name="cirugia_programada" id="cirugia_programada" rows="4" placeholder="Ejemplo: Facoemulsificación con implante de LIO en OD"></textarea>
+                            <textarea class="form-control" name="cirugia_programada" id="cirugia_programada" rows="4"
+                                placeholder="Ejemplo: Facoemulsificación con implante de LIO en OD"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="diagnostico_postoperatorio">Diagnóstico Postoperatorio:</label>
+                            <select class="form-control select2" name="diagnostico_postoperatorio"
+                                id="diagnostico_postoperatorio">
+                                <option value="">Selecciona un diagnóstico</option>
+                                <?php
+                include "../../conexionbd.php";
+                if ($conexion) {
+                    $query = "SELECT id_cie10, diagnostico FROM cat_diag WHERE activo = 'SI' ORDER BY diagnostico ASC";
+                    $result = $conexion->query($query);
+                    if ($result) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . htmlspecialchars($row['id_cie10']) . "' data-diagnostico='" . htmlspecialchars($row['diagnostico']) . "'>" . htmlspecialchars($row['diagnostico']) . " (" . htmlspecialchars($row['id_cie10']) . ")</option>";
+                        }
+                        $result->free();
+                    } else {
+                        echo "<option value='' disabled>Error al cargar diagnósticos</option>";
+                    }
+                    $conexion->close();
+                } else {
+                    echo "<option value='' disabled>Error de conexión a la base de datos</option>";
+                }
+                ?>
+                            </select>
+                            <br>
                             <div class="botones">
-                                <button type="button" class="btn btn-danger btn-sm voice-btn" data-target="diagnostico_postoperatorio"><i class="fas fa-microphone"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm mute-btn" data-target="diagnostico_postoperatorio"><i class="fas fa-volume-mute"></i></button>
-                                <button type="button" class="btn btn-success btn-sm play-btn" data-target="diagnostico_postoperatorio"><i class="fas fa-play"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm voice-btn"
+                                    data-target="desc_diagnostico_postoperatorio"><i class="fas fa-microphone"></i></button>
+                                <button type="button" class="btn btn-primary btn-sm mute-btn"
+                                    data-target="desc_diagnostico_postoperatorio"><i class="fas fa-volume-mute"></i></button>
+                                <button type="button" class="btn btn-success btn-sm play-btn"
+                                    data-target="desc_diagnostico_postoperatorio"><i class="fas fa-play"></i></button>
                             </div>
-                            <textarea class="form-control" name="diagnostico_postoperatorio" id="diagnostico_postoperatorio" rows="4" placeholder="Ejemplo: Catarata resuelta, LIO implantado en OD"></textarea>
+                            <textarea class="form-control mt-2" name="desc_diagnostico_postoperatorio"
+                                id="desc_diagnostico_postoperatorio" rows="2"
+                                placeholder="Descripción del diagnóstico seleccionado"></textarea>
+                            <script>
+                            $(document).ready(function() {
+                                $('#diagnostico_postoperatorio').select2({
+                                    placeholder: "Selecciona un diagnóstico",
+                                    allowClear: true
+                                });
+                                $('#diagnostico_postoperatorio').on('change', function() {
+                                    const selectedOption = this.options[this.selectedIndex];
+                                    $('#desc_diagnostico_postoperatorio').val(selectedOption ?
+                                        selectedOption.getAttribute('data-diagnostico') : '');
+                                });
+                                const diag_post_grabar = document.querySelector(
+                                    '.voice-btn[data-target="desc_diagnostico_postoperatorio"]');
+                                const diag_post_detener = document.querySelector(
+                                    '.mute-btn[data-target="desc_diagnostico_postoperatorio"]');
+                                const diag_post_reproducir = document.querySelector(
+                                    '.play-btn[data-target="desc_diagnostico_postoperatorio"]');
+                                const desc_diag_post = document.getElementById(
+                                    'desc_diagnostico_postoperatorio');
+                                let recognition_diag_post = new(window.SpeechRecognition || window
+                                    .webkitSpeechRecognition)();
+                                recognition_diag_post.lang = "es-ES";
+                                recognition_diag_post.continuous = true;
+                                recognition_diag_post.interimResults = false;
+                                recognition_diag_post.onresult = (event) => {
+                                    const results = event.results;
+                                    const frase = results[results.length - 1][0].transcript;
+                                    desc_diag_post.value += frase;
+                                };
+                                diag_post_grabar.addEventListener('click', () => {
+                                    recognition_diag_post.start();
+                                });
+                                diag_post_detener.addEventListener('click', () => {
+                                    recognition_diag_post.stop();
+                                });
+                                diag_post_reproducir.addEventListener('click', () => {
+                                    const speech = new SpeechSynthesisUtterance();
+                                    speech.text = desc_diag_post.value;
+                                    speech.volume = 1;
+                                    speech.rate = 1;
+                                    speech.pitch = 0;
+                                    window.speechSynthesis.speak(speech);
+                                });
+                            });
+                            </script>
                         </div>
                         <div class="form-group">
                             <label for="cirugia_realizada">Cirugía Realizada:</label>
                             <div class="botones">
-                                <button type="button" class="btn btn-danger btn-sm voice-btn" data-target="cirugia_realizada"><i class="fas fa-microphone"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm mute-btn" data-target="cirugia_realizada"><i class="fas fa-volume-mute"></i></button>
-                                <button type="button" class="btn btn-success btn-sm play-btn" data-target="cirugia_realizada"><i class="fas fa-play"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm voice-btn"
+                                    data-target="cirugia_realizada"><i class="fas fa-microphone"></i></button>
+                                <button type="button" class="btn btn-primary btn-sm mute-btn"
+                                    data-target="cirugia_realizada"><i class="fas fa-volume-mute"></i></button>
+                                <button type="button" class="btn btn-success btn-sm play-btn"
+                                    data-target="cirugia_realizada"><i class="fas fa-play"></i></button>
                             </div>
-                            <textarea class="form-control" name="cirugia_realizada" id="cirugia_realizada" rows="4" placeholder="Ejemplo: Facoemulsificación exitosa con LIO en OD"></textarea>
+                            <textarea class="form-control" name="cirugia_realizada" id="cirugia_realizada" rows="4"
+                                placeholder="Ejemplo: Facoemulsificación exitosa con LIO en OD"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="cirujano_id">Cirujano:</label>
@@ -524,7 +702,8 @@ if (isset($_SESSION['hospital'])) {
                         </div>
                         <div class="form-group">
                             <label for="ayudantes">Ayudantes:</label>
-                            <select class="form-control select2-assistants" name="ayudantes_ids[]" id="ayudantes" multiple>
+                            <select class="form-control select2-assistants" name="ayudantes_ids[]" id="ayudantes"
+                                multiple>
                                 <option value="">Seleccione ayudantes</option>
                                 <?php foreach ($assistants as $assistant): ?>
                                 <option value="<?php echo htmlspecialchars($assistant['id_usua']); ?>">
@@ -537,91 +716,9 @@ if (isset($_SESSION['hospital'])) {
                     </div>
                 </div>
 
-                <!-- Signos Vitales -->
-                <div class="tab-pane fade" id="vitalSigns" role="tabpanel" aria-labelledby="vitalSigns-tab">
-                    <div class="form-section">
-                        <div class="thead"><strong><center>SIGNOS VITALES</center></strong></div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <center><strong>Presión arterial:</strong></center>
-                                    <div class="row">
-                                        <div class="col losInputTAM">
-                                            <input type="text" class="form-control" id="sistg" name="sistg" placeholder="SISTÓLICA" pattern="\d{2,3}" title="Ingrese presión sistólica (ej. 120)">
-                                        </div>
-                                        <div class="col-auto">/</div>
-                                        <div class="col losInputTAM">
-                                            <input type="text" class="form-control" id="diastg" name="diastg" placeholder="DIASTÓLICA" pattern="\d{2,3}" title="Ingrese presión diastólica (ej. 80)">
-                                        </div>
-                                    </div>
-                                    <div class="invalid-feedback">Ingrese presión arterial en formato correcto (ej. 120 para sistólica, 80 para diastólica).</div>
-                                </div>
-                                <div class="col-sm-2">
-                                    <strong>Frecuencia cardiaca:</strong>
-                                    <input type="text" class="form-control" name="fcardg" id="fcardg" placeholder="PULSO" pattern="\d{1,3}" title="Ingrese frecuencia cardíaca entre 0 y 300">
-                                    <div class="invalid-feedback">La frecuencia cardíaca debe estar entre 0 y 300 por minuto.</div>
-                                </div>
-                                <div class="col-sm-3"><br>
-                                    <strong>Frecuencia respiratoria:</strong>
-                                    <input type="text" class="form-control" name="frespg" id="frespg" placeholder="FREC. RESP." pattern="\d{1,3}" title="Ingrese frecuencia respiratoria entre 0 y 100">
-                                    <div class="invalid-feedback">La frecuencia respiratoria debe estar entre 0 y 100 rpm.</div>
-                                </div>
-                                <div class="col-sm-3"><br>
-                                    <strong>Saturación oxígeno:</strong>
-                                    <input type="text" class="form-control" name="satg" id="satg" placeholder="SAT. O2" pattern="\d{1,3}" title="Ingrese saturación de oxígeno entre 0 y 100">
-                                    <div class="invalid-feedback">La SpO2 debe estar entre 0 y 100 %.</div>
-                                </div>
-                                <div class="col-sm-2"><br>
-                                    <strong>Temperatura:</strong>
-                                    <input type="text" class="form-control" name="tempg" id="tempg" placeholder="TEMP." pattern="\d{1,2}(\.\d)?$" title="Ingrese temperatura entre 0 y 45 °C (ej. 36.5)">
-                                    <div class="invalid-feedback">La temperatura debe estar entre 0 y 45 °C.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <center>
-                            <?php
-                            $id_atencion = $_SESSION['hospital'];
-                            $resultado = $conexion->query("SELECT *, id_registro_anestesico FROM registro_anestesico WHERE id_atencion=$id_atencion ORDER BY fecha_registro ASC") or die($conexion->error);
-                            ?>
-                            <div class="table-responsive"><br>
-                                <table class="table table-bordered table-striped vital-signs-table" id="mytable">
-                                    <thead class="thead bg-navy">
-                                        <tr>
-                                            <th scope="col">No.</th>
-                                            <th scope="col">Fecha de nota</th>
-                                            <th scope="col">Presión arterial</th>
-                                            <th scope="col">Frecuencia cardiaca</th>
-                                            <th scope="col">Frecuencia respiratoria</th>
-                                            <th scope="col">Temperatura</th>
-                                            <th scope="col">Sat. Oxígeno</th>
-                                            <th scope="col">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $no = 1; while ($f = mysqli_fetch_array($resultado)) { ?>
-                                        <tr>
-                                            <td><strong><?php echo $no; ?></strong></td>
-                                            <td><strong><?php $date = date_create($f['fecha_registro']); echo date_format($date, "d/m/Y H:i:s"); ?></strong></td>
-                                            <td><strong><?php echo $f['ta']; ?></strong></td>
-                                            <td><strong><?php echo $f['fc']; ?></strong></td>
-                                            <td><strong><?php echo $f['fr']; ?></strong></td>
-                                            <td><strong><?php echo $f['temp']; ?> °C</strong></td>
-                                            <td><strong><?php echo $f['spo2']; ?> %</strong></td>
-                                            <td>
-                                                <a href="../notas_medicas/ver_grafica.php?id_registro_anestesico=<?php echo htmlspecialchars($f['id_registro_anestesico']); ?>" role="button" class="btn btn-info btn-sm">Ver Gráfica</a>
-                                            </td>
-                                        </tr>
-                                        <?php $no++; } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </center>
-                    </div>
-                </div>
-
                 <!-- Detalles de Anestesia -->
-                <div class="tab-pane fade" id="anesthesiaDetails" role="tabpanel" aria-labelledby="anesthesiaDetails-tab">
+                <div class="tab-pane fade" id="anesthesiaDetails" role="tabpanel"
+                    aria-labelledby="anesthesiaDetails-tab">
                     <div class="form-section">
                         <div class="form-group">
                             <label for="revision_equipo">Revisión del Equipo Anestésico:</label>
@@ -633,50 +730,29 @@ if (isset($_SESSION['hospital'])) {
                         </div>
                         <div class="form-group">
                             <label for="o2_hora">O2 (Hora):</label>
-                            <input type="time" class="form-control" name="o2_hora" id="o2_hora" placeholder="Ejemplo: 08:00">
+                            <input type="time" class="form-control" name="o2_hora" id="o2_hora"
+                                placeholder="Ejemplo: 08:00">
                         </div>
                         <div class="form-group">
                             <label for="agente_inhalado">Agente Inhalado:</label>
-                            <input type="text" class="form-control" name="agente_inhalado" id="agente_inhalado" placeholder="Ejemplo: Sevoflurano">
-                        </div>
-                        <div class="form-group">
-                            <label>Fármacos y Dosis Total:</label>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Fármaco</th>
-                                        <th>Dosis Total</th>
-                                        <th>Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="farmacosTable">
-                                    <tr>
-                                        <td><input type="text" class="form-control" name="farmacos[]" placeholder="Ejemplo: Lidocaína"></td>
-                                        <td><input type="text" class="form-control" name="dosis_total[]" placeholder="Ejemplo: 2 mL"></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm remove-row"><i class="fas fa-trash"></i></button></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="3">
-                                            <button type="button" class="btn btn-primary btn-sm" id="addFarmaco">Agregar Fármaco</button>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <input type="text" class="form-control" name="agente_inhalado" id="agente_inhalado"
+                                placeholder="Ejemplo: Sevoflurano">
                         </div>
                         <div class="form-group">
                             <label>Monitoreo Continuo:</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="ecg_continua" id="ecg_continua" value="1">
+                                <input class="form-check-input" type="checkbox" name="ecg_continua" id="ecg_continua"
+                                    value="1">
                                 <label class="form-check-label" for="ecg_continua">ECG Continua</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="pulsoximetria" id="pulsoximetria" value="1">
+                                <input class="form-check-input" type="checkbox" name="pulsoximetria" id="pulsoximetria"
+                                    value="1">
                                 <label class="form-check-label" for="pulsoximetria">Pulsoximetría</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="capnografia" id="capnografia" value="1">
+                                <input class="form-check-input" type="checkbox" name="capnografia" id="capnografia"
+                                    value="1">
                                 <label class="form-check-label" for="capnografia">Capnografía</label>
                             </div>
                         </div>
@@ -684,24 +760,31 @@ if (isset($_SESSION['hospital'])) {
                 </div>
 
                 <!-- Intubación y Ventilación -->
-                <div class="tab-pane fade" id="intubationVentilation" role="tabpanel" aria-labelledby="intubationVentilation-tab">
+                <div class="tab-pane fade" id="intubationVentilation" role="tabpanel"
+                    aria-labelledby="intubationVentilation-tab">
                     <div class="form-section">
                         <div class="form-group">
                             <label for="intubacion">Intubación:</label>
-                            <input type="text" class="form-control" name="intubacion" id="intubacion" placeholder="Ejemplo: No requerida">
+                            <input type="text" class="form-control" name="intubacion" id="intubacion"
+                                placeholder="Ejemplo: No requerida">
                         </div>
                         <div class="form-group">
                             <label for="incidentes">Incidentes:</label>
                             <div class="botones">
-                                <button type="button" class="btn btn-danger btn-sm voice-btn" data-target="incidentes"><i class="fas fa-microphone"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm mute-btn" data-target="incidentes"><i class="fas fa-volume-mute"></i></button>
-                                <button type="button" class="btn btn-success btn-sm play-btn" data-target="incidentes"><i class="fas fa-play"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm voice-btn"
+                                    data-target="incidentes"><i class="fas fa-microphone"></i></button>
+                                <button type="button" class="btn btn-primary btn-sm mute-btn"
+                                    data-target="incidentes"><i class="fas fa-volume-mute"></i></button>
+                                <button type="button" class="btn btn-success btn-sm play-btn"
+                                    data-target="incidentes"><i class="fas fa-play"></i></button>
                             </div>
-                            <textarea class="form-control" name="incidentes" id="incidentes" rows="4" placeholder="Ejemplo: Ningún incidente reportado"></textarea>
+                            <textarea class="form-control" name="incidentes" id="incidentes" rows="4"
+                                placeholder="Ejemplo: Ningún incidente reportado"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="canula">Cánula:</label>
-                            <input type="text" class="form-control" name="canula" id="canula" placeholder="Ejemplo: Cánula nasal 2 L/min">
+                            <input type="text" class="form-control" name="canula" id="canula"
+                                placeholder="Ejemplo: Cánula nasal 2 L/min">
                         </div>
                         <div class="form-group">
                             <label for="dificultad_tecnica">Dificultad Técnica:</label>
@@ -713,7 +796,8 @@ if (isset($_SESSION['hospital'])) {
                         </div>
                         <div class="form-group">
                             <label for="ventilacion">Ventilación:</label>
-                            <input type="text" class="form-control" name="ventilacion" id="ventilacion" placeholder="Ejemplo: Espontánea">
+                            <input type="text" class="form-control" name="ventilacion" id="ventilacion"
+                                placeholder="Ejemplo: Espontánea">
                         </div>
                     </div>
                 </div>
@@ -726,54 +810,63 @@ if (isset($_SESSION['hospital'])) {
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="hartmann">Hartmann (mL):</label>
-                                    <input type="number" class="form-control" name="hartmann" id="hartmann" placeholder="Ejemplo: 500" step="1" min="0">
+                                    <input type="number" class="form-control" name="hartmann" id="hartmann"
+                                        placeholder="Ejemplo: 500" step="1" min="0">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="glucosa">Glucosa (mL):</label>
-                                    <input type="number" class="form-control" name="glucosa" id="glucosa" placeholder="Ejemplo: 250" step="1" min="0">
+                                    <input type="number" class="form-control" name="glucosa" id="glucosa"
+                                        placeholder="Ejemplo: 250" step="1" min="0">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nacl">NaCl (mL):</label>
-                                    <input type="number" class="form-control" name="nacl" id="nacl" placeholder="Ejemplo: 1000" step="1" min="0">
+                                    <input type="number" class="form-control" name="nacl" id="nacl"
+                                        placeholder="Ejemplo: 1000" step="1" min="0">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="total_ingresos">Total Ingresos (mL):</label>
-                            <input type="number" class="form-control" name="total_ingresos" id="total_ingresos" placeholder="Ejemplo: 1750" step="1" min="0" readonly>
+                            <input type="number" class="form-control" name="total_ingresos" id="total_ingresos"
+                                placeholder="Ejemplo: 1750" step="1" min="0" readonly>
                         </div>
                         <h5>Egresos</h5>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="diuresis">Diuresis (mL):</label>
-                                    <input type="number" class="form-control" name="diuresis" id="diuresis" placeholder="Ejemplo: 300" step="1" min="0">
+                                    <input type="number" class="form-control" name="diuresis" id="diuresis"
+                                        placeholder="Ejemplo: 300" step="1" min="0">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="sangrado">Sangrado (mL):</label>
-                                    <input type="number" class="form-control" name="sangrado" id="sangrado" placeholder="Ejemplo: 50" step="1" min="0">
+                                    <input type="number" class="form-control" name="sangrado" id="sangrado"
+                                        placeholder="Ejemplo: 50" step="1" min="0">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="perdidas_insensibles">Pérdidas Insensibles (mL):</label>
-                                    <input type="number" class="form-control" name="perdidas_insensibles" id="perdidas_insensibles" placeholder="Ejemplo: 100" step="1" min="0">
+                                    <input type="number" class="form-control" name="perdidas_insensibles"
+                                        id="perdidas_insensibles" placeholder="Ejemplo: 100" step="1" min="0">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="total_egresos">Total Egresos (mL):</label>
-                            <input type="number" class="form-control" name="total_egresos" id="total_egresos" placeholder="Ejemplo: 450" step="1" min="0" readonly>
+                            <input type="number" class="form-control" name="total_egresos" id="total_egresos"
+                                placeholder="Ejemplo: 450" step="1" min="0" readonly>
                         </div>
                         <div class="form-group">
                             <label for="balance">Balance (mL):</label>
-                            <input type="number" class="form-control" name="balance" id="balance" placeholder="Ejemplo: 1300" step="1" readonly>
+                            <input type="number" class="form-control" name="balance" id="balance"
+                                placeholder="Ejemplo: 1300" step="1" readonly>
                         </div>
                     </div>
                 </div>
@@ -826,13 +919,15 @@ if (isset($_SESSION['hospital'])) {
                         </table>
                         <div class="form-group">
                             <label for="aldrete_total">Total:</label>
-                            <input type="number" class="form-control" name="aldrete_total" id="aldrete_total" placeholder="Ejemplo: 8" step="1" min="0" max="10" readonly>
+                            <input type="number" class="form-control" name="aldrete_total" id="aldrete_total"
+                                placeholder="Ejemplo: 8" step="1" min="0" max="10" readonly>
                         </div>
                     </div>
                 </div>
 
                 <!-- Anestesia Regional -->
-                <div class="tab-pane fade" id="regionalAnesthesia" role="tabpanel" aria-labelledby="regionalAnesthesia-tab">
+                <div class="tab-pane fade" id="regionalAnesthesia" role="tabpanel"
+                    aria-labelledby="regionalAnesthesia-tab">
                     <div class="form-section">
                         <div class="form-group">
                             <label for="anestesia_regional_tipo">Tipo de Anestesia Regional:</label>
@@ -849,7 +944,8 @@ if (isset($_SESSION['hospital'])) {
                         </div>
                         <div class="form-group">
                             <label for="nivel_puncion">Nivel de Punción:</label>
-                            <input type="text" class="form-control" name="nivel_puncion" id="nivel_puncion" placeholder="Ejemplo: Inferotemporal">
+                            <input type="text" class="form-control" name="nivel_puncion" id="nivel_puncion"
+                                placeholder="Ejemplo: Inferotemporal">
                         </div>
                         <div class="form-group">
                             <label for="cateter">Catéter:</label>
@@ -862,11 +958,15 @@ if (isset($_SESSION['hospital'])) {
                         <div class="form-group">
                             <label for="agentes_administrados">Agentes Administrados:</label>
                             <div class="botones">
-                                <button type="button" class="btn btn-danger btn-sm voice-btn" data-target="agentes_administrados"><i class="fas fa-microphone"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm mute-btn" data-target="agentes_administrados"><i class="fas fa-volume-mute"></i></button>
-                                <button type="button" class="btn btn-success btn-sm play-btn" data-target="agentes_administrados"><i class="fas fa-play"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm voice-btn"
+                                    data-target="agentes_administrados"><i class="fas fa-microphone"></i></button>
+                                <button type="button" class="btn btn-primary btn-sm mute-btn"
+                                    data-target="agentes_administrados"><i class="fas fa-volume-mute"></i></button>
+                                <button type="button" class="btn btn-success btn-sm play-btn"
+                                    data-target="agentes_administrados"><i class="fas fa-play"></i></button>
                             </div>
-                            <textarea class="form-control" name="agentes_administrados" id="agentes_administrados" rows="4" placeholder="Ejemplo: Lidocaína 2% 2 mL, Bupivacaína 0.5% 2 mL"></textarea>
+                            <textarea class="form-control" name="agentes_administrados" id="agentes_administrados"
+                                rows="4" placeholder="Ejemplo: Lidocaína 2% 2 mL, Bupivacaína 0.5% 2 mL"></textarea>
                         </div>
                     </div>
                 </div>
@@ -879,19 +979,22 @@ if (isset($_SESSION['hospital'])) {
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="llega_quirofano">Llega a Quirófano:</label>
-                                    <input type="datetime-local" class="form-control" name="llega_quirofano" id="llega_quirofano">
+                                    <input type="datetime-local" class="form-control" name="llega_quirofano"
+                                        id="llega_quirofano">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="inicia_anestesia">Inicia Anestesia:</label>
-                                    <input type="datetime-local" class="form-control" name="inicia_anestesia" id="inicia_anestesia">
+                                    <input type="datetime-local" class="form-control" name="inicia_anestesia"
+                                        id="inicia_anestesia">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="inicia_cirugia">Inicia Cirugía:</label>
-                                    <input type="datetime-local" class="form-control" name="inicia_cirugia" id="inicia_cirugia">
+                                    <input type="datetime-local" class="form-control" name="inicia_cirugia"
+                                        id="inicia_cirugia">
                                 </div>
                             </div>
                         </div>
@@ -899,25 +1002,29 @@ if (isset($_SESSION['hospital'])) {
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="termina_cirugia">Termina Cirugía:</label>
-                                    <input type="datetime-local" class="form-control" name="termina_cirugia" id="termina_cirugia">
+                                    <input type="datetime-local" class="form-control" name="termina_cirugia"
+                                        id="termina_cirugia">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="termina_anestesia">Termina Anestesia:</label>
-                                    <input type="datetime-local" class="form-control" name="termina_anestesia" id="termina_anestesia">
+                                    <input type="datetime-local" class="form-control" name="termina_anestesia"
+                                        id="termina_anestesia">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="pasa_recuperacion">Pasa a Recuperación:</label>
-                                    <input type="datetime-local" class="form-control" name="pasa_recuperacion" id="pasa_recuperacion">
+                                    <input type="datetime-local" class="form-control" name="pasa_recuperacion"
+                                        id="pasa_recuperacion">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tiempo_anestesico">Tiempo Anestésico (min):</label>
-                            <input type="number" class="form-control" name="tiempo_anestesico" id="tiempo_anestesico" placeholder="Ejemplo: 45" step="1" min="0" readonly>
+                            <input type="number" class="form-control" name="tiempo_anestesico" id="tiempo_anestesico"
+                                placeholder="Ejemplo: 45" step="1" min="0" readonly>
                         </div>
                     </div>
                 </div>
@@ -994,7 +1101,7 @@ if (isset($_SESSION['hospital'])) {
 
     // Voice recognition setup
     const textareas = [
-        'diagnostico_preoperatorio', 'cirugia_programada', 'diagnostico_postoperatorio', 'cirugia_realizada',
+        'desc_diagnostico_preoperatorio', 'cirugia_programada', 'desc_diagnostico_postoperatorio', 'cirugia_realizada',
         'incidentes', 'agentes_administrados'
     ];
 
@@ -1061,44 +1168,40 @@ if (isset($_SESSION['hospital'])) {
         }
     });
 
-    // Dynamic farmaco table
-    document.getElementById('addFarmaco').addEventListener('click', function() {
-        const tableBody = document.getElementById('farmacosTable');
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td><input type="text" class="form-control" name="farmacos[]" placeholder="Ejemplo: Lidocaína"></td>
-            <td><input type="text" class="form-control" name="dosis_total[]" placeholder="Ejemplo: 2 mL"></td>
-            <td><button type="button" class="btn btn-danger btn-sm remove-row"><i class="fas fa-trash"></i></button></td>
-        `;
-        tableBody.appendChild(row);
-    });
-
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('remove-row')) {
-            e.target.closest('tr').remove();
-        }
-    });
-
     // Calculate fluids balance
     function updateFluidsBalance() {
-        const hartmann = parseFloat(document.getElementById('hartmann').value) || 0;
-        const glucosa = parseFloat(document.getElementById('glucosa').value) || 0;
-        const nacl = parseFloat(document.getElementById('nacl').value) || 0;
-        const diuresis = parseFloat(document.getElementById('diuresis').value) || 0;
-        const sangrado = parseFloat(document.getElementById('sangrado').value) || 0;
-        const perdidas_insensibles = parseFloat(document.getElementById('perdidas_insensibles').value) || 0;
+        const hartmann = parseFloat(document.getElementById('hartmann')?.value) || 0;
+        const glucosa = parseFloat(document.getElementById('glucosa')?.value) || 0;
+        const nacl = parseFloat(document.getElementById('nacl')?.value) || 0;
+        const diuresis = parseFloat(document.getElementById('diuresis')?.value) || 0;
+        const sangrado = parseFloat(document.getElementById('sangrado')?.value) || 0;
+        const perdidas_insensibles = parseFloat(document.getElementById('perdidas_insensibles')?.value) || 0;
+
+        console.log({ hartmann, glucosa, nacl, diuresis, sangrado, perdidas_insensibles });
 
         const total_ingresos = hartmann + glucosa + nacl;
         const total_egresos = diuresis + sangrado + perdidas_insensibles;
         const balance = total_ingresos - total_egresos;
 
-        document.getElementById('total_ingresos').value = total_ingresos;
-        document.getElementById('total_egresos').value = total_egresos;
-        document.getElementById('balance').value = balance;
+        const totalIngresosField = document.getElementById('total_ingresos');
+        const totalEgresosField = document.getElementById('total_egresos');
+        const balanceField = document.getElementById('balance');
+
+        if (totalIngresosField) totalIngresosField.value = total_ingresos;
+        else console.error('Total ingresos field not found');
+        if (totalEgresosField) totalEgresosField.value = total_egresos;
+        else console.error('Total egresos field not found');
+        if (balanceField) balanceField.value = balance;
+        else console.error('Balance field not found');
     }
 
     ['hartmann', 'glucosa', 'nacl', 'diuresis', 'sangrado', 'perdidas_insensibles'].forEach(id => {
-        document.getElementById(id).addEventListener('input', updateFluidsBalance);
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener('input', updateFluidsBalance);
+        } else {
+            console.error(`Element with ID ${id} not found`);
+        }
     });
 
     // Calculate Aldrete score
@@ -1109,45 +1212,72 @@ if (isset($_SESSION['hospital'])) {
         const conciencia = parseInt(document.querySelector('input[name="aldrete_conciencia"]:checked')?.value) || 0;
         const saturacion = parseInt(document.querySelector('input[name="aldrete_saturacion"]:checked')?.value) || 0;
 
+        console.log({ actividad, respiracion, circulacion, conciencia, saturacion });
+
         const total = actividad + respiracion + circulacion + conciencia + saturacion;
-        document.getElementById('aldrete_total').value = total;
+        const aldreteTotalField = document.getElementById('aldrete_total');
+        if (aldreteTotalField) {
+            aldreteTotalField.value = total;
+        } else {
+            console.error('Aldrete total field not found');
+        }
     }
 
-    document.querySelectorAll('input[name^="aldrete_"]').forEach(input => {
-        input.addEventListener('change', updateAldreteScore);
+    document.querySelector('.aldrete-table')?.addEventListener('change', function(e) {
+        if (e.target.name.startsWith('aldrete_')) {
+            updateAldreteScore();
+        }
     });
 
     // Calculate anesthetic time
     function updateAnestheticTime() {
-        const inicia = document.getElementById('inicia_anestesia').value;
-        const termina = document.getElementById('termina_anestesia').value;
+        const inicia = document.getElementById('inicia_anestesia')?.value;
+        const termina = document.getElementById('termina_anestesia')?.value;
+
+        const tiempoField = document.getElementById('tiempo_anestesico');
+        if (!tiempoField) {
+            console.error('Tiempo anestesico field not found');
+            return;
+        }
 
         if (inicia && termina) {
             const start = new Date(inicia);
             const end = new Date(termina);
+            if (isNaN(start) || isNaN(end)) {
+                console.error('Invalid date values for inicia_anestesia or termina_anestesia');
+                tiempoField.value = '';
+                return;
+            }
             const diff = (end - start) / (1000 * 60); // Difference in minutes
-            document.getElementById('tiempo_anestesico').value = Math.round(diff);
+            if (diff < 0) {
+                console.error('End time is before start time');
+                tiempoField.value = '';
+                return;
+            }
+            tiempoField.value = Math.round(diff);
+        } else {
+            tiempoField.value = '';
         }
     }
 
     ['inicia_anestesia', 'termina_anestesia'].forEach(id => {
-        document.getElementById(id).addEventListener('change', updateAnestheticTime);
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener('input', updateAnestheticTime);
+        } else {
+            console.error(`Element with ID ${id} not found`);
+        }
     });
+
+    // Run calculations on page load
+    updateFluidsBalance();
+    updateAldreteScore();
+    updateAnestheticTime();
 
     // Client-side form validation
     document.getElementById('anestheticRecordForm').addEventListener('submit', function(event) {
         let isValid = true;
         const errors = [];
-
-        // Check if vital signs are provided
-        const vitalSignsProvided = $('#sistg').val() && $('#diastg').val() && $('#fcardg').val() && $('#frespg').val() && $('#satg').val() && $('#tempg').val();
-        if (!vitalSignsProvided) {
-            isValid = false;
-            errors.push('Debe registrar un conjunto completo de signos vitales.');
-            $('#sistg, #diastg, #fcardg, #frespg, #satg, #tempg').addClass('is-invalid');
-        } else {
-            $('#sistg, #diastg, #fcardg, #frespg, #satg, #tempg').removeClass('is-invalid');
-        }
 
         // Validate required fields
         const requiredInputs = document.querySelectorAll('#anestesiologo_id, #tipo_anestesia, #cirujano_id');
@@ -1162,24 +1292,89 @@ if (isset($_SESSION['hospital'])) {
         });
 
         // Validate numeric inputs only if provided
-        const numericInputs = [
-            { id: 'sistg', min: 10, max: 300, label: 'Presión Sistólica' },
-            { id: 'diastg', min: 10, max: 200, label: 'Presión Diastólica' },
-            { id: 'fcardg', min: 0, max: 300, label: 'Frecuencia Cardíaca' },
-            { id: 'frespg', min: 0, max: 100, label: 'Frecuencia Respiratoria' },
-            { id: 'satg', min: 0, max: 100, label: 'SpO2' },
-            { id: 'tempg', min: 0, max: 45, label: 'Temperatura' },
-            { id: 'hartmann', min: 0, max: 10000, label: 'Hartmann' },
-            { id: 'glucosa', min: 0, max: 10000, label: 'Glucosa' },
-            { id: 'nacl', min: 0, max: 10000, label: 'NaCl' },
-            { id: 'diuresis', min: 0, max: 10000, label: 'Diuresis' },
-            { id: 'sangrado', min: 0, max: 10000, label: 'Sangrado' },
-            { id: 'perdidas_insensibles', min: 0, max: 10000, label: 'Pérdidas Insensibles' },
-            { id: 'aldrete_total', min: 0, max: 10, label: 'Puntuación Aldrete Total' }
+        const numericInputs = [{
+                id: 'sistg',
+                min: 10,
+                max: 300,
+                label: 'Presión Sistólica'
+            },
+            {
+                id: 'diastg',
+                min: 10,
+                max: 200,
+                label: 'Presión Diastólica'
+            },
+            {
+                id: 'fcardg',
+                min: 0,
+                max: 300,
+                label: 'Frecuencia Cardíaca'
+            },
+            {
+                id: 'frespg',
+                min: 0,
+                max: 100,
+                label: 'Frecuencia Respiratoria'
+            },
+            {
+                id: 'satg',
+                min: 0,
+                max: 100,
+                label: 'SpO2'
+            },
+            {
+                id: 'tempg',
+                min: 0,
+                max: 45,
+                label: 'Temperatura'
+            },
+            {
+                id: 'hartmann',
+                min: 0,
+                max: 10000,
+                label: 'Hartmann'
+            },
+            {
+                id: 'glucosa',
+                min: 0,
+                max: 10000,
+                label: 'Glucosa'
+            },
+            {
+                id: 'nacl',
+                min: 0,
+                max: 10000,
+                label: 'NaCl'
+            },
+            {
+                id: 'diuresis',
+                min: 0,
+                max: 10000,
+                label: 'Diuresis'
+            },
+            {
+                id: 'sangrado',
+                min: 0,
+                max: 10000,
+                label: 'Sangrado'
+            },
+            {
+                id: 'perdidas_insensibles',
+                min: 0,
+                max: 10000,
+                label: 'Pérdidas Insensibles'
+            },
+            {
+                id: 'aldrete_total',
+                min: 0,
+                max: 10,
+                label: 'Puntuación Aldrete Total'
+            }
         ];
         numericInputs.forEach(field => {
             const input = document.getElementById(field.id);
-            if (input && input.value && (isNaN(input.value) || input.value < field.min || input.value > field.max)) {
+            if (input && input.value && (isNaN(input.value) || input.value < field.min || input.value >
+                    field.max)) {
                 isValid = false;
                 input.classList.add('is-invalid');
                 errors.push(`${field.label} debe estar entre ${field.min} y ${field.max}.`);
@@ -1237,4 +1432,5 @@ if (isset($_SESSION['hospital'])) {
     });
     </script>
 </body>
+
 </html>
