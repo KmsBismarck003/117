@@ -141,128 +141,128 @@ $pdf->AddPage();
 $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 30);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->Cell(0, 6, 'Datos del Paciente:', 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(255,255,255);
-$pdf->Cell(35, 7, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 7, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 7, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
-$pdf->Cell(35, 7, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 7, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($tel), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 5, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 5, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 5, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($tel), 0, 1, 'L');
 
-$pdf->Cell(35, 7, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 7, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
-$pdf->Cell(10, 7, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode($sexo), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($ocup), 0, 1, 'L');
+$pdf->Cell(35, 5, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 5, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
+$pdf->Cell(10, 5, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode($sexo), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($ocup), 0, 1, 'L');
 
-$pdf->Cell(20, 7, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($dir), 0, 1, 'L');
+$pdf->Cell(20, 5, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($dir), 0, 1, 'L');
 
 
-$pdf->Ln(5);
+$pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 10);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 10, utf8_decode('Refracción Antigua'), 0, 1, 'C', true);
+$pdf->Cell(0, 7, utf8_decode('Refracción Antigua'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->SetFillColor(245, 245, 245);
+$pdf->Cell(40, 6, '', 1, 0, 'C', true);
+$pdf->Cell(70, 6, utf8_decode('Ojo Derecho'), 1, 0, 'C', true);
+$pdf->Cell(70, 6, utf8_decode('Ojo Izquierdo'), 1, 1, 'C', true);
+
+$pdf->SetFont('Arial', '', 7);
+$pdf->Cell(40, 6, utf8_decode('Tipo'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($tipo_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($tipo_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('AV Lejana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($av_lejana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($av_lejana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('AV Lejana Lentes'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($av_lejana_lentes_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($av_lejana_lentes_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Esf. Lejana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($esf_lejana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($esf_lejana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Cil. Lejana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($cil_lejana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($cil_lejana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Eje Lejana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($eje_lejana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($eje_lejana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('ADD Lejana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($add_lejana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($add_lejana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Prisma Lejana'), 1, 0, 'L');
+$pdf->Cell(70, 6, $prisma_lejana_derecho ? utf8_decode('Sí') : utf8_decode('No'), 1, 0, 'C');
+$pdf->Cell(70, 6, $prisma_lejana_izquierdo ? utf8_decode('Sí') : utf8_decode('No'), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('AV Cercana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($av_cercana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($av_cercana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Esf. Cercana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($esf_cercana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($esf_cercana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Cil. Cercana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($cil_cercana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($cil_cercana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Eje Cercana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($eje_cercana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($eje_cercana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('ADD Cercana'), 1, 0, 'L');
+$pdf->Cell(70, 6, utf8_decode($add_cercana_derecho), 1, 0, 'C');
+$pdf->Cell(70, 6, utf8_decode($add_cercana_izquierdo), 1, 1, 'C');
+
+$pdf->Cell(40, 6, utf8_decode('Prisma Cercana'), 1, 0, 'L');
+$pdf->Cell(70, 6, $prisma_cercana_derecho ? utf8_decode('Sí') : utf8_decode('No'), 1, 0, 'C');
+$pdf->Cell(70, 6, $prisma_cercana_izquierdo ? utf8_decode('Sí') : utf8_decode('No'), 1, 1, 'C');
 $pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
+
+$pdf->SetFont('Arial', 'B', 8);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(40, 8, '', 1, 0, 'C', true);
-$pdf->Cell(70, 8, utf8_decode('Ojo Derecho'), 1, 0, 'C', true);
-$pdf->Cell(70, 8, utf8_decode('Ojo Izquierdo'), 1, 1, 'C', true);
+$pdf->Cell(95, 6, utf8_decode('Ojo Derecho'), 1, 0, 'C', true);
+$pdf->Cell(95, 6, utf8_decode('Ojo Izquierdo'), 1, 1, 'C', true);
 
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(40, 8, utf8_decode('Tipo'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($tipo_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($tipo_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('AV Lejana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($av_lejana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($av_lejana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('AV Lejana Lentes'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($av_lejana_lentes_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($av_lejana_lentes_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Esf. Lejana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($esf_lejana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($esf_lejana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Cil. Lejana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($cil_lejana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($cil_lejana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Eje Lejana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($eje_lejana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($eje_lejana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('ADD Lejana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($add_lejana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($add_lejana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Prisma Lejana'), 1, 0, 'L');
-$pdf->Cell(70, 8, $prisma_lejana_derecho ? utf8_decode('Sí') : utf8_decode('No'), 1, 0, 'C');
-$pdf->Cell(70, 8, $prisma_lejana_izquierdo ? utf8_decode('Sí') : utf8_decode('No'), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('AV Cercana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($av_cercana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($av_cercana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Esf. Cercana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($esf_cercana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($esf_cercana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Cil. Cercana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($cil_cercana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($cil_cercana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Eje Cercana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($eje_cercana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($eje_cercana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('ADD Cercana'), 1, 0, 'L');
-$pdf->Cell(70, 8, utf8_decode($add_cercana_derecho), 1, 0, 'C');
-$pdf->Cell(70, 8, utf8_decode($add_cercana_izquierdo), 1, 1, 'C');
-
-$pdf->Cell(40, 8, utf8_decode('Prisma Cercana'), 1, 0, 'L');
-$pdf->Cell(70, 8, $prisma_cercana_derecho ? utf8_decode('Sí') : utf8_decode('No'), 1, 0, 'C');
-$pdf->Cell(70, 8, $prisma_cercana_izquierdo ? utf8_decode('Sí') : utf8_decode('No'), 1, 1, 'C');
-$pdf->Ln(10);
-
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(95, 8, utf8_decode('Ojo Derecho'), 1, 0, 'C', true);
-$pdf->Cell(95, 8, utf8_decode('Ojo Izquierdo'), 1, 1, 'C', true);
-
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetFillColor(255,255,255);
-$pdf->MultiCell(95, 40, utf8_decode($detalle_refra_ojo_dere), 1, 'J', false);
+$pdf->MultiCell(95, 25, utf8_decode($detalle_refra_ojo_dere), 1, 'J', false);
 $x = $pdf->GetX();
-$y = $pdf->GetY() - 40; // Regresa a la línea superior
+$y = $pdf->GetY() - 25; 
 $pdf->SetXY($x + 95, $y);
-$pdf->MultiCell(95, 40, utf8_decode($detalle_refra_ojo_izq), 1, 'J', false);
-$pdf->Ln(5);
+$pdf->MultiCell(95, 25, utf8_decode($detalle_refra_ojo_izq), 1, 'J', false);
+$pdf->Ln(3);
 
 $pdf->SetY(-48);
 if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
-    $imgWidth = 40;
+    $imgWidth = 35;
     $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
     $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
-    $pdf->Ln(22);
+    $pdf->Ln(18);
 }
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 6, utf8_decode($cargp), 0, 1, 'C');
-$pdf->Cell(0, 6, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 4, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(0, 4, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 4, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
 $pdf->Output();

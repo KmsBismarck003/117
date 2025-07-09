@@ -99,7 +99,7 @@ $amsler_oi = $row_prueba['amsler_oi'] ?? '';
 
 $ojo_preferente = $row_prueba['ojo_preferente'] ?? '';
 $detalle_prueba = $row_prueba['detalle_prueba'] ?? '';
-$fecha_prueba = $row_hist['fecha'] ?? date('Y-m-d H:i:s');
+$fecha_prueba = $row_prueba['fecha_consulta'] ?? date('Y-m-d H:i:s');
 $GLOBALS['fecha_prueba'] = $fecha_prueba;
 
 $sql_med = "SELECT * FROM reg_usuarios WHERE id_usua = $id_usua";
@@ -125,14 +125,14 @@ class PDF extends FPDF
             $this->Image("../../configuracion/admin/img4/" . $f['img_dpdf'], 168, 16, 38, 14);
 
         }
-        $this->SetY(40);
-        $this->SetFont('Arial', 'B', 15);
+        $this->SetY(38);
+        $this->SetFont('Arial', 'B', 10);
         $this->SetTextColor(40, 40, 40);
-        $this->Cell(0, 12, utf8_decode('NOTA DE PRUEBAS OFTALMOLÓGICAS'), 0, 1, 'C');
-        $this->SetFont('Arial', '', 10);
+        $this->Cell(0, 6, utf8_decode('NOTA DE PRUEBAS OFTALMOLÓGICAS'), 0, 1, 'C');
+        $this->SetFont('Arial', '', 7);
         $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 6, utf8_decode('Fecha: ') . date('d/m/Y H:i', strtotime($GLOBALS['fecha_prueba'])), 0, 1, 'R');
-        $this->Ln(5);
+        $this->Cell(0, 3, utf8_decode('Fecha: ') . date('d/m/Y H:i', strtotime($GLOBALS['fecha_prueba'])), 0, 1, 'R');
+        $this->Ln(1);
     }
     function Footer()
     {
@@ -152,7 +152,7 @@ function Row($data)
     $nb = 0;
     for($i=0;$i<count($data);$i++)
         $nb = max($nb, $this->NbLines($this->widths[$i],$data[$i]));
-    $h = 7 * $nb;
+    $h = 5 * $nb;
     $this->CheckPageBreak($h);
     for($i=0;$i<count($data);$i++)
     {
@@ -161,7 +161,7 @@ function Row($data)
         $x = $this->GetX();
         $y = $this->GetY();
         $this->Rect($x,$y,$w,$h);
-        $this->MultiCell($w,7,$data[$i],0,$a);
+        $this->MultiCell($w,5,$data[$i],0,$a);
         $this->SetXY($x+$w,$y);
     }
     $this->Ln($h);
@@ -220,6 +220,65 @@ function NbLines($w,$txt)
     }
     return $nl;
 }
+
+function tablasLadoALado($datosOD, $datosOI, $titulo1, $titulo2) {
+    $y_inicial = $this->GetY();
+    $ancho_tabla = 85;
+    $x_tabla1 = 15;
+    $x_tabla2 = 110;
+    
+    // Título OD
+    $this->SetXY($x_tabla1, $y_inicial);
+    $this->SetFont('Arial', 'B', 8);
+    $this->SetFillColor(245, 245, 245);
+    $this->Cell($ancho_tabla, 5, utf8_decode($titulo1), 0, 1, 'C', true);
+    
+    // Título OI
+    $this->SetXY($x_tabla2, $y_inicial);
+    $this->Cell($ancho_tabla, 5, utf8_decode($titulo2), 0, 1, 'C', true);
+    
+    $y_actual = $y_inicial + 5;
+    
+    // Encabezados
+    $this->SetFont('Arial', '', 7);
+    $this->SetXY($x_tabla1, $y_actual);
+    $this->Cell(35, 4, utf8_decode('Parámetro'), 1, 0, 'C', true);
+    $this->Cell(50, 4, 'Valor', 1, 0, 'C', true);
+    
+    $this->SetXY($x_tabla2, $y_actual);
+    $this->Cell(35, 4, utf8_decode('Parámetro'), 1, 0, 'C', true);
+    $this->Cell(50, 4, 'Valor', 1, 0, 'C', true);
+    
+    $y_actual += 4;
+    
+    // Datos
+    $max_filas = max(count($datosOD), count($datosOI));
+    for ($i = 0; $i < $max_filas; $i++) {
+        // Tabla OD
+        $this->SetXY($x_tabla1, $y_actual);
+        if ($i < count($datosOD)) {
+            $this->Cell(35, 4, $datosOD[$i][0], 1, 0, 'L');
+            $this->Cell(50, 4, utf8_decode($datosOD[$i][1]), 1, 0, 'L');
+        } else {
+            $this->Cell(35, 4, '', 1, 0, 'L');
+            $this->Cell(50, 4, '', 1, 0, 'L');
+        }
+        
+        // Tabla OI
+        $this->SetXY($x_tabla2, $y_actual);
+        if ($i < count($datosOI)) {
+            $this->Cell(35, 4, $datosOI[$i][0], 1, 0, 'L');
+            $this->Cell(50, 4, utf8_decode($datosOI[$i][1]), 1, 0, 'L');
+        } else {
+            $this->Cell(35, 4, '', 1, 0, 'L');
+            $this->Cell(50, 4, '', 1, 0, 'L');
+        }
+        
+        $y_actual += 4;
+    }
+    
+    $this->SetY($y_actual + 2);
+}
 }
 
 $pdf = new PDF('P', 'mm', 'Letter');
@@ -228,140 +287,104 @@ $pdf->AddPage();
 $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 30);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->Cell(0, 6, 'Datos del Paciente:', 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(255,255,255);
-$pdf->Cell(35, 7, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 7, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 7, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
-$pdf->Cell(35, 7, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 7, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($tel), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 5, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 5, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 5, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($tel), 0, 1, 'L');
 
-$pdf->Cell(35, 7, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 7, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
-$pdf->Cell(10, 7, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode($sexo), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($ocup), 0, 1, 'L');
+$pdf->Cell(35, 5, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 5, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
+$pdf->Cell(10, 5, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode($sexo), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($ocup), 0, 1, 'L');
 
-$pdf->Cell(20, 7, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($dir), 0, 1, 'L');
-$pdf->Ln(5);
+$pdf->Cell(20, 5, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($dir), 0, 1, 'L');
+$pdf->Ln(2);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Datos de la Prueba Oftalmológica'), 0, 1, 'L', true);
+$pdf->Cell(0, 6, utf8_decode('Datos de la Prueba Oftalmológica'), 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(50, 7, 'Tipo de Prueba:', 1, 0, 'L');
-$pdf->Cell(60, 7, utf8_decode($row_prueba['tipo_prueba']), 1, 0, 'L');
-$pdf->Cell(30, 7, 'Resultado:', 1, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($row_prueba['resultado']), 1, 1, 'L');
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(50, 5, 'Tipo de Prueba:', 1, 0, 'L');
+$pdf->Cell(60, 5, utf8_decode($row_prueba['tipo_prueba']), 1, 0, 'L');
+$pdf->Cell(30, 5, 'Resultado:', 1, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($row_prueba['resultado']), 1, 1, 'L');
 
-$pdf->Cell(50, 7, 'Fecha de Consulta:', 1, 0, 'L');
-$pdf->Cell(60, 7, date('d/m/Y H:i', strtotime($row_prueba['fecha_consulta'])), 1, 0, 'L');
-$pdf->Cell(30, 7, 'Ojo Preferente:', 1, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($row_prueba['ojo_preferente']), 1, 1, 'L');
+$pdf->Cell(50, 5, 'Fecha de Consulta:', 1, 0, 'L');
+$pdf->Cell(60, 5, date('d/m/Y H:i', strtotime($row_prueba['fecha_consulta'])), 1, 0, 'L');
+$pdf->Cell(30, 5, 'Ojo Preferente:', 1, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($row_prueba['ojo_preferente']), 1, 1, 'L');
 
-$pdf->Cell(50, 7, 'Observaciones:', 1, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($row_prueba['observaciones']), 1, 1, 'L');
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Cell(50, 5, 'Observaciones:', 1, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($row_prueba['observaciones']), 1, 1, 'L');
+$pdf->Ln(2);
+
+$datosOD = [
+    ['Estrabismo', $row_prueba['estrabismo_od']],
+    ['Movimientos', $row_prueba['movimientos_od']],
+    ['Convergencia', $row_prueba['convergencia_od']],
+    ['Prueba Cover', $row_prueba['prueba_cover_od']],
+    ['Visión Estéreo', $row_prueba['vision_estereo_od']],
+    ['Worth', $row_prueba['worth_od']],
+    ['Schirmer', $row_prueba['schirmer_od']],
+    ['TRPL', $row_prueba['trpl_od']],
+    ['Fluoresceína', $row_prueba['fluoresceina_od']],
+    ['Contraste', $row_prueba['contraste_od']],
+    ['Ishihara', $row_prueba['ishihara_od']],
+    ['Farnsworth', $row_prueba['farnsworth_od']],
+    ['Amsler', $row_prueba['amsler_od']]
+];
+
+$datosOI = [
+    ['Estrabismo', $row_prueba['estrabismo_oi']],
+    ['Movimientos', $row_prueba['movimientos_oi']],
+    ['Convergencia', $row_prueba['convergencia_oi']],
+    ['Prueba Cover', $row_prueba['prueba_cover_oi']],
+    ['Visión Estéreo', $row_prueba['vision_estereo_oi']],
+    ['Worth', $row_prueba['worth_oi']],
+    ['Schirmer', $row_prueba['schirmer_oi']],
+    ['TRPL', $row_prueba['trpl_oi']],
+    ['Fluoresceína', $row_prueba['fluoresceina_oi']],
+    ['Contraste', $row_prueba['contraste_oi']],
+    ['Ishihara', $row_prueba['ishihara_oi']],
+    ['Farnsworth', $row_prueba['farnsworth_oi']],
+    ['Amsler', $row_prueba['amsler_oi']]
+];
+
+$pdf->tablasLadoALado($datosOD, $datosOI, 'Resultados OD (Ojo Derecho)', 'Resultados OI (Ojo Izquierdo)');
+
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Resultados OD (Ojo Derecho)'), 0, 1, 'C', true); // Cambia 'L' por 'C'
+$pdf->Cell(0, 6, utf8_decode('Detalle de la Prueba'), 0, 1, 'L', true);
+$pdf->SetFont('Arial', '', 8);
+$pdf->MultiCell(0, 5, utf8_decode($row_prueba['detalle_prueba']), 1, 'J', false);
 
-$pdf->SetFont('Arial', '', 10);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->SetWidths([60, 80]); 
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2); 
-$pdf->Row([utf8_decode('Parámetro'), utf8_decode('Valor')]);$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Estrabismo', utf8_decode($row_prueba['estrabismo_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Movimientos', utf8_decode($row_prueba['movimientos_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Convergencia', utf8_decode($row_prueba['convergencia_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Prueba Cover', utf8_decode($row_prueba['prueba_cover_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row([utf8_decode('Visión Estéreo'), utf8_decode($row_prueba['vision_estereo_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Worth', utf8_decode($row_prueba['worth_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Schirmer', utf8_decode($row_prueba['schirmer_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['TRPL', utf8_decode($row_prueba['trpl_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row([utf8_decode('Fluoresceína'), utf8_decode($row_prueba['fluoresceina_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Contraste', utf8_decode($row_prueba['contraste_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Ishihara', utf8_decode($row_prueba['ishihara_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Farnsworth', utf8_decode($row_prueba['farnsworth_od'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Amsler', utf8_decode($row_prueba['amsler_od'])]);
-
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 11);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Resultados OI (Ojo Izquierdo)'), 0, 1, 'C', true); // Cambia 'L' por 'C'
-
-$pdf->SetFont('Arial', '', 10);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->SetWidths([60, 80]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row([utf8_decode('Parámetro'), utf8_decode('Valor')]);$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Estrabismo', utf8_decode($row_prueba['estrabismo_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Movimientos', utf8_decode($row_prueba['movimientos_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Convergencia', utf8_decode($row_prueba['convergencia_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Prueba Cover', utf8_decode($row_prueba['prueba_cover_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row([utf8_decode('Visión Estéreo'), utf8_decode($row_prueba['vision_estereo_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Worth', utf8_decode($row_prueba['worth_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Schirmer', utf8_decode($row_prueba['schirmer_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['TRPL', utf8_decode($row_prueba['trpl_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row([utf8_decode('Fluoresceína'), utf8_decode($row_prueba['fluoresceina_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Contraste', utf8_decode($row_prueba['contraste_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Ishihara', utf8_decode($row_prueba['ishihara_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Farnsworth', utf8_decode($row_prueba['farnsworth_oi'])]);
-$pdf->SetX(($pdf->GetPageWidth() - 140) / 2);
-$pdf->Row(['Amsler', utf8_decode($row_prueba['amsler_oi'])]);
-// --- DETALLE ---
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 11);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Detalle de la Prueba'), 0, 1, 'L', true);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 7, utf8_decode($row_prueba['detalle_prueba']), 1, 'J', false);
-
-$pdf->SetY(-48);
+$pdf->SetY(-45);
 if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
-    $imgWidth = 40;
+    $imgWidth = 30;
     $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
     $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
-    $pdf->Ln(22);
+    $pdf->Ln(16);
 }
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 6, utf8_decode($cargp), 0, 1, 'C');
-$pdf->Cell(0, 6, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 4, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(0, 4, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 4, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
 $pdf->Output();

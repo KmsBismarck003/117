@@ -105,7 +105,7 @@ $prisma_cercana_oi = !empty($row_receta['prisma_cercana_oi']) ? utf8_decode('Sí
 $tipo_lente_od = $row_receta['tipo_lente_od'] ?? '';
 $tipo_lente_oi = $row_receta['tipo_lente_oi'] ?? '';
 $observaciones = $row_receta['observaciones'] ?? '';
-$fecha_anteojo = $row_hist['fecha'] ?? date('Y-m-d H:i:s');
+$fecha_anteojo = $row_receta['fecha'] ?? date('Y-m-d H:i:s');
 $GLOBALS['fecha_anteojo'] = $fecha_anteojo;
 
 $sql_med = "SELECT * FROM reg_usuarios WHERE id_usua = $id_usua";
@@ -131,14 +131,14 @@ class PDF extends FPDF
             $this->Image("../../configuracion/admin/img4/" . $f['img_dpdf'], 168, 16, 38, 14);
 
         }
-        $this->SetY(40);
-        $this->SetFont('Arial', 'B', 15);
+        $this->SetY(38);
+        $this->SetFont('Arial', 'B', 10);
         $this->SetTextColor(40, 40, 40);
-        $this->Cell(0, 12, utf8_decode('NOTA DE LENTES DE CONTACTO'), 0, 1, 'C');
-        $this->SetFont('Arial', '', 10);
+        $this->Cell(0, 6, utf8_decode('NOTA DE LENTES DE CONTACTO'), 0, 1, 'C');
+        $this->SetFont('Arial', '', 7);
         $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 6, utf8_decode('Fecha: ') . date('d/m/Y H:i', strtotime($GLOBALS['fecha_anteojo'])), 0, 1, 'R');
-        $this->Ln(5);
+        $this->Cell(0, 3, utf8_decode('Fecha: ') . date('d/m/Y H:i', strtotime($GLOBALS['fecha_anteojo'])), 0, 1, 'R');
+        $this->Ln(1);
     }
     function Footer()
     {
@@ -156,189 +156,189 @@ $pdf->AddPage();
 $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 30);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->Cell(0, 6, 'Datos del Paciente:', 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(255,255,255);
-$pdf->Cell(35, 7, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 7, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 7, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
-$pdf->Cell(35, 7, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 7, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($tel), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 5, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 5, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 5, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($tel), 0, 1, 'L');
 
-$pdf->Cell(35, 7, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 7, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
-$pdf->Cell(10, 7, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode($sexo), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($ocup), 0, 1, 'L');
+$pdf->Cell(35, 5, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 5, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
+$pdf->Cell(10, 5, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode($sexo), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($ocup), 0, 1, 'L');
 
-$pdf->Cell(20, 7, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($dir), 0, 1, 'L');
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 13);
+$pdf->Cell(20, 5, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($dir), 0, 1, 'L');
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 10);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 12, utf8_decode('RECETA DE LENTES DE CONTACTO'), 0, 1, 'C', true);
-$pdf->Ln(2);
+$pdf->Cell(0, 7, utf8_decode('RECETA DE LENTES DE CONTACTO'), 0, 1, 'C', true);
+$pdf->Ln(1);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Lentes de Contacto Suaves'), 0, 1, 'C', true);
+$pdf->Cell(0, 6, utf8_decode('Lentes de Contacto Suaves'), 0, 1, 'C', true);
 
-$pdf->SetFont('Arial', '', 10);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->SetX(25);
-$pdf->Cell(35, 7, '', 1, 0, 'C', true);
-$pdf->Cell(30, 7, 'Esfera', 1, 0, 'C', true);
-$pdf->Cell(30, 7, 'Cilindro', 1, 0, 'C', true);
-$pdf->Cell(25, 7, 'Curva Base', 1, 0, 'C', true);
-$pdf->Cell(25, 7, utf8_decode('Diámetro'), 1, 1, 'C', true);
-
-$pdf->SetX(25);
-$pdf->Cell(35, 7, 'OD', 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_suaves_der_esf'], 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_suaves_der_cil'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_suaves_der_cb'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_suaves_der_diam'], 1, 1, 'C');
-
-$pdf->SetX(25);
-$pdf->Cell(35, 7, 'OI', 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_suaves_izq_esf'], 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_suaves_izq_cil'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_suaves_izq_cb'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_suaves_izq_diam'], 1, 1, 'C');
-
-$pdf->Ln(2);
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 7, 'Tipo OD: ' . utf8_decode($row_receta['tipo_suaves_der']) . '   |   Tipo OI: ' . utf8_decode($row_receta['tipo_suaves_izq']), 0, 1, 'C');
-
-$pdf->Ln(2);
-$pdf->SetFont('Arial', 'B', 11);
-$pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Lentes de Contacto Duros'), 0, 1, 'C', true);
-
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(245, 245, 245);
 $pdf->SetX(25);
-$pdf->Cell(35, 7, '', 1, 0, 'C', true);
-$pdf->Cell(30, 7, 'Esfera', 1, 0, 'C', true);
-$pdf->Cell(30, 7, 'Cilindro', 1, 0, 'C', true);
-$pdf->Cell(25, 7, 'Curva Base', 1, 0, 'C', true);
-$pdf->Cell(25, 7, utf8_decode('Diámetro'), 1, 1, 'C', true);
+$pdf->Cell(35, 5, '', 1, 0, 'C', true);
+$pdf->Cell(30, 5, 'Esfera', 1, 0, 'C', true);
+$pdf->Cell(30, 5, 'Cilindro', 1, 0, 'C', true);
+$pdf->Cell(25, 5, 'Curva Base', 1, 0, 'C', true);
+$pdf->Cell(25, 5, utf8_decode('Diámetro'), 1, 1, 'C', true);
 
 $pdf->SetX(25);
-$pdf->Cell(35, 7, 'OD', 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_duros_der_esf'], 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_duros_der_cil'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_duros_der_cb'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_duros_der_diam'], 1, 1, 'C');
+$pdf->Cell(35, 5, 'OD', 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_suaves_der_esf'], 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_suaves_der_cil'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_suaves_der_cb'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_suaves_der_diam'], 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(35, 7, 'OI', 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_duros_izq_esf'], 1, 0, 'C');
-$pdf->Cell(30, 7, $row_receta['av_duros_izq_cil'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_duros_izq_cb'], 1, 0, 'C');
-$pdf->Cell(25, 7, $row_receta['av_duros_izq_diam'], 1, 1, 'C');
+$pdf->Cell(35, 5, 'OI', 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_suaves_izq_esf'], 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_suaves_izq_cil'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_suaves_izq_cb'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_suaves_izq_diam'], 1, 1, 'C');
 
-$pdf->Ln(2);
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 7, 'Tangente OD: ' . $row_receta['receta_duros_der_tangente'] . ' | Altura OD: ' . $row_receta['receta_duros_der_altura'] . ' | EL OD: ' . $row_receta['receta_duros_der_el'] . ' | OR OD: ' . $row_receta['receta_duros_der_or'], 0, 1, 'C');
-$pdf->Cell(0, 7, 'Tangente OI: ' . $row_receta['receta_duros_izq_tangente'] . ' | Altura OI: ' . $row_receta['receta_duros_izq_altura'] . ' | EL OI: ' . $row_receta['receta_duros_izq_el'] . ' | OR OI: ' . $row_receta['receta_duros_izq_or'], 0, 1, 'C');
-$pdf->Ln(3);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(1);
+$pdf->SetFont('Arial', '', 7);
+$pdf->Cell(0, 5, 'Tipo OD: ' . utf8_decode($row_receta['tipo_suaves_der']) . '   |   Tipo OI: ' . utf8_decode($row_receta['tipo_suaves_izq']), 0, 1, 'C');
+
+$pdf->Ln(1);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Lentes de Contacto Híbridos'), 0, 1, 'C', true);
+$pdf->Cell(0, 6, utf8_decode('Lentes de Contacto Duros'), 0, 1, 'C', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
+$pdf->SetFillColor(245, 245, 245);
+$pdf->SetX(25);
+$pdf->Cell(35, 5, '', 1, 0, 'C', true);
+$pdf->Cell(30, 5, 'Esfera', 1, 0, 'C', true);
+$pdf->Cell(30, 5, 'Cilindro', 1, 0, 'C', true);
+$pdf->Cell(25, 5, 'Curva Base', 1, 0, 'C', true);
+$pdf->Cell(25, 5, utf8_decode('Diámetro'), 1, 1, 'C', true);
+
+$pdf->SetX(25);
+$pdf->Cell(35, 5, 'OD', 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_duros_der_esf'], 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_duros_der_cil'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_duros_der_cb'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_duros_der_diam'], 1, 1, 'C');
+
+$pdf->SetX(25);
+$pdf->Cell(35, 5, 'OI', 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_duros_izq_esf'], 1, 0, 'C');
+$pdf->Cell(30, 5, $row_receta['av_duros_izq_cil'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_duros_izq_cb'], 1, 0, 'C');
+$pdf->Cell(25, 5, $row_receta['av_duros_izq_diam'], 1, 1, 'C');
+
+$pdf->Ln(1);
+$pdf->SetFont('Arial', '', 7);
+$pdf->Cell(0, 4, 'Tangente OD: ' . $row_receta['receta_duros_der_tangente'] . ' | Altura OD: ' . $row_receta['receta_duros_der_altura'] . ' | EL OD: ' . $row_receta['receta_duros_der_el'] . ' | OR OD: ' . $row_receta['receta_duros_der_or'], 0, 1, 'C');
+$pdf->Cell(0, 4, 'Tangente OI: ' . $row_receta['receta_duros_izq_tangente'] . ' | Altura OI: ' . $row_receta['receta_duros_izq_altura'] . ' | EL OI: ' . $row_receta['receta_duros_izq_el'] . ' | OR OI: ' . $row_receta['receta_duros_izq_or'], 0, 1, 'C');
+$pdf->Ln(1);
+$pdf->SetFont('Arial', 'B', 9);
+$pdf->SetFillColor(245, 245, 245);
+$pdf->Cell(0, 6, utf8_decode('Lentes de Contacto Híbridos'), 0, 1, 'C', true);
+
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(245, 245, 245);
 $pdf->SetX(45);
-$pdf->Cell(60, 7, utf8_decode('AV Híbrido OD'), 1, 0, 'C', true);
-$pdf->Cell(60, 7, utf8_decode('AV Híbrido OI'), 1, 1, 'C', true);
+$pdf->Cell(60, 5, utf8_decode('AV Híbrido OD'), 1, 0, 'C', true);
+$pdf->Cell(60, 5, utf8_decode('AV Híbrido OI'), 1, 1, 'C', true);
 
 $pdf->SetX(45);
-$pdf->Cell(60, 7, $row_receta['av_con_hibrido_der'], 1, 0, 'C');
-$pdf->Cell(60, 7, $row_receta['av_con_hibrido_izq'], 1, 1, 'C');
+$pdf->Cell(60, 5, $row_receta['av_con_hibrido_der'], 1, 0, 'C');
+$pdf->Cell(60, 5, $row_receta['av_con_hibrido_izq'], 1, 1, 'C');
 
-$pdf->Ln(25);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Opciones y Marca'), 0, 1, 'L', true);
+$pdf->Cell(0, 6, utf8_decode('Opciones y Marca'), 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(255,255,255);
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'Tipo de Lente', 1, 0, 'C', true);
-$pdf->Cell(60, 7, 'OD', 1, 0, 'C', true);
-$pdf->Cell(60, 7, 'OI', 1, 1, 'C', true);
+$pdf->Cell(45, 5, 'Tipo de Lente', 1, 0, 'C', true);
+$pdf->Cell(60, 5, 'OD', 1, 0, 'C', true);
+$pdf->Cell(60, 5, 'OI', 1, 1, 'C', true);
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'Opciones', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['opciones_od']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['opciones_oi']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'Opciones', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['opciones_od']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['opciones_oi']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'Marca', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['marca_od']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['marca_oi']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'Marca', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['marca_od']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['marca_oi']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'DK', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['dk_od']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['dk_oi']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'DK', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['dk_od']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['dk_oi']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'AV', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['av_od']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['av_oi']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'AV', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['av_od']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['av_oi']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'Tangente', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_der_tangente']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_izq_tangente']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'Tangente', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_der_tangente']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_izq_tangente']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'Altura', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_der_altura']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_izq_altura']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'Altura', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_der_altura']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_izq_altura']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'EL', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_der_el']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_izq_el']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'EL', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_der_el']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_izq_el']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, 'OR', 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_der_or']), 1, 0, 'C');
-$pdf->Cell(60, 7, utf8_decode($row_receta['receta_duros_izq_or']), 1, 1, 'C');
+$pdf->Cell(45, 5, 'OR', 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_der_or']), 1, 0, 'C');
+$pdf->Cell(60, 5, utf8_decode($row_receta['receta_duros_izq_or']), 1, 1, 'C');
 
 $pdf->SetX(25);
-$pdf->Cell(45, 7, '', 0, 0, 'C');
-$pdf->Cell(60, 7, 'Tipo OD: ' . utf8_decode($row_receta['tipo_suaves_der']), 1, 0, 'C');
-$pdf->Cell(60, 7, 'Tipo OI: ' . utf8_decode($row_receta['tipo_suaves_izq']), 1, 1, 'C');
+$pdf->Cell(45, 5, '', 0, 0, 'C');
+$pdf->Cell(60, 5, 'Tipo OD: ' . utf8_decode($row_receta['tipo_suaves_der']), 1, 0, 'C');
+$pdf->Cell(60, 5, 'Tipo OI: ' . utf8_decode($row_receta['tipo_suaves_izq']), 1, 1, 'C');
 
-$pdf->Ln(2);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(1);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Detalle de Contactología'), 0, 1, 'L', true);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 7, utf8_decode($row_receta['detalle_contacto']), 1, 'J', false);
-$pdf->SetY(-48);
+$pdf->Cell(0, 6, utf8_decode('Detalle de Contactología'), 0, 1, 'L', true);
+$pdf->SetFont('Arial', '', 8);
+$pdf->MultiCell(0, 5, utf8_decode($row_receta['detalle_contacto']), 1, 'J', false);
+$pdf->SetY(-42);
 if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
-    $imgWidth = 40;
+    $imgWidth = 30;
     $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
     $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
-    $pdf->Ln(22);
+    $pdf->Ln(16);
 }
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 6, utf8_decode($cargp), 0, 1, 'C');
-$pdf->Cell(0, 6, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 4, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(0, 4, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 4, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
 $pdf->Output();

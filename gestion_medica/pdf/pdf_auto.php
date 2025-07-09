@@ -117,7 +117,7 @@ $q_oi_k2 = $row_auto['q_oi_k2'] ?? '';
 $q_oi_k2_eje = $row_auto['q_oi_k2_eje'] ?? '';
 $q_oi_cyl = $row_auto['q_oi_cyl'] ?? '';
 $q_oi_cyl_eje = $row_auto['q_oi_cyl_eje'] ?? '';
-$fecha_auto = $row_hist['fecha'] ?? date('Y-m-d H:i:s');
+$fecha_auto = $row_auto['fecha'] ?? date('Y-m-d H:i:s');
 $GLOBALS['fecha_auto'] = $fecha_auto;
 
 $sql_med = "SELECT * FROM reg_usuarios WHERE id_usua = $id_usua";
@@ -168,64 +168,120 @@ $pdf->AddPage();
 $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 30);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->Cell(0, 6, 'Datos del Paciente:', 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(255,255,255);
-$pdf->Cell(35, 7, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 7, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 7, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
-$pdf->Cell(35, 7, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 7, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 7, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($tel), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 5, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 5, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
+$pdf->Cell(35, 5, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 5, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 5, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($tel), 0, 1, 'L');
 
-$pdf->Cell(35, 7, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 7, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
-$pdf->Cell(10, 7, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 7, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode($sexo), 0, 0, 'L');
-$pdf->Cell(20, 7, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($ocup), 0, 1, 'L');
+$pdf->Cell(35, 5, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 5, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
+$pdf->Cell(10, 5, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 5, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode($sexo), 0, 0, 'L');
+$pdf->Cell(20, 5, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($ocup), 0, 1, 'L');
 
-$pdf->Cell(20, 7, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 7, utf8_decode($dir), 0, 1, 'L');
-$pdf->Ln(4);
-$pdf->SetFont('Arial', 'B', 13);
-$pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 12, utf8_decode('AUTORREFRACCIÓN  / QUERATOCONO'), 0, 1, 'C', true);
+$pdf->Cell(20, 5, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 5, utf8_decode($dir), 0, 1, 'L');
 $pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFillColor(220, 230, 250);
+$pdf->Cell(0, 8, utf8_decode('AUTORREFRACCIÓN  / QUERATOCONO'), 0, 1, 'C', true);
+$pdf->Ln(1);
 
 function tablaCentralizada($pdf, $titulo, $tipo, $od, $oi) {
-    $pdf->SetFont('Arial', 'B', 11);
+    $pdf->SetFont('Arial', 'B', 9);
     $pdf->SetFillColor(230, 230, 230);
-    $pdf->Cell(0, 9, utf8_decode($titulo . ($tipo ? ": $tipo" : "")), 0, 1, 'C', true);
-    $pdf->SetFont('Arial', '', 10);
+    $pdf->Cell(0, 6, utf8_decode($titulo . ($tipo ? ": $tipo" : "")), 0, 1, 'C', true);
+    $pdf->SetFont('Arial', '', 7);
 
-    $ancho_col1 = 30;
-    $ancho_col2 = 30;
-    $ancho_col3 = 30;
+    $ancho_col1 = 25;
+    $ancho_col2 = 25;
+    $ancho_col3 = 25;
 
     $totalWidth = $ancho_col1 + $ancho_col2 + $ancho_col3;
     $startX = ($pdf->GetPageWidth() - $totalWidth) / 2;
     $pdf->SetX($startX);
-    $pdf->Cell($ancho_col1, 6, '', 1, 0, 'C', true);
-    $pdf->Cell($ancho_col2, 6, 'OD', 1, 0, 'C', true);
-    $pdf->Cell($ancho_col3, 6, 'OI', 1, 1, 'C', true);
+    $pdf->Cell($ancho_col1, 5, '', 1, 0, 'C', true);
+    $pdf->Cell($ancho_col2, 5, 'OD', 1, 0, 'C', true);
+    $pdf->Cell($ancho_col3, 5, 'OI', 1, 1, 'C', true);
 
     foreach ($od as $i => $val) {
         $pdf->SetX($startX);
-        $pdf->Cell($ancho_col1, 7, $val[0], 1, 0, 'C');
-        $pdf->Cell($ancho_col2, 7, $val[1], 1, 0, 'C');
-        $pdf->Cell($ancho_col3, 7, $oi[$i][1], 1, 1, 'C');
+        $pdf->Cell($ancho_col1, 5, $val[0], 1, 0, 'C');
+        $pdf->Cell($ancho_col2, 5, $val[1], 1, 0, 'C');
+        $pdf->Cell($ancho_col3, 5, $oi[$i][1], 1, 1, 'C');
     }
-    $pdf->Ln(2);
+    $pdf->Ln(1);
 }
-tablaCentralizada($pdf, 'Refracción Previa 1', $previa_tipo1, [
+
+function tablaDoble($pdf, $titulo1, $tipo1, $od1, $oi1, $titulo2, $tipo2, $od2, $oi2) {
+    $currentY = $pdf->GetY();
+    
+    $pdf->SetFont('Arial', 'B', 8);
+    $pdf->SetFillColor(230, 230, 230);
+    $pdf->Cell(85, 5, utf8_decode($titulo1 . ($tipo1 ? ": $tipo1" : "")), 0, 0, 'C', true);
+    
+    $pdf->Cell(10, 5, '', 0, 0, 'C');
+    
+    $pdf->Cell(85, 5, utf8_decode($titulo2 . ($tipo2 ? ": $tipo2" : "")), 0, 1, 'C', true);
+    
+    $pdf->SetFont('Arial', '', 6);
+    
+    $pdf->Cell(20, 4, '', 1, 0, 'C', true);
+    $pdf->Cell(32, 4, 'OD', 1, 0, 'C', true);
+    $pdf->Cell(33, 4, 'OI', 1, 0, 'C', true);
+    
+    $pdf->Cell(10, 4, '', 0, 0, 'C');
+    
+    $pdf->Cell(20, 4, '', 1, 0, 'C', true);
+    $pdf->Cell(32, 4, 'OD', 1, 0, 'C', true);
+    $pdf->Cell(33, 4, 'OI', 1, 1, 'C', true);
+    
+    $maxRows = max(count($od1), count($od2));
+    for ($i = 0; $i < $maxRows; $i++) {
+        if ($i < count($od1)) {
+            $pdf->Cell(20, 4, $od1[$i][0], 1, 0, 'C');
+            $pdf->Cell(32, 4, $od1[$i][1], 1, 0, 'C');
+            $pdf->Cell(33, 4, $oi1[$i][1], 1, 0, 'C');
+        } else {
+            if ($i < count($od2)) {
+                $pdf->Cell(20, 4, '', 1, 0, 'C');
+                $pdf->Cell(32, 4, '', 1, 0, 'C');
+                $pdf->Cell(33, 4, '', 1, 0, 'C');
+            }
+        }
+        
+        $pdf->Cell(10, 4, '', 0, 0, 'C');
+        
+        if ($i < count($od2)) {
+            $pdf->Cell(20, 4, $od2[$i][0], 1, 0, 'C');
+            $pdf->Cell(32, 4, $od2[$i][1], 1, 0, 'C');
+            $pdf->Cell(33, 4, $oi2[$i][1], 1, 1, 'C');
+        } else {
+            if ($i < count($od1)) {
+                $pdf->Cell(20, 4, '', 1, 0, 'C');
+                $pdf->Cell(32, 4, '', 1, 0, 'C');
+                $pdf->Cell(33, 4, '', 1, 1, 'C');
+            } else {
+                $pdf->Ln(4);
+            }
+        }
+    }
+    $pdf->Ln(3);
+}
+tablaDoble($pdf, 'Refracción Previa 1', $previa_tipo1, [
     ['ESF', $previa1_od_esf],
     ['CIL', $previa1_od_cil],
     ['EJE', $previa1_od_eje],
@@ -235,9 +291,7 @@ tablaCentralizada($pdf, 'Refracción Previa 1', $previa_tipo1, [
     ['CIL', $previa1_oi_cil],
     ['EJE', $previa1_oi_eje],
     ['DIP', $previa1_oi_dip]
-]);
-
-tablaCentralizada($pdf, 'Refracción Previa 2', $previa_tipo2, [
+], 'Refracción Previa 2', $previa_tipo2, [
     ['ESF', $previa2_od_esf],
     ['CIL', $previa2_od_cil],
     ['EJE', $previa2_od_eje],
@@ -249,7 +303,7 @@ tablaCentralizada($pdf, 'Refracción Previa 2', $previa_tipo2, [
     ['DIP', $previa2_oi_dip]
 ]);
 
-tablaCentralizada($pdf, 'Nueva Sin Cicloplégico', '', [
+tablaDoble($pdf, 'Nueva Sin Cicloplégico', '', [
     ['ESF', $nueva_sin_od_esf],
     ['CIL', $nueva_sin_od_cil],
     ['EJE', $nueva_sin_od_eje]
@@ -257,9 +311,8 @@ tablaCentralizada($pdf, 'Nueva Sin Cicloplégico', '', [
     ['ESF', $nueva_sin_oi_esf],
     ['CIL', $nueva_sin_oi_cil],
     ['EJE', $nueva_sin_oi_eje]
-]);
 
-tablaCentralizada($pdf, 'Nueva Con Cicloplégico', $ciclo_tipo, [
+], 'Nueva Con Cicloplégico', $ciclo_tipo, [
     ['ESF', $nueva_con_od_esf],
     ['CIL', $nueva_con_od_cil],
     ['EJE', $nueva_con_od_eje],
@@ -271,7 +324,7 @@ tablaCentralizada($pdf, 'Nueva Con Cicloplégico', $ciclo_tipo, [
     ['DIP', $nueva_con_oi_dip]
 ]);
 
-tablaCentralizada($pdf, 'Retinoscopía / Reflejo', '', [
+tablaDoble($pdf, 'Retinoscopía / Reflejo', '', [
     ['ESF', $ret_ref_od_esf],
     ['CIL', $ret_ref_od_cil],
     ['EJE', $ret_ref_od_eje]
@@ -279,9 +332,7 @@ tablaCentralizada($pdf, 'Retinoscopía / Reflejo', '', [
     ['ESF', $ret_ref_oi_esf],
     ['CIL', $ret_ref_oi_cil],
     ['EJE', $ret_ref_oi_eje]
-]);
-
-tablaCentralizada($pdf, 'Queratometría', '', [
+], 'Queratometría', '', [
     ['K1', $q_od_k1 . ' / ' . $q_od_k1_eje],
     ['K2', $q_od_k2 . ' / ' . $q_od_k2_eje],
     ['CYL', $q_od_cyl . ' / ' . $q_od_cyl_eje]
@@ -291,17 +342,17 @@ tablaCentralizada($pdf, 'Queratometría', '', [
     ['CYL', $q_oi_cyl . ' / ' . $q_oi_cyl_eje]
 ]);
 
-$pdf->Ln(10);
+$pdf->Ln(3);
 $pdf->SetY(-48);
 if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
-    $imgWidth = 40;
+    $imgWidth = 35;
     $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
     $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
-    $pdf->Ln(22);
+    $pdf->Ln(18);
 }
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 6, utf8_decode($cargp), 0, 1, 'C');
-$pdf->Cell(0, 6, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 4, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(0, 4, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 4, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
 $pdf->Output();

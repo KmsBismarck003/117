@@ -122,91 +122,91 @@ $pdf->AddPage();
 $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 30);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->Cell(0, 6, 'Datos del Paciente:', 0, 1, 'L', true);
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 8);
 $pdf->SetFillColor(255,255,255);
-$pdf->Cell(35, 5, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 5, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 5, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 5, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
-$pdf->Cell(35, 5, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 5, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 5, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 5, utf8_decode($tel), 0, 1, 'L');
+$pdf->Cell(35, 4, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 4, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 4, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 4, date('d/m/Y H:i', strtotime($fecha_ing)), 0, 1, 'L');
+$pdf->Cell(35, 4, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 4, utf8_decode($folio . ' - ' . $papell . ' ' . $sapell . ' ' . $nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 4, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($tel), 0, 1, 'L');
 
-$pdf->Cell(35, 5, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 5, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
-$pdf->Cell(10, 5, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 5, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 5, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 5, utf8_decode($sexo), 0, 0, 'L');
-$pdf->Cell(20, 5, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 5, utf8_decode($ocup), 0, 1, 'L');
+$pdf->Cell(35, 4, utf8_decode('Fecha de nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 4, date('d/m/Y', strtotime($fecnac)), 0, 0, 'L');
+$pdf->Cell(10, 4, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 4, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 4, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 4, utf8_decode($sexo), 0, 0, 'L');
+$pdf->Cell(20, 4, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($ocup), 0, 1, 'L');
 
-$pdf->Cell(20, 5, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 5, utf8_decode($dir), 0, 1, 'L');
+$pdf->Cell(20, 4, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($dir), 0, 1, 'L');
 
 
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 13);
+$pdf->Ln(3);
+$pdf->SetFont('Arial', 'B', 11);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 12, utf8_decode('REFRACCIÓN ACTUAL'), 0, 1, 'C', true);
-$pdf->Ln(2);
+$pdf->Cell(0, 8, utf8_decode('REFRACCIÓN ACTUAL'), 0, 1, 'C', true);
+$pdf->Ln(1);
 
 // Agudeza Visual Lejana
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 9, utf8_decode('Agudeza Visual Lejana'), 0, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 6, utf8_decode('Agudeza Visual Lejana'), 0, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $startX = ($pdf->GetPageWidth() - 120) / 2;
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, '', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OD', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OI', 1, 1, 'C', true);
+$pdf->Cell(40, 4, '', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OD', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OI', 1, 1, 'C', true);
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, utf8_decode('Sin corrección'), 1, 0, 'C');
-$pdf->Cell(40, 5, $av_lejana_sin_correc, 1, 0, 'C');
-$pdf->Cell(40, 5, $oi_lejana_sin_correc, 1, 1, 'C');
+$pdf->Cell(40, 4, utf8_decode('Sin corrección'), 1, 0, 'C');
+$pdf->Cell(40, 4, $av_lejana_sin_correc, 1, 0, 'C');
+$pdf->Cell(40, 4, $oi_lejana_sin_correc, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, utf8_decode('Estenópico'), 1, 0, 'C');
-$pdf->Cell(40, 5, $av_estenopico, 1, 0, 'C');
-$pdf->Cell(40, 5, $oi_estenopico, 1, 1, 'C');
+$pdf->Cell(40, 4, utf8_decode('Estenópico'), 1, 0, 'C');
+$pdf->Cell(40, 4, $av_estenopico, 1, 0, 'C');
+$pdf->Cell(40, 4, $oi_estenopico, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Con correc. propia', 1, 0, 'C');
-$pdf->Cell(40, 5, $av_lejana_con_correc_prop, 1, 0, 'C');
-$pdf->Cell(40, 5, $oi_lejana_con_correc_prop, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Con correc. propia', 1, 0, 'C');
+$pdf->Cell(40, 4, $av_lejana_con_correc_prop, 1, 0, 'C');
+$pdf->Cell(40, 4, $oi_lejana_con_correc_prop, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Mejor corregida', 1, 0, 'C');
-$pdf->Cell(40, 5, $av_lejana_mejor_corregida, 1, 0, 'C');
-$pdf->Cell(40, 5, $oi_lejana_mejor_corregida, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Mejor corregida', 1, 0, 'C');
+$pdf->Cell(40, 4, $av_lejana_mejor_corregida, 1, 0, 'C');
+$pdf->Cell(40, 4, $oi_lejana_mejor_corregida, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Potencial', 1, 0, 'C');
-$pdf->Cell(40, 5, $av_potencial, 1, 0, 'C');
-$pdf->Cell(40, 5, $oi_potencial, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Potencial', 1, 0, 'C');
+$pdf->Cell(40, 4, $av_potencial, 1, 0, 'C');
+$pdf->Cell(40, 4, $oi_potencial, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Binocular', 1, 0, 'C');
-$pdf->Cell(80, 5, $av_binocular, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Binocular', 1, 0, 'C');
+$pdf->Cell(80, 4, $av_binocular, 1, 1, 'C');
 
-$pdf->Ln(3);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 9, utf8_decode('Detalle de Refracción'), 0, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 5, utf8_decode($detalle_refra), 1, 'J', false);
+$pdf->Cell(0, 6, utf8_decode('Detalle de Refracción'), 0, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
+$pdf->MultiCell(0, 3, utf8_decode($detalle_refra), 1, 'J', false);
 
-$pdf->Ln(3);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 9, utf8_decode('Subjetiva Sin Cicloplégico'), 0, 1, 'C', true);
+$pdf->Cell(0, 6, utf8_decode('Subjetiva Sin Cicloplégico'), 0, 1, 'C', true);
 
 $esferas_sin_ciclo_od = $row_refra['esferas_sin_ciclo_od'] ?? '';
 $cilindros_sin_ciclo_od = $row_refra['cilindros_sin_ciclo_od'] ?? '';
@@ -224,51 +224,52 @@ $prisma_sin_ciclo_oi = !empty($row_refra['prisma_sin_ciclo_oi']) ? utf8_decode('
 
 $detalle_ref_subjetiv_sin = $row_refra['detalle_ref_subjetiv_sin'] ?? '';
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, '', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OD', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OI', 1, 1, 'C', true);
-
-$pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Esfera', 1, 0, 'C');
-$pdf->Cell(40, 5, $esferas_sin_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $esferas_sin_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, '', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OD', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OI', 1, 1, 'C', true);
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Cilindro', 1, 0, 'C');
-$pdf->Cell(40, 5, $cilindros_sin_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $cilindros_sin_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Esfera', 1, 0, 'C');
+$pdf->Cell(40, 4, $esferas_sin_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $esferas_sin_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Eje', 1, 0, 'C');
-$pdf->Cell(40, 5, $eje_sin_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $eje_sin_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Cilindro', 1, 0, 'C');
+$pdf->Cell(40, 4, $cilindros_sin_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $cilindros_sin_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'ADD', 1, 0, 'C');
-$pdf->Cell(40, 5, $add_sin_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $add_sin_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Eje', 1, 0, 'C');
+$pdf->Cell(40, 4, $eje_sin_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $eje_sin_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'DIP', 1, 0, 'C');
-$pdf->Cell(40, 5, $dip_sin_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $dip_sin_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'ADD', 1, 0, 'C');
+$pdf->Cell(40, 4, $add_sin_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $add_sin_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Prisma', 1, 0, 'C');
-$pdf->Cell(40, 5, $prisma_sin_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $prisma_sin_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'DIP', 1, 0, 'C');
+$pdf->Cell(40, 4, $dip_sin_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $dip_sin_ciclo_oi, 1, 1, 'C');
 
-$pdf->Ln(2);
-$pdf->Cell(0, 9, utf8_decode('Detalle de Subjetiva Sin Cicloplégico'), 0, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 5, utf8_decode($detalle_ref_subjetiv_sin), 1, 'J', false);
+$pdf->SetX($startX);
+$pdf->Cell(40, 4, 'Prisma', 1, 0, 'C');
+$pdf->Cell(40, 4, $prisma_sin_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $prisma_sin_ciclo_oi, 1, 1, 'C');
 
-$pdf->Ln(7);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(1);
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(0, 5, utf8_decode('Detalle de Subjetiva Sin Cicloplégico'), 0, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
+$pdf->MultiCell(0, 3, utf8_decode($detalle_ref_subjetiv_sin), 1, 'J', false);
+
+$pdf->Ln(3);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 9, utf8_decode('Subjetiva Con Cicloplégico'), 0, 1, 'C', true);
+$pdf->Cell(0, 6, utf8_decode('Subjetiva Con Cicloplégico'), 0, 1, 'C', true);
 
 $esferas_con_ciclo_od = $row_refra['esferas_con_ciclo_od'] ?? '';
 $cilindros_con_ciclo_od = $row_refra['cilindros_con_ciclo_od'] ?? '';
@@ -284,47 +285,47 @@ $add_con_ciclo_oi = $row_refra['add_con_ciclo_oi'] ?? '';
 $dip_con_ciclo_oi = $row_refra['dip_con_ciclo_oi'] ?? '';
 $prisma_con_ciclo_oi = !empty($row_refra['prisma_con_ciclo_oi']) ? utf8_decode('Sí') : 'No';
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, '', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OD', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OI', 1, 1, 'C', true);
-
-$pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Esfera', 1, 0, 'C');
-$pdf->Cell(40, 5, $esferas_con_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $esferas_con_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, '', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OD', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OI', 1, 1, 'C', true);
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Cilindro', 1, 0, 'C');
-$pdf->Cell(40, 5, $cilindros_con_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $cilindros_con_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Esfera', 1, 0, 'C');
+$pdf->Cell(40, 4, $esferas_con_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $esferas_con_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Eje', 1, 0, 'C');
-$pdf->Cell(40, 5, $eje_con_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $eje_con_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Cilindro', 1, 0, 'C');
+$pdf->Cell(40, 4, $cilindros_con_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $cilindros_con_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'ADD', 1, 0, 'C');
-$pdf->Cell(40, 5, $add_con_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $add_con_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Eje', 1, 0, 'C');
+$pdf->Cell(40, 4, $eje_con_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $eje_con_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'DIP', 1, 0, 'C');
-$pdf->Cell(40, 5, $dip_con_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $dip_con_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'ADD', 1, 0, 'C');
+$pdf->Cell(40, 4, $add_con_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $add_con_ciclo_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Prisma', 1, 0, 'C');
-$pdf->Cell(40, 5, $prisma_con_ciclo_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $prisma_con_ciclo_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'DIP', 1, 0, 'C');
+$pdf->Cell(40, 4, $dip_con_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $dip_con_ciclo_oi, 1, 1, 'C');
 
-$pdf->Ln(2);
+$pdf->SetX($startX);
+$pdf->Cell(40, 4, 'Prisma', 1, 0, 'C');
+$pdf->Cell(40, 4, $prisma_con_ciclo_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $prisma_con_ciclo_oi, 1, 1, 'C');
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->Ln(25);
+
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 9, utf8_decode('Agudeza Visual Intermedia y Cercana'), 0, 1, 'C', true);
+$pdf->Cell(0, 6, utf8_decode('Agudeza Visual Intermedia y Cercana'), 0, 1, 'C', true);
 
 $av_intermedia_od = $row_refra['av_intermedia_od'] ?? '';
 $av_cercana_sin_corr_od = $row_refra['av_cercana_sin_corr_od'] ?? '';
@@ -333,32 +334,32 @@ $av_intermedia_oi = $row_refra['av_intermedia_oi'] ?? '';
 $av_cercana_sin_corr_oi = $row_refra['av_cercana_sin_corr_oi'] ?? '';
 $av_cercana_con_corr_oi = $row_refra['av_cercana_con_corr_oi'] ?? '';
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, '', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OD', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OI', 1, 1, 'C', true);
+$pdf->Cell(40, 4, '', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OD', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OI', 1, 1, 'C', true);
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Intermedia', 1, 0, 'C');
-$pdf->Cell(40, 5, $av_intermedia_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $av_intermedia_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Intermedia', 1, 0, 'C');
+$pdf->Cell(40, 4, $av_intermedia_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $av_intermedia_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Cercana sin correc.', 1, 0, 'C');
-$pdf->Cell(40, 5, $av_cercana_sin_corr_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $av_cercana_sin_corr_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Cercana sin correc.', 1, 0, 'C');
+$pdf->Cell(40, 4, $av_cercana_sin_corr_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $av_cercana_sin_corr_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Cercana con correc.', 1, 0, 'C');
-$pdf->Cell(40, 5, $av_cercana_con_corr_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $av_cercana_con_corr_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Cercana con correc.', 1, 0, 'C');
+$pdf->Cell(40, 4, $av_cercana_con_corr_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $av_cercana_con_corr_oi, 1, 1, 'C');
 
 $pdf->Ln(2);
 
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 9, utf8_decode('Refracción de Cerca'), 0, 1, 'C', true);
+$pdf->Cell(0, 6, utf8_decode('Refracción de Cerca'), 0, 1, 'C', true);
 
 $esf_cerca_od = $row_refra['esf_cerca_od'] ?? '';
 $cil_cerca_od = $row_refra['cil_cerca_od'] ?? '';
@@ -371,43 +372,44 @@ $prisma_cerca_oi = !empty($row_refra['prisma_cerca_oi']) ? utf8_decode('Sí') : 
 $dip_cerca_od = $row_refra['dip_cerca_od'] ?? '';
 $dip_cerca_oi = $row_refra['dip_cerca_oi'] ?? '';
 
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, '', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OD', 1, 0, 'C', true);
-$pdf->Cell(40, 5, 'OI', 1, 1, 'C', true);
+$pdf->Cell(40, 4, '', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OD', 1, 0, 'C', true);
+$pdf->Cell(40, 4, 'OI', 1, 1, 'C', true);
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Esfera', 1, 0, 'C');
-$pdf->Cell(40, 5, $esf_cerca_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $esf_cerca_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Esfera', 1, 0, 'C');
+$pdf->Cell(40, 4, $esf_cerca_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $esf_cerca_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Cilindro', 1, 0, 'C');
-$pdf->Cell(40, 5, $cil_cerca_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $cil_cerca_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Cilindro', 1, 0, 'C');
+$pdf->Cell(40, 4, $cil_cerca_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $cil_cerca_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Eje', 1, 0, 'C');
-$pdf->Cell(40, 5, $eje_cerca_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $eje_cerca_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Eje', 1, 0, 'C');
+$pdf->Cell(40, 4, $eje_cerca_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $eje_cerca_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'DIP', 1, 0, 'C');
-$pdf->Cell(40, 5, $dip_cerca_od, 1, 0, 'C'); 
-$pdf->Cell(40, 5, $dip_cerca_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'DIP', 1, 0, 'C');
+$pdf->Cell(40, 4, $dip_cerca_od, 1, 0, 'C'); 
+$pdf->Cell(40, 4, $dip_cerca_oi, 1, 1, 'C');
 
 $pdf->SetX($startX);
-$pdf->Cell(40, 5, 'Prisma', 1, 0, 'C');
-$pdf->Cell(40, 5, $prisma_cerca_od, 1, 0, 'C');
-$pdf->Cell(40, 5, $prisma_cerca_oi, 1, 1, 'C');
+$pdf->Cell(40, 4, 'Prisma', 1, 0, 'C');
+$pdf->Cell(40, 4, $prisma_cerca_od, 1, 0, 'C');
+$pdf->Cell(40, 4, $prisma_cerca_oi, 1, 1, 'C');
 
-$pdf->Ln(2);
+$pdf->Ln(1);
+$pdf->SetFont('Arial', 'B', 8);
 $pdf->SetFillColor(245, 245, 245);
 
-$pdf->Cell(0, 9, utf8_decode('Detalle de Refracción de Cerca'), 0, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 5, utf8_decode($row_refra['detalle_ref_subjetiv'] ?? ''), 1, 'J', false);
+$pdf->Cell(0, 5, utf8_decode('Detalle de Refracción de Cerca'), 0, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
+$pdf->MultiCell(0, 3, utf8_decode($row_refra['detalle_ref_subjetiv'] ?? ''), 1, 'J', false);
 
 $pdf->Ln(10);
 
