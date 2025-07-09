@@ -1,191 +1,242 @@
-```php
 <?php
 session_start();
-include "../../conexionbd.php";
+include "../../conexionbd.php"; // Ensure this file sets mysqli_set_charset($conexion, 'utf8mb4')
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    $_SESSION['message'] = "Método no permitido.";
-    $_SESSION['message_type'] = "danger";
-    header("Location: reg_anestesia.php");
-    exit;
-}
-
+// Redirect if user not logged in or hospital session not set
 if (!isset($_SESSION['login']['id_usua']) || !isset($_SESSION['hospital'])) {
-    $_SESSION['message'] = "No está autorizado para realizar esta acción.";
-    $_SESSION['message_type'] = "danger";
     header("Location: ../../index.php");
     exit;
 }
 
-function validateInput($data) {
-    return htmlspecialchars(trim($data));
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Initialize error array
+    $errors = [];
+    $data = [];
 
-function validateNumeric($value, $min, $max) {
-    if ($value === '' || $value === null) return null;
-    $value = floatval($value);
-    return ($value >= $min && $value <= $max) ? $value : null;
-}
+    // --- Sanitize and Collect POST Data ---
+    // IDs and Foreign Keys
+    $data['id_atencion'] = filter_var($_POST['id_atencion'] ?? '', FILTER_SANITIZE_NUMBER_INT);
+    $data['Id_exp'] = filter_var($_POST['Id_exp'] ?? '', FILTER_SANITIZE_NUMBER_INT);
+    $data['id_usua'] = filter_var($_POST['id_usua'] ?? '', FILTER_SANITIZE_NUMBER_INT);
+    $data['anestesiologo_id'] = filter_var($_POST['anestesiologo_id'] ?? '', FILTER_SANITIZE_NUMBER_INT);
+    $data['cirujano_id'] = filter_var($_POST['cirujano_id'] ?? '', FILTER_SANITIZE_NUMBER_INT);
 
-function validateDateTime($value) {
-    if (empty($value)) return null;
-    try {
-        $date = new DateTime($value);
-        return $date->format('Y-m-d H:i:s');
-    } catch (Exception $e) {
-        return null;
+    // Ayudantes (multiple selection)
+    $data['ayudantes_ids'] = isset($_POST['ayudantes_ids']) && is_array($_POST['ayudantes_ids']) 
+        ? array_map('intval', $_POST['ayudantes_ids']) : [];
+
+    // General Information
+    $data['tipo_anestesia'] = filter_var($_POST['tipo_anestesia'] ?? '', FILTER_SANITIZE_STRING);
+    $data['diagnostico_preoperatorio'] = filter_var($_POST['diagnostico_preoperatorio'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['desc_diagnostico_preoperatorio'] = filter_var($_POST['desc_diagnostico_preoperatorio'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['cirugia_programada'] = filter_var($_POST['cirugia_programada'] ?? '', FILTER_SANITIZE_STRING);
+    $data['diagnostico_postoperatorio'] = filter_var($_POST['diagnostico_postoperatorio'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['desc_diagnostico_postoperatorio'] = filter_var($_POST['desc_diagnostico_postoperatorio'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['cirugia_realizada'] = filter_var($_POST['cirugia_realizada'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+
+    // Anesthesia Details
+    $data['revision_equipo'] = filter_var($_POST['revision_equipo'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['o2_hora'] = !empty($_POST['o2_hora']) ? date('H:i:s', strtotime($_POST['o2_hora'])) : null;
+    $data['agente_inhalado'] = filter_var($_POST['agente_inhalado'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    // Monitoreo Continuo (Checkboxes)
+    $data['ecg_continua'] = isset($_POST['ecg_continua']) && $_POST['ecg_continua'] === '1' ? 1 : 0;
+    $data['pulsoximetria'] = isset($_POST['pulsoximetria']) && $_POST['pulsoximetria'] === '1' ? 1 : 0;
+    $data['capnografia'] = isset($_POST['capnografia']) && $_POST['capnografia'] === '1' ? 1 : 0;
+
+    // Intubation and Ventilation
+    $data['intubacion'] = filter_var($_POST['intubacion'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['incidentes'] = filter_var($_POST['incidentes'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['canula'] = filter_var($_POST['canula'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['dificultad_tecnica'] = filter_var($_POST['dificultad_tecnica'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['ventilacion'] = filter_var($_POST['ventilacion'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+
+    // Fluids Balance
+    $fluid_fields = ['hartmann', 'glucosa', 'nacl', 'diuresis', 'sangrado', 'perdidas_insensibles', 'total_ingresos', 'total_egresos', 'balance'];
+    foreach ($fluid_fields as $field) {
+        $data[$field] = filter_var($_POST[$field] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 0]]) ?: null;
     }
-}
 
-function validateArray($array) {
-    if (!is_array($array)) return [];
-    return array_map('validateInput', array_filter($array));
-}
+    // Aldrete Score
+    $aldrete_fields = ['aldrete_actividad', 'aldrete_respiracion', 'aldrete_circulacion', 'aldrete_conciencia', 'aldrete_saturacion'];
+    foreach ($aldrete_fields as $field) {
+        $value = filter_var($_POST[$field] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 0, 'max_range' => 2]]) ?: null;
+        $data[$field] = $value;
+    }
+    $data['aldrete_total'] = filter_var($_POST['aldrete_total'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 0, 'max_range' => 10]]) ?: null;
 
-// Validate and sanitize inputs
-$Id_exp = validateInput($_POST['Id_exp'] ?? '');
-$id_usua = validateInput($_POST['id_usua'] ?? '');
-$id_atencion = validateInput($_POST['id_atencion'] ?? '');
-$anestesiologo_id = validateInput($_POST['anestesiologo_id'] ?? '');
-$tipo_anestesia = in_array($_POST['tipo_anestesia'] ?? '', ['General', 'Regional', 'Local', 'Sedación']) ? $_POST['tipo_anestesia'] : null;
-$diagnostico_preoperatorio = validateInput($_POST['diagnostico_preoperatorio'] ?? '');
-$cirugia_programada = validateInput($_POST['cirugia_programada'] ?? '');
-$diagnostico_postoperatorio = validateInput($_POST['diagnostico_postoperatorio'] ?? '');
-$cirugia_realizada = validateInput($_POST['cirugia_realizada'] ?? '');
-$cirujano_id = validateInput($_POST['cirujano_id'] ?? '');
-$ayudantes_ids = isset($_POST['ayudantes_ids']) ? validateArray($_POST['ayudantes_ids']) : [];
-$ayudantes_ids_str = !empty($ayudantes_ids) ? implode(',', $ayudantes_ids) : null;
-$revision_equipo = in_array($_POST['revision_equipo'] ?? '', ['OK', 'No OK', '']) ? $_POST['revision_equipo'] : null;
-$o2_hora = validateInput($_POST['o2_hora'] ?? '');
-$agente_inhalado = validateInput($_POST['agente_inhalado'] ?? '');
-$farmacos = validateArray($_POST['farmacos'] ?? []);
-$dosis_total = validateArray($_POST['dosis_total'] ?? []);
-// Combine farmacos and dosis_total into a single string
-$farmacos_dosis_total = '';
-if (!empty($farmacos) && count($farmacos) === count($dosis_total)) {
-    $farmacos_pairs = [];
-    for ($i = 0; $i < count($farmacos); $i++) {
-        if (!empty($farmacos[$i]) && !empty($dosis_total[$i])) {
-            $farmacos_pairs[] = "{$farmacos[$i]}:{$dosis_total[$i]}";
+    // Regional Anesthesia
+    $data['anestesia_regional_tipo'] = filter_var($_POST['anestesia_regional_tipo'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['aguja'] = filter_var($_POST['aguja'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['nivel_puncion'] = filter_var($_POST['nivel_puncion'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['cateter'] = filter_var($_POST['cateter'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+    $data['agentes_administrados'] = filter_var($_POST['agentes_administrados'] ?? '', FILTER_SANITIZE_STRING) ?: null;
+
+    // Timings
+    $time_fields = ['llega_quirofano', 'inicia_anestesia', 'inicia_cirugia', 'termina_cirugia', 'termina_anestesia', 'pasa_recuperacion'];
+    foreach ($time_fields as $field) {
+        $time_str = $_POST[$field] ?? '';
+        $data[$field] = !empty($time_str) ? date('Y-m-d H:i:s', strtotime($time_str)) : null;
+    }
+    $data['tiempo_anestesico'] = filter_var($_POST['tiempo_anestesico'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 0]]) ?: null;
+
+    // Date Field
+    $data['fecha_registro'] = date('Y-m-d H:i:s'); // Current timestamp
+
+    // --- Validate Required Fields ---
+    if (empty($data['id_atencion'])) $errors[] = "El ID de atención es obligatorio.";
+    if (empty($data['Id_exp'])) $errors[] = "El ID de expediente es obligatorio.";
+    if (empty($data['id_usua'])) $errors[] = "El ID de usuario es obligatorio.";
+    if (empty($data['anestesiologo_id'])) $errors[] = "El anestesiólogo es obligatorio.";
+    if (empty($data['cirujano_id'])) $errors[] = "El cirujano es obligatorio.";
+    if (empty($data['tipo_anestesia'])) $errors[] = "El tipo de anestesia es obligatorio.";
+    /* if (empty($data['cirugia_programada'])) $errors[] = "La cirugía programada es obligatoria."; */
+
+    // Validate specific fields
+    if (!empty($data['tipo_anestesia']) && !in_array($data['tipo_anestesia'], ['General', 'Regional', 'Local', 'Sedación'])) {
+        $errors[] = "Seleccione un tipo de anestesia válido: General, Regional, Local, Sedación.";
+    }
+    if (!empty($data['revision_equipo']) && !in_array($data['revision_equipo'], ['OK', 'No OK'])) {
+        $errors[] = "Seleccione un estado válido para la revisión del equipo: OK o No OK.";
+    }
+    if (!empty($data['dificultad_tecnica']) && !in_array($data['dificultad_tecnica'], ['Sí', 'No'])) {
+        $errors[] = "Seleccione un valor válido para dificultad técnica: Sí o No.";
+    }
+    if (!empty($data['cateter']) && !in_array($data['cateter'], ['Sí', 'No'])) {
+        $errors[] = "Seleccione un valor válido para catéter: Sí o No.";
+    }
+    if (!empty($data['anestesia_regional_tipo']) && !in_array($data['anestesia_regional_tipo'], ['Ninguna', 'Peribulbar', 'Retrobulbar', 'Subtenoniana'])) {
+        $errors[] = "Seleccione un tipo de anestesia regional válido.";
+    }
+
+    // Validate numeric fields if provided
+    $numeric_fields = [
+        'hartmann' => ['min' => 0, 'max' => 10000, 'label' => 'Hartmann'],
+        'glucosa' => ['min' => 0, 'max' => 10000, 'label' => 'Glucosa'],
+        'nacl' => ['min' => 0, 'max' => 10000, 'label' => 'NaCl'],
+        'diuresis' => ['min' => 0, 'max' => 10000, 'label' => 'Diuresis'],
+        'sangrado' => ['min' => 0, 'max' => 10000, 'label' => 'Sangrado'],
+        'perdidas_insensibles' => ['min' => 0, 'max' => 10000, 'label' => 'Pérdidas Insensibles'],
+        'total_ingresos' => ['min' => 0, 'max' => 30000, 'label' => 'Total Ingresos'],
+        'total_egresos' => ['min' => 0, 'max' => 30000, 'label' => 'Total Egresos'],
+        'balance' => ['min' => -30000, 'max' => 30000, 'label' => 'Balance'],
+        'aldrete_total' => ['min' => 0, 'max' => 10, 'label' => 'Puntuación Aldrete Total'],
+        'tiempo_anestesico' => ['min' => 0, 'max' => 1440, 'label' => 'Tiempo Anestésico']
+    ];
+    foreach ($numeric_fields as $field => $constraints) {
+        if (!is_null($data[$field]) && ($data[$field] < $constraints['min'] || $data[$field] > $constraints['max'])) {
+            $errors[] = "{$constraints['label']} debe estar entre {$constraints['min']} y {$constraints['max']}.";
         }
     }
-    $farmacos_dosis_total = !empty($farmacos_pairs) ? implode(',', $farmacos_pairs) : null;
-}
-$ecg_continua = isset($_POST['ecg_continua']) ? 1 : 0;
-$pulsoximetria = isset($_POST['pulsoximetria']) ? 1 : 0;
-$capnografia = isset($_POST['capnografia']) ? 1 : 0;
-$intubacion = validateInput($_POST['intubacion'] ?? '');
-$incidentes = validateInput($_POST['incidentes'] ?? '');
-$canula = validateInput($_POST['canula'] ?? '');
-$dificultad_tecnica = in_array($_POST['dificultad_tecnica'] ?? '', ['Sí', 'No', '']) ? $_POST['dificultad_tecnica'] : null;
-$ventilacion = validateInput($_POST['ventilacion'] ?? '');
-$hartmann = validateNumeric($_POST['hartmann'] ?? null, 0, 10000);
-$glucosa = validateNumeric($_POST['glucosa'] ?? null, 0, 10000);
-$nacl = validateNumeric($_POST['nacl'] ?? null, 0, 10000);
-$total_ingresos = validateNumeric($_POST['total_ingresos'] ?? null, 0, 30000);
-$diuresis = validateNumeric($_POST['diuresis'] ?? null, 0, 10000);
-$sangrado = validateNumeric($_POST['sangrado'] ?? null, 0, 10000);
-$perdidas_insensibles = validateNumeric($_POST['perdidas_insensibles'] ?? null, 0, 10000);
-$total_egresos = validateNumeric($_POST['total_egresos'] ?? null, 0, 30000);
-$balance = validateNumeric($_POST['balance'] ?? null, -30000, 30000);
-$aldrete_actividad = validateNumeric($_POST['aldrete_actividad'] ?? null, 0, 2);
-$aldrete_respiracion = validateNumeric($_POST['aldrete_respiracion'] ?? null, 0, 2);
-$aldrete_circulacion = validateNumeric($_POST['aldrete_circulacion'] ?? null, 0, 2);
-$aldrete_conciencia = validateNumeric($_POST['aldrete_conciencia'] ?? null, 0, 2);
-$aldrete_saturacion = validateNumeric($_POST['aldrete_saturacion'] ?? null, 0, 2);
-$aldrete_total = validateNumeric($_POST['aldrete_total'] ?? null, 0, 10);
-$anestesia_regional_tipo = in_array($_POST['anestesia_regional_tipo'] ?? '', ['', 'Peribulbar', 'Retrobulbar', 'Subtenoniana']) ? $_POST['anestesia_regional_tipo'] : null;
-$aguja = validateInput($_POST['aguja'] ?? '');
-$nivel_puncion = validateInput($_POST['nivel_puncion'] ?? '');
-$cateter = in_array($_POST['cateter'] ?? '', ['Sí', 'No', '']) ? $_POST['cateter'] : null;
-$agentes_administrados = validateInput($_POST['agentes_administrados'] ?? '');
-$llega_quirofano = validateDateTime($_POST['llega_quirofano'] ?? '');
-$inicia_anestesia = validateDateTime($_POST['inicia_anestesia'] ?? '');
-$inicia_cirugia = validateDateTime($_POST['inicia_cirugia'] ?? '');
-$termina_cirugia = validateDateTime($_POST['termina_cirugia'] ?? '');
-$termina_anestesia = validateDateTime($_POST['termina_anestesia'] ?? '');
-$pasa_recuperacion = validateDateTime($_POST['pasa_recuperacion'] ?? '');
-$tiempo_anestesico = validateNumeric($_POST['tiempo_anestesico'] ?? null, 0, 1440);
 
-// Vital signs
-$sist = validateNumeric($_POST['sistg'] ?? null, 10, 300);
-$diast = validateNumeric($_POST['diastg'] ?? null, 10, 200);
-$ta = ($sist !== null && $diast !== null) ? "$sist/$diast" : null;
-$fc = validateNumeric($_POST['fcardg'] ?? null, 0, 300);
-$fr = validateNumeric($_POST['frespg'] ?? null, 0, 100);
-$spo2 = validateNumeric($_POST['satg'] ?? null, 0, 100);
-$temp = validateNumeric($_POST['tempg'] ?? null, 0, 45);
-
-// Validate required fields
-$required_fields = ['Id_exp', 'id_usua', 'id_atencion', 'anestesiologo_id', 'tipo_anestesia', 'cirujano_id'];
-$missing_fields = [];
-foreach ($required_fields as $field) {
-    if (empty($$field)) {
-        $missing_fields[] = $field;
+    // Validate Aldrete fields if provided
+    foreach ($aldrete_fields as $field) {
+        if (!is_null($data[$field]) && !in_array($data[$field], [0, 1, 2])) {
+            $errors[] = "El campo '{$field}' del score Aldrete debe ser 0, 1 o 2.";
+        }
     }
-}
 
-if (!empty($missing_fields)) {
-    $_SESSION['message'] = "Faltan campos obligatorios: " . implode(', ', $missing_fields);
-    $_SESSION['message_type'] = "danger";
-    header("Location: reg_anestesia.php");
-    exit;
-}
+    // --- Insert Data into Database ---
+    if (empty($errors)) {
+        $conexion->begin_transaction();
+        try {
+            // Define main table columns
+            $columns = [
+                'id_atencion', 'Id_exp', 'id_usua', 'anestesiologo_id', 'cirujano_id', 'tipo_anestesia',
+                'diagnostico_preoperatorio', 'desc_diagnostico_preoperatorio', 'cirugia_programada',
+                'diagnostico_postoperatorio', 'desc_diagnostico_postoperatorio', 'cirugia_realizada',
+                'revision_equipo', 'o2_hora', 'agente_inhalado', 'ecg_continua', 'pulsoximetria', 'capnografia',
+                'intubacion', 'incidentes', 'canula', 'dificultad_tecnica', 'ventilacion',
+                'hartmann', 'glucosa', 'nacl', 'diuresis', 'sangrado', 'perdidas_insensibles',
+                'total_ingresos', 'total_egresos', 'balance',
+                'aldrete_actividad', 'aldrete_respiracion', 'aldrete_circulacion', 'aldrete_conciencia', 'aldrete_saturacion', 'aldrete_total',
+                'anestesia_regional_tipo', 'aguja', 'nivel_puncion', 'cateter', 'agentes_administrados',
+                'llega_quirofano', 'inicia_anestesia', 'inicia_cirugia', 'termina_cirugia', 'termina_anestesia', 'pasa_recuperacion',
+                'tiempo_anestesico', 'fecha_registro'
+            ];
 
-// Validate vital signs
-if (!$ta || $fc === null || $fr === null || $spo2 === null || $temp === null) {
-    $_SESSION['message'] = "Debe registrar un conjunto completo de signos vitales.";
-    $_SESSION['message_type'] = "danger";
-    header("Location: reg_anestesia.php");
-    exit;
-}
+            // Prepare values and types for main table
+            $placeholders = implode(', ', array_fill(0, count($columns), '?'));
+            $sql = "INSERT INTO registro_anestesico (" . implode(', ', $columns) . ") VALUES ($placeholders)";
+            $stmt = $conexion->prepare($sql);
+            if ($stmt === false) {
+                throw new Exception("Error preparando consulta principal: " . $conexion->error);
+            }
 
-// Prepare and execute SQL for registro_anestesico
-$sql = "INSERT INTO registro_anestesico (
-    id_atencion, Id_exp, id_usua, anestesiologo_id, tipo_anestesia, diagnostico_preoperatorio, 
-    cirugia_programada, diagnostico_postoperatorio, cirugia_realizada, cirujano_id, ayudantes_ids, 
-    ta, fc, fr, spo2, temp, revision_equipo, o2_hora, agente_inhalado, farmacos_dosis_total, 
-    ecg_continua, pulsoximetria, capnografia, intubacion, incidentes, canula, dificultad_tecnica, 
-    ventilacion, hartmann, glucosa, nacl, total_ingresos, diuresis, sangrado, perdidas_insensibles, 
-    total_egresos, balance, aldrete_actividad, aldrete_respiracion, aldrete_circulacion, 
-    aldrete_conciencia, aldrete_saturacion, aldrete_total, anestesia_regional_tipo, aguja, 
-    nivel_puncion, cateter, agentes_administrados, llega_quirofano, inicia_anestesia, 
-    inicia_cirugia, termina_cirugia, termina_anestesia, pasa_recuperacion, tiempo_anestesico
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            // Prepare values and types
+            $values = [];
+            $types = '';
+            foreach ($columns as $col) {
+                $val = $data[$col];
+                $values[] = $val;
+                if (in_array($col, ['id_atencion', 'Id_exp', 'id_usua', 'anestesiologo_id', 'cirujano_id', 'ecg_continua', 'pulsoximetria', 'capnografia', 'hartmann', 'glucosa', 'nacl', 'diuresis', 'sangrado', 'perdidas_insensibles', 'total_ingresos', 'total_egresos', 'balance', 'aldrete_actividad', 'aldrete_respiracion', 'aldrete_circulacion', 'aldrete_conciencia', 'aldrete_saturacion', 'aldrete_total', 'tiempo_anestesico'])) {
+                    $types .= 'i'; // Integer
+                } else {
+                    $types .= 's'; // String or NULL
+                }
+            }
 
-$stmt = $conexion->prepare($sql);
-if (!$stmt) {
-    $_SESSION['message'] = "Error al preparar la consulta: " . $conexion->error;
-    $_SESSION['message_type'] = "danger";
-    header("Location: reg_anestesia.php");
-    exit;
-}
+            // Bind parameters
+            $bind_params = array_merge([$types], $values);
+            call_user_func_array([$stmt, 'bind_param'], refValues($bind_params));
 
-// Bind parameters (54 parameters: 11 integers, 25 strings, 6 datetimes, 12 integers)
-$stmt->bind_param(
-    "iiisssssssssiiddissssiissssiidddiddddiiiiiisssssssssssi",
-    $id_atencion, $Id_exp, $id_usua, $anestesiologo_id, $tipo_anestesia, $diagnostico_preoperatorio,
-    $cirugia_programada, $diagnostico_postoperatorio, $cirugia_realizada, $cirujano_id, $ayudantes_ids_str,
-    $ta, $fc, $fr, $spo2, $temp, $revision_equipo, $o2_hora, $agente_inhalado, $farmacos_dosis_total,
-    $ecg_continua, $pulsoximetria, $capnografia, $intubacion, $incidentes, $canula, $dificultad_tecnica,
-    $ventilacion, $hartmann, $glucosa, $nacl, $total_ingresos, $diuresis, $sangrado, $perdidas_insensibles,
-    $total_egresos, $balance, $aldrete_actividad, $aldrete_respiracion, $aldrete_circulacion,
-    $aldrete_conciencia, $aldrete_saturacion, $aldrete_total, $anestesia_regional_tipo, $aguja,
-    $nivel_puncion, $cateter, $agentes_administrados, $llega_quirofano, $inicia_anestesia,
-    $inicia_cirugia, $termina_cirugia, $termina_anestesia, $pasa_recuperacion, $tiempo_anestesico
-);
+            // Execute main query
+            if (!$stmt->execute()) {
+                throw new Exception("Error ejecutando consulta principal: " . $stmt->error);
+            }
+            $registro_anestesico_id = $conexion->insert_id;
+            $stmt->close();
 
-if ($stmt->execute()) {
-    $_SESSION['message'] = "Registro anestésico guardado exitosamente.";
-    $_SESSION['message_type'] = "success";
+            // Insert ayudantes into related table
+            if (!empty($data['ayudantes_ids'])) {
+                $sql_ayudantes = "INSERT INTO registro_anestesico_ayudantes (registro_anestesico_id, id_usua) VALUES (?, ?)";
+                $stmt_ayudantes = $conexion->prepare($sql_ayudantes);
+                if ($stmt_ayudantes === false) {
+                    throw new Exception("Error preparando consulta de ayudantes: " . $conexion->error);
+                }
+
+                foreach ($data['ayudantes_ids'] as $ayudante_id) {
+                    $stmt_ayudantes->bind_param('ii', $registro_anestesico_id, $ayudante_id);
+                    if (!$stmt_ayudantes->execute()) {
+                        throw new Exception("Error insertando ayudante ID $ayudante_id: " . $stmt_ayudantes->error);
+                    }
+                }
+                $stmt_ayudantes->close();
+            }
+
+            // Commit transaction
+            $conexion->commit();
+            $_SESSION['message'] = "Registro anestésico guardado exitosamente.";
+            $_SESSION['message_type'] = "success";
+            header("Location: reg_anestesia.php");
+        } catch (Exception $e) {
+            $conexion->rollback();
+            error_log("Error: " . $e->getMessage(), 3, 'sql_error.log');
+            $_SESSION['message'] = "Error al guardar el registro: " . $e->getMessage();
+            $_SESSION['message_type'] = "danger";
+            header("Location: reg_anestesia.php");
+        }
+    } else {
+        $_SESSION['message'] = implode("<br>", $errors);
+        $_SESSION['message_type'] = "danger";
+        header("Location: reg_anestesia.php");
+    }
 } else {
-    $_SESSION['message'] = "Error al guardar el registro: " . $stmt->error;
+    $_SESSION['message'] = "Método de solicitud no válido.";
     $_SESSION['message_type'] = "danger";
+    header("Location: reg_anestesia.php");
 }
 
-$stmt->close();
+// Helper function for bind_param
+function refValues($arr) {
+    if (strnatcmp(phpversion(), '5.3') >= 0) {
+        $refs = [];
+        foreach ($arr as $key => $value) {
+            $refs[$key] = &$arr[$key];
+        }
+        return $refs;
+    }
+    return $arr;
+}
+
 $conexion->close();
-header("Location: reg_anestesia.php");
-exit;
 ?>
-```

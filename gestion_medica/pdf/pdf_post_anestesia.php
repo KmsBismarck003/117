@@ -131,12 +131,12 @@ class PDF extends FPDF {
             $this->Image("../../configuracion/admin/img3/{$f['img_cpdf']}", 50, 10, 100, 20);
             $this->Image("../../configuracion/admin/img4/{$f['img_dpdf']}", 160, 10, 35, 12);
         }
-        $this->SetY(35);
+        $this->SetY(30);
         $this->Cell(0, 10, utf8_decode('NOTA POST ANESTÉSICA OFTALMOLÓGICA'), 0, 1, 'C');
         $this->SetFont('Arial', '', 10);
         $this->SetTextColor(100, 100, 100);
-        $this->Cell(0, 6, utf8_decode('Fecha: ') . date('d/m/Y H:i'), 0, 1, 'R');
-        $this->Ln(3);
+        $this->Cell(0, 5, utf8_decode('Fecha: ') . date('d/m/Y H:i'), 0, 1, 'R');
+        $this->Ln(1);
     }
 
     function Footer() {
@@ -156,42 +156,42 @@ $pdf->SetMargins(15, 15, 15);
 $pdf->SetAutoPageBreak(true, 25);
 
 // Patient Data Section (Full Width)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
-$pdf->Cell(0, 8, 'Datos del Paciente:', 0, 1, 'L', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 5, 'Datos del Paciente:', 0, 1, 'L', true);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetFillColor(255, 255, 255);
-$pdf->Cell(35, 6, 'Servicio:', 0, 0, 'L');
-$pdf->Cell(55, 6, utf8_decode($tipo_a), 0, 0, 'L');
-$pdf->Cell(35, 6, 'Fecha de registro:', 0, 0, 'L');
-$pdf->Cell(0, 6, $pac_fecing ? date('d/m/Y H:i', strtotime($pac_fecing)) : 'N/A', 0, 1, 'L');
-$pdf->Cell(35, 6, 'Paciente:', 0, 0, 'L');
-$pdf->Cell(55, 6, utf8_decode($folio . ' - ' . $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac), 0, 0, 'L');
-$pdf->Cell(35, 6, utf8_decode('Teléfono:'), 0, 0, 'L');
-$pdf->Cell(0, 6, utf8_decode($pac_tel), 0, 1, 'L');
-$pdf->Cell(35, 6, utf8_decode('Nacimiento:'), 0, 0, 'L');
-$pdf->Cell(30, 6, $pac_fecnac ? date('d/m/Y', strtotime($pac_fecnac)) : 'N/A', 0, 0, 'L');
-$pdf->Cell(10, 6, utf8_decode('Edad:'), 0, 0, 'L');
-$pdf->Cell(15, 6, utf8_decode($edad), 0, 0, 'L');
-$pdf->Cell(15, 6, utf8_decode('Género:'), 0, 0, 'L');
-$pdf->Cell(20, 6, utf8_decode($pac_sexo), 0, 0, 'L');
-$pdf->Cell(20, 6, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 6, utf8_decode($pac_ocup), 0, 1, 'L');
-$pdf->Cell(20, 6, utf8_decode('Domicilio:'), 0, 0, 'L');
-$pdf->Cell(0, 6, utf8_decode($pac_dir), 0, 1, 'L');
-$pdf->Ln(3);
+$pdf->Cell(35, 4, 'Servicio:', 0, 0, 'L');
+$pdf->Cell(55, 4, utf8_decode($tipo_a), 0, 0, 'L');
+$pdf->Cell(35, 4, 'Fecha de registro:', 0, 0, 'L');
+$pdf->Cell(0, 4, $pac_fecing ? date('d/m/Y H:i', strtotime($pac_fecing)) : 'N/A', 0, 1, 'L');
+$pdf->Cell(35, 4, 'Paciente:', 0, 0, 'L');
+$pdf->Cell(55, 4, utf8_decode($folio . ' - ' . $pac_papell . ' ' . $pac_sapell . ' ' . $pac_nom_pac), 0, 0, 'L');
+$pdf->Cell(35, 4, utf8_decode('Teléfono:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($pac_tel), 0, 1, 'L');
+$pdf->Cell(35, 4, utf8_decode('Nacimiento:'), 0, 0, 'L');
+$pdf->Cell(30, 4, $pac_fecnac ? date('d/m/Y', strtotime($pac_fecnac)) : 'N/A', 0, 0, 'L');
+$pdf->Cell(10, 4, utf8_decode('Edad:'), 0, 0, 'L');
+$pdf->Cell(15, 4, utf8_decode($edad), 0, 0, 'L');
+$pdf->Cell(15, 4, utf8_decode('Género:'), 0, 0, 'L');
+$pdf->Cell(20, 4, utf8_decode($pac_sexo), 0, 0, 'L');
+$pdf->Cell(20, 4, utf8_decode('Ocupación:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($pac_ocup), 0, 1, 'L');
+$pdf->Cell(20, 4, utf8_decode('Domicilio:'), 0, 0, 'L');
+$pdf->Cell(0, 4, utf8_decode($pac_dir), 0, 1, 'L');
+$pdf->Ln(1);
 
 // Post-Anesthesia Note Section
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Nota Post Anestésica Oftalmológica'), 0, 1, 'C', true);
-$pdf->Ln(5);
+$pdf->Cell(0, 5, utf8_decode('Nota Post Anestésica Oftalmológica'), 0, 1, 'C', true);
+$pdf->Ln(2);
 
 // General Information (Full Width)
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->Cell(0, 8, utf8_decode('Información General'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 4, utf8_decode('Información General'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $general_fields = [
     'Ojo Operado' => $postanest['ojo_operado'] ?? 'N/A',
     'Técnica Anestésica' => $postanest['tecnica_anestesica'] ?? 'N/A',
@@ -201,23 +201,23 @@ $general_fields = [
 ];
 foreach ($general_fields as $label => $value) {
     if ($value !== 'No' && $value !== 'N/A') {
-        $pdf->MultiCell(0, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->MultiCell(0, 4, utf8_decode($label . ': ' . $value), 1, 'J');
     }
 }
-$pdf->Ln(3);
+$pdf->Ln(2);
 
 // Vital Signs (Two Columns)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Signos Vitales'), 0, 1, 'C', true);
-$pdf->Ln(5);
+$pdf->Cell(0, 4, utf8_decode('Signos Vitales'), 0, 1, 'C', true);
+$pdf->Ln(2);
 
 // Vital Signs at Admission (Left Column)
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
 $pdf->SetX(15);
-$pdf->Cell(90, 8, utf8_decode('Signos Vitales al Ingreso'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(90, 4, utf8_decode('Signos Vitales al Ingreso'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $y_left = $pdf->GetY();
 $vital_signs_ingreso = [
     'TA' => $postanest['ta_ingreso'] ?? 'N/A',
@@ -229,17 +229,17 @@ $vital_signs_ingreso = [
 foreach ($vital_signs_ingreso as $label => $value) {
     if ($value !== 'N/A') {
         $pdf->SetX(15);
-        $pdf->MultiCell(90, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->MultiCell(90, 4, utf8_decode($label . ': ' . $value), 1, 'J');
         $y_left = $pdf->GetY();
     }
 }
 
 // Vital Signs at Discharge (Right Column)
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
-$pdf->SetXY(110, 150); // Align with left column
-$pdf->Cell(90, 8, utf8_decode('Signos Vitales al Alta'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetXY(110, 103); // Align with left column
+$pdf->Cell(90, 4, utf8_decode('Signos Vitales al Alta'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $y_right = $pdf->GetY();
 $vital_signs_alta = [
     'TA' => $postanest['ta_alta'] ?? 'N/A',
@@ -251,27 +251,27 @@ $vital_signs_alta = [
 foreach ($vital_signs_alta as $label => $value) {
     if ($value !== 'N/A') {
         $pdf->SetX(110);
-        $pdf->MultiCell(90, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->MultiCell(90, 4, utf8_decode($label . ': ' . $value), 1, 'J');
         $y_right = $pdf->GetY();
     }
 }
 $pdf->SetY(max($y_left, $y_right));
-$pdf->Ln(3);
+$pdf->Ln(2);
 
 // Aldrete Score (Full Width)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Escala de Aldrete'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 5, utf8_decode('Escala de Aldrete'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
 $pdf->SetX(15);
-$pdf->Cell(30, 8, '', 1, 0, 'C', true);
-$pdf->Cell(39, 8, utf8_decode('Ingreso'), 1, 0, 'C', true);
-$pdf->Cell(39, 8, utf8_decode('Hora Ingreso'), 1, 0, 'C', true);
-$pdf->Cell(39, 8, utf8_decode('Alta'), 1, 0, 'C', true);
-$pdf->Cell(39, 8, utf8_decode('Hora Alta'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(30, 4, '', 1, 0, 'C', true);
+$pdf->Cell(39, 4, utf8_decode('Ingreso'), 1, 0, 'C', true);
+$pdf->Cell(39, 4, utf8_decode('Hora Ingreso'), 1, 0, 'C', true);
+$pdf->Cell(39, 4, utf8_decode('Alta'), 1, 0, 'C', true);
+$pdf->Cell(39, 4, utf8_decode('Hora Alta'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $aldrete_fields = [
     'Actividad' => [
         'Ingreso' => $postanest['actividad_ingreso'] ?? 'N/A',
@@ -307,44 +307,44 @@ $aldrete_fields = [
 foreach ($aldrete_fields as $label => $values) {
     if ($values['Ingreso'] !== 'N/A' || $values['Alta'] !== 'N/A') {
         $pdf->SetX(15);
-        $pdf->Cell(30, 6, utf8_decode($label), 1, 0, 'L');
-        $pdf->Cell(39, 6, utf8_decode($values['Ingreso']), 1, 0, 'C');
-        $pdf->Cell(39, 6, utf8_decode($values['Hora Ingreso']), 1, 0, 'C');
-        $pdf->Cell(39, 6, utf8_decode($values['Alta']), 1, 0, 'C');
-        $pdf->Cell(39, 6, utf8_decode($values['Hora Alta']), 1, 1, 'C');
+        $pdf->Cell(30, 4, utf8_decode($label), 1, 0, 'L');
+        $pdf->Cell(39, 4, utf8_decode($values['Ingreso']), 1, 0, 'C');
+        $pdf->Cell(39, 4, utf8_decode($values['Hora Ingreso']), 1, 0, 'C');
+        $pdf->Cell(39, 4, utf8_decode($values['Alta']), 1, 0, 'C');
+        $pdf->Cell(39, 4, utf8_decode($values['Hora Alta']), 1, 1, 'C');
     }
 }
 $pdf->SetX(15);
-$pdf->Cell(30, 6, utf8_decode('Total'), 1, 0, 'L');
-$pdf->Cell(39, 6, utf8_decode($postanest['total_ingreso'] ?? 'N/A'), 1, 0, 'C');
-$pdf->Cell(39, 6, '', 1, 0, 'C');
-$pdf->Cell(39, 6, utf8_decode($postanest['total_alta'] ?? 'N/A'), 1, 0, 'C');
-$pdf->Cell(39, 6, '', 1, 1, 'C');
-$pdf->Ln(8);
+$pdf->Cell(30, 4, utf8_decode('Total'), 1, 0, 'L');
+$pdf->Cell(39, 4, utf8_decode($postanest['total_ingreso'] ?? 'N/A'), 1, 0, 'C');
+$pdf->Cell(39, 4, '', 1, 0, 'C');
+$pdf->Cell(39, 4, utf8_decode($postanest['total_alta'] ?? 'N/A'), 1, 0, 'C');
+$pdf->Cell(39, 4, '', 1, 1, 'C');
+$pdf->Ln(2);
 
 // Timestamps (Horizontal Table)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Tiempos'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(0, 5, utf8_decode('Tiempos'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(245, 245, 245);
 $pdf->SetX(15);
-$pdf->Cell(92, 8, utf8_decode('Hora de Ingreso'), 1, 0, 'C', true);
-$pdf->Cell(92, 8, utf8_decode('Hora de Alta'), 1, 1, 'C', true);
-$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(92, 4, utf8_decode('Hora de Ingreso'), 1, 0, 'C', true);
+$pdf->Cell(92, 4, utf8_decode('Hora de Alta'), 1, 1, 'C', true);
+$pdf->SetFont('Arial', '', 7);
 $pdf->SetX(15);
-$pdf->Cell(92, 6, $postanest['hora_ingreso'] ? date('H:i', strtotime($postanest['hora_ingreso'])) : 'N/A', 1, 0, 'C');
-$pdf->Cell(92, 6, $postanest['hora_alta'] ? date('H:i', strtotime($postanest['hora_alta'])) : 'N/A', 1, 1, 'C');
-$pdf->Ln(3);
+$pdf->Cell(92, 4, $postanest['hora_ingreso'] ? date('H:i', strtotime($postanest['hora_ingreso'])) : 'N/A', 1, 0, 'C');
+$pdf->Cell(92, 4, $postanest['hora_alta'] ? date('H:i', strtotime($postanest['hora_alta'])) : 'N/A', 1, 1, 'C');
+$pdf->Ln(2);
 
-// Final Evaluation (Full Width)
-$pdf->SetFont('Arial', 'B', 12);
+// Final Evaluation (Full Width Header)
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Evaluación Final'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->SetFillColor(245, 245, 245);
+$pdf->Cell(0, 4, utf8_decode('Evaluación Final'), 0, 1, 'C', true);
+$pdf->Ln(2);
+
+// Define final evaluation fields
 $final_fields = [
     'Control de Dolor' => $postanest['control_dolor'] ?? 'N/A',
     'Horas Post Anestesia' => $postanest['horas_post_anestesia'] ? $postanest['horas_post_anestesia'] . ' horas' : 'N/A',
@@ -362,35 +362,67 @@ $final_fields = [
     'Deambulación' => $postanest['deambulacion'] ?? 'N/A',
     'Indicaciones al Alta' => $postanest['indicaciones_alta'] ?? 'N/A',
 ];
-foreach ($final_fields as $label => $value) {
+
+// Split fields into two groups for left and right columns
+$total_fields = count($final_fields);
+$half = ceil($total_fields / 2);
+$left_fields = array_slice($final_fields, 0, $half, true);
+$right_fields = array_slice($final_fields, $half, null, true);
+
+// Set column widths (assuming A4 page width of 190mm usable after margins)
+$column_width = 92; // Half of page width for each column
+
+// Set font for content
+$pdf->SetFont('Arial', '', 9);
+$pdf->SetFillColor(245, 245, 245);
+
+// Left column
+$y_start = $pdf->GetY();
+$x_left = $pdf->GetX();
+foreach ($left_fields as $label => $value) {
     if ($value !== 'No' && $value !== 'N/A') {
-        $pdf->MultiCell(0, 6, utf8_decode($label . ': ' . $value), 1, 'J');
+        $pdf->SetXY($x_left, $pdf->GetY());
+        $pdf->MultiCell($column_width, 4, utf8_decode($label . ': ' . $value), 1, 'J');
     }
 }
-$pdf->Ln(8);
+
+// Right column
+$y_max = $pdf->GetY();
+$pdf->SetXY($x_left + $column_width, $y_start);
+foreach ($right_fields as $label => $value) {
+    if ($value !== 'No' && $value !== 'N/A') {
+        $pdf->SetXY($x_left + $column_width, $pdf->GetY());
+        $pdf->MultiCell($column_width, 4, utf8_decode($label . ': ' . $value), 1, 'J');
+    }
+}
+
+// Move to the bottom of the tallest column
+$y_max = max($y_max, $pdf->GetY());
+$pdf->SetY($y_max);
+$pdf->Ln(2);
 
 // Discharge Evolution (Full Width)
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
-$pdf->Cell(0, 8, utf8_decode('Evolución al Alta'), 0, 1, 'C', true);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', '', 10);
-$pdf->MultiCell(0, 6, utf8_decode('Evolución: ' . ($postanest['evolucion_alta'] ?? 'N/A')), 1, 'J');
-$pdf->Ln(8);
+$pdf->Cell(0, 4, utf8_decode('Evolución al Alta'), 0, 1, 'C', true);
+$pdf->Ln(2);
+$pdf->SetFont('Arial', '', 9);
+$pdf->MultiCell(0, 4, utf8_decode('Evolución: ' . ($postanest['evolucion_alta'] ?? 'N/A')), 1, 'J');
+/* $pdf->Ln(18); */
 
 // Signature (Full Width)
-$pdf->SetY(-50);
+$pdf->SetY(-38);
 if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
-    $imgWidth = 40;
+    $imgWidth = 30;
     $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
     $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
-    $pdf->Ln(25);
+    $pdf->Ln(3);
 }
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(0, 6, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 6, utf8_decode($cargp), 0, 1, 'C');
-$pdf->Cell(0, 6, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 9);
+$pdf->Cell(0, 4, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(0, 4, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 4, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
 
 // Output PDF
 header('Content-Type: application/pdf');
