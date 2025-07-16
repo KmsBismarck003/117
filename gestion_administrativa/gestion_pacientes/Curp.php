@@ -1,131 +1,104 @@
 <?php
-
 class Curp {
-
-    public function __construct() {
-    }
+    private $state_codes = [
+        1 => 'AS', 2 => 'BC', 3 => 'BS', 4 => 'CC', 5 => 'CL', 6 => 'CM', 7 => 'CS', 8 => 'CH',
+        9 => 'DF', 10 => 'DG', 11 => 'GT', 12 => 'GR', 13 => 'HG', 14 => 'JC', 15 => 'MC',
+        16 => 'MN', 17 => 'MS', 18 => 'NT', 19 => 'NL', 20 => 'OC', 21 => 'PL', 22 => 'QT',
+        23 => 'QR', 24 => 'SP', 25 => 'SL', 26 => 'SR', 27 => 'TC', 28 => 'TS', 29 => 'TL',
+        30 => 'VZ', 31 => 'YN', 32 => 'ZS', 99 => 'NE'
+    ];
 
     private function limpiarCadena($cadena) {
-        $string = trim($cadena);
-        $string = str_replace(array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'), array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'), $string);
-        $string = str_replace(array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'), array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'), $string);
-        $string = str_replace(array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'), array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'), $string);
-        $string = str_replace(array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'), array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'), $string);
-        $string = str_replace(array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'), array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'), $string);
-        $string = str_replace(array('ñ', 'Ñ', 'ç', 'Ç'), array('X', 'X', 'c', 'C',), $string);
-        $string = str_replace(array("\\", "¨", "º", "-", "~", "#", "@", "|", "!", "\"", "·", "$", "%", "&", "/", "(", ")", "?", "'", "¡",
-            "¿", "[", "^", "<code>", "]", "+", "}", "{", "¨", "´", ">", "< ", ";", ",", ":", ".", " "), ' ', $string);
-        $string = strtoupper($string);
-        $string = str_replace(array('jose', 'JOSE', 'MARIA', 'maria', 'MARIANA', 'mariana', 'del', 'DEL', 'al', 'AL', 'de', 'DE', 'la', 'LA'), array('', ''), $string);
-        return $string;
+        $cadena = strtoupper(trim($cadena));
+        $cadena = strtr($cadena, [
+            'Á'=>'A','É'=>'E','Í'=>'I','Ó'=>'O','Ú'=>'U','Ü'=>'U','Ñ'=>'N',
+            'À'=>'A','È'=>'E','Ì'=>'I','Ò'=>'O','Ù'=>'U',
+        ]);
+        $cadena = preg_replace('/[^A-Z]/', '', $cadena);
+        return $cadena;
     }
 
-    private function claveNombre($nombres, $apellido1, $apellido2) {
-        $paterno = str_replace(' ', '', $this->limpiarCadena($apellido1));
-        $materno = str_replace(' ', '', $this->limpiarCadena($apellido2));
-        $names = str_replace(' ', '', $this->limpiarCadena($nombres));
-        $long = strlen($paterno);
-        for ($i = 1; $i < $long; $i++) {
-            if (in_array($paterno[$i], ["A", "E", "I", "O", "U"])) {
-                $primera_vocal = $paterno[$i];
-                break;
-            } else {
-                $primera_vocal = "";
+    private function quitarNombresComunes($nombre) {
+        $excepciones = ['JOSE', 'MARIA', 'MA', 'J', 'DE', 'DEL', 'LA', 'LOS', 'LAS', 'Y'];
+        $partes = explode(' ', $nombre);
+        foreach ($partes as $parte) {
+            if (!in_array($parte, $excepciones)) {
+                return $parte;
             }
         }
-        $Apellido_paterno = $paterno[0] . $primera_vocal;
-        $Apellido_materno = $materno[0];
-        $Nombre = $names[0];
-        $curp_name = $Apellido_paterno . $Apellido_materno . $Nombre;
-        return $curp_name;
+        return $partes[0]; // fallback
     }
 
-    private function claveFechaNa($diase, $mes, $annio) {
-        $year = $annio[2].$annio[3];
-        $fechaa = $year . $mes . $diase;
-        return $fechaa;
-    }
-
-    private function caveSexoEdo($sexo, $edo) {
-        return $sexo . $edo;
-    }
-
-    private function claveConsonantesInternas($nombres, $apellido1, $apellido2) {
-        $paterno = str_replace(' ', '', $this->limpiarCadena($apellido1));
-        $materno = str_replace(' ', '', $this->limpiarCadena($apellido2));
-        $nombre = str_replace(' ', '', $this->limpiarCadena($nombres));
-        $long_ap = strlen($paterno);
-        for ($i = 1; $i < $long_ap; $i++) {
-            if (in_array($paterno[$i], ["A", "E", "I", "O", "U"])) {
-                $consonantes_paterno = "";
-            } else {
-                $consonantes_paterno = $paterno[$i];
-                break;
+    private function primerVocalInterna($cadena) {
+        for ($i = 1; $i < strlen($cadena); $i++) {
+            if (in_array($cadena[$i], ['A', 'E', 'I', 'O', 'U'])) {
+                return $cadena[$i];
             }
         }
-        $long_am = strlen($materno);
-        for ($i = 1; $i < $long_am; $i++) {
-            if (in_array($materno[$i], ["A", "E", "I", "O", "U"])) {
-                $consonantes_materno = "";
-            } else {
-                $consonantes_materno = $materno[$i];
-                break;
+        return 'X';
+    }
+
+    private function primeraConsonanteInterna($cadena) {
+        for ($i = 1; $i < strlen($cadena); $i++) {
+            if (!in_array($cadena[$i], ['A', 'E', 'I', 'O', 'U'])) {
+                return $cadena[$i];
             }
         }
-        $long_name = strlen($nombre);
-        for ($i = 1; $i < $long_name; $i++) {
-            if (in_array($nombre[$i], ["A", "E", "I", "O", "U"])) {
-                $consonantes_nombre = "";
-            } else {
-                $consonantes_nombre = $nombre[$i];
-                break;
-            }
-        }
-        $consonantes = $consonantes_paterno . $consonantes_materno . $consonantes_nombre;
-        return $consonantes;
+        return 'X';
     }
 
-    private function claveHomonima($annio) {
-        if ($annio <= 1999) {
-            $homo_clave = "0";
-        } else {
-            $homo_clave = "A";
+    private function claveVerificador($curp17) {
+    $tabla = array_merge(
+        array_combine(range('0','9'), range(0,9)),        // 0‑9
+        array_combine(range('A','N'), range(10,23)),      // A‑N
+        ['Ñ' => 24],                                      // Ñ
+        array_combine(range('O','Z'), range(25,36))       // O‑Z  
+    );
+
+        $suma = 0;
+        for ($i = 0; $i < 17; $i++) {
+            $caracter = $curp17[$i];
+            $valor = $tabla[$caracter] ?? 0;
+            $suma += $valor * (18 - $i);
         }
-        return $homo_clave;
+        $digito = 10 - ($suma % 10);
+        return ($digito == 10) ? '0' : (string)$digito;
     }
 
-    private function claveVerificador($curp) {
-        $tablaclave = array("0" => "0", "1" => "1", "2" => "2", "3" => "3", "4" => "4", "5" => "5",
-            "6" => "6", "7" => "7", "8" => "8", "9" => "9", "A" => "10",
-            "B" => "11", "C" => "12", "D" => "13", "E" => "14", "F" => "15",
-            "G" => "16", "H" => "17", "I" => "18", "J" => "19", "K" => "20",
-            "L" => "21", "M" => "22", "N" => "23", "Ñ" => "24", "O" => "25",
-            "P" => "26", "Q" => "27", "R" => "28", "S" => "29", "T" => "30",
-            "U" => "31", "V" => "32", "W" => "33", "X" => "34", "Y" => "35", "Z" => "36",);
-        $position = 18;
-        $long_curp = strlen($curp);
-        $total = 0;
-        for ($i = 0; $i < $long_curp; $i++) {
-            $value = $tablaclave[$curp[$i]] * $position;
-            $position--;
-            $total = $total + $value;
-        }
-        $digito = abs(($total % 10) - 10);
-        if ($digito == 10) {
-            $digito = 0;
-        }
-        return $digito;
-    }
 
-    public function generarCURP($nombres, $apellido1, $apellido2, $diase, $mes, $annio, $sexo, $edo) {
-        $nombre = $this->claveNombre($nombres, $apellido1, $apellido2);
-        $fechaa = $this->claveFechaNa($diase, $mes, $annio);
-        $sexoEdo = $this->caveSexoEdo($sexo, $edo);
-        $consonantes = $this->claveConsonantesInternas($nombres, $apellido1, $apellido2);
-        $homo = $this->claveHomonima($annio);
-        $curp = $nombre . $fechaa . $sexoEdo . $consonantes . $homo;
-        $dig_ver = $this->claveVerificador($curp);
-        return $curp . $dig_ver;
-    }
+    public function generarCurp($apellidoP, $apellidoM, $nombres, $fechaNacimiento, $sexo, $estadoId) {
+        $apellidoP = $this->limpiarCadena($apellidoP);
+        $apellidoM = $this->limpiarCadena($apellidoM);
+        $nombres = $this->limpiarCadena($nombres);
+        $sexo = strtoupper($sexo);
+        $estado = isset($this->state_codes[$estadoId]) ? $this->state_codes[$estadoId] : 'NE';
 
+        // Nombres comunes
+        $nombreProcesado = $this->quitarNombresComunes($nombres);
+
+        // Fecha
+        $fecha = DateTime::createFromFormat('Y-m-d', $fechaNacimiento);
+        $fechaStr = $fecha->format('ymd');
+
+        // Homonimia
+        $homonimia = ((int)$fecha->format('Y') >= 2000) ? 'A' : '0';
+
+        // CURP base (17 caracteres)
+        $curp17 = substr($apellidoP, 0, 1)
+                . $this->primerVocalInterna($apellidoP)
+                . (isset($apellidoM[0]) ? $apellidoM[0] : 'X')
+                . substr($nombreProcesado, 0, 1)
+                . $fechaStr
+                . $sexo
+                . $estado
+                . $this->primeraConsonanteInterna($apellidoP)
+                . $this->primeraConsonanteInterna($apellidoM)
+                . $this->primeraConsonanteInterna($nombreProcesado)
+                . $homonimia;
+
+        $verificador = $this->claveVerificador($curp17);
+
+        return $curp17 . $verificador;
+    }
 }
+?>

@@ -9,25 +9,38 @@ on paciente.id_edo=estados.id_edo
 inner join estado_nac on paciente.id_edo_nac=estado_nac.id_edo_nac
 inner join municipios on paciente.id_mun=municipios.id_mun") or die($conexion->error);
 $usuario = $_SESSION['login'];
+
+$sql_diag = "SELECT pa.*, da.* FROM paciente pa LEFT JOIN dat_ingreso da ON da.Id_exp = pa.Id_exp ORDER BY pa.Id_exp DESC";
+$result_diag = $conexion->query($sql_diag);
+$patients = [];
+while ($row = mysqli_fetch_array($result_diag)) {
+    $patients[] = [
+        'Id_exp' => $row['Id_exp'],
+        'nom_pac' => $row['nom_pac'],
+        'papell' => $row['papell'],
+        'sapell' => $row['sapell']
+    ];
+}
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <link rel="stylesheet" type="text/css" href="css/select2.css">
-        <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
-            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFMw5uZjQz4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="js/select2.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldLv/Pr4nhuBviF5jGqQK/5i2Q5iZ64dxBl+zOZ" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-        </script>
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFMw5uZjQz4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldLv/Pr4nhuBviF5jGqQK/5i2Q5iZ64dxBl+zOZ" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" type="text/css" href="css/select2.css">
     <script src="js/select2.js"></script>
     <link rel="stylesheet" href="../global_pac/css_busc/estilos2.css">
@@ -35,16 +48,17 @@ $usuario = $_SESSION['login'];
     <title>NUEVO PACIENTE</title>
 
     <style type="text/css">
-        #contenido {
-            display: none;
-        }
-        .thead {
-            background-color: #2b2d7f;
-            color: white;
-            font-size: 22px;
-            padding: 10px;
-            text-align: center;
-        }
+    #contenido {
+        display: none;
+    }
+
+    .thead {
+        background-color: #2b2d7f;
+        color: white;
+        font-size: 22px;
+        padding: 10px;
+        text-align: center;
+    }
     </style>
 </head>
 
@@ -75,7 +89,18 @@ $usuario = $_SESSION['login'];
                 </div>
                 <div class="col-sm-9">
                     <div class="form-group search-bar">
-                        <input type="search" id="input-search" class="form-control" placeholder="Buscar paciente">
+                        <label for="input-search">Buscar paciente:</label>
+                        <select id="input-search" class="form-control select2" style="width: 100%;">
+                            <option value="" disabled selected>Buscar paciente por nombre</option>
+                            <?php foreach ($patients as $patient) {
+                                $nombre_rec = htmlspecialchars($patient['nom_pac'] . ' ' . $patient['papell'] . ' ' . $patient['sapell']);
+                                $url = "../gestion_pacientes/vista_pacientet.php?id=" . $patient['Id_exp'] .
+                                    "&nombre=" . urlencode($patient['nom_pac']) .
+                                    "&papell=" . urlencode($patient['papell']) .
+                                    "&sapell=" . urlencode($patient['sapell']);
+                                echo "<option value='$url'>$nombre_rec</option>";
+                            } ?>
+                        </select>
                     </div>
                     <div class="content-search">
                         <div class="content-table">
@@ -87,15 +112,16 @@ $usuario = $_SESSION['login'];
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql_diag = "SELECT pa.*, da.* FROM paciente pa, dat_ingreso da WHERE da.Id_exp = pa.Id_exp ORDER BY pa.Id_exp DESC";
-                                    $result_diag = $conexion->query($sql_diag);
-                                    while ($row = mysqli_fetch_array($result_diag)) {
-                                        $nombre_rec = $row['nom_pac'] . ' ' . $row['papell'] . ' ' . $row['sapell'];
+                                    foreach ($patients as $patient) {
+                                        $nombre_rec = htmlspecialchars($patient['nom_pac'] . ' ' . $patient['papell'] . ' ' . $patient['sapell']);
+                                        $url = "../gestion_pacientes/vista_pacientet.php?id=" . $patient['Id_exp'] .
+                                            "&nombre=" . urlencode($patient['nom_pac']) .
+                                            "&papell=" . urlencode($patient['papell']) .
+                                            "&sapell=" . urlencode($patient['sapell']);
                                     ?>
                                     <tr>
-                                        <td><a href="../gestion_pacientes/vista_pacientet.php?id=<?php echo $row['Id_exp']; ?>&nombre=<?php echo urlencode($row['nom_pac']); ?>&papell=<?php echo urlencode($row['papell']); ?>&sapell=<?php echo urlencode($row['sapell']); ?>"
-                                                class="btn btn-primary btn-sm"><?php echo htmlspecialchars($nombre_rec); ?></a>
-                                        </td>
+                                        <td><a href="<?php echo $url; ?>"
+                                                class="btn btn-primary btn-sm"><?php echo $nombre_rec; ?></a></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
@@ -104,7 +130,7 @@ $usuario = $_SESSION['login'];
                     </div>
                 </div>
             </div>
-            <form action="insertar_paciente.php?id_usu=<?php echo $usuario['id_usua']; ?>" method="POST"
+            <form action="insertar_paciente.php?id_usua=<?php echo $usuario['id_usua']; ?>" method="POST"
                 onsubmit="return checkSubmit();">
                 <div class="row">
                     <div class="col-sm-4">
@@ -142,13 +168,13 @@ $usuario = $_SESSION['login'];
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="fecnac">Fecha de nacimiento:</label>
-                            <input type="date" name="fecnac" id="fecnac" class="form-control" required>
+                            <input type="date" name="fecnac" id="fecnac" class="form-control" placeholder="dd/mm/aaaa" required>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="estado">Estado de nacimiento:</label>
-                            <select id="estado" name="estado" class="form-control select2" required>
+                            <label for="estado_nac">Estado de nacimiento:</label>
+                            <select id="estado_nac" name="estado_nac" class="form-control" required>
                                 <option value="" disabled selected>Selecciona el estado</option>
                                 <?php
                                 $resultadoEstados = $conexion->query("SELECT id_edo, nombre FROM estados WHERE activo=1 ORDER BY nombre ASC") or die($conexion->error);
@@ -162,28 +188,51 @@ $usuario = $_SESSION['login'];
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="municipios">Municipio:</label>
-                            <select id="municipios" name="municipios" class="form-control" required>
-                                <option value="" disabled selected>Seleccionar municipio</option>
-                            </select>
-                            <input type="text" id="municipio_manual" name="municipio_manual"
-                                class="form-control" placeholder="Escriba el municipio"
-                                style="display: none;" />
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group">
                             <label for="sexo">Género:</label>
                             <select name="sexo" class="form-control" required>
-                                <option value="">Seleccionar</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option value="H">Hombre</option>
                                 <option value="M">Mujer</option>
                                 <option value="Se desconoce">Se desconoce</option>
                             </select>
                         </div>
                     </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="estado_res">Estado de residencia:</label>
+                            <select id="estado_res" name="estado_res" class="form-control" required>
+                                <option value="" disabled selected>Seleccionar</option>
+                                <?php
+                                $resultadoEstados = $conexion->query("SELECT id_edo, nombre FROM estados WHERE activo=1 ORDER BY nombre ASC") or die($conexion->error);
+                                while ($row = mysqli_fetch_assoc($resultadoEstados)) {
+                                    echo "<option value='{$row['id_edo']}'>{$row['nombre']}</option>";
+                                }
+                                ?>
+                                <option value="OT">Otros</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="municipios">Municipio:</label>
+                            <select id="municipios" name="municipios" class="form-control" required>
+                                <option value="" disabled selected>Seleccionar</option>
+                            </select>
+                            <input type="text" id="municipio_manual" name="municipio_manual" class="form-control"
+                                placeholder="Escriba el municipio" style="display: none;" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="localidad">Localidad:</label>
+                            <input type="text" name="localidad" id="localidad" class="form-control"
+                                placeholder="Localidad de residencia" style="text-transform:capitalize;"
+                                onkeyup="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1).toLowerCase();"
+                                maxlength="100" required>
+                        </div>
+                    </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="dir">Dirección:</label>
@@ -197,15 +246,32 @@ $usuario = $_SESSION['login'];
                         <div class="form-group">
                             <label for="tel">Teléfono del paciente:</label>
                             <input type="text" name="tel" id="tel" placeholder="Teléfono a 10 dígitos"
-                                class="form-control" onkeypress="return SoloNumeros(event);" maxlength="10"
-                                required>
+                                class="form-control" onkeypress="return SoloNumeros(event);" maxlength="10" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="tipo_sangre">Tipo de sangre:</label>
+                            <select name="tipo_sangre" id="tipo_sangre" class="form-control" required>
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="religion">Religión:</label>
                             <select name="religion" class="form-control">
-                                <option value="">Seleccionar</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option value="Católica">Católica</option>
                                 <option value="Cristiana">Cristiana</option>
                                 <option value="Protestante">Protestante</option>
@@ -218,7 +284,7 @@ $usuario = $_SESSION['login'];
                         <div class="form-group">
                             <label for="edociv">Estado civil:</label>
                             <select name="edociv" class="form-control" required>
-                                <option value="">Seleccionar</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option value="Soltero">Soltero</option>
                                 <option value="Casado">Casado</option>
                                 <option value="Viudo">Viudo</option>
@@ -289,10 +355,10 @@ $usuario = $_SESSION['login'];
                 </center>
                 <br>
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="id_usua">Médico tratante:</label>
-                            <select name="id_usua" class="form-control select2" onchange="mostrar(this.value);">
+                            <label for="id_usua1">Médico tratante:</label>
+                            <select name="id_usua1" id="id_usua1" class="form-control select2" required>
                                 <option value="" disabled selected>Seleccionar</option>
                                 <?php
                                 $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
@@ -304,11 +370,73 @@ $usuario = $_SESSION['login'];
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_usua2">Médico tratante 2:</label>
+                            <select name="id_usua2" id="id_usua2" class="form-control select2">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <?php
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                while ($opciones = mysqli_fetch_assoc($resultado1)) {
+                                    echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
+                                }
+                                ?>
+                                <option value="OTRO">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_usua3">Médico tratante 3:</label>
+                            <select name="id_usua3" id="id_usua3" class="form-control select2">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <?php
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                while ($opciones = mysqli_fetch_assoc($resultado1)) {
+                                    echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
+                                }
+                                ?>
+                                <option value="OTRO">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_usua4">Médico tratante 4:</label>
+                            <select name="id_usua4" id="id_usua4" class="form-control select2">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <?php
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                while ($opciones = mysqli_fetch_assoc($resultado1)) {
+                                    echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
+                                }
+                                ?>
+                                <option value="OTRO">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_usua5">Médico tratante 5:</label>
+                            <select name="id_usua5" id="id_usua5" class="form-control select2">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <?php
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                while ($opciones = mysqli_fetch_assoc($resultado1)) {
+                                    echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
+                                }
+                                ?>
+                                <option value="OTRO">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label for="habitacion">Seleccionar habitación:</label>
                             <select id="cama" name="habitacion" class="form-control" required>
-                                <option value="">Seleccionar</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <?php
                                 $resultado1 = $conexion->query("SELECT * FROM cat_camas WHERE estatus='LIBRE' ORDER BY num_cama ASC") or die($conexion->error);
                                 while ($opciones = mysqli_fetch_assoc($resultado1)) {
@@ -325,42 +453,40 @@ $usuario = $_SESSION['login'];
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Nombre completo:</label>
-                                <input type="text" name="papell_med" class="form-control"
-                                    placeholder="Nombre completo">
+                                <input type="text" name="papell_med" class="form-control" placeholder="Nombre completo">
                             </div>
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5">
-                        <div class="form-group">
+                    <div class="col-sm-6">
+                        <div class грамотность="form-group">
                             <label for="motivo_atn">Motivo de atención:</label>
                             <select name="motivo_atn" class="form-control" required>
-                                <option value="">Seleccionar</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option value="Hospitalización">Requiere Hospitalización</option>
                                 <option value="Cirugía programada">Cirugía programada</option>
                                 <option value="Cirugía de urgencia">Cirugía de urgencia</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="alergias">Alergias:</label>
-                            <input type="text" name="alergias" class="form-control"
-                                placeholder="Alergias del paciente" onkeypress="return SoloLetras(event);"
-                                style="text-transform:capitalize;"
+                            <input type="text" name="alergias" class="form-control" placeholder="Alergias del paciente"
+                                onkeypress="return SoloLetras(event);" style="text-transform:capitalize;"
                                 onkeyup="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1).toLowerCase();"
                                 required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tipo_a">Especialidad:</label>
                             <select name="tipo_a" class="form-control select2" required>
-                                <option value="">Seleccionar</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <?php
                                 $resultadoaseg = $conexion->query("SELECT * FROM cat_espec WHERE espec_activo='SI' ORDER BY espec ASC") or die($conexion->error);
                                 while ($opcionesaseg = mysqli_fetch_assoc($resultadoaseg)) {
@@ -455,70 +581,142 @@ $usuario = $_SESSION['login'];
     <script src="../global_pac/js_busc/jquery.dataTables.min.js"></script>
     <script>
     $(document).ready(function() {
-        $('.select2').select2();
-        $('#table').DataTable();
-        $("#input-search").keyup(function() {
-            let searchText = $(this).val().toLowerCase();
-            $("#table tbody tr").each(function() {
-                let rowText = $(this).text().toLowerCase();
-                $(this).toggle(rowText.includes(searchText));
-            });
-        });
-
-        const $municipios = $('#municipios');
-        const $municipioManual = $('#municipio_manual');
-
-        // Handle estado selection change
-        $('#estado').on('change', function() {
-            const idEstado = $(this).val();
-            console.log('Selected estado:', idEstado);
-
-            $municipios.prop('disabled', true).html(
-                '<option value="" disabled selected>Cargando municipios...</option>');
-            $municipioManual.hide().prop('required', false);
-
-            if (idEstado === 'OT') {
-                $municipios.hide();
-                $municipioManual.show().prop('required', true);
-                $municipios.html('<option value="" disabled selected>Seleccionar municipio</option>').select2();
-                $municipios.prop('disabled', true);
-            } else if (idEstado) {
-                $municipios.show();
-                $.ajax({
-                    url: 'municipios.php',
-                    type: 'GET',
-                    data: { estado_id: idEstado },
-                    dataType: 'json',
-                    success: function(datos) {
-                        console.log('Response data:', datos);
-                        let html = '<option value="" disabled selected>Seleccionar municipio</option>';
-                        if (datos && datos.length > 0) {
-                            datos.forEach(mun => {
-                                html += `<option value="${mun.id_mun}">${mun.nombre_m}</option>`;
-                            });
-                            $municipios.prop('disabled', false);
-                        } else {
-                            html = '<option value="">No hay municipios disponibles</option>';
-                        }
-                        $municipios.html(html).select2();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Fetch error:', error, xhr.status, xhr.statusText);
-                        $municipios.html(
-                            '<option value="">Error al cargar municipios</option>').select2();
-                        $municipios.prop('disabled', true);
-                    }
-                });
-            } else {
-                $municipios.html(
-                    '<option value="" disabled selected>Seleccionar municipio</option>').select2();
-                $municipios.prop('disabled', true);
+        // Initialize DataTable for the table
+        $('#table').DataTable({
+            "language": {
+                "search": "Filtrar en tabla:",
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "zeroRecords": "No se encontraron registros coincidentes",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
             }
         });
 
-        function mostrar(value) {
-            document.getElementById('contenido').style.display = (value === "OTRO") ? 'block' : 'none';
+        // Initialize Select2 for the search dropdown
+        $('#input-search').select2({
+            placeholder: "Buscar paciente por nombre",
+            allowClear: true,
+            minimumInputLength: 2,
+            matcher: function(params, data) {
+                if (!params.term) return data;
+                const term = params.term.toLowerCase();
+                const text = $(data.element).text().toLowerCase();
+                return text.includes(term) ? data : null;
+            }
+        });
+
+        // Redirect when an option is selected
+        $('#input-search').on('select2:select', function(e) {
+            window.location.href = e.target.value;
+        });
+
+        // Sync Select2 search with DataTable search
+        $('#input-search').on('select2:open', function() {
+            $('.select2-search__field').on('input', function() {
+                const searchTerm = $(this).val();
+                $('#table').DataTable().search(searchTerm).draw();
+            });
+        });
+
+        // Initialize Select2 for the Médico tratante dropdown
+        $('select[name="id_usua"]').select2();
+
+        // Handle Médico tratante selection change
+        $('select[name="id_usua"]').on('select2:select', function(e) {
+            const value = $(this).val();
+            console.log('Médico tratante selected:', value); // Debugging
+            mostrar(value);
+        });
+
+        // Handle estado_nac and estado_res selection change
+        const $municipios = $('#municipios');
+        const $municipioManual = $('#municipio_manual');
+
+        // Function to handle estado selection change
+        function handleEstadoChange(estadoSelector, municipiosSelector, municipioManualSelector) {
+            $(estadoSelector).on('change', function() {
+                const idEstado = $(this).val();
+                console.log(`Selected estado (${estadoSelector}):`, idEstado);
+
+                municipiosSelector.prop('disabled', true).html(
+                    '<option value="" disabled selected>Cargando municipios...</option>');
+                municipioManualSelector.hide().prop('required', false);
+
+                if (idEstado === 'OT') {
+                    municipiosSelector.hide();
+                    municipioManualSelector.show().prop('required', true);
+                    municipiosSelector.html(
+                            '<option value="" disabled selected>Seleccionar municipio</option>')
+                        .select2();
+                    municipiosSelector.prop('disabled', true);
+                } else if (idEstado) {
+                    municipiosSelector.show();
+                    $.ajax({
+                        url: 'municipios.php',
+                        type: 'GET',
+                        data: {
+                            estado_id: idEstado
+                        },
+                        dataType: 'json',
+                        success: function(datos) {
+                            console.log('Response data:', datos);
+                            let html =
+                                '<option value="" disabled selected>Seleccionar municipio</option>';
+                            if (datos && datos.length > 0) {
+                                datos.forEach(mun => {
+                                    html +=
+                                        `<option value="${mun.id_mun}">${mun.nombre_m}</option>`;
+                                });
+                                municipiosSelector.prop('disabled', false);
+                            } else {
+                                html =
+                                    '<option value="">No hay municipios disponibles</option>';
+                            }
+                            municipiosSelector.html(html).select2();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Fetch error:', error, xhr.status, xhr
+                            .statusText);
+                            municipiosSelector.html(
+                                    '<option value="">Error al cargar municipios</option>')
+                                .select2();
+                            municipiosSelector.prop('disabled', true);
+                        }
+                    });
+                } else {
+                    municipiosSelector.html(
+                            '<option value="" disabled selected>Seleccionar municipio</option>')
+                        .select2();
+                    municipiosSelector.prop('disabled', true);
+                }
+            });
         }
+
+        // Initialize handlers for both estado_nac and estado_res
+        /* handleEstadoChange('#estado_nac', $municipios, $municipioManual); */
+        handleEstadoChange('#estado_res', $municipios, $municipioManual);
+
+        // Function to toggle visibility of new doctor section
+        function mostrar(value) {
+            const contenido = document.getElementById('contenido');
+            if (value === 'OTRO') {
+                contenido.style.display = 'block';
+                console.log('Showing new doctor section');
+            } else {
+                contenido.style.display = 'none';
+                console.log('Hiding new doctor section');
+            }
+        }
+
+        // Initialize visibility based on default selection
+        mostrar($('select[name="id_usua"]').val());
 
         let enviando = false;
 
@@ -548,4 +746,5 @@ $usuario = $_SESSION['login'];
     });
     </script>
 </body>
+
 </html>

@@ -631,7 +631,6 @@ if (isset($_SESSION['hospital'])) {
                             <select class="form-control" name="tipo_anestesia" id="tipo_anestesia" required>
                                 <option value="">Seleccione</option>
                                 <option value="General">General</option>
-                                <option value="Regional">Regional</option>
                                 <option value="Local">Local</option>
                                 <option value="Sedación">Sedación</option>
                             </select>
