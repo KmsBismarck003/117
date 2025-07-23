@@ -145,7 +145,7 @@ NOMBRE: <strong><?php echo $row['nom_pac'] . ' ' . $row['papell'] . ' '. $row['s
               }
               }
               ?>
-15.01 Hospitalización
+15.01 Tratamiento
 
 <p></p>
 <?php
