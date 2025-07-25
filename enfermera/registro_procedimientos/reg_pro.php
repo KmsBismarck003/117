@@ -6,19 +6,11 @@ include("../header_enfermera.php");
 $usuario_actual = '';
 $rol_usuario = '';
 $id_usuario = '';
-if (isset($_SESSION['user'])) {
-    $id_usuario = $_SESSION['user'];
-    $sql_usuario = "SELECT nombre, papell, sapell, id_rol FROM reg_usuarios WHERE id_usua = ?";
-    $stmt_usuario = $conexion->prepare($sql_usuario);
-    $stmt_usuario->bind_param("i", $id_usuario);
-    $stmt_usuario->execute();
-    $result_usuario = $stmt_usuario->get_result();
-    if ($result_usuario && $result_usuario->num_rows > 0) {
-        $row_usuario = $result_usuario->fetch_assoc();
-        $usuario_actual = trim($row_usuario['nombre'] . ' ' . $row_usuario['papell'] . ' ' . $row_usuario['sapell']);
-        $rol_usuario = $row_usuario['id_rol'];
-    }
-    $stmt_usuario->close();
+if (isset($_SESSION['login'])) {
+    $usuario = $_SESSION['login'];
+    $id_usuario = $usuario['id_usua'];
+    $usuario_actual = trim($usuario['nombre'] . ' ' . $usuario['papell'] . ' ' . $usuario['sapell']);
+    $rol_usuario = $usuario['id_rol'];
 }
 ?>
 <!DOCTYPE html>
@@ -625,9 +617,11 @@ if (isset($_SESSION['user'])) {
                                 $sql_trat = "SELECT * FROM tratamientos ORDER BY tipo";
                                 $result_trat = $conexion->query($sql_trat);
                                 $contador = 0;
+                                $tratamientos_data = [];
                                 while ($row_trat = $result_trat->fetch_assoc()) {
                                     $tipo = $row_trat['tipo'];
                                     $id = $row_trat['id'];
+                                    $tratamientos_data[] = $row_trat; 
                                     $contador++;
                                     
                                     if ($contador % 2 == 1) {
@@ -635,7 +629,10 @@ if (isset($_SESSION['user'])) {
                                     }
                                     
                                     echo '<div class="form-check" style="margin-bottom: 8px;">';
-                                    echo '<input class="form-check-input tratamiento-checkbox" type="checkbox" value="' . $id . '" id="trat_' . $id . '" style="transform: scale(1.3); margin-right: 10px;">';
+                                    // Agregar clase especial para Cirugía Lasik
+                                    $es_lasik = (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK');
+                                    $clase_adicional = $es_lasik ? ' lasik-checkbox' : ' general-checkbox';
+                                    echo '<input class="form-check-input tratamiento-checkbox' . $clase_adicional . '" type="checkbox" value="' . $id . '" id="trat_' . $id . '" data-tipo="' . htmlspecialchars($tipo) . '" style="transform: scale(1.3); margin-right: 10px;">';
                                     echo '<label class="form-check-label" for="trat_' . $id . '" style="font-size: 16px; font-weight: 500; color: #2b2d7f; cursor: pointer;">';
                                     echo strtoupper($tipo);
                                     echo '</label>';
@@ -661,137 +658,180 @@ if (isset($_SESSION['user'])) {
 
                 <!-- Contenedor para formularios -->
                 <div id="formulario_contenedor" style="display: none;">
+                    <!-- Formulario General Unificado -->
+                    <div class="card formulario-tratamiento" id="formulario_general" style="display: none;">
+                        <div class="card-header" style="background-color: #2b2d7f; color: white;">
+                            <h4 class="mb-0 text-center">FORMULARIO DE TRATAMIENTOS SELECCIONADOS</h4>
+                            <div class="text-center mt-2" id="tratamientos_seleccionados_lista">
+                                <!-- Aquí se mostrarán los tratamientos seleccionados -->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form action="insertar_tratamientos_multiples.php" method="POST" onsubmit="return enviarFormularioUnificado(event);">
+                                <div class="form-group">
+                                    <label style="font-size:16px;">Nombre del médico tratante:</label>
+                                    <select class="form-control" name="medico_tratante" required>
+                                        <option value="">Seleccione un médico tratante</option>
+                                        <?php
+                                        $sql_med = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol ='2' AND u_activo = 'SI'";
+                                        $result_med = $conexion->query($sql_med);
+                                        if ($result_med && $result_med->num_rows > 0) {
+                                            while ($med = $result_med->fetch_assoc()) {
+                                                $nombre_med = trim($med['nombre'] . ' ' . $med['papell'] . ' ' . $med['sapell']);
+                                                echo '<option value="' . htmlspecialchars($nombre_med) . '">' . htmlspecialchars($nombre_med) . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-size:16px;">Anestesiólogo:</label>
+                                    <select class="form-control" name="anestesiologo" required>
+                                        <option value="">Seleccione un anestesiólogo</option>
+                                        <?php
+                                        $sql_anes = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE cargp LIKE '%ANESTESIOLOGO%' AND u_activo = 'SI'";
+                                        $result_anes = $conexion->query($sql_anes);
+                                        if ($result_anes && $result_anes->num_rows > 0) {
+                                            while ($anes = $result_anes->fetch_assoc()) {
+                                                $nombre_anes = trim($anes['nombre'] . ' ' . $anes['papell'] . ' ' . $anes['sapell']);
+                                                echo '<option value="' . htmlspecialchars($nombre_anes) . '">' . htmlspecialchars($nombre_anes) . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-size:16px;">Anestesia:</label>
+                                    <select class="form-control" name="anestesia" required>
+                                        <option value="">Seleccione tipo de anestesia</option>
+                                        <option value="LOCAL">LOCAL</option>
+                                        <option value="SEDACIÓN">SEDACIÓN</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label style="font-size:16px;">Signos vitales:</label>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-signos-vitales" id="tabla-signos-general">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 15%;">Momento</th>
+                                                    <th style="width: 12%;">Presión Sistólica</th>
+                                                    <th style="width: 12%;">Presión Diastólica</th>
+                                                    <th style="width: 10%;">Frecuencia Cardiaca</th>
+                                                    <th style="width: 10%;">Frecuencia Respiratoria</th>
+                                                    <th style="width: 11%;">Saturación O2</th>
+                                                    <th style="width: 12%;">Temperatura</th>
+                                                    <th style="width: 8%;">Hora</th>
+                                                    <th style="width: 10%;">Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Signos Vitales</strong><br><small>registro actual</small></td>
+                                                    <td><input type="text" class="form-control" name="sistg" placeholder="ej: 120"></td>
+                                                    <td><input type="text" class="form-control" name="diastg" placeholder="ej: 80"></td>
+                                                    <td><input type="text" class="form-control" name="fcardg" placeholder="ej: 75"></td>
+                                                    <td><input type="text" class="form-control" name="frespg" placeholder="ej: 20"></td>
+                                                    <td><input type="text" class="form-control" name="satg" placeholder="ej: 98%"></td>
+                                                    <td><input type="text" class="form-control" name="tempg" placeholder="ej: 36.5"></td>
+                                                    <td><input type="time" class="form-control" name="hora_signos"></td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <!-- Contenedor para el botón agregar signos -->
+                                                <tr class="btn-agregar-row">
+                                                    <td colspan="9" class="p-2">
+                                                        <button type="button" class="btn btn-info btn-sm agregar-signos">
+                                                            <i class="fa-solid fa-heart-circle-plus"></i> Agregar signos vitales adicionales
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label style="font-size:16px;">Nota de enfermería:</label>
+                                    <div class="botones mb-2">
+                                        <button type="button" class="btn btn-danger btn-sm grabar-nota"><i class="fas fa-microphone"></i></button>
+                                        <button type="button" class="btn btn-primary btn-sm detener-nota"><i class="fas fa-microphone-slash"></i></button>
+                                        <button type="button" class="btn btn-success btn-sm reproducir-nota"><i class="fas fa-play"></i></button>
+                                    </div>
+                                    <textarea class="form-control nota-enfermeria" rows="5" name="nota_enfermeria"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-size:16px;">ENFERMERA RESPONSABLE:</label>
+                                    <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual . ' '); ?>" readonly style="background-color: #e9ecef;">
+                                </div>
+                                <input type="hidden" name="tratamientos_seleccionados" id="tratamientos_seleccionados_input">
+                                <input type="hidden" name="es_formulario_unificado" value="1">
+                                <center class="mt-3">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-save"></i> Firmar Tratamientos 
+                                    </button>
+                                    <button type="button" class="btn btn-danger" onclick="history.back()">
+                                        <i class="fas fa-times"></i> Cancelar
+                                    </button>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+
                     <?php
-                    // Regenerar la consulta para crear los formularios
                     $result_trat = $conexion->query($sql_trat);
                     while ($row_trat = $result_trat->fetch_assoc()) {
                         $tipo = $row_trat['tipo'];
                         $nota = $row_trat['nota'];
-                        $id = $row_trat['id'];                        
-                        // Determinar el action del formulario según el tipo
-                        $action = '';
-                        switch ($tipo) {
-                            case 'BLEFAROPLASTIA':
-                                $action = 'insertar_hoja_blefaro.php';
-                                break;
-                            case 'FACOEMULSIFICACION':
-                            case 'facoemulsificacion':
-                            case 'Facoemulsificacion':
-                                $action = 'insertar_hoja_facoemulsificacion.php';
-                                break;
-                            case 'CROSSLINKING':
-                            case 'crosslinking':
-                            case 'Crosslinking':
-                                $action = 'insertar_hoja_crosslinking.php';
-                                break;
-                            case 'INYECCION':
-                            case 'INYECCIÓN':
-                            case 'inyeccion':
-                            case 'inyección':
-                            case 'Inyeccion':
-                            case 'Inyección':
-                                $action = 'insertar_hoja_inyeccion.php';
-                                break;
-                            case 'CHALAZION':
-                            case 'chalazion':
-                            case 'Chalazion':
-                                $action = 'insertar_hoja_chalazion.php';
-                                break;
-                            case 'PTERIGIÓN':
-                            case 'PTERIGION':
-                            case 'pterigion':
-                            case 'pterigión':
-                            case 'Pterigion':
-                            case 'Pterigión':
-                                $action = 'insertar_hoja_pterigion.php';
-                                break;
-                            case 'CIRUGÍA REFRACTIVA':
-                            case 'CIRUGIA REFRACTIVA':
-                            case 'cirugia refractiva':
-                            case 'cirugía refractiva':
-                            case 'Cirugia Refractiva':
-                            case 'Cirugía Refractiva':
-                                $action = 'insertar_hoja_refractiva.php';
-                                break;
-                            case 'TRANSPLANTE':
-                            case 'transplante':
-                            case 'Transplante':
-                                $action = 'insertar_hoja_transplante.php';
-                                break;
-                            case 'VALVULA DE AHMED':
-                            case 'VÁLVULA DE AHMED':
-                            case 'valvula de ahmed':
-                            case 'válvula de ahmed':
-                            case 'Valvula de Ahmed':
-                            case 'Válvula de Ahmed':
-                                $action = 'insertar_hoja_valvula_ahmed.php';
-                                break;
-                            case 'VITRECTOMIA':
-                            case 'vitrectomia':
-                            case 'Vitrectomia':
-                                $action = 'insertar_hoja_vitrectomia.php';
-                                break;
-                            case 'CIRUGÍA LASIK':
-                            case 'CIRUGIA LASIK':
-                            case 'cirugia lasik':
-                            case 'cirugía lasik':
-                            case 'Cirugia Lasik':
-                            case 'Cirugía Lasik':
-                                $action = 'insertar_hoja_lasik.php';
-                                break;
-                            default:
-                                $action = '#';
-                                break;
-                        }
-                        ?>
+                        $id = $row_trat['id'];
                         
-                        <div class="card formulario-tratamiento" id="formulario_<?php echo $id; ?>" style="display: none;">
-                            <div class="card-header" style="background-color: #2b2d7f; color: white;">
-                                <h4 class="mb-0 text-center"><?php echo strtoupper($tipo); ?></h4>
-                            </div>
-                            <div class="card-body">
-                                <form action="<?php echo $action; ?>" method="POST" onsubmit="return checkSubmit();">
-                                    <div class="form-group">
-                                        <label style="font-size:16px;">Nombre del médico tratante:</label>
-                                        <select class="form-control" name="medico_tratante" required>
-                                            <option value="">Seleccione un médico tratante</option>
-                                            <?php
-                                            $sql_med = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol ='2' AND u_activo = 'SI'";
-                                            $result_med = $conexion->query($sql_med);
-                                            if ($result_med && $result_med->num_rows > 0) {
-                                                while ($med = $result_med->fetch_assoc()) {
-                                                    $nombre_med = trim($med['nombre'] . ' ' . $med['papell'] . ' ' . $med['sapell']);
-                                                    echo '<option value="' . htmlspecialchars($nombre_med) . '">' . htmlspecialchars($nombre_med) . '</option>';
+                        if (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK') {
+                            $action = 'insertar_hoja_lasik.php';
+                            ?>
+                            <div class="card formulario-tratamiento" id="formulario_<?php echo $id; ?>" style="display: none;">
+                                <div class="card-header" style="background-color: #2b2d7f; color: white;">
+                                    <h4 class="mb-0 text-center"><?php echo strtoupper($tipo); ?></h4>
+                                </div>
+                                <div class="card-body">
+                                    <form action="<?php echo $action; ?>" method="POST" onsubmit="return checkSubmit();">
+                                        <div class="form-group">
+                                            <label style="font-size:16px;">Nombre del médico tratante:</label>
+                                            <select class="form-control" name="medico_tratante" required>
+                                                <option value="">Seleccione un médico tratante</option>
+                                                <?php
+                                                $sql_med = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol ='2' AND u_activo = 'SI'";
+                                                $result_med = $conexion->query($sql_med);
+                                                if ($result_med && $result_med->num_rows > 0) {
+                                                    while ($med = $result_med->fetch_assoc()) {
+                                                        $nombre_med = trim($med['nombre'] . ' ' . $med['papell'] . ' ' . $med['sapell']);
+                                                        echo '<option value="' . htmlspecialchars($nombre_med) . '">' . htmlspecialchars($nombre_med) . '</option>';
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label style="font-size:16px;">Anestesiólogo:</label>
-                                        <select class="form-control" name="anestesiologo" required>
-                                            <option value="">Seleccione un anestesiólogo</option>
-                                            <?php
-                                            $sql_anes = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE cargp LIKE '%ANESTESIOLOGO%' AND u_activo = 'SI'";
-                                            $result_anes = $conexion->query($sql_anes);
-                                            if ($result_anes && $result_anes->num_rows > 0) {
-                                                while ($anes = $result_anes->fetch_assoc()) {
-                                                    $nombre_anes = trim($anes['nombre'] . ' ' . $anes['papell'] . ' ' . $anes['sapell']);
-                                                    echo '<option value="' . htmlspecialchars($nombre_anes) . '">' . htmlspecialchars($nombre_anes) . '</option>';
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-size:16px;">Anestesiólogo:</label>
+                                            <select class="form-control" name="anestesiologo" required>
+                                                <option value="">Seleccione un anestesiólogo</option>
+                                                <?php
+                                                $sql_anes = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE cargp LIKE '%ANESTESIOLOGO%' AND u_activo = 'SI'";
+                                                $result_anes = $conexion->query($sql_anes);
+                                                if ($result_anes && $result_anes->num_rows > 0) {
+                                                    while ($anes = $result_anes->fetch_assoc()) {
+                                                        $nombre_anes = trim($anes['nombre'] . ' ' . $anes['papell'] . ' ' . $anes['sapell']);
+                                                        echo '<option value="' . htmlspecialchars($nombre_anes) . '">' . htmlspecialchars($nombre_anes) . '</option>';
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label style="font-size:16px;">Anestesia:</label>
-                                        <select class="form-control" name="anestesia" required>
-                                            <option value="">Seleccione tipo de anestesia</option>
-                                            <option value="LOCAL">LOCAL</option>
-                                            <option value="SEDACIÓN">SEDACIÓN</option>
-                                        </select>
-                                    </div>
-                                    <?php if (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK') { ?>
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-size:16px;">Anestesia:</label>
+                                            <select class="form-control" name="anestesia" required>
+                                                <option value="">Seleccione tipo de anestesia</option>
+                                                <option value="LOCAL">LOCAL</option>
+                                                <option value="SEDACIÓN">SEDACIÓN</option>
+                                            </select>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label style="font-size:16px;">OD</label>
@@ -808,79 +848,59 @@ if (isset($_SESSION['user'])) {
                                                 <input type="text" class="form-control mb-1" name="oi_tope" placeholder="TOPE">
                                             </div>
                                         </div>
-                                    <?php } ?>
-                                    <div class="form-group mt-3">
-                                        <label style="font-size:16px;">Signos vitales:</label>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped table-signos-vitales" id="tabla-signos-<?php echo $id; ?>">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="width: 15%;">Momento</th>
-                                                        <th style="width: 12%;">Presión Sistólica</th>
-                                                        <th style="width: 12%;">Presión Diastólica</th>
-                                                        <th style="width: 10%;">Frecuencia Cardiaca</th>
-                                                        <th style="width: 10%;">Frecuencia Respiratoria</th>
-                                                        <th style="width: 11%;">Saturación O2</th>
-                                                        <th style="width: 12%;">Temperatura</th>
-                                                        <th style="width: 8%;">Hora</th>
-                                                        <th style="width: 10%;">Acción</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><strong>Signos Vitales</strong><br><small>registro actual</small></td>
-                                                        <td><input type="text" class="form-control" name="sistg" placeholder="ej: 120"></td>
-                                                        <td><input type="text" class="form-control" name="diastg" placeholder="ej: 80"></td>
-                                                        <td><input type="text" class="form-control" name="fcardg" placeholder="ej: 75"></td>
-                                                        <td><input type="text" class="form-control" name="frespg" placeholder="ej: 20"></td>
-                                                        <td><input type="text" class="form-control" name="satg" placeholder="ej: 98%"></td>
-                                                        <td><input type="text" class="form-control" name="tempg" placeholder="ej: 36.5"></td>
-                                                        <td><input type="time" class="form-control" name="hora_signos"></td>
-                                                        <td>-</td>
-                                                    </tr>
-                                                    <!-- Contenedor para el botón agregar signos -->
-                                                    <tr class="btn-agregar-row">
-                                                        <td colspan="9" class="p-2">
-                                                            <button type="button" class="btn btn-info btn-sm agregar-signos">
-                                                                <i class="fa-solid fa-heart-circle-plus"></i> Agregar signos vitales adicionales
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <div class="form-group mt-3">
+                                            <label style="font-size:16px;">Signos vitales:</label>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped table-signos-vitales" id="tabla-signos-<?php echo $id; ?>">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 15%;">Momento</th>
+                                                            <th style="width: 12%;">Presión Sistólica</th>
+                                                            <th style="width: 12%;">Presión Diastólica</th>
+                                                            <th style="width: 10%;">Frecuencia Cardiaca</th>
+                                                            <th style="width: 10%;">Frecuencia Respiratoria</th>
+                                                            <th style="width: 11%;">Saturación O2</th>
+                                                            <th style="width: 12%;">Temperatura</th>
+                                                            <th style="width: 8%;">Hora</th>
+                                                            <th style="width: 10%;">Acción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><strong>Signos Vitales</strong><br><small>registro actual</small></td>
+                                                            <td><input type="text" class="form-control" name="sistg" placeholder="ej: 120"></td>
+                                                            <td><input type="text" class="form-control" name="diastg" placeholder="ej: 80"></td>
+                                                            <td><input type="text" class="form-control" name="fcardg" placeholder="ej: 75"></td>
+                                                            <td><input type="text" class="form-control" name="frespg" placeholder="ej: 20"></td>
+                                                            <td><input type="text" class="form-control" name="satg" placeholder="ej: 98%"></td>
+                                                            <td><input type="text" class="form-control" name="tempg" placeholder="ej: 36.5"></td>
+                                                            <td><input type="time" class="form-control" name="hora_signos"></td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <tr class="btn-agregar-row">
+                                                            <td colspan="9" class="p-2">
+                                                                <button type="button" class="btn btn-info btn-sm agregar-signos">
+                                                                    <i class="fa-solid fa-heart-circle-plus"></i> Agregar signos vitales adicionales
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <label style="font-size:16px;">Nota de enfermería:</label>
-                                        <div class="botones mb-2">
-                                            <button type="button" class="btn btn-danger btn-sm grabar-nota"><i class="fas fa-microphone"></i></button>
-                                            <button type="button" class="btn btn-primary btn-sm detener-nota"><i class="fas fa-microphone-slash"></i></button>
-                                            <button type="button" class="btn btn-success btn-sm reproducir-nota"><i class="fas fa-play"></i></button>
+                                        <div class="form-group mt-3">
+                                            <label style="font-size:16px;">Nota de enfermería:</label>
+                                            <div class="botones mb-2">
+                                                <button type="button" class="btn btn-danger btn-sm grabar-nota"><i class="fas fa-microphone"></i></button>
+                                                <button type="button" class="btn btn-primary btn-sm detener-nota"><i class="fas fa-microphone-slash"></i></button>
+                                                <button type="button" class="btn btn-success btn-sm reproducir-nota"><i class="fas fa-play"></i></button>
+                                            </div>
+                                            <textarea class="form-control nota-enfermeria" rows="5" name="nota_enfermeria"><?php echo ($nota !== null ? htmlspecialchars($nota) : ''); ?></textarea>
                                         </div>
-                                        <textarea class="form-control nota-enfermeria" rows="5" name="nota_enfermeria"><?php echo ($nota !== null ? htmlspecialchars($nota) : ''); ?></textarea>
-                                    </div>
-                                    <?php if (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK') { ?>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label style="font-size:16px;">ENFERMERA RESPONSABLE:</label>
-                                                <?php if ($rol_usuario == 3) { // Si es enfermera ?>
-                                                    <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual); ?>" readonly style="background-color: #e9ecef;">
-                                                    <small class="text-muted">Usuario actual (enfermera)</small>
-                                                <?php } else { // Si es médico o admin ?>
-                                                    <select class="form-control" name="enfermera_responsable" required>
-                                                        <option value="">Seleccione una enfermera</option>
-                                                        <?php
-                                                        $sql_enf = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol = 3 AND u_activo = 'SI'";
-                                                        $result_enf = $conexion->query($sql_enf);
-                                                        if ($result_enf && $result_enf->num_rows > 0) {
-                                                            while ($enf = $result_enf->fetch_assoc()) {
-                                                                $nombre_completo = trim($enf['nombre'] . ' ' . $enf['papell'] . ' ' . $enf['sapell']);
-                                                                echo '<option value="' . htmlspecialchars($nombre_completo) . '">' . htmlspecialchars($nombre_completo) . '</option>';
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                <?php } ?>
+                                                <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual); ?>" readonly style="background-color: #e9ecef;">
                                             </div>
                                             <div class="col-md-6">
                                                 <label style="font-size:16px;">MÉDICO RESPONSABLE:</label>
@@ -899,52 +919,81 @@ if (isset($_SESSION['user'])) {
                                                 </select>
                                             </div>
                                         </div>
-                                    <?php } else { ?>
-                                        <div class="form-group">
-                                            <label style="font-size:16px;">ENFERMERA RESPONSABLE:</label>
-                                            <?php if ($rol_usuario == 3) { // Si es enfermera ?>
-                                                <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual); ?>" readonly style="background-color: #e9ecef;">
-                                                <small class="text-muted">Usuario actual (enfermera)</small>
-                                            <?php } else { // Si es médico o admin ?>
-                                                <select class="form-control" name="enfermera_responsable" required>
-                                                    <option value="">Seleccione una enfermera</option>
-                                                    <?php
-                                                    $sql_enf2 = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol = 3 AND u_activo = 'SI'";
-                                                    $result_enf2 = $conexion->query($sql_enf2);
-                                                    if ($result_enf2 && $result_enf2->num_rows > 0) {
-                                                        while ($enf2 = $result_enf2->fetch_assoc()) {
-                                                            $nombre_completo2 = trim($enf2['nombre'] . ' ' . $enf2['papell'] . ' ' . $enf2['sapell']);
-                                                            echo '<option value="' . htmlspecialchars($nombre_completo2) . '">' . htmlspecialchars($nombre_completo2) . '</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                            <?php } ?>
-                                        </div>
-                                    <?php } ?>
-                                    <!-- Campo hidden para asociar signos vitales con el tratamiento -->
-                                    <input type="hidden" name="id_tratamiento" value="<?php echo $id; ?>">
-                                    <center class="mt-3">
-                                        <button type="submit" class="btn btn-primary btn-lg">
-                                            <i class="fas fa-save"></i> Firmar Tratamientos 
-                                        </button>
-                                        <button type="button" class="btn btn-danger" onclick="history.back()">
-                                            <i class="fas fa-times"></i> Cancelar
-                                        </button>
-                                    </center>
-                                </form>
+                                        <input type="hidden" name="id_tratamiento" value="<?php echo $id; ?>">
+                                        <center class="mt-3">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="fas fa-save"></i> Firmar Tratamiento LASIK
+                                            </button>
+                                            <button type="button" class="btn btn-danger" onclick="history.back()">
+                                                <i class="fas fa-times"></i> Cancelar
+                                            </button>
+                                        </center>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <?php
+                            <?php
+                            break;
+                        }
                     }
                     ?>
                 </div>
             </div>
         </div>
-    </div>    <script>
-        // Variable global para controlar el envío del formulario
+    </div>
+
+    <script>
         let enviandoFormulario = false;
         
+        function enviarFormularioUnificado(event) {
+            event.preventDefault(); // Prevenir el envío normal del formulario
+            
+            if (!checkSubmit()) {
+                return false;
+            }
+            
+            const formulario = event.target;
+            const tratamientosSeleccionados = JSON.parse(document.getElementById('tratamientos_seleccionados_input').value || '[]');
+            
+            if (tratamientosSeleccionados.length === 0) {
+                alert('No hay tratamientos seleccionados');
+                return false;
+            }
+            
+            // Recopilar los datos del formulario unificado
+            const datosFormulario = recopilarDatosFormulario(formulario);
+            
+            // Crear objeto de datos por tratamiento (todos los tratamientos usan los mismos datos)
+            const datosFormularios = {};
+            tratamientosSeleccionados.forEach(idTratamiento => {
+                datosFormularios[idTratamiento] = { ...datosFormulario };
+            });
+            
+            // Crear formulario oculto para enviar
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'insertar_tratamientos_multiples.php';
+            form.style.display = 'none';
+            
+            // Agregar datos al formulario
+            const inputTratamientos = document.createElement('input');
+            inputTratamientos.type = 'hidden';
+            inputTratamientos.name = 'tratamientos_seleccionados';
+            inputTratamientos.value = JSON.stringify(tratamientosSeleccionados);
+            form.appendChild(inputTratamientos);
+            
+            const inputDatos = document.createElement('input');
+            inputDatos.type = 'hidden';
+            inputDatos.name = 'datos_formularios';
+            inputDatos.value = JSON.stringify(datosFormularios);
+            form.appendChild(inputDatos);
+            
+            // Agregar formulario al DOM y enviarlo
+            document.body.appendChild(form);
+            form.submit();
+            
+            return false;
+        }
+
         function checkSubmit() {
             if (!enviandoFormulario) {
                 enviandoFormulario = true;
@@ -1003,7 +1052,6 @@ if (isset($_SESSION['user'])) {
         function agregarFilaSignosVitales(btnAgregar, idTratamiento) {
             console.log('Agregando fila de signos vitales para tratamiento:', idTratamiento);
             
-            // Buscar la tabla de signos vitales más cercana al botón
             var tabla = btnAgregar.closest('table');
             if (!tabla) {
                 console.error('No se encontró la tabla');
@@ -1011,14 +1059,12 @@ if (isset($_SESSION['user'])) {
             }
             var tbody = tabla.getElementsByTagName('tbody')[0];
             
-            // Buscar la fila del botón agregar para insertar antes de ella
             var btnRow = btnAgregar.closest('.btn-agregar-row');
             if (!btnRow) {
                 console.error('No se encontró la fila del botón');
                 return;
             }
             
-            // Crear nueva fila de signos durante la cirugía
             var nuevaFila = document.createElement('tr');
             nuevaFila.className = 'durante-cirugia-row';
             nuevaFila.innerHTML = `
@@ -1035,11 +1081,9 @@ if (isset($_SESSION['user'])) {
                 </button></td>
             `;
             
-            // Insertar la nueva fila antes de la fila del botón
             tbody.insertBefore(nuevaFila, btnRow);
             console.log('Fila agregada exitosamente');
             
-            // Agregar evento al botón de guardar signos
             var btnGuardar = nuevaFila.querySelector('.enviar-signos');
             btnGuardar.addEventListener('click', function() {
                 enviarSignosVitales(nuevaFila, idTratamiento);
@@ -1050,19 +1094,16 @@ if (isset($_SESSION['user'])) {
             console.log('Inicializando formulario...');
             initVoiceRecognition();
             
-            // Limpiar eventos existentes y agregar nuevos
             const botonesAgregar = document.querySelectorAll('.agregar-signos');
             console.log('Botones de agregar signos encontrados:', botonesAgregar.length);
             
             botonesAgregar.forEach(function(btn, index) {
                 console.log('Procesando botón', index + 1);
                 
-                // Solo agregar evento si no está ya inicializado
                 if (!btn.hasAttribute('data-initialized')) {
                     btn.setAttribute('data-initialized', 'true');
                     console.log('Botón no estaba inicializado, agregando evento');
                     
-                    // Buscar el formulario más cercano para obtener el ID del tratamiento
                     var formulario = btn.closest('.formulario-tratamiento');
                     if (formulario) {
                         var idTratamiento = formulario.id.replace('formulario_', '');
@@ -1101,13 +1142,11 @@ if (isset($_SESSION['user'])) {
                 return;
             }
             
-            // Deshabilitar el botón para evitar doble envío
             const btnGuardar = fila.querySelector('.enviar-signos');
             const textoOriginal = btnGuardar.innerHTML;
             btnGuardar.disabled = true;
             btnGuardar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
             
-            // Recopilar datos de la fila
             const datos = new FormData();
             inputs.forEach(input => {
                 datos.append(input.name, input.value);
@@ -1126,18 +1165,14 @@ if (isset($_SESSION['user'])) {
             })
             .then(data => {
                 if (data.success) {
-                    // Agregar clase de animación
                     fila.classList.add('guardando');
                     
-                    // Mostrar mensaje de éxito
                     alert('Signos vitales guardados correctamente');
                     
-                    // Cambiar el botón a estado guardado
                     btnGuardar.innerHTML = '<i class="fas fa-check"></i> Guardado';
                     btnGuardar.className = 'btn btn-success btn-sm btn-guardado';
                     btnGuardar.disabled = true;
                     
-                    // Hacer que los inputs sean de solo lectura
                     inputs.forEach(input => {
                         input.readOnly = true;
                         input.style.backgroundColor = '#c3e6cb';
@@ -1296,43 +1331,57 @@ if (isset($_SESSION['user'])) {
             
             btnCargar.addEventListener('click', function() {
                 const checkboxesSeleccionados = document.querySelectorAll('.tratamiento-checkbox:checked');
-                const formularios = document.querySelectorAll('.formulario-tratamiento');
+                const formularioGeneral = document.getElementById('formulario_general');
+                const tratamientosLista = document.getElementById('tratamientos_seleccionados_lista');
+                const tratamientosInput = document.getElementById('tratamientos_seleccionados_input');
+                
+                // Ocultar todos los formularios
+                document.querySelectorAll('.formulario-tratamiento').forEach(form => {
+                    form.style.display = 'none';
+                });
                 
                 enviandoFormulario = false;
-                
-                formularios.forEach(function(formulario) {
-                    formulario.style.display = 'none';
-                });
                 
                 if (checkboxesSeleccionados.length > 0) {
                     contenedor.style.display = 'block';
                     
+                    // Separar tratamientos: Lasik vs otros
+                    let tratamientosGenerales = [];
+                    let tieneClasik = false;
+                    let idLasik = null;
+                    
                     checkboxesSeleccionados.forEach(checkbox => {
-                        const idTratamiento = checkbox.value;
-                        const formulario = document.getElementById('formulario_' + idTratamiento);
-                        if (formulario) {
-                            formulario.style.display = 'block';
+                        const esLasik = checkbox.classList.contains('lasik-checkbox');
+                        if (esLasik) {
+                            tieneClasik = true;
+                            idLasik = checkbox.value;
+                        } else {
+                            tratamientosGenerales.push({
+                                id: checkbox.value,
+                                tipo: checkbox.getAttribute('data-tipo')
+                            });
                         }
                     });
                     
-                    setTimeout(function() {
-                        // Reinicializar todas las funcionalidades para los formularios recién mostrados
-                        initializarFormulario();
+                    if (tratamientosGenerales.length > 0) {
+                        formularioGeneral.style.display = 'block';
                         
-                        // Específicamente agregar eventos a los botones de agregar signos que acabamos de mostrar
-                        checkboxesSeleccionados.forEach(checkbox => {
-                            const idTratamiento = checkbox.value;
-                            const formulario = document.getElementById('formulario_' + idTratamiento);
-                            if (formulario && formulario.style.display !== 'none') {
-                                const btnAgregar = formulario.querySelector('.agregar-signos');
-                                if (btnAgregar && !btnAgregar.hasAttribute('data-initialized')) {
-                                    btnAgregar.setAttribute('data-initialized', 'true');
-                                    btnAgregar.addEventListener('click', function() {
-                                        agregarFilaSignosVitales(btnAgregar, idTratamiento);
-                                    });
-                                }
-                            }
-                        });
+                        const listaTipos = tratamientosGenerales.map(t => '<span class="badge badge-primary mr-1">' + t.tipo.toUpperCase() + '</span>').join(' ');
+                        tratamientosLista.innerHTML = listaTipos;
+                        
+                        const idsSeleccionados = tratamientosGenerales.map(t => t.id);
+                        tratamientosInput.value = JSON.stringify(idsSeleccionados);
+                    }
+                    
+                    if (tieneClasik) {
+                        const formularioLasik = document.getElementById('formulario_' + idLasik);
+                        if (formularioLasik) {
+                            formularioLasik.style.display = 'block';
+                        }
+                    }
+                    
+                    setTimeout(() => {
+                        initializarFormulario();
                     }, 200);
                     
                     contenedor.scrollIntoView({ behavior: 'smooth' });
@@ -1340,19 +1389,10 @@ if (isset($_SESSION['user'])) {
                     contenedor.style.display = 'none';
                 }
             });
-            
-            document.querySelectorAll('.formulario-tratamiento form').forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    enviarTratamientosMultiples();
-                });
-            });
-            
-            // Inicializar funcionalidades al cargar la página
+
             initializarFormulario();
         });
 
-        // Prevenir menú contextual
         document.oncontextmenu = function() {
             return false;
         }
