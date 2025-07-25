@@ -1208,7 +1208,7 @@ if (isset($_SESSION['login'])) {
             const signosVitales = [];
             
             inputs.forEach(input => {
-                if (input.name) {
+                if (input.name && input.name !== 'tratamientos_seleccionados' && input.name !== 'es_formulario_unificado') {
                     // Si es un campo de signos vitales, recopilar todos los valores
                     if (['sistg', 'diastg', 'fcardg', 'frespg', 'satg', 'tempg', 'hora_signos'].includes(input.name)) {
                         // Buscar la fila más cercana para asociar todos los signos vitales de esa fila
