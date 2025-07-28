@@ -119,8 +119,9 @@ class PDF extends FPDF
 $pdf = new PDF('P', 'mm', 'Letter');
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetMargins(15, 15, 15);
-$pdf->SetAutoPageBreak(true, 30);
+$pdf->SetMargins(15,15,15);
+#Establecemos el margen inferior:
+$pdf->SetAutoPageBreak(true,32); 
 
 $pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(230, 240, 255);
@@ -143,15 +144,12 @@ $pdf->Cell(10, 5, utf8_decode('Edad:'), 0, 0, 'L');
 $pdf->Cell(15, 5, utf8_decode($edad), 0, 0, 'L');
 $pdf->Cell(15, 5, utf8_decode('Género:'), 0, 0, 'L');
 $pdf->Cell(20, 5, utf8_decode($sexo), 0, 0, 'L');
-$pdf->Cell(20, 5, utf8_decode('Ocupación:'), 0, 0, 'L');
-$pdf->Cell(0, 5, utf8_decode($ocup), 0, 1, 'L');
+$pdf->Ln(5);
 
 $pdf->Cell(20, 5, utf8_decode('Domicilio:'), 0, 0, 'L');
 $pdf->Cell(0, 5, utf8_decode($dir), 0, 1, 'L');
 
-
-$pdf->Ln(4);
-$pdf->SetFont('Arial', 'B', 11);
+$pdf->SetFont('Arial', 'B', 9);
 $pdf->SetFillColor(220, 230, 250);
 $pdf->Cell(0, 8, utf8_decode('HISTORIA CLÍNICA'), 0, 1, 'C', true);
 $pdf->Ln(1);
@@ -226,18 +224,17 @@ $pdf->Cell(0, 6, utf8_decode('Otras Cirugías'), 0, 1, 'L', true);
 $pdf->SetFont('Arial', '', 8);
 $pdf->MultiCell(0, 4, utf8_decode($pat_otras_cirugias), 1, 'J', false);
 
-$pdf->Ln(8);
-
-$pdf->SetY(-48);
+$pdf->SetY(-62);
 if (!empty($firma) && file_exists('../../imgfirma/' . $firma)) {
-    $imgWidth = 35;
+    $imgWidth = 30;
     $imgX = ($pdf->GetPageWidth() - $imgWidth) / 2;
     $pdf->Image('../../imgfirma/' . $firma, $imgX, $pdf->GetY(), $imgWidth);
-    $pdf->Ln(18);
+    $pdf->Ln(15);
 }
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(0, 4, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
+$pdf->Cell(0, 3, utf8_decode(trim($pre_med . ' ' . $app_med . ' ' . $apm_med . ' ' . $nom_med)), 0, 1, 'C');
 $pdf->SetFont('Arial', '', 8);
-$pdf->Cell(0, 4, utf8_decode($cargp), 0, 1, 'C');
-$pdf->Cell(0, 4, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->Cell(0, 3, utf8_decode($cargp), 0, 1, 'C');
+$pdf->Cell(0, 3, utf8_decode('Céd. Prof. ' . $ced_p), 0, 1, 'C');
+$pdf->Cell(0, 3, utf8_decode('Nombre y firma del médico'), 0, 1, 'C');
 $pdf->Output();
