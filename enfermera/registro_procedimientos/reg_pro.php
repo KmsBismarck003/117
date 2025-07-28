@@ -22,7 +22,7 @@ if (isset($_SESSION['login'])) {
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  <!--  Bootstrap  -->
+  
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -31,194 +31,101 @@ if (isset($_SESSION['login'])) {
 
 
     <title>HOJA DE PROGRAMACIÓN QUIRÚRGICA </title>
-    <style type="text/css">
+    <style type="text/css>
         .modal-lg {
             max-width: 65% !important;
-        }
-
-        /* Estilos para el formulario de procedimientos */
-        .container-fluid {
-            padding: 0 15px;
-        }
-
-        .card {
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .card-header {
-            padding: 15px;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        /* Estilos para la tabla de signos vitales */
-        .table-responsive {
-            overflow-x: auto;
-            margin: 15px 0;
-        }
-
-        .table-bordered {
-            border: 1px solid #dee2e6;
-        }
-
+        .modal-lg {}
+        .container-fluid {}
+        .card {}
+        .card-header {}
+        .card-body {}
+        .table-responsive {}
+        .table-bordered {}
         .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #dee2e6;
-            padding: 8px;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        .table-bordered th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-            font-size: 12px;
-            color: #495057;
-        }
-
-        .table-bordered td {
-            font-size: 12px;
-        }
-
-        .table-bordered input.form-control {
-            padding: 6px 8px;
-            font-size: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            width: 100%;
-            min-width: 80px;
-            text-align: center;
-        }
-
-        .table-bordered input.form-control:focus {
-            border-color: #80bdff;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-
-        /* Estilos para la fila del botón agregar */
-        .btn-agregar-row td {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            text-align: left !important;
-            padding-left: 15px !important;
-        }
-
-        .btn-agregar-row .btn {
-            font-size: 12px;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
+        .table-bordered td {}
+        .table-bordered th {}
+        .table-bordered td {}
+        .table-bordered input.form-control {}
+        .table-bordered input.form-control:focus {}
+        .btn-agregar-row td {}
+        .btn-agregar-row .btn {}
         .btn-agregar-row .btn-info {
             background-color: #17a2b8;
             border-color: #17a2b8;
             color: white;
         }
-
         .btn-agregar-row .btn-info:hover {
             background-color: #138496;
             border-color: #117a8b;
         }
-
-        /* Estilos para campos readonly */
         input[readonly] {
             background-color: #e9ecef !important;
             cursor: not-allowed;
         }
-
-        /* Mejora para pequeños textos */
         small.text-muted {
             font-style: italic;
             color: #6c757d !important;
         }
-
-        /* Ajustes para inputs de tiempo */
         input[type="time"] {
             min-width: 100px;
         }
-
-        /* Estilos para filas de signos vitales guardadas */
         .durante-cirugia-row.guardado {
             background-color: #d4edda !important;
         }
-
         .durante-cirugia-row.guardado td {
             background-color: #d4edda !important;
             border-color: #c3e6cb !important;
         }
-
         .durante-cirugia-row.guardado input[readonly] {
             background-color: #c3e6cb !important;
             color: #155724 !important;
             font-weight: 500;
         }
-
         .btn-guardado {
             background-color: #28a745 !important;
             border-color: #28a745 !important;
             color: white !important;
             cursor: not-allowed !important;
         }
-
         .btn-guardado:hover {
             background-color: #28a745 !important;
             border-color: #28a745 !important;
         }
-
-        /* Animación para indicar guardado exitoso */
         @keyframes guardarExito {
             0% { background-color: #ffffff; }
             50% { background-color: #d1ecf1; }
             100% { background-color: #d4edda; }
         }
-
         .durante-cirugia-row.guardando {
             animation: guardarExito 1s ease-in-out;
         }
-
-        /* Estilos para formularios */
         .form-group {
             margin-bottom: 15px;
         }
-
         .form-group label {
             font-weight: bold;
             margin-bottom: 5px;
             display: block;
         }
-
         .form-control {
             padding: 8px 12px;
             border: 1px solid #ced4da;
             border-radius: 4px;
             font-size: 14px;
         }
-
         .form-control:focus {
             border-color: #80bdff;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
-
-        /* Estilos para botones de voz */
         .botones {
             display: flex;
             gap: 5px;
             margin-bottom: 10px;
         }
-
         .botones .btn {
             padding: 5px 10px;
             font-size: 12px;
         }
-
-        /* Estilos para el selector de tratamiento */
         #selector_tratamiento {
             font-size: 18px;
             font-weight: bold;
@@ -238,13 +145,11 @@ if (isset($_SESSION['login'])) {
             background-size: 16px;
             padding-right: 40px;
         }
-
         #selector_tratamiento:focus {
             border-color: #1a1d5f;
             box-shadow: 0 0 0 0.2rem rgba(43, 45, 127, 0.25);
             outline: none;
         }
-
         #selector_tratamiento option {
             font-size: 16px;
             font-weight: normal;
@@ -252,49 +157,76 @@ if (isset($_SESSION['login'])) {
             color: #333;
             background-color: #ffffff;
         }
-
         #selector_tratamiento option:hover {
             background-color: #f8f9fa;
         }
-
-        /* Estilos para las cards de formularios */
         .formulario-tratamiento {
             margin-top: 20px;
             animation: fadeIn 0.3s ease-in;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .formulario-tratamiento .card-header {
             background-color: #2b2d7f;
             color: white;
             font-weight: bold;
             border-bottom: 2px solid #1a1d5f;
         }
-
         .formulario-tratamiento .card-body {
             padding: 20px;
         }
-
-        /* Mejoras en el estilo del card del selector */
         .card-header {
             padding: 15px 20px;
         }
-
         .card-header label {
             margin-bottom: 10px;
             display: block;
         }
-
-        /* Estilos para la tabla de signos vitales */
         .table-signos-vitales {
             background-color: #ffffff;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .table-signos-vitales th {
+            background-color: #2b2d7f;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 8px;
+            font-size: 13px;
+        }
+        .table-signos-vitales td {
+            padding: 8px 6px;
+            vertical-align: middle;
+        }
+        .table-signos-vitales td strong {
+            color: #2b2d7f;
+        }
+        .table-signos-vitales tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        .table-signos-vitales input[type="text"],
+        .table-signos-vitales input[type="time"] {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            transition: border-color 0.15s ease-in-out;
+        }
+        .table-signos-vitales input[type="text"]:focus,
+        .table-signos-vitales input[type="time"]:focus {
+            border-color: #2b2d7f;
+            box-shadow: 0 0 0 0.1rem rgba(43, 45, 127, 0.25);
+        }
+        @media (max-width: 768px) {
+            .table-bordered {}
+            .table-bordered th,
+            .table-bordered td {}
+            .table-bordered input.form-control {}
+        }
         }
 
         .table-signos-vitales th {
@@ -356,6 +288,7 @@ if (isset($_SESSION['login'])) {
 </head>
 
 <body>
+    
 
     <?php
     if (isset($_GET['tratamiento_exito']) && !empty($_GET['tratamiento_exito'])) {
@@ -583,30 +516,194 @@ if (isset($_SESSION['login'])) {
             </div>
         </div>
     </div>
+     <!-- Separación visual entre datos del paciente y menú -->
+            <div style="height: 32px;"></div>
+            <div class="container">
+                <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 24px;">
+                    <strong>
+                        <center>HOJA DE PROGRAMACIÓN QUIRÚRGICA</center>
+                    </strong>
+                </div>
 
-            <div class="container">                    <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 24px;">
-                        <strong>
-                            <center>HOJA DE PROGRAMACIÓN QUIRÚRGICA</center>
-                        </strong>
-                    </div>
-                    
-                    <div class="text-center mt-3 mb-3">
-                        <a href="nota_registro_grafico.php" class="btn btn-info btn-lg" 
-                           title="Ver gráficas de tratamientos y signos vitales. Si no hay paciente seleccionado, podrá elegir uno de la lista.">
-                            <i class="fas fa-chart-line"></i> Ver Tratamientos y Gráficas de Signos Vitales
-                        </a>
-                        <br>
-                        <small class="text-muted mt-2">
-                            <i class="fas fa-info-circle"></i>
-                            <?php if (isset($_SESSION['pac'])): ?>
-                                Mostrará gráficas del paciente actual
-                            <?php else: ?>
-                                Le permitirá seleccionar un paciente con tratamientos
-                            <?php endif; ?>
-                        </small>
-                    </div>
-                
-                <div class="card mt-3">
+            <!-- Apartado de selección de tratamientos arriba del menú principal -->
+            
+                <div class="container mb-4">
+                    <div class="card" style="border-radius: 15px; box-shadow: 0 4px 16px rgba(43,45,127,0.08); border: none;">
+                        <div class="card-body p-0">
+                            <ul class="nav nav-tabs nav-fill" id="menuRegistroTabs" style="background: linear-gradient(90deg, #2b2d7f 0%, #4a4ed1 100%); border-radius: 15px 15px 0 0;">
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold active" id="cirugia-tab" data-toggle="tab" href="#cirugia" role="tab" aria-controls="cirugia" aria-selected="true" style="color: #fff; background: #2b2d7f;">Cirugía Segura</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold" id="signos-tab" data-toggle="tab" href="#signos" role="tab" aria-controls="signos" aria-selected="false" style="color: #fff;">Signos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold" id="nota-tab" data-toggle="tab" href="#nota" role="tab" aria-controls="nota" aria-selected="false" style="color: #fff;">Nota Enfermería</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold" id="ingresos-tab" data-toggle="tab" href="#ingresos" role="tab" aria-controls="ingresos" aria-selected="false" style="color: #fff;">Ingresos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold" id="insumos-tab" data-toggle="tab" href="#insumos" role="tab" aria-controls="insumos" aria-selected="false" style="color: #fff;">Insumos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold" id="equipos-tab" data-toggle="tab" href="#equipos" role="tab" aria-controls="equipos" aria-selected="false" style="color: #fff;">Equipos</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content p-4" id="menuRegistroTabsContent" style="background: #f8f9fa; border-radius: 0 0 15px 15px;">
+                                <div class="tab-pane fade show active" id="cirugia" role="tabpanel" aria-labelledby="cirugia-tab">
+                                    <!-- INICIO: Código completo de enf_cirugia_segura.php -->
+                                    <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 24px;">
+                                        <strong><center>HOJA DE CIRUGIA SEGURA</center></strong>
+                                    </div>
+                                    <hr>
+                                    <form action="../../enfermera/registro_quirurgico/insertar_cir_seg.php" method="POST">
+                                        <input type="hidden" name="id_exp" value="<?php echo htmlspecialchars($id_exp); ?>">
+                                        <input type="hidden" name="id_usua" value="<?php echo htmlspecialchars($id_usuario); ?>">
+                                        <input type="hidden" name="id_atencion" value="<?php echo htmlspecialchars($id_atencion); ?>">
+                                        <div class="card-container" style="display: flex; gap: 25px; margin: 20px 0;">
+                                            <!-- Sección 1 -->
+                                            <div class="card" style="flex: 1; padding: 20px; border: 2px solid #e3e6f0; border-radius: 15px; background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%); box-shadow: 0 4px 15px rgba(43, 45, 127, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                                                <h4 style="margin-bottom: 20px; color: #2b2d7f; font-weight: 600; font-size: 18px; padding-bottom: 10px; border-bottom: 2px solid #e3e6f0;">Con el enfermero y el anestesista</h4>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Ha confirmado el paciente su identidad, el sitio quirúrgico, el procedimiento y su consentimiento?</strong><br>
+                                                    <input type="checkbox" name="confirmacion_identidad" value="Sí"> Sí
+                                                </div>
+                                                <hr>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Se ha marcado el sitio quirúrgico?</strong><br>
+                                                    <input type="checkbox" name="sitio_marcado[]" value="Sí"> Sí<br>
+                                                    <input type="checkbox" name="sitio_marcado[]" value="No procede"> No procede
+                                                </div>
+                                                <hr>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Se ha completado la comprobación de los aparatos de anestesia y la medicación anestésica?</strong><br>
+                                                    <input type="checkbox" name="verificacion_anestesia" value="Sí"> Sí
+                                                </div>
+                                                <hr>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Se ha colocado el pulsioximetro al paciente y funciona?</strong><br>
+                                                    <input type="checkbox" name="pulsioximetro" value="Sí"> Sí
+                                                </div>
+                                                <hr>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Tiene el paciente alergias conocidas?</strong><br>
+                                                    <input type="checkbox" name="alergias[]" value="No"> No<br>
+                                                    <input type="checkbox" name="alergias[]" value="Sí"> Sí
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Tiene el paciente vía aérea difícil / riesgo de aspiración?</strong><br>
+                                                    <input type="checkbox" name="via_aerea_dificil[]" value="No"> No<br>
+                                                    <input type="checkbox" name="via_aerea_dificil[]" value="Sí, y hay materiales y equipos / ayuda disponible"> Sí, y hay materiales y equipos / ayuda disponible
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Riesgo de hemorragia &gt; 500 ml (7 ml/kg en niños)?</strong><br>
+                                                    <input type="checkbox" name="riesgo_hemorragia[]" value="No"> No<br>
+                                                    <input type="checkbox" name="riesgo_hemorragia[]" value="Sí, y se ha previsto la disponibilidad de líquidos y dos vías IV o centrales"> Sí, y se ha previsto la disponibilidad de líquidos y dos vías IV o centrales
+                                                </div>
+                                            </div>
+                                            <!-- Sección 2 -->
+                                            <div class="card" style="flex: 1; padding: 20px; border: 2px solid #e3e6f0; border-radius: 15px; background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%); box-shadow: 0 4px 15px rgba(43, 45, 127, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                                                <h4 style="margin-bottom: 20px; color: #2b2d7f; font-weight: 600; font-size: 18px; padding-bottom: 10px; border-bottom: 2px solid #e3e6f0;">Con el enfermero, el anestesista y el cirujano</h4>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="miembros_presentados" value="1">
+                                                        <strong>Confirmar que todos los miembros del equipo se hayan presentado por su nombre</strong>
+                                                    </label>
+                                                </div>
+                                                <hr>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="confirmacion_identidad_equipo" value="1">
+                                                        <strong>Confirmar la identidad del paciente, el sitio quirúrgico y el procedimiento</strong>
+                                                    </label>
+                                                </div>
+                                                <hr>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Se ha administrado profilaxis antibiótica en los últimos 60 minutos?</strong><br>
+                                                    <input type="checkbox" name="profilaxis_antibiotica_si" value="1"> Sí<br>
+                                                    <input type="checkbox" name="profilaxis_antibiotica_np" value="1"> No procede
+                                                </div>
+                                                <hr>
+                                                <strong>Previsión de eventos críticos</strong>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="problemas_instrumental" value="1">
+                                                        <strong>¿Hay dudas o problemas relacionados con el instrumental y los equipos?</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="duracion_operacion" value="1">
+                                                        <strong>Cirujano: ¿Cuánto durará la operación?</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="perdida_sangre" value="1">
+                                                        <strong>Cirujano: ¿Cuál es la pérdida de sangre prevista?</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="problemas_paciente" value="1">
+                                                        <strong>Anestesista: ¿Presenta el paciente algún problema específico?</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="esterilidad_confirmada" value="1">
+                                                        <strong>¿Se ha confirmado la esterilidad (con resultados de los indicadores)?</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <strong>¿Pueden visualizarse las imágenes diagnósticas esenciales?</strong><br>
+                                                    <input type="checkbox" name="imagenes_visibles_si" value="1"> Sí<br>
+                                                    <input type="checkbox" name="imagenes_visibles_np" value="1"> No procede
+                                                </div>
+                                            </div>
+                                            <!-- Sección 3 -->
+                                            <div class="card" style="flex: 1; padding: 20px; border: 2px solid #e3e6f0; border-radius: 15px; background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%); box-shadow: 0 4px 15px rgba(43, 45, 127, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                                                <h4 style="margin-bottom: 20px; color: #2b2d7f; font-weight: 600; font-size: 18px; padding-bottom: 10px; border-bottom: 2px solid #e3e6f0;">Antes de salir del quirófano</h4>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="nombre_procedimiento" value="1">
+                                                        <strong>El enfermero confirma verbalmente: El nombre del procedimiento</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="recuento_instrumental" value="1">
+                                                        <strong>El recuento de instrumentos, gasas y agujas</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <label>
+                                                        <input type="checkbox" name="etiquetado_muestras" value="1">
+                                                        <strong>El etiquetado de las muestras (lectura de la etiqueta en voz alta, incluido el nombre del paciente)</strong>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>Cirujano, anestesista y enfermero:</strong><br>
+                                                        <input type="checkbox" name="aspectos_recuperacion" value="1">
+                                                        ¿Cuáles son los aspectos críticos de la recuperación y el tratamiento del paciente?
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">FIRMAR</button>
+                                            <a href="../../template/select_pac_enf.php" class="btn btn-danger">Cancelar</a>
+                                        </div>
+                                    </form>
+                                    <!-- FIN: Código completo de enf_cirugia_segura.php -->
+                                </div>
+                                <div class="tab-pane fade" id="signos" role="tabpanel" aria-labelledby="signos-tab">
+            <!-- Apartado de selección de tratamientos arriba del menú principal -->
+            <div class="d-flex justify-content-center mt-3">
+                <div class="card" style="max-width: 900px; width: 100%; border-radius: 15px; box-shadow: 0 4px 16px rgba(43,45,127,0.08); border: none;">
                     <div class="card-header" style="background-color: #f8f9fa; border-bottom: 2px solid #2b2d7f;">
                         <div class="form-group mb-0">
                             <label style="font-size:20px; font-weight:bold; color:#2b2d7f; margin-bottom:15px;">
@@ -619,32 +716,52 @@ if (isset($_SESSION['login'])) {
                                 $contador = 0;
                                 $tratamientos_data = [];
                                 while ($row_trat = $result_trat->fetch_assoc()) {
-                                    $tipo = $row_trat['tipo'];
-                                    $id = $row_trat['id'];
-                                    $tratamientos_data[] = $row_trat; 
-                                    $contador++;
-                                    
-                                    if ($contador % 2 == 1) {
-                                        echo '<div class="col-md-6 mb-3">';
-                                    }
-                                    
-                                    echo '<div class="form-check" style="margin-bottom: 8px;">';
-                                    // Agregar clase especial para Cirugía Lasik
-                                    $es_lasik = (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK');
-                                    $clase_adicional = $es_lasik ? ' lasik-checkbox' : ' general-checkbox';
-                                    echo '<input class="form-check-input tratamiento-checkbox' . $clase_adicional . '" type="checkbox" value="' . $id . '" id="trat_' . $id . '" data-tipo="' . htmlspecialchars($tipo) . '" style="transform: scale(1.3); margin-right: 10px;">';
-                                    echo '<label class="form-check-label" for="trat_' . $id . '" style="font-size: 16px; font-weight: 500; color: #2b2d7f; cursor: pointer;">';
-                                    echo strtoupper($tipo);
-                                    echo '</label>';
-                                    echo '</div>';
-                                    
-                                    if ($contador % 2 == 0) {
-                                        echo '</div>';
-                                    }
-                                }
-                                if ($contador % 2 == 1) {
-                                    echo '</div>';
-                                }
+            $tipo = $row_trat['tipo'];
+            $id = $row_trat['id'];
+            $tratamientos_data[] = $row_trat; 
+            $contador++;
+            if ($contador % 2 == 1) {
+                echo '<div class="col-md-6 mb-3">';
+            }
+            echo '<div class="form-check" style="margin-bottom: 8px;">';
+            // Agregar clase especial para Cirugía Lasik
+            $es_lasik = (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK');
+            $clase_adicional = $es_lasik ? ' lasik-checkbox' : ' general-checkbox';
+            echo '<input class="form-check-input tratamiento-checkbox' . $clase_adicional . '" type="checkbox" value="' . $id . '" id="trat_' . $id . '" data-tipo="' . htmlspecialchars($tipo) . '" style="transform: scale(1.3); margin-right: 10px;">';
+            echo '<label class="form-check-label" for="trat_' . $id . '" style="font-size: 16px; font-weight: 500; color: #2b2d7f; cursor: pointer;">';
+            echo strtoupper($tipo);
+            echo '</label>';
+            echo '</div>';
+            if ($contador % 2 == 0) {
+                echo '</div>';
+            }
+        }
+        // Verificar si CIRUGÍA LASIK está en la lista, si no, agregarla manualmente
+        $lasik_existe = false;
+        foreach ($tratamientos_data as $trat) {
+            if (strtoupper($trat['tipo']) == 'CIRUGÍA LASIK' || strtoupper($trat['tipo']) == 'CIRUGIA LASIK') {
+                $lasik_existe = true;
+                break;
+            }
+        }
+        if (!$lasik_existe) {
+            // Si el contador es impar, abrir columna
+            if ($contador % 2 == 1) {
+                // Ya hay una columna abierta
+            } else {
+                echo '<div class="col-md-6 mb-3">';
+            }
+            echo '<div class="form-check" style="margin-bottom: 8px;">';
+            echo '<input class="form-check-input tratamiento-checkbox lasik-checkbox" type="checkbox" value="LASIK_MANUAL" id="trat_lasik_manual" data-tipo="CIRUGÍA LASIK" style="transform: scale(1.3); margin-right: 10px;">';
+            echo '<label class="form-check-label" for="trat_lasik_manual" style="font-size: 16px; font-weight: 500; color: #2b2d7f; cursor: pointer;">CIRUGÍA LASIK</label>';
+            echo '</div>';
+            echo '</div>';
+            // Forzar despliegue inmediato si se selecciona
+            echo '<script>\n$(function(){\n  $("#trat_lasik_manual").on("change", function(){\n    if(this.checked){\n      $("#btn_cargar_tratamientos").show();\n    } else {\n      if($(".tratamiento-checkbox:checked").length == 0){\n        $("#btn_cargar_tratamientos").hide();\n      }\n    }\n  });\n});\n</script>';
+        }
+        if ($contador % 2 == 1) {
+            echo '</div>';
+        }
                                 ?>
                             </div>
                             <div class="text-center mt-3">
@@ -653,295 +770,226 @@ if (isset($_SESSION['login'])) {
                                 </button>
                             </div>
                         </div>
+                        <!-- Contenedor para formularios -->
+                        <div id="formulario_contenedor" style="display: none;">
+                            <!-- Formulario General Unificado -->
+                            <div class="card formulario-tratamiento" id="formulario_general" style="display: none;">
+                                <div class="card-header" style="background-color: #2b2d7f; color: white;">
+                                    <h4 class="mb-0 text-center">FORMULARIO DE TRATAMIENTOS SELECCIONADOS</h4>
+                                    <div class="text-center mt-2" id="tratamientos_seleccionados_lista">
+                                        <!-- Aquí se mostrarán los tratamientos seleccionados -->
+                                    </div>
+                                </div>
+                                <div class="card-body">
+            <form action="insertar_tratamientos_multiples.php" method="POST" onsubmit="return enviarFormularioUnificado(event);">
+                <div class="form-group">
+                    <label style="font-size:16px;">Nombre del médico tratante:</label>
+                    <select class="form-control" name="medico_tratante" required>
+                        <option value="">Seleccione un médico tratante</option>
+                        <?php
+                        $sql_med = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol ='2' AND u_activo = 'SI'";
+                        $result_med = $conexion->query($sql_med);
+                        if ($result_med && $result_med->num_rows > 0) {
+                            while ($med = $result_med->fetch_assoc()) {
+                                $nombre_med = trim($med['nombre'] . ' ' . $med['papell'] . ' ' . $med['sapell']);
+                                echo '<option value="' . htmlspecialchars($nombre_med) . '">' . htmlspecialchars($nombre_med) . '</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label style="font-size:16px;">Anestesiólogo:</label>
+                    <select class="form-control" name="anestesiologo" required>
+                        <option value="">Seleccione un anestesiólogo</option>
+                        <?php
+                        $sql_anes = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE cargp LIKE '%ANESTESIOLOGO%' AND u_activo = 'SI'";
+                        $result_anes = $conexion->query($sql_anes);
+                        if ($result_anes && $result_anes->num_rows > 0) {
+                            while ($anes = $result_anes->fetch_assoc()) {
+                                $nombre_anes = trim($anes['nombre'] . ' ' . $anes['papell'] . ' ' . $anes['sapell']);
+                                echo '<option value="' . htmlspecialchars($nombre_anes) . '">' . htmlspecialchars($nombre_anes) . '</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label style="font-size:16px;">Anestesia:</label>
+                    <select class="form-control" name="anestesia" required>
+                        <option value="">Seleccione tipo de anestesia</option>
+                        <option value="LOCAL">LOCAL</option>
+                        <option value="SEDACIÓN">SEDACIÓN</option>
+                    </select>
+                </div>
+                <!-- Campos LASIK, ocultos por defecto -->
+                <div class="row" id="campos_lasik" style="display:none; margin-top:20px;">
+                    <div class="col-md-6">
+                        <label style="font-size:16px;">OD</label>
+                        <input type="text" class="form-control mb-1" name="od_queratometria" placeholder="QUERATOMETRIA">
+                        <input type="text" class="form-control mb-1" name="od_microqueratomo" placeholder="MICROQUERATOMO">
+                        <input type="text" class="form-control mb-1" name="od_anillo" placeholder="ANILLO">
+                        <input type="text" class="form-control mb-1" name="od_tope" placeholder="TOPE">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="font-size:16px;">OI</label>
+                        <input type="text" class="form-control mb-1" name="oi_queratometria" placeholder="QUERATOMETRIA">
+                        <input type="text" class="form-control mb-1" name="oi_microqueratomo" placeholder="MICROQUERATOMO">
+                        <input type="text" class="form-control mb-1" name="oi_anillo" placeholder="ANILLO">
+                        <input type="text" class="form-control mb-1" name="oi_tope" placeholder="TOPE">
+                    </div>
+                </div>
+            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-header" style="background-color: #2b2d7f; color: white;">
+                    <h4 class="mb-0 text-center"><i class="fa-solid fa-heart-pulse"></i> Registro de Signos Vitales</h4>
+                </div>
+                <div class="card-body">
+                    <form action="insertar_signos_vitales.php" method="POST">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-signos-vitales" id="tabla-signos-unico">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15%;">Momento</th>
+                                        <th style="width: 12%;">Presión Sistólica</th>
+                                        <th style="width: 12%;">Presión Diastólica</th>
+                                        <th style="width: 10%;">Frecuencia Cardiaca</th>
+                                        <th style="width: 10%;">Frecuencia Respiratoria</th>
+                                        <th style="width: 11%;">Saturación O2</th>
+                                        <th style="width: 12%;">Temperatura</th>
+                                        <th style="width: 8%;">Hora</th>
+                                        <th style="width: 10%;">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Signos Vitales</strong><br><small>registro actual</small></td>
+                                        <td><input type="text" class="form-control" name="sistg" placeholder="ej: 120"></td>
+                                        <td><input type="text" class="form-control" name="diastg" placeholder="ej: 80"></td>
+                                        <td><input type="text" class="form-control" name="fcardg" placeholder="ej: 75"></td>
+                                        <td><input type="text" class="form-control" name="frespg" placeholder="ej: 20"></td>
+                                        <td><input type="text" class="form-control" name="satg" placeholder="ej: 98%"></td>
+                                        <td><input type="text" class="form-control" name="tempg" placeholder="ej: 36.5"></td>
+                                        <td><input type="time" class="form-control" name="hora_signos"></td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-save"></i> Guardar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+                                </div>
+                                <div class="tab-pane fade" id="nota" role="tabpanel" aria-labelledby="nota-tab">
+                                    <div class="card mt-2">
+                                        <div class="card-header" style="background-color: #2b2d7f; color: white;">
+                                            <h4 class="mb-0 text-center"><i class="fas fa-notes-medical"></i> Nota de Enfermería</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="insertar_nota_enfermeria.php" method="POST">
+                                                <div class="form-group mt-3">
+                                                    <label style="font-size:16px;">Nota de enfermería:</label>
+                                                    <div class="botones mb-2">
+                                                        <button type="button" class="btn btn-danger btn-sm grabar-nota"><i class="fas fa-microphone"></i></button>
+                                                        <button type="button" class="btn btn-primary btn-sm detener-nota"><i class="fas fa-microphone-slash"></i></button>
+                                                        <button type="button" class="btn btn-success btn-sm reproducir-nota"><i class="fas fa-play"></i></button>
+                                                    </div>
+                                                    <textarea class="form-control nota-enfermeria" rows="5" name="nota_enfermeria"><?php echo (isset($nota) && $nota !== null ? htmlspecialchars($nota) : ''); ?></textarea>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label style="font-size:16px;">ENFERMERA RESPONSABLE:</label>
+                                                        <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual); ?>" readonly style="background-color: #e9ecef;">
+                                                    </div>
+                                                    <div class="col-md-6" id="medico_responsable_container">
+                                                        <div class="d-flex align-items-center">
+                                                            <label style="font-size:16px; margin-bottom:0; margin-right:8px;">MÉDICO RESPONSABLE:</label>
+                                                            <button type="button" class="btn btn-outline-primary btn-sm" id="btn_toggle_medico_responsable" style="margin-right:8px;">
+                                                                <i class="fas fa-user-md"></i> Seleccionar
+                                                            </button>
+                                                        </div>
+                                                        <div id="select_medico_responsable_wrap" style="display:none; margin-top:8px;">
+                                                            <select class="form-control" name="medico_responsable" id="select_medico_responsable" required>
+                                                                <option value="">Seleccione un médico responsable</option>
+                                                                <?php
+                                                                $sql_med2 = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol = 2 AND u_activo = 'SI'";
+                                                                $result_med2 = $conexion->query($sql_med2);
+                                                                if ($result_med2 && $result_med2->num_rows > 0) {
+                                                                    while ($med2 = $result_med2->fetch_assoc()) {
+                                                                        $nombre_med2 = trim($med2['nombre'] . ' ' . $med2['papell'] . ' ' . $med2['sapell']);
+                                                                        echo '<option value="' . htmlspecialchars($nombre_med2) . '">' . htmlspecialchars($nombre_med2) . '</option>';
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <center class="mt-3">
+                                                    <button type="submit" class="btn btn-primary btn-lg">
+                                                        <i class="fas fa-save"></i> Guardar Nota
+                                                    </button>
+                                                </center>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="ingresos" role="tabpanel" aria-labelledby="ingresos-tab">
+                                    <h5 class="text-primary font-weight-bold"><i class="fas fa-sign-in-alt"></i> Ingresos</h5>
+                                    <p class="text-muted">Registro de ingresos y egresos del paciente.</p>
+                                </div>
+                                <div class="tab-pane fade" id="insumos" role="tabpanel" aria-labelledby="insumos-tab">
+                                    <h5 class="text-primary font-weight-bold"><i class="fas fa-box-open"></i> Insumos</h5>
+                                    <p class="text-muted">Control y registro de insumos utilizados.</p>
+                                </div>
+                                <div class="tab-pane fade" id="equipos" role="tabpanel" aria-labelledby="equipos-tab">
+                                    <h5 class="text-primary font-weight-bold"><i class="fas fa-tools"></i> Equipos</h5>
+                                    <p class="text-muted">Registro y control de equipos médicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+                
+                <div class="card mt-3">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Contenedor para formularios -->
-                <div id="formulario_contenedor" style="display: none;">
-                    <!-- Formulario General Unificado -->
-                    <div class="card formulario-tratamiento" id="formulario_general" style="display: none;">
-                        <div class="card-header" style="background-color: #2b2d7f; color: white;">
-                            <h4 class="mb-0 text-center">FORMULARIO DE TRATAMIENTOS SELECCIONADOS</h4>
-                            <div class="text-center mt-2" id="tratamientos_seleccionados_lista">
-                                <!-- Aquí se mostrarán los tratamientos seleccionados -->
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <form action="insertar_tratamientos_multiples.php" method="POST" onsubmit="return enviarFormularioUnificado(event);">
-                                <div class="form-group">
-                                    <label style="font-size:16px;">Nombre del médico tratante:</label>
-                                    <select class="form-control" name="medico_tratante" required>
-                                        <option value="">Seleccione un médico tratante</option>
-                                        <?php
-                                        $sql_med = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol ='2' AND u_activo = 'SI'";
-                                        $result_med = $conexion->query($sql_med);
-                                        if ($result_med && $result_med->num_rows > 0) {
-                                            while ($med = $result_med->fetch_assoc()) {
-                                                $nombre_med = trim($med['nombre'] . ' ' . $med['papell'] . ' ' . $med['sapell']);
-                                                echo '<option value="' . htmlspecialchars($nombre_med) . '">' . htmlspecialchars($nombre_med) . '</option>';
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label style="font-size:16px;">Anestesiólogo:</label>
-                                    <select class="form-control" name="anestesiologo" required>
-                                        <option value="">Seleccione un anestesiólogo</option>
-                                        <?php
-                                        $sql_anes = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE cargp LIKE '%ANESTESIOLOGO%' AND u_activo = 'SI'";
-                                        $result_anes = $conexion->query($sql_anes);
-                                        if ($result_anes && $result_anes->num_rows > 0) {
-                                            while ($anes = $result_anes->fetch_assoc()) {
-                                                $nombre_anes = trim($anes['nombre'] . ' ' . $anes['papell'] . ' ' . $anes['sapell']);
-                                                echo '<option value="' . htmlspecialchars($nombre_anes) . '">' . htmlspecialchars($nombre_anes) . '</option>';
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label style="font-size:16px;">Anestesia:</label>
-                                    <select class="form-control" name="anestesia" required>
-                                        <option value="">Seleccione tipo de anestesia</option>
-                                        <option value="LOCAL">LOCAL</option>
-                                        <option value="SEDACIÓN">SEDACIÓN</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label style="font-size:16px;">Signos vitales:</label>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped table-signos-vitales" id="tabla-signos-general">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width: 15%;">Momento</th>
-                                                    <th style="width: 12%;">Presión Sistólica</th>
-                                                    <th style="width: 12%;">Presión Diastólica</th>
-                                                    <th style="width: 10%;">Frecuencia Cardiaca</th>
-                                                    <th style="width: 10%;">Frecuencia Respiratoria</th>
-                                                    <th style="width: 11%;">Saturación O2</th>
-                                                    <th style="width: 12%;">Temperatura</th>
-                                                    <th style="width: 8%;">Hora</th>
-                                                    <th style="width: 10%;">Acción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Signos Vitales</strong><br><small>registro actual</small></td>
-                                                    <td><input type="text" class="form-control" name="sistg" placeholder="ej: 120"></td>
-                                                    <td><input type="text" class="form-control" name="diastg" placeholder="ej: 80"></td>
-                                                    <td><input type="text" class="form-control" name="fcardg" placeholder="ej: 75"></td>
-                                                    <td><input type="text" class="form-control" name="frespg" placeholder="ej: 20"></td>
-                                                    <td><input type="text" class="form-control" name="satg" placeholder="ej: 98%"></td>
-                                                    <td><input type="text" class="form-control" name="tempg" placeholder="ej: 36.5"></td>
-                                                    <td><input type="time" class="form-control" name="hora_signos"></td>
-                                                    <td>-</td>
-                                                </tr>
-                                                <!-- Contenedor para el botón agregar signos -->
-                                                <tr class="btn-agregar-row">
-                                                    <td colspan="9" class="p-2">
-                                                        <button type="button" class="btn btn-info btn-sm agregar-signos">
-                                                            <i class="fa-solid fa-heart-circle-plus"></i> Agregar signos vitales adicionales
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label style="font-size:16px;">Nota de enfermería:</label>
-                                    <div class="botones mb-2">
-                                        <button type="button" class="btn btn-danger btn-sm grabar-nota"><i class="fas fa-microphone"></i></button>
-                                        <button type="button" class="btn btn-primary btn-sm detener-nota"><i class="fas fa-microphone-slash"></i></button>
-                                        <button type="button" class="btn btn-success btn-sm reproducir-nota"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <textarea class="form-control nota-enfermeria" rows="5" name="nota_enfermeria"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label style="font-size:16px;">ENFERMERA RESPONSABLE:</label>
-                                    <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual . ' '); ?>" readonly style="background-color: #e9ecef;">
-                                </div>
-                                <input type="hidden" name="tratamientos_seleccionados" id="tratamientos_seleccionados_input">
-                                <input type="hidden" name="es_formulario_unificado" value="1">
-                                <center class="mt-3">
-                                    <button type="submit" class="btn btn-primary btn-lg">
-                                        <i class="fas fa-save"></i> Firmar Tratamientos 
-                                    </button>
-                                    <button type="button" class="btn btn-danger" onclick="history.back()">
-                                        <i class="fas fa-times"></i> Cancelar
-                                    </button>
-                                </center>
-                            </form>
-                        </div>
-                    </div>
-
-                    <?php
-                    $result_trat = $conexion->query($sql_trat);
-                    while ($row_trat = $result_trat->fetch_assoc()) {
-                        $tipo = $row_trat['tipo'];
-                        $nota = $row_trat['nota'];
-                        $id = $row_trat['id'];
-                        
-                        if (strtoupper($tipo) == 'CIRUGÍA LASIK' || strtoupper($tipo) == 'CIRUGIA LASIK') {
-                            $action = 'insertar_hoja_lasik.php';
-                            ?>
-                            <div class="card formulario-tratamiento" id="formulario_<?php echo $id; ?>" style="display: none;">
-                                <div class="card-header" style="background-color: #2b2d7f; color: white;">
-                                    <h4 class="mb-0 text-center"><?php echo strtoupper($tipo); ?></h4>
-                                </div>
-                                <div class="card-body">
-                                    <form action="<?php echo $action; ?>" method="POST" onsubmit="return checkSubmit();">
-                                        <div class="form-group">
-                                            <label style="font-size:16px;">Nombre del médico tratante:</label>
-                                            <select class="form-control" name="medico_tratante" required>
-                                                <option value="">Seleccione un médico tratante</option>
-                                                <?php
-                                                $sql_med = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol ='2' AND u_activo = 'SI'";
-                                                $result_med = $conexion->query($sql_med);
-                                                if ($result_med && $result_med->num_rows > 0) {
-                                                    while ($med = $result_med->fetch_assoc()) {
-                                                        $nombre_med = trim($med['nombre'] . ' ' . $med['papell'] . ' ' . $med['sapell']);
-                                                        echo '<option value="' . htmlspecialchars($nombre_med) . '">' . htmlspecialchars($nombre_med) . '</option>';
-                                                    }
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label style="font-size:16px;">Anestesiólogo:</label>
-                                            <select class="form-control" name="anestesiologo" required>
-                                                <option value="">Seleccione un anestesiólogo</option>
-                                                <?php
-                                                $sql_anes = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE cargp LIKE '%ANESTESIOLOGO%' AND u_activo = 'SI'";
-                                                $result_anes = $conexion->query($sql_anes);
-                                                if ($result_anes && $result_anes->num_rows > 0) {
-                                                    while ($anes = $result_anes->fetch_assoc()) {
-                                                        $nombre_anes = trim($anes['nombre'] . ' ' . $anes['papell'] . ' ' . $anes['sapell']);
-                                                        echo '<option value="' . htmlspecialchars($nombre_anes) . '">' . htmlspecialchars($nombre_anes) . '</option>';
-                                                    }
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label style="font-size:16px;">Anestesia:</label>
-                                            <select class="form-control" name="anestesia" required>
-                                                <option value="">Seleccione tipo de anestesia</option>
-                                                <option value="LOCAL">LOCAL</option>
-                                                <option value="SEDACIÓN">SEDACIÓN</option>
-                                            </select>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label style="font-size:16px;">OD</label>
-                                                <input type="text" class="form-control mb-1" name="od_queratometria" placeholder="QUERATOMETRIA">
-                                                <input type="text" class="form-control mb-1" name="od_microqueratomo" placeholder="MICROQUERATOMO">
-                                                <input type="text" class="form-control mb-1" name="od_anillo" placeholder="ANILLO">
-                                                <input type="text" class="form-control mb-1" name="od_tope" placeholder="TOPE">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label style="font-size:16px;">OI</label>
-                                                <input type="text" class="form-control mb-1" name="oi_queratometria" placeholder="QUERATOMETRIA">
-                                                <input type="text" class="form-control mb-1" name="oi_microqueratomo" placeholder="MICROQUERATOMO">
-                                                <input type="text" class="form-control mb-1" name="oi_anillo" placeholder="ANILLO">
-                                                <input type="text" class="form-control mb-1" name="oi_tope" placeholder="TOPE">
-                                            </div>
-                                        </div>
-                                        <div class="form-group mt-3">
-                                            <label style="font-size:16px;">Signos vitales:</label>
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-striped table-signos-vitales" id="tabla-signos-<?php echo $id; ?>">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 15%;">Momento</th>
-                                                            <th style="width: 12%;">Presión Sistólica</th>
-                                                            <th style="width: 12%;">Presión Diastólica</th>
-                                                            <th style="width: 10%;">Frecuencia Cardiaca</th>
-                                                            <th style="width: 10%;">Frecuencia Respiratoria</th>
-                                                            <th style="width: 11%;">Saturación O2</th>
-                                                            <th style="width: 12%;">Temperatura</th>
-                                                            <th style="width: 8%;">Hora</th>
-                                                            <th style="width: 10%;">Acción</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><strong>Signos Vitales</strong><br><small>registro actual</small></td>
-                                                            <td><input type="text" class="form-control" name="sistg" placeholder="ej: 120"></td>
-                                                            <td><input type="text" class="form-control" name="diastg" placeholder="ej: 80"></td>
-                                                            <td><input type="text" class="form-control" name="fcardg" placeholder="ej: 75"></td>
-                                                            <td><input type="text" class="form-control" name="frespg" placeholder="ej: 20"></td>
-                                                            <td><input type="text" class="form-control" name="satg" placeholder="ej: 98%"></td>
-                                                            <td><input type="text" class="form-control" name="tempg" placeholder="ej: 36.5"></td>
-                                                            <td><input type="time" class="form-control" name="hora_signos"></td>
-                                                            <td>-</td>
-                                                        </tr>
-                                                        <tr class="btn-agregar-row">
-                                                            <td colspan="9" class="p-2">
-                                                                <button type="button" class="btn btn-info btn-sm agregar-signos">
-                                                                    <i class="fa-solid fa-heart-circle-plus"></i> Agregar signos vitales adicionales
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mt-3">
-                                            <label style="font-size:16px;">Nota de enfermería:</label>
-                                            <div class="botones mb-2">
-                                                <button type="button" class="btn btn-danger btn-sm grabar-nota"><i class="fas fa-microphone"></i></button>
-                                                <button type="button" class="btn btn-primary btn-sm detener-nota"><i class="fas fa-microphone-slash"></i></button>
-                                                <button type="button" class="btn btn-success btn-sm reproducir-nota"><i class="fas fa-play"></i></button>
-                                            </div>
-                                            <textarea class="form-control nota-enfermeria" rows="5" name="nota_enfermeria"><?php echo ($nota !== null ? htmlspecialchars($nota) : ''); ?></textarea>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label style="font-size:16px;">ENFERMERA RESPONSABLE:</label>
-                                                <input type="text" class="form-control" name="enfermera_responsable" value="<?php echo htmlspecialchars($usuario_actual); ?>" readonly style="background-color: #e9ecef;">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label style="font-size:16px;">MÉDICO RESPONSABLE:</label>
-                                                <select class="form-control" name="medico_responsable" required>
-                                                    <option value="">Seleccione un médico responsable</option>
-                                                    <?php
-                                                    $sql_med2 = "SELECT id_usua, nombre, papell, sapell FROM reg_usuarios WHERE id_rol = 2 AND u_activo = 'SI'";
-                                                    $result_med2 = $conexion->query($sql_med2);
-                                                    if ($result_med2 && $result_med2->num_rows > 0) {
-                                                        while ($med2 = $result_med2->fetch_assoc()) {
-                                                            $nombre_med2 = trim($med2['nombre'] . ' ' . $med2['papell'] . ' ' . $med2['sapell']);
-                                                            echo '<option value="' . htmlspecialchars($nombre_med2) . '">' . htmlspecialchars($nombre_med2) . '</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="id_tratamiento" value="<?php echo $id; ?>">
-                                        <center class="mt-3">
-                                            <button type="submit" class="btn btn-primary btn-lg">
-                                                <i class="fas fa-save"></i> Firmar Tratamiento LASIK
-                                            </button>
-                                            <button type="button" class="btn btn-danger" onclick="history.back()">
-                                                <i class="fas fa-times"></i> Cancelar
-                                            </button>
-                                        </center>
-                                    </form>
-                                </div>
-                            </div>
-                            <?php
-                            break;
-                        }
-                    }
-                    ?>
                 </div>
             </div>
         </div>
     </div>
 
+
     <script>
+        // Botón para mostrar/ocultar el select de médico responsable en Nota de Enfermería
+        document.addEventListener('DOMContentLoaded', function() {
+            var btnToggleMedico = document.getElementById('btn_toggle_medico_responsable');
+            var selectWrap = document.getElementById('select_medico_responsable_wrap');
+            if(btnToggleMedico && selectWrap) {
+                btnToggleMedico.addEventListener('click', function() {
+                    if(selectWrap.style.display === 'none' || selectWrap.style.display === '') {
+                        selectWrap.style.display = 'block';
+                    } else {
+                        selectWrap.style.display = 'none';
+                    }
+                });
+            }
+        });
         let enviandoFormulario = false;
         
         // Estilos CSS para las filas de signos vitales
@@ -1404,18 +1452,33 @@ if (isset($_SESSION['login'])) {
                     form.style.display = 'none';
                 });
                 
-                enviandoFormulario = false;
-                
-                if (checkboxesSeleccionados.length > 0) {
-                    contenedor.style.display = 'block';
-                    
-                    // Separar tratamientos: Lasik vs otros
-                    let tratamientosGenerales = [];
-                    let tieneClasik = false;
-                    let idLasik = null;
-                    
-                    checkboxesSeleccionados.forEach(checkbox => {
-                        const esLasik = checkbox.classList.contains('lasik-checkbox');
+        let enviandoFormulario = false;
+        // Mostrar campos LASIK si se selecciona la opción
+        $(document).ready(function(){
+            function mostrarCamposLasik(){
+                let lasikChecked = false;
+                $(".tratamiento-checkbox").each(function(){
+                    if($(this).is(":checked") && $(this).data("tipo").toUpperCase().includes("LASIK")){
+                        lasikChecked = true;
+                    }
+                });
+                if(lasikChecked){
+                    $("#campos_lasik").show();
+                    $("#medico_responsable_container").show();
+                }else{
+                    $("#campos_lasik").hide();
+                    $("#medico_responsable_container").show();
+                }
+            }
+            $(".tratamiento-checkbox").on("change", mostrarCamposLasik);
+            mostrarCamposLasik();
+        });
+        // Estilos CSS para las filas de signos vitales
+        const styles = `
+            <style>
+            </style>
+        `;
+        document.head.insertAdjacentHTML('beforeend', styles);
                         if (esLasik) {
                             tieneClasik = true;
                             idLasik = checkbox.value;
@@ -1453,9 +1516,8 @@ if (isset($_SESSION['login'])) {
                     contenedor.style.display = 'none';
                 }
             });
-
             initializarFormulario();
-        });
+        // Fin del eventListener principal
 
         document.oncontextmenu = function() {
             return false;
