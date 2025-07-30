@@ -1,0 +1,270 @@
+.modal-lg {
+    max-width: 65% !important;
+}
+
+.container-fluid, .card, .card-header, .card-body, .table-responsive, .table-bordered, .table-bordered th, .table-bordered td {
+}
+
+.table-bordered input.form-control {
+}
+
+.table-bordered input.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-agregar-row td {
+}
+
+.btn-agregar-row .btn {
+}
+
+.btn-agregar-row .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+
+.btn-agregar-row .btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+input[readonly] {
+    background-color: #e9ecef !important;
+    cursor: not-allowed;
+}
+
+small.text-muted {
+    font-style: italic;
+    color: #6c757d !important;
+}
+
+input[type="time"] {
+    min-width: 100px;
+}
+
+.durante-cirugia-row.guardado {
+    background-color: #d4edda !important;
+}
+
+.durante-cirugia-row.guardado td {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+}
+
+.durante-cirugia-row.guardado input[readonly] {
+    background-color: #c3e6cb !important;
+    color: #155724 !important;
+    font-weight: 500;
+}
+
+.btn-guardado {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+    cursor: not-allowed !important;
+}
+
+.btn-guardado:hover {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+@keyframes guardarExito {
+    0% { background-color: #ffffff; }
+    50% { background-color: #d1ecf1; }
+    100% { background-color: #d4edda; }
+}
+
+.durante-cirugia-row.guardando {
+    animation: guardarExito 1s ease-in-out;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.botones {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.botones .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#selector_tratamiento {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 15px;
+    border: 2px solid #2b2d7f;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #2b2d7f;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 50px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%232b2d7f" viewBox="0 0 16 16"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+#selector_tratamiento:focus {
+    border-color: #1a1d5f;
+    box-shadow: 0 0 0 0.2rem rgba(43, 45, 127, 0.25);
+    outline: none;
+}
+
+#selector_tratamiento option {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 8px;
+    color: #333;
+    background-color: #ffffff;
+}
+
+#selector_tratamiento option:hover {
+    background-color: #f8f9fa;
+}
+
+.formulario-tratamiento {
+    margin-top: 20px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.formulario-tratamiento .card-header {
+    background-color: #2b2d7f;
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #1a1d5f;
+}
+
+.formulario-tratamiento .card-body {
+    padding: 20px;
+}
+
+.card-header {
+    padding: 15px 20px;
+}
+
+.card-header label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.table-signos-vitales {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-signos-vitales th {
+    background-color: #2b2d7f;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 13px;
+}
+
+.table-signos-vitales td {
+    padding: 8px 6px;
+    vertical-align: middle;
+}
+
+.table-signos-vitales td strong {
+    color: #2b2d7f;
+}
+
+.table-signos-vitales tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table-signos-vitales input[type="text"],
+.table-signos-vitales input[type="time"] {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.table-signos-vitales input[type="text"]:focus,
+.table-signos-vitales input[type="time"]:focus {
+    border-color: #2b2d7f;
+    box-shadow: 0 0 0 0.1rem rgba(43, 45, 127, 0.25);
+}
+
+@media (max-width: 768px) {
+    .table-bordered {
+        font-size: 10px;
+    }
+    
+    .table-bordered th,
+    .table-bordered td {
+        padding: 4px 2px;
+    }
+    
+    .table-bordered input.form-control {
+        min-width: 60px;
+        font-size: 10px;
+    }
+}
+
+.thead-primary {
+    background-color: #2b2d7f;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.guardado {
+    background-color: #f8f9fa !important;
+}
+
+.guardando {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { background-color: #d4edda; }
+    50% { background-color: #c3e6cb; }
+    100% { background-color: #d4edda; }
+}
+
+.btn-guardado {
+    cursor: default;
+}
+
+.editar-signos {
+    margin-left: 5px;
+}

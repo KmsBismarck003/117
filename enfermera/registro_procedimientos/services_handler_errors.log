@@ -1,0 +1,24 @@
+[2025-07-29 14:35:56] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:35:56] Fetched 2 services for id_usua=1, id_atencion=1
+[2025-07-29 14:36:04] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:04] Fetched 2 services for id_usua=1, id_atencion=1
+[2025-07-29 14:36:10] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:10] Fetched 2 services for id_usua=1, id_atencion=1
+[2025-07-29 14:36:31] Processing action: delete, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:31] Service deleted: id_ctapac=120
+[2025-07-29 14:36:31] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:31] Fetched 1 services for id_usua=1, id_atencion=1
+[2025-07-29 14:36:33] Processing action: delete, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:33] Service deleted: id_ctapac=121
+[2025-07-29 14:36:33] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:33] Fetched 0 services for id_usua=1, id_atencion=1
+[2025-07-29 14:36:38] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:38] Fetched 0 services for id_usua=1, id_atencion=1
+[2025-07-29 14:36:42] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:36:42] Fetched 0 services for id_usua=1, id_atencion=1
+[2025-07-29 14:39:18] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:39:18] Fetched 0 services for id_usua=1, id_atencion=1
+[2025-07-29 14:39:28] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:39:28] Fetched 1 services for id_usua=1, id_atencion=1
+[2025-07-29 14:41:06] Processing action: get, id_usua: 1, id_atencion: 1
+[2025-07-29 14:41:06] Fetched 1 services for id_usua=1, id_atencion=1

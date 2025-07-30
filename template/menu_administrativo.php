@@ -24,7 +24,7 @@ if (!($usuario['id_rol'] == 1 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 
 <head>
   <meta charset="UTF-8">
-  <title>Instituto de Enfermedades Oculares</title>
+  <title>INEO Metepec</title>
   <link rel="icon" href="../imagenes/SIF.PNG">
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -294,7 +294,6 @@ h4{
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
-  
   <div class="wrapper">
 
     <header class="main-header">

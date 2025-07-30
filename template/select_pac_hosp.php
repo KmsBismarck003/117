@@ -64,138 +64,157 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-  <style>
-  .headt{
-      width:100%;
-  }
-  .nompac{
-    font-size: 11.5px;
-    position:absolute;
+    <style>
+    .headt {
+        width: 100%;
     }
-     .ancholi{
-    margin-top: 1px;
-    margin-bottom: 10px;
-    width:144px;
-    height:100px;
-    display: inline-block;
+
+    .nompac {
+        font-size: 11.5px;
+        position: absolute;
     }
-    .ancholi2{
-        
-    width:139px;
-    height:97px;
-    display: inline-block;
-    box-shadow:3px 5px 8px #2a6675;
-    
+
+    .ancholi {
+        margin-top: 1px;
+        margin-bottom: 10px;
+        width: 175px;
+        height: 100px;
+        display: inline-block;
     }
+
+    .ancholi2 {
+
+        width: 170px;
+        height: 97px;
+        display: inline-block;
+        box-shadow: 3px 5px 8px #2a6675;
+
     .dropdwn {
-      float: left;
-      overflow: hidden;
+        float: left;
+        overflow: hidden;
     }
 
     .dropdwn .dropbtn {
-      cursor: pointer;
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
+        cursor: pointer;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
     }
 
     .navbar a:hover,
     .dropdwn:hover .dropbtn,
     .dropbtn:focus {
-      background-color: #367fa9;
+        background-color: #367fa9;
     }
 
     .dropdwn-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
     }
 
     .dropdwn-content a {
-      float: none;
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
     }
 
     .dropdwn-content a:hover {
-      background-color: #ddd;
+        background-color: #ddd;
     }
 
     .show {
-      display: block;
+        display: block;
     }
 
     * {
-      box-sizing: border-box;
+        box-sizing: border-box;
     }
 
     .todo-container {
-      max-width: 10000px;
-      height: auto;
-      display: flex;
-      overflow-y: scroll;
-      column-gap: 0.5em;
-      column-rule: 10px solid white;
-      column-width: 100px;
-      column-count: 7;
+        max-width: 10000px;
+        height: auto;
+        display: flex;
+        overflow-y: scroll;
+        column-gap: 0.5em;
+        column-rule: 10px solid white;
+        column-width: 100px;
+        column-count: 7;
     }
 
     .status {
-      width: 25%;
-      background-color: #ecf0f5;
-      position: relative;
-      padding: 60px 1rem 0.5rem;
-      height: 100%;
+        width: 25%;
+        background-color: #ecf0f5;
+        position: relative;
+        padding: 60px 1rem 0.5rem;
+        height: 100%;
 
     }
 
     .status h4 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #0b3e6f;
-      color: white;
-      margin: 0;
-      width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #0b3e6f;
+        color: white;
+        margin: 0;
+        width: 100%;
 
-      padding: 0.5rem 1rem;
+        padding: 0.5rem 1rem;
     }
 
-    .alert{
-         padding-right: 40px;
-         padding-left:6px;
-     }
-.nod{
+    .alert {
+        padding-right: 40px;
+        padding-left: 6px;
+    }
+
+    .nod {
 
         font-size: 10.3px;
-     }
-        @media screen and (max-width: 980px){
-    
-     .alert{
-         padding-right: 38px;
-         padding-left: 10px;
-     }
-     .nompac{
-         margin-left:-3px;
-        font-size: 10px;
+    }
 
-     }
-     .nod{
-        font-size: 7px;
-     }
-}
-  </style>
+    @media screen and (max-width: 980px) {
+
+        .alert {
+            padding-right: 38px;
+            padding-left: 10px;
+        }
+
+        .nompac {
+            margin-left: -3px;
+            font-size: 10px;
+
+        }
+
+        .nod {
+            font-size: 7px;
+        }
+    }
+    .treeview-menu-separator {
+        padding: 10px 15px;
+        font-weight: bold;
+        color: blue;
+        /* Adjust color as needed */
+        cursor: default;
+        /* Ensures the cursor doesn't change to a pointer */
+        background-color: #f4f4f4;
+        /* Optional: light background for emphasis */
+        border-top: 1px solid #ddd;
+        /* Optional: add a border for separation */
+        border-bottom: 1px solid #ddd;
+    }
+    </style>
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -595,7 +614,7 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item active" aria-current="page"><STRONG>
-              <h4>MÉDICO</h4>
+              <h4>PANEL DEL MÉDICO</h4>
             </STRONG></li>
         </ol>
       </nav>
@@ -608,7 +627,7 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                         swal({
                             title: "Favor de seleccionar un paciente", 
                             type: "error",
-                            confirmButtonText: "ACEPTAR"
+                            confirmButtonText: "Aceptar"
                         }, function(isConfirm) { 
                             if (isConfirm) {
                                 window.location.href = "menu_medico.php";
@@ -617,522 +636,668 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                     });
                 </script>
 
+<div class="container">
+                    <div class="row">
+
+                        <?php
+            if ($usuario['id_rol'] == 5 || $usuario['id_rol'] == 2 || $usuario['id_rol'] == 12) {
+
+            ?>
+<br>
+                        <div class="col-sm-3">
+                            <a href="../gestion_medica/selectpac_sincama/select_pac.php"><button type="button"
+                                    class="btn btn-default">PACIENTES ANTENDIDOS <i
+                                        class="fa fa-user"></i></button></a>
+                        </div>
+
+                        <?php
+            } else {
+              //session_unset();
+              session_destroy();
+              echo "<script>window.Location='../index.php';</script>";
+            }
+            ?>
+
+                    </div>
+                </div>
+
+                <hr>
+
       
-<div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
-  <center><strong>CONSULTA EXTERNA</strong></center><p>
-</div> <p></p>
+<div class="thead" style=" color: black; font-size: 20px;">
+                <strong>PACIENTES EN CONSULTA EXTERNA</strong><p>
+            </div> 
+                <p></p>
 
-<div class="container box">
-        <div class= "row">
-        
+            <div class="container box">
+                    <div class="row">
 
-        <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=1 and seccion=1 ORDER BY num_cama ASC';
-        $result = $conexion->query($sql);
-        //  $id_atencion = $_GET['id_atencion'];
-        while ($row = $result->fetch_assoc()) {
-          $num_cama = $row['num_cama'];
-          $id_atencion = $row['id_atencion'];
-          $estaus = $row['estatus'];
-          if ($estaus == "LIBRE") {
-        ?>
-            <div class="ancholi">
-             <div class="alert alert-success ancholi2" role="alert">
-                <div><a href="#" class="small-box-footer"><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                <h7><font size="2"><?php echo $num_cama ?> </font></h7></div>
-                <div><h7><font size="2"><?php echo $estaus ?></font></h7></div><br><br>
-             </div>
-            </div>
-          <?php
-          } elseif ($estaus == "MANTENIMIENTO") {
-            $esta = "NO DISPONIBLE";
-          ?>
-             <div class="ancholi">
-              <div class="alert alert-danger ancholi2" role="alert">
-               <!-- <a href="../enfermera/censo/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer">--><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                 <h7><font size="2"><?php echo $num_cama ?> <br> <h7><font size="2" class="nod"><?php echo $esta ?></font></h7></font></h7>
-                <br><br><br>
-              </div>
-            </div>
-           <?php
-          } elseif ($estaus == "EN PROCESO DE LIBERACION" or $estaus == "EN PROCESO DE LIBERA"){
-$pr="POR LIBERAR";
-?>
-<div class="ancholi">
-              <div class="alert alert-warning ancholi2">
-                <a href="#" class="small-box-footer"><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                <h7><font size="2"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="1"><?php echo $pr ?></font></h7>
-                 <br><br>
-                <br>
-              </div>
-            </div>
-<?php
-          }else{
-          ?>
-          <?php  
-$sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp  order by di.fecha DESC";
+
+                        <?php
+            $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=1 and seccion=1 ORDER BY num_cama ASC';
+            $result = $conexion->query($sql);
+            //  $id_atencion = $_GET['id_atencion'];
+            while ($row = $result->fetch_assoc()) {
+              $num_cama = $row['num_cama'];
+              $id_atencion = $row['id_atencion'];
+              $estaus = $row['estatus'];
+              if ($estaus == "LIBRE") {
+            ?>
+                        <div class="ancholi">
+                            <div class="alert alert ancholi2" role="alert"
+                                    style="background-color: lightgrey; color:white;">
+                                <div><a href="#" class="small-box-footer"><i style="font-size:18px;"
+                                            class="fa fa-eye"></i></a>
+                                    <h7>
+                                        <font size="2"><?php echo $num_cama ?> </font>
+                                    </h7>
+                                </div>
+                                <div>
+                                    <h7>
+                                        <font size="2"><?php echo $estaus ?></font>
+                                    </h7>
+                                </div><br><br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "MANTENIMIENTO") {
+                $esta = "NO DISPONIBLE";
+              ?>
+                         <div class="ancholi">
+                            <div class="alert alert-danger ancholi2" role="alert">
+                                <!-- <a href="../enfermera/censo/edita_cama.php?id=<?php echo $row['id'] ?>" class="small-box-footer">--><i
+                                    style="font-size:18px;" class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="2"><?php echo $num_cama ?> <br>
+                                        <h7>
+                                            <font size="2" class="nod"><?php echo $esta ?></font>
+                                        </h7>
+                                    </font>
+                                </h7>
+                                <br><br><br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "EN PROCESO DE LIBERACION" or $estaus == "EN PROCESO DE LIBERA") {
+                $pr = "POR LIBERAR";
+              ?>
+                        <div class="ancholi">
+                            <div class="alert alert-warning ancholi2">
+                                <a href="#" class="small-box-footer"><i style="font-size:18px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="2"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="1"><?php echo $pr ?></font>
+                                </h7>
+                                <br><br>
+                                <br>
+                            </div>
+                        </div>
+                        <?php
+              } else {
+              ?>
+                        <?php
+                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp  order by di.fecha DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                   $id_exp = $row_cam['Id_exp'];
-                   $id_usua1 = $row_cam['id_usua'];
-
-                   $id_usua2 = $row_cam['id_usua2'];
-                  $id_usua3 = $row_cam['id_usua3'];
-                  $id_usua4 = $row_cam['id_usua4'];
-                  $id_usua5 = $row_cam['id_usua5'];
-
-
-
-                }
-          ?>
-          <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp?>&usuareg=<?php echo $usuario['id_usua']?>&usuapac=<?php echo $id_usua1?>&usuareg2=<?php echo $id_usua2?>&usuareg3=<?php echo $id_usua3?>&usuareg4=<?php echo $id_usua4?>&usuareg5=<?php echo $id_usua5?>" class="small-box-footer">
-            <div class="ancholi">
-              <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
-
-                <i style="font-size:18px;" class="fa fa-bed"></i>
-                
-                <h7><font size="2"><?php echo $num_cama ?></font></h7>
-              <!--  <h7>Estatus: OCUPADA</h7>-->
-              
-                <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.fecha DESC";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                   $nombre_pac = $row_cam['nom_pac'] ;
-                  $papell = $row_cam['papell'] ;
-                   $id_exp = $row_cam['Id_exp'];
-                   $id_usua1 = $row_cam['id_usua'];
-
-                   $id_usua2 = $row_cam['id_usua2'];
-                  $id_usua3 = $row_cam['id_usua3'];
-                  $id_usua4 = $row_cam['id_usua4'];
-                  $id_usua5 = $row_cam['id_usua5'];
-                }
-                ?>
-                <br>
-                <h7 class="nompac"><?php echo $papell ?></h7><br>
-                <h7 class="nompac"><?php echo $nombre_pac ?></h7>
-          <br><br>
-                
-              </div>
-            </div></a>
-        <?php
-          }
-        }
-        ?>      
-
-        
-        <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=1 and seccion=2 ORDER BY num_cama ASC';
-        $result = $conexion->query($sql);
-        //  $id_atencion = $_GET['id_atencion'];
-        while ($row = $result->fetch_assoc()) {
-          $num_cama = $row['num_cama'];
-          $id_atencion = $row['id_atencion'];
-          $estaus = $row['estatus'];
-          if ($estaus == "LIBRE") {
-        ?>
-         <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-success" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:25px;" class="fa fa-bed"></i></a>
-                <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="2"><?php echo $estaus ?></font></h7>
-                <br>
-                <br>
-              </div>
-            </div>
-          <?php
-          } elseif ($estaus == "MANTENIMIENTO") {
-            $esta = "NO DISPONIBLE";
-          ?>
-            <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-danger" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:20px;" class="fa fa-bed"></i></a>
-                <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="2"><?php echo $esta ?></font></h7>
-                <br>
- 
-              </div>
-            </div>
-            <?php
-          } else {
-          ?>
-<?php  
-$sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5  from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.id_atencion DESC";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                   $id_exp = $row_cam['Id_exp'];
-                   $id_usua1 = $row_cam['id_usua'];
-                   $id_usua2 = $row_cam['id_usua2'];
-                  $id_usua3 = $row_cam['id_usua3'];
-                  $id_usua4 = $row_cam['id_usua4'];
-                  $id_usua5 = $row_cam['id_usua5'];
-                }
-          ?>
-            <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp?>&usuareg=<?php echo $usuario['id_usua']?>&usuapac=<?php echo $id_usua1?>&usuareg2=<?php echo $id_usua2?>&usuareg3=<?php echo $id_usua3?>&usuareg4=<?php echo $id_usua4?>&usuareg5=<?php echo $id_usua5?>" class="small-box-footer">
-            <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-danger" role="alert">
-
-                <i style="font-size:25px;" class="fa fa-bed"></i>
-                
-                <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
-              <!--  <h7>Estatus: OCUPADA</h7>-->
-                <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                  $id_usua1 = $row_cam['id_usua'];
-$id_exp = $row_cam['Id_exp'];
-                   $id_usua2 = $row_cam['id_usua2'];
-                  $id_usua3 = $row_cam['id_usua3'];
-                  $id_usua4 = $row_cam['id_usua4'];
-                  $id_usua5 = $row_cam['id_usua5'];
-                }
-                ?>
-                <font size="2"><?php echo $nombre_pac?></font> 
-                <br />
-                
-              </div>
-            </div></a>
-        <?php
-          }
-        }
-        ?>
-</div>
-</div>
-       
-<div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
-  <center><strong>PREPARACIÓN</strong></center><p>
-</div> 
-
-<div class="container box col-12">
-  <div class= "row">
-
-        <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=1 ORDER BY num_cama ASC';
-        $result = $conexion->query($sql);
-        //  $id_atencion = $_GET['id_atencion'];
-        while ($row = $result->fetch_assoc()) {
-          $num_cama = $row['num_cama'];
-          $id_atencion = $row['id_atencion'];
-          $estaus = $row['estatus'];
-          if ($estaus == "LIBRE") {
-        ?>
-             <div class="ancholi">
-             <div class="alert alert-success ancholi2" role="alert">
-                <div><a href="#" class="small-box-footer"><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                <h7><font size="2"><?php echo $num_cama ?> </font></h7></div>
-                <div><h7><font size="2"><?php echo $estaus ?></font></h7></div><br><br>
-             </div>
-            </div>
-          <?php
-          } elseif ($estaus == "MANTENIMIENTO") {
-            $esta = "NO DISPONIBLE";
-          ?>
-           <div class="ancholi">
-              <div class="alert alert-danger ancholi2" role="alert">
-               <!-- <a href="../enfermera/censo/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer">--><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                 <h7><font size="2"><?php echo $num_cama ?> <br> <h7><font size="2" class="nod"><?php echo $esta ?></font></h7></font></h7>
-                <br><br><br>
-              </div>
-            </div>
-           <?php
-          } elseif ($estaus == "EN PROCESO DE LIBERACION" or $estaus == "EN PROCESO DE LIBERA"){
-$pr="POR LIBERAR";
-?>
-<div class="ancholi">
-              <div class="alert alert-warning ancholi2" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                <h7><font size="2"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="1"><?php echo $pr ?></font></h7>
-                <br><br>
-                <br>
-              </div>
-            </div>
-<?php
-          }else{
-          ?>
-          <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                 $id_usua1 = $row_cam['id_usua'];
-
-                   $id_usua2 = $row_cam['id_usua2'];
-                  $id_usua3 = $row_cam['id_usua3'];
-                  $id_usua4 = $row_cam['id_usua4'];
-                  $id_usua5 = $row_cam['id_usua5'];
-                }
-                ?>
-            <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua']?>&usuapac=<?php echo $id_usua1?>&usuareg2=<?php echo $id_usua2?>&usuareg3=<?php echo $id_usua3?>&usuareg4=<?php echo $id_usua4?>&usuareg5=<?php echo $id_usua5?>" class="small-box-footer">
-            <div class="ancholi">
-              <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
-
-                <i style="font-size:18px;" class="fa fa-bed"></i>
-                
-                <h7><font size="2"><?php echo $num_cama ?></font></h7>
-              <!--  <h7>Estatus: OCUPADA</h7>-->
-                <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                   $nombre_pac = $row_cam['nom_pac'] ;
-                  $papell = $row_cam['papell'] ;
+                  $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
                   $id_exp = $row_cam['Id_exp'];
                   $id_usua1 = $row_cam['id_usua'];
-                   $id_usua2 = $row_cam['id_usua2'];
+
+                  $id_usua2 = $row_cam['id_usua2'];
                   $id_usua3 = $row_cam['id_usua3'];
                   $id_usua4 = $row_cam['id_usua4'];
                   $id_usua5 = $row_cam['id_usua5'];
                 }
                 ?>
-                <br>
-                <h7 class="nompac"><?php echo $papell ?></h7><br>
-                <h7 class="nompac"><?php echo $nombre_pac ?></h7>
-          <br><br>
-              </div>
-            </div></a>
-        <?php
-          }
-        }
-        ?>      
+                        <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp ?>&usuareg=<?php echo $usuario['id_usua'] ?>&usuapac=<?php echo $id_usua1 ?>&usuareg2=<?php echo $id_usua2 ?>&usuareg3=<?php echo $id_usua3 ?>&usuareg4=<?php echo $id_usua4 ?>&usuareg5=<?php echo $id_usua5 ?>"
+                            class="small-box-footer">
+                            <div class="ancholi">
+                                <div class="alert alert ancholi2" role="alert"
+                                    style="background-color: #D4F0FC; color:black;">
 
-        <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
-        $result = $conexion->query($sql);
-        //  $id_atencion = $_GET['id_atencion'];
-        while ($row = $result->fetch_assoc()) {
-          $num_cama = $row['num_cama'];
-          $id_atencion = $row['id_atencion'];
-          $estaus = $row['estatus'];
-          if ($estaus == "LIBRE") {
-        ?>
-             <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-success" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:25px;" class="fa fa-bed"></i></a>
-                <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="2"><?php echo $estaus ?></font></h7>
-                <br>
-                <br>
-              </div>
-            </div>
-          <?php
-          } elseif ($estaus == "MANTENIMIENTO") {
-            $esta = "NO DISPONIBLE";
-          ?>
-            <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-warning" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:20px;" class="fa fa-bed"></i></a>
-                <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
-                <br>
+                                    <i style="font-size:18px;" class="fa fa-eye"></i>
 
-              </div>
-            </div>
-          <?php
-          } else {
-          ?>
-            <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua']?>&usuapac=<?php echo $id_usua1?>&usuareg2=<?php echo $id_usua2?>&usuareg3=<?php echo $id_usua3?>&usuareg4=<?php echo $id_usua4?>&usuareg5=<?php echo $id_usua5?>" class="small-box-footer">
-            <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-danger" role="alert">
+                                    <h7>
+                                        <font size="2"><?php echo $num_cama ?></font>
+                                    </h7>
+                                    <!--  <h7>Estatus: OCUPADA</h7>-->
 
-                <i style="font-size:25px;" class="fa fa-bed"></i>
-                
-                <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
-              <!--  <h7>Estatus: OCUPADA</h7>-->
-                <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                                    <?php
+                      $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.fecha DESC";
+                      $result_pac = $conexion->query($sql_pac);
+                      while ($row_cam = $result_pac->fetch_assoc()) {
+                        $nombre_pac = $row_cam['nom_pac'];
+                        $papell = $row_cam['papell'];
+                        $id_exp = $row_cam['Id_exp'];
+                        $id_usua1 = $row_cam['id_usua'];
+
+                        $id_usua2 = $row_cam['id_usua2'];
+                        $id_usua3 = $row_cam['id_usua3'];
+                        $id_usua4 = $row_cam['id_usua4'];
+                        $id_usua5 = $row_cam['id_usua5'];
+                      }
+                      ?>
+                                    <br>
+                                    <h7 class="nompac"><?php echo $papell ?></h7><br>
+                                    <h7 class="nompac"><?php echo $nombre_pac ?></h7>
+                                    <br><br>
+
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+              }
+            }
+            ?>
+
+
+                        <?php
+            $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=1 and seccion=2 ORDER BY num_cama ASC';
+            $result = $conexion->query($sql);
+            //  $id_atencion = $_GET['id_atencion'];
+            while ($row = $result->fetch_assoc()) {
+              $num_cama = $row['num_cama'];
+              $id_atencion = $row['id_atencion'];
+              $estaus = $row['estatus'];
+              if ($estaus == "LIBRE") {
+            ?>
+                        <div class="col-lg-1.5 col-xs-1">
+                            <div class="alert alert-success" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:25px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="3"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="2"><?php echo $estaus ?></font>
+                                </h7>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "MANTENIMIENTO") {
+                $esta = "NO DISPONIBLE";
+              ?>
+                        <div class="col-lg-1.5 col-xs-1">
+                            <div class="alert alert-danger" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:20px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="3"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="2"><?php echo $esta ?></font>
+                                </h7>
+                                <br>
+
+                            </div>
+                        </div>
+                        <?php
+              } else {
+              ?>
+                        <?php
+                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5  from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.id_atencion DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                 
-                }
-                ?>
-                <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
-                <br />
-                
-              </div>
-            </div></a>
-        <?php
-          }
-        }
-        ?>
-</div>
-</div>
-
-<div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
-  <center><strong>RECUPERACIÓN</strong></center><p>
-</div> 
-
-<div class="container box col-12">
-  <div class= "row">
-
-        <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=3 and seccion=1 ORDER BY num_cama ASC';
-        $result = $conexion->query($sql);
-        //  $id_atencion = $_GET['id_atencion'];
-        while ($row = $result->fetch_assoc()) {
-          $num_cama = $row['num_cama'];
-          $id_atencion = $row['id_atencion'];
-          $estaus = $row['estatus'];
-          if ($estaus == "LIBRE") {
-        ?>
-             <div class="ancholi">
-             <div class="alert alert-success ancholi2" role="alert">
-                <div><a href="#" class="small-box-footer"><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                <h7><font size="2"><?php echo $num_cama ?> </font></h7></div>
-                <div><h7><font size="2"><?php echo $estaus ?></font></h7></div><br><br>
-             </div>
-            </div>
-          <?php
-          } elseif ($estaus == "MANTENIMIENTO") {
-            $esta = "NO DISPONIBLE";
-          ?>
-           <div class="ancholi">
-              <div class="alert alert-danger ancholi2" role="alert">
-               <!-- <a href="../enfermera/censo/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer">--><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                 <h7><font size="2"><?php echo $num_cama ?> <br> <h7><font size="2" class="nod"><?php echo $esta ?></font></h7></font></h7>
-                <br><br><br>
-              </div>
-            </div>
-           <?php
-          } elseif ($estaus == "EN PROCESO DE LIBERACION" or $estaus == "EN PROCESO DE LIBERA"){
-$pr="POR LIBERAR";
-?>
-<div class="ancholi">
-              <div class="alert alert-warning ancholi2" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:18px;" class="fa fa-bed"></i></a>
-                <h7><font size="2"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="1"><?php echo $pr ?></font></h7>
-                <br><br>
-                <br>
-              </div>
-            </div>
-<?php
-          }else{
-          ?>
-          <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                 $id_usua1 = $row_cam['id_usua'];
-
-                   $id_usua2 = $row_cam['id_usua2'];
-                  $id_usua3 = $row_cam['id_usua3'];
-                  $id_usua4 = $row_cam['id_usua4'];
-                  $id_usua5 = $row_cam['id_usua5'];
-                }
-                ?>
-            <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua']?>&usuapac=<?php echo $id_usua1?>&usuareg2=<?php echo $id_usua2?>&usuareg3=<?php echo $id_usua3?>&usuareg4=<?php echo $id_usua4?>&usuareg5=<?php echo $id_usua5?>" class="small-box-footer">
-            <div class="ancholi">
-              <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
-
-                <i style="font-size:18px;" class="fa fa-bed"></i>
-                
-                <h7><font size="2"><?php echo $num_cama ?></font></h7>
-              <!--  <h7>Estatus: OCUPADA</h7>-->
-                <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
-                $result_pac = $conexion->query($sql_pac);
-                while ($row_cam = $result_pac->fetch_assoc()) {
-                   $nombre_pac = $row_cam['nom_pac'] ;
-                  $papell = $row_cam['papell'] ;
+                  $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
                   $id_exp = $row_cam['Id_exp'];
                   $id_usua1 = $row_cam['id_usua'];
-                   $id_usua2 = $row_cam['id_usua2'];
+                  $id_usua2 = $row_cam['id_usua2'];
                   $id_usua3 = $row_cam['id_usua3'];
                   $id_usua4 = $row_cam['id_usua4'];
                   $id_usua5 = $row_cam['id_usua5'];
                 }
                 ?>
-                <br>
-                <h7 class="nompac"><?php echo $papell ?></h7><br>
-                <h7 class="nompac"><?php echo $nombre_pac ?></h7>
-          <br><br>
-              </div>
-            </div></a>
-        <?php
-          }
-        }
-        ?>      
+                        <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp ?>&usuareg=<?php echo $usuario['id_usua'] ?>&usuapac=<?php echo $id_usua1 ?>&usuareg2=<?php echo $id_usua2 ?>&usuareg3=<?php echo $id_usua3 ?>&usuareg4=<?php echo $id_usua4 ?>&usuareg5=<?php echo $id_usua5 ?>"
+                            class="small-box-footer">
+                            <div class="col-lg-1.5 col-xs-1">
+                                <div class="alert alert-danger" role="alert">
 
-        <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
-        $result = $conexion->query($sql);
-        //  $id_atencion = $_GET['id_atencion'];
-        while ($row = $result->fetch_assoc()) {
-          $num_cama = $row['num_cama'];
-          $id_atencion = $row['id_atencion'];
-          $estaus = $row['estatus'];
-          if ($estaus == "LIBRE") {
-        ?>
-             <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-success" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:25px;" class="fa fa-bed"></i></a>
-                <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="2"><?php echo $estaus ?></font></h7>
-                <br>
-                <br>
-              </div>
+                                    <i style="font-size:25px;" class="fa fa-eye"></i>
+
+                                    <h7>
+                                        <font size="3"><?php echo $num_cama ?></font>
+                                    </h7><br>
+                                    <!--  <h7>Estatus: OCUPADA</h7>-->
+                                    <?php
+                      $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                      $result_pac = $conexion->query($sql_pac);
+                      while ($row_cam = $result_pac->fetch_assoc()) {
+                        $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
+                        $id_usua1 = $row_cam['id_usua'];
+                        $id_exp = $row_cam['Id_exp'];
+                        $id_usua2 = $row_cam['id_usua2'];
+                        $id_usua3 = $row_cam['id_usua3'];
+                        $id_usua4 = $row_cam['id_usua4'];
+                        $id_usua5 = $row_cam['id_usua5'];
+                      }
+                      ?>
+                                    <font size="2"><?php echo $nombre_pac ?></font>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+              }
+            }
+            ?>
+                    </div>
+                </div>
+
+            <div class="thead" style=" color: black; font-size: 20px;">
+                <strong>PACIENTES EN PREPARACIÓN</strong><p>
             </div>
-          <?php
-          } elseif ($estaus == "MANTENIMIENTO") {
-            $esta = "NO DISPONIBLE";
-          ?>
-            <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-warning" role="alert">
-                <a href="#" class="small-box-footer"><i style="font-size:20px;" class="fa fa-bed"></i></a>
-                <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br>
-                <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
-                <br>
 
-              </div>
-            </div>
-          <?php
-          } else {
-          ?>
-            <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua']?>&usuapac=<?php echo $id_usua1?>&usuareg2=<?php echo $id_usua2?>&usuareg3=<?php echo $id_usua3?>&usuareg4=<?php echo $id_usua4?>&usuareg5=<?php echo $id_usua5?>" class="small-box-footer">
-            <div class="col-lg-1.5 col-xs-1">
-              <div class="alert alert-danger" role="alert">
+            <div class="container box col-12">
+                    <div class="row">
 
-                <i style="font-size:25px;" class="fa fa-bed"></i>
-                
-                <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
-              <!--  <h7>Estatus: OCUPADA</h7>-->
-                <?php
-                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                        <?php
+            $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=1 ORDER BY num_cama ASC';
+            $result = $conexion->query($sql);
+            //  $id_atencion = $_GET['id_atencion'];
+            while ($row = $result->fetch_assoc()) {
+              $num_cama = $row['num_cama'];
+              $id_atencion = $row['id_atencion'];
+              $estaus = $row['estatus'];
+              if ($estaus == "LIBRE") {
+            ?>
+                        <div class="ancholi">
+                            <div class="alert alert ancholi2" role="alert"
+                                    style="background-color: lightgrey; color:white;">
+                                <div><a href="#" class="small-box-footer"><i style="font-size:18px;"
+                                            class="fa fa-eye"></i></a>
+                                    <h7>
+                                        <font size="2"><?php echo $num_cama ?> </font>
+                                    </h7>
+                                </div>
+                                <div>
+                                    <h7>
+                                        <font size="2"><?php echo $estaus ?></font>
+                                    </h7>
+                                </div><br><br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "MANTENIMIENTO") {
+                $esta = "NO DISPONIBLE";
+              ?>
+                        <div class="ancholi">
+                            <div class="alert alert-danger ancholi2" role="alert">
+                                <!-- <a href="../enfermera/censo/edita_cama.php?id=<?php echo $row['id'] ?>" class="small-box-footer">--><i
+                                    style="font-size:18px;" class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="2"><?php echo $num_cama ?> <br>
+                                        <h7>
+                                            <font size="2" class="nod"><?php echo $esta ?></font>
+                                        </h7>
+                                    </font>
+                                </h7>
+                                <br><br><br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "EN PROCESO DE LIBERACION" or $estaus == "EN PROCESO DE LIBERA") {
+                $pr = "POR LIBERAR";
+              ?>
+                        <div class="ancholi">
+                            <div class="alert alert-warning ancholi2" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:18px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="2"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="1"><?php echo $pr ?></font>
+                                </h7>
+                                <br><br>
+                                <br>
+                            </div>
+                        </div>
+                        <?php
+              } else {
+              ?>
+                        <?php
+                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
-                  $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                 
+                  $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
+                  $id_usua1 = $row_cam['id_usua'];
+
+                  $id_usua2 = $row_cam['id_usua2'];
+                  $id_usua3 = $row_cam['id_usua3'];
+                  $id_usua4 = $row_cam['id_usua4'];
+                  $id_usua5 = $row_cam['id_usua5'];
                 }
                 ?>
-                <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
-                <br />
-                
-              </div>
-            </div></a>
-        <?php
-          }
-        }
-        ?>
-</div>
-</div>
+                        <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua'] ?>&usuapac=<?php echo $id_usua1 ?>&usuareg2=<?php echo $id_usua2 ?>&usuareg3=<?php echo $id_usua3 ?>&usuareg4=<?php echo $id_usua4 ?>&usuareg5=<?php echo $id_usua5 ?>"
+                            class="small-box-footer">
+                            <div class="ancholi">
+                                <div class="alert alert ancholi2" role="alert"
+                                    style="background-color: #D4F0FC; color:black;">
+
+                                    <i style="font-size:18px;" class="fa fa-eye"></i>
+
+                                    <h7>
+                                        <font size="2"><?php echo $num_cama ?></font>
+                                    </h7>
+                                    <!--  <h7>Estatus: OCUPADA</h7>-->
+                                    <?php
+                      $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                      $result_pac = $conexion->query($sql_pac);
+                      while ($row_cam = $result_pac->fetch_assoc()) {
+                        $nombre_pac = $row_cam['nom_pac'];
+                        $papell = $row_cam['papell'];
+                        $id_exp = $row_cam['Id_exp'];
+                        $id_usua1 = $row_cam['id_usua'];
+                        $id_usua2 = $row_cam['id_usua2'];
+                        $id_usua3 = $row_cam['id_usua3'];
+                        $id_usua4 = $row_cam['id_usua4'];
+                        $id_usua5 = $row_cam['id_usua5'];
+                      }
+                      ?>
+                                    <br>
+                                    <h7 class="nompac"><?php echo $papell ?></h7><br>
+                                    <h7 class="nompac"><?php echo $nombre_pac ?></h7>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+              }
+            }
+            ?>
+
+                        <?php
+            $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
+            $result = $conexion->query($sql);
+            //  $id_atencion = $_GET['id_atencion'];
+            while ($row = $result->fetch_assoc()) {
+              $num_cama = $row['num_cama'];
+              $id_atencion = $row['id_atencion'];
+              $estaus = $row['estatus'];
+              if ($estaus == "LIBRE") {
+            ?>
+                        <div class="col-lg-1.5 col-xs-1">
+                            <div class="alert alert-success" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:25px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="3"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="2"><?php echo $estaus ?></font>
+                                </h7>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "MANTENIMIENTO") {
+                $esta = "NO DISPONIBLE";
+              ?>
+                        <div class="col-lg-1.5 col-xs-1">
+                            <div class="alert alert-warning" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:20px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="3"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="2" class="nod"><?php echo $esta ?></font>
+                                </h7>
+                                <br>
+
+                            </div>
+                        </div>
+                        <?php
+              } else {
+              ?>
+                        <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua'] ?>&usuapac=<?php echo $id_usua1 ?>&usuareg2=<?php echo $id_usua2 ?>&usuareg3=<?php echo $id_usua3 ?>&usuareg4=<?php echo $id_usua4 ?>&usuareg5=<?php echo $id_usua5 ?>"
+                            class="small-box-footer">
+                            <div class="col-lg-1.5 col-xs-1">
+                                <div class="alert alert-danger" role="alert">
+
+                                    <i style="font-size:25px;" class="fa fa-eye"></i>
+
+                                    <h7>
+                                        <font size="3"><?php echo $num_cama ?></font>
+                                    </h7><br>
+                                    <!--  <h7>Estatus: OCUPADA</h7>-->
+                                    <?php
+                      $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                      $result_pac = $conexion->query($sql_pac);
+                      while ($row_cam = $result_pac->fetch_assoc()) {
+                        $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
+                      }
+                      ?>
+                                    <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+              }
+            }
+            ?>
+                    </div>
+                </div>
+            
+           <div class="thead" style=" color: black; font-size: 20px;">
+                <strong>PACIENTES EN RECUPERACIÓN</strong><p>
+            </div>
+
+            <div class="container box col-12">
+                    <div class="row">
+
+                        <?php
+            $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=3 and seccion=1 ORDER BY num_cama ASC';
+            $result = $conexion->query($sql);
+            //  $id_atencion = $_GET['id_atencion'];
+            while ($row = $result->fetch_assoc()) {
+              $num_cama = $row['num_cama'];
+              $id_atencion = $row['id_atencion'];
+              $estaus = $row['estatus'];
+              if ($estaus == "LIBRE") {
+            ?>
+                        <div class="ancholi">
+                            <div class="alert alert ancholi2" role="alert"
+                                    style="background-color: lightgrey; color:white;">
+                                <div><a href="#" class="small-box-footer"><i style="font-size:18px;"
+                                            class="fa fa-eye"></i></a>
+                                    <h7>
+                                        <font size="2"><?php echo $num_cama ?> </font>
+                                    </h7>
+                                </div>
+                                <div>
+                                    <h7>
+                                        <font size="2"><?php echo $estaus ?></font>
+                                    </h7>
+                                </div><br><br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "MANTENIMIENTO") {
+                $esta = "NO DISPONIBLE";
+              ?>
+                        <div class="ancholi">
+                            <div class="alert alert-danger ancholi2" role="alert">
+                                <!-- <a href="../enfermera/censo/edita_cama.php?id=<?php echo $row['id'] ?>" class="small-box-footer">--><i
+                                    style="font-size:18px;" class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="2"><?php echo $num_cama ?> <br>
+                                        <h7>
+                                            <font size="2" class="nod"><?php echo $esta ?></font>
+                                        </h7>
+                                    </font>
+                                </h7>
+                                <br><br><br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "EN PROCESO DE LIBERACION" or $estaus == "EN PROCESO DE LIBERA") {
+                $pr = "POR LIBERAR";
+              ?>
+                        <div class="ancholi">
+                            <div class="alert alert-warning ancholi2" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:18px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="2"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="1"><?php echo $pr ?></font>
+                                </h7>
+                                <br><br>
+                                <br>
+                            </div>
+                        </div>
+                        <?php
+              } else {
+              ?>
+                        <?php
+                $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                $result_pac = $conexion->query($sql_pac);
+                while ($row_cam = $result_pac->fetch_assoc()) {
+                  $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
+                  $id_usua1 = $row_cam['id_usua'];
+
+                  $id_usua2 = $row_cam['id_usua2'];
+                  $id_usua3 = $row_cam['id_usua3'];
+                  $id_usua4 = $row_cam['id_usua4'];
+                  $id_usua5 = $row_cam['id_usua5'];
+                }
+                ?>
+                        <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua'] ?>&usuapac=<?php echo $id_usua1 ?>&usuareg2=<?php echo $id_usua2 ?>&usuareg3=<?php echo $id_usua3 ?>&usuareg4=<?php echo $id_usua4 ?>&usuareg5=<?php echo $id_usua5 ?>"
+                            class="small-box-footer">
+                            <div class="ancholi">
+                                <div class="alert alert ancholi2" role="alert"
+                                    style="background-color: #D4F0FC; color:black;">
+
+                                    <i style="font-size:18px;" class="fa fa-eye"></i>
+
+                                    <h7>
+                                        <font size="2"><?php echo $num_cama ?></font>
+                                    </h7>
+                                    <!--  <h7>Estatus: OCUPADA</h7>-->
+                                    <?php
+                      $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                      $result_pac = $conexion->query($sql_pac);
+                      while ($row_cam = $result_pac->fetch_assoc()) {
+                        $nombre_pac = $row_cam['nom_pac'];
+                        $papell = $row_cam['papell'];
+                        $id_exp = $row_cam['Id_exp'];
+                        $id_usua1 = $row_cam['id_usua'];
+                        $id_usua2 = $row_cam['id_usua2'];
+                        $id_usua3 = $row_cam['id_usua3'];
+                        $id_usua4 = $row_cam['id_usua4'];
+                        $id_usua5 = $row_cam['id_usua5'];
+                      }
+                      ?>
+                                    <br>
+                                    <h7 class="nompac"><?php echo $papell ?></h7><br>
+                                    <h7 class="nompac"><?php echo $nombre_pac ?></h7>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+              }
+            }
+            ?>
+
+                        <?php
+            $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
+            $result = $conexion->query($sql);
+            //  $id_atencion = $_GET['id_atencion'];
+            while ($row = $result->fetch_assoc()) {
+              $num_cama = $row['num_cama'];
+              $id_atencion = $row['id_atencion'];
+              $estaus = $row['estatus'];
+              if ($estaus == "LIBRE") {
+            ?>
+                        <div class="col-lg-1.5 col-xs-1">
+                            <div class="alert alert-success" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:25px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="3"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="2"><?php echo $estaus ?></font>
+                                </h7>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                        <?php
+              } elseif ($estaus == "MANTENIMIENTO") {
+                $esta = "NO DISPONIBLE";
+              ?>
+                        <div class="col-lg-1.5 col-xs-1">
+                            <div class="alert alert-warning" role="alert">
+                                <a href="#" class="small-box-footer"><i style="font-size:20px;"
+                                        class="fa fa-eye"></i></a>
+                                <h7>
+                                    <font size="3"><?php echo $num_cama ?></font>
+                                </h7>
+                                <br>
+                                <h7>
+                                    <font size="2" class="nod"><?php echo $esta ?></font>
+                                </h7>
+                                <br>
+
+                            </div>
+                        </div>
+                        <?php
+              } else {
+              ?>
+                        <a href="../gestion_medica/hospitalizacion/select_pac.php?id_atencion=<?php echo $id_atencion ?>&usuareg=<?php echo $usuario['id_usua'] ?>&usuapac=<?php echo $id_usua1 ?>&usuareg2=<?php echo $id_usua2 ?>&usuareg3=<?php echo $id_usua3 ?>&usuareg4=<?php echo $id_usua4 ?>&usuareg5=<?php echo $id_usua5 ?>"
+                            class="small-box-footer">
+                            <div class="col-lg-1.5 col-xs-1">
+                                <div class="alert alert-danger" role="alert">
+
+                                    <i style="font-size:25px;" class="fa fa-eye"></i>
+
+                                    <h7>
+                                        <font size="3"><?php echo $num_cama ?></font>
+                                    </h7><br>
+                                    <!--  <h7>Estatus: OCUPADA</h7>-->
+                                    <?php
+                      $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp";
+                      $result_pac = $conexion->query($sql_pac);
+                      while ($row_cam = $result_pac->fetch_assoc()) {
+                        $nombre_pac = $row_cam['papell'] . ' ' . $row_cam['nom_pac'];
+                      }
+                      ?>
+                                    <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+              }
+            }
+            ?>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
 
 </section>
      

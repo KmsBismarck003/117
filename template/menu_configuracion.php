@@ -23,143 +23,193 @@ if (!($usuario['id_rol'] == 6 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>INEO Metepec</title>
+    <meta charset="UTF-8">
+    <title>INEO Metepec</title>
     <link rel="icon" href="../imagenes/SIF.PNG">
-  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <!-- Font Awesome Icons -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <!-- Ionicons -->
-  <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-  <!-- Morris chart -->
-  <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-  <!-- jvectormap -->
-  <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-  <!-- Daterange picker -->
-  <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-  <!-- Theme style -->
-  <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-  <!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-  <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- Ionicons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+    <!-- Morris chart -->
+    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css"/>
+    <!-- jvectormap -->
+    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"/>
+    <!-- Daterange picker -->
+    <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+    <!-- Theme style -->
+    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css"/>
 
 
-
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+ 
+    <style>
+        h3 {
+            text-align: center;
 
-  <style>
-    .dropdwn {
-      float: left;
-      overflow: hidden;
-    }
+        }
 
-    .dropdwn .dropbtn {
-      cursor: pointer;
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
-    }
+        .dropdwn {
+            float: left;
+            overflow: hidden;
+        }
 
-    .navbar a:hover,
-    .dropdwn:hover .dropbtn,
-    .dropbtn:focus {
-      background-color: #367fa9;
-    }
+        .dropdwn .dropbtn {
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
 
-    .dropdwn-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
+        .navbar a:hover,
+        .dropdwn:hover .dropbtn,
+        .dropbtn:focus {
+            background-color: #367fa9;
+        }
 
-    .dropdwn-content a {
-      float: none;
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
+        .dropdwn-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
 
-    .dropdwn-content a:hover {
-      background-color: #ddd;
-    }
+        .dropdwn-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
 
-    .show {
-      display: block;
-    }
+        .dropdwn-content a:hover {
+            background-color: #ddd;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        .show {
+            display: block;
+        }
 
-    .todo-container {
-      max-width: 15000px;
-      height: auto;
-      display: flex;
-      overflow-y: scroll;
-      column-gap: 0.5em;
-      column-rule: 1px solid white;
-      column-width: 140px;
-      column-count: 7;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    .status {
-      width: 25%;
-      background-color: #ecf0f5;
-      position: relative;
-      padding: 60px 1rem 0.5rem;
-      height: 100%;
+        .todo-container {
+            max-width: 15000px;
+            height: auto;
+            display: flex;
+            overflow-y: scroll;
+            column-gap: 0.5em;
+            column-rule: 1px solid white;
+            column-width: 140px;
+            column-count: 7;
+        }
 
-    }
+        .status {
+            width: 25%;
+            background-color: #ecf0f5;
+            position: relative;
+            padding: 60px 1rem 0.5rem;
+            height: 100%;
 
-    .status h4 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #0b3e6f;
-      color: white;
-      margin: 0;
-      width: 100%;
+        }
 
-      padding: 0.5rem 1rem;
-    }
+        .status h4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #0b3e6f;
+            color: white;
+            margin: 0;
+            width: 100%;
+
+            padding: 0.5rem 1rem;
+        }
+        @media screen and (max-width: 980px){
+            
+            
+            
+            
+              .footer{
+                   
+                 font-size:9px;
+            }
+            
+           
+            .esi{
+                   
+                   margin-top:-110px;
+            }
+            
+            .confii{
+                   
+                   margin-top:1px;
+            }
+            
+            #meddi{
+                   width:150px;
+                   height:auto;
+                
+            }
+            
+            .card-img-top{
+             width:80px;
+ height: 80px;
+            }
+            
+      .img-fluid{
+ width:80px;
+ height: 80px;
     
- @media screen and (min-width: 320px) and (max-width: 980px){
-    .content{
-        width:300px;
-       margin-left:-0px;
-   }
-.card-img-top{
- width:70px;
- height: auto;
       }
+  h4 {
+      font-size:8px;
 
- h3{
-     font-size:14px;
- }
-}
+        }
     
-  </style>
+.patoi{
+top:-82px;
+left:9px;
+ }   
+    
+    .medi{
+        top:1px;
+    }
+    
+    .inteni{
+         top:-112px;
+    }   
+   
+    .bioi{
+         top:-112px;
+    }   
+    
+    .patoi{
+        top:4px;
+        left:-4px;
+    }
+        
+}
+    </style>
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -170,7 +220,7 @@ if (!($usuario['id_rol'] == 6 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
       <!-- <img src="dist/img/logo.jpg" alt="logo">-->
 
         <?php
-        if ($usuario['id_rol'] == 6 || $usuario['id_rol'] == 1 || $usuario['id_rol'] == 12)
+        if ($usuario['id_rol'] == 1 || $usuario['id_rol'] == 12)
         {
             ?>
 
@@ -194,6 +244,25 @@ while($f = mysqli_fetch_array($resultado)){
 
             ?>
             <a href="menu_gerencia.php" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>SI</b>MA</span>
+                <!-- logo for regular state and mobile devices -->
+              <?php
+$resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
+while($f = mysqli_fetch_array($resultado)){
+       $id_simg=$f['id_simg'];
+?>
+            <center><span class="fondo"><img src="../configuracion/admin/img/<?php echo $f['img_base']?>" alt="imgsistema" class="img-fluid" width="112"></span></center>
+          <?php
+}
+?>
+            </a>
+            <?php
+        }
+        else if ($usuario['id_rol'] == 6){
+
+            ?>
+            <a href="menu_configuracion.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>SI</b>MA</span>
                 <!-- logo for regular state and mobile devices -->
@@ -272,83 +341,61 @@ while($f = mysqli_fetch_array($resultado)){
             <a href="#"><i class="fa fa-circle text-success"></i> ACTIVO</a>
           </div>
         </div>
-
+<ul class="sidebar-menu">
 <?php
 if ($usuario['id_usua'] == 1){
 ?>
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-
+        
           <li class="">
-            <a href="#">
-              <i class="fa fa-bed"></i> <span>GESTIÓN DE CAMAS</span> <i class="fa fa-angle-left pull-right"></i>
+            <a href="../configuracion/camas/cat_camas.php">
+              <i class="fa fa-bed"></i> <span>GESTIÓN DE CAMAS</span> 
             </a>
-            <ul class="treeview-menu">
-              <li><a href="../configuracion/camas/cat_camas.php"><i class="fa fa-list-alt"></i>HABITACIONES</a></li>
-              <li><a href="../configuracion/camas/dispo_camas.php"><i class="fa fa-thumbs-up"></i>OCUPACIÓN DE CAMAS</a></li>
-
-            </ul>
+            
           </li>
 
-         
+<?php }?>         
          <li class="">
                 <a href="../configuracion/personal/alta_usuarios.php">
-                    <i class="fa fa-users"></i> <span>GESTIÓN DE PERSONAL</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-users"></i> <span>GESTIÓN DE PERSONAL</span> 
                 </a>
 
             </li>
 
             <li class="">
                 <a href="../configuracion/diagnosticos/cat_diagnosticos.php">
-                    <i class="fa fa-stethoscope" aria-hidden="true"></i> <span>DIAGNÓSTICOS</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i> <span>DIAGNÓSTICOS</span> 
                 </a>
 
             </li>
 
             <li class="">
                 <a href="../configuracion/servicios/cat_servicios.php">
-                    <i class="fa fa-plus-circle"></i> <span>SERVICIOS</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-plus-circle"></i> <span>SERVICIOS</span> 
                 </a>
 
             </li>
             <li class="">
                 <a href="../configuracion/aseguradoras/aseguradora.php">
-                    <i class="fa fa-medkit" aria-hidden="true"></i> <span>ASEGURADORAS</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-medkit" aria-hidden="true"></i> <span>ASEGURADORAS</span> 
                 </a>
 
             </li>
             <li class="">
                 <a href="../configuracion/dietas/cat_dietas.php">
-                    <i class="fa fa-folder" aria-hidden="true"></i> <span>DIETAS</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-folder" aria-hidden="true"></i> <span>DIETAS</span> 
                 </a>
 
             </li>
             <li class="">
                 <a href="../configuracion/especialidad/cat_espec.php"> 
-                    <i class="fa fa-user-md" aria-hidden="true"></i> <span>ESPECIALIDADES</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-user-md" aria-hidden="true"></i> <span>ESPECIALIDADES</span> 
                 </a>
 
             </li>
 
         </ul>
-        <?php }else if ($usuario['id_rol'] == 1){?>
-          <ul class="sidebar-menu">
-              <li class="">
-                <a href="../configuracion/personal/alta_usuarios.php">
-                    <i class="fa fa-users"></i> <span>GESTIÓN DE PERSONAL</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-
-            </li>
-<li class="">
-                <a href="../configuracion/servicios/cat_servicios.php">
-                    <i class="fa fa-plus-circle"></i> <span>SERVICIOS</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-
-            </li>
-              
-</ul>
         
-        <?php }?>
       </section>
       <!-- /.sidebar -->
     </aside>
@@ -366,10 +413,10 @@ if ($usuario['id_usua'] == 1){
         </ol>
       </nav>
 <?php
-if ($usuario['id_rol'] == 5){
+if ($usuario['id_rol'] == 5 || $usuario['id_rol'] == 6){
 ?>
       <!-- Main content -->
-      <section class="content">
+      <section class="responsive">
         <section class="content container-fluid">
                 <div class="content box">
                     <!-- CONTENIDOO -->
@@ -377,117 +424,87 @@ if ($usuario['id_rol'] == 5){
                         <?php
                          if ($usuario['id_usua'] == 1){
                             ?>
-                      <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="GESTIÓN DE CAMAS" data-toggle="modal" data-target="#exampleModal"><img class="card-img-top" src="../img/cama_hosp.png" alt="admision" height="150" width="200"/></a>
-                                    </center>
-                                    <center><h3>GESTIÓN DE CAMAS</h3></center>
-                                </div>
+
+                        <div class="col-lg-3">
+                            <div style="background-color: #bbdefb">
+                                <center>
+                                    <a title="GESTIÓN DE CAMAS" href="../configuracion/camas/cat_camas.php">
+                                    <img class="card-img-top" src="../img/cama_hosp.png" alt="admision" height="80" width="100"/></a>
+                                </center>
+                                <center><h3>GESTIÓN DE CAMAS</h3></center>
                             </div>
                         </div>
                           <?php }?>
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="GESTIÓN DE PERSONAL" href="../configuracion/personal/alta_usuarios.php"><img class="card-img-top" src="../img/personal_hosp.jpg" alt="GESTIÓN DE PERSONAL" height="150" width="200" /></a>
-                                    </center>
-                                    <center>
-                                        <h3>GESTIÓN DE PERSONAL</h3>
-                                    </center>
-
-                                </div>
+                        <div class="col-lg-3">
+                            <div style="background-color: #ffccbc">
+                                <center>
+                                        <a title="GESTIÓN DE PERSONAL" 
+                                        href="../configuracion/personal/alta_usuarios.php">
+                                        <img class="card-img-top" src="../img/personal_hospi.png" alt="GESTIÓN DE PERSONAL" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>GESTIÓN DE PERSONAL</h3></center>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="DIAGNÓSTICOS" href="../configuracion/diagnosticos/cat_diagnosticos.php"><img class="card-img-top" src="../img/diagnostico.png" alt="DIAGNÓSTICOS" height="150" width="160" /></a>
-                                    </center>
-                                    <center>
-                                        <h3>DIAGNÓSTICOS</h3>
-                                    </center>
-
-                                </div>
-
+                        <div class="col-lg-3">
+                            <div style="background-color: #dcedc8">
+                                <center>
+                                    <a title="DIAGNÓSTICOS" 
+                                    href="../configuracion/diagnosticos/cat_diagnosticos.php">
+                                    <img class="card-img-top" src="../img/diagnosticos.jpg" alt="DIAGNÓSTICOS" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>DIAGNÓSTICOS</h3></center>
                             </div>
-
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="SERVICIOS" href="../configuracion/servicios/cat_servicios.php"><img class="card-img-top" src="../img/servicios.png" alt="SERVICIOS" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>SERVICIOS</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
+                        
+                        <div class="col-lg-3">
+                            <div style="background-color: #ffecb3">
+                                <center>
+                                    <a title="SERVICIOS" href="../configuracion/servicios/cat_servicios.php">
+                                        <img class="card-img-top" src="../img/servicios.jpg" alt="SERVICIOS" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>SERVICIOS</h3></center>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">    
+                        <div class="col-lg-3">
+                            <div style="background-color: #e1bee7">
+                                <center>
+                                    <a title="ASEGURADORAS" href="../configuracion/aseguradoras/aseguradora.php">
+                                        <img class="card-img-top" src="../img/aseg.jpg" alt="ASEGURADORAS" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>ASEGURADORAS</h3></center>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div style="background-color: #EDE7F6 ">
+                                <center>
+                                    <a title="DIETAS" href="../configuracion/dietas/cat_dietas.php">
+                                    <img class="card-img-top" src="../img/dietas.jpg" alt="DIETAS" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>DIETAS</h3></center>
+                            </div>
+                        </div>
                             
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="ASEGURADORAS" href="../configuracion/aseguradoras/aseguradora.php"><img class="card-img-top" src="../img/aseg.png" alt="ASEGURADORAS" height="150" width="160" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>ASEGURADORAS</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
+                        <div class="col-lg-3">
+                            <div style="background-color: #d7ccc8">
+                                <center>
+                                    <a title="ESPECIALIDADES" href="../configuracion/especialidad/cat_espec.php">
+                                    <img class="card-img-top" src="../img/especialidades.jpg" alt="ESPECIALIDADES" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>ESPECIALIDADES</h3></center>
                             </div>
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="DIETAS" href="../configuracion/dietas/cat_dietas.php"><img class="card-img-top" src="../img/dieta.png" alt="DIETAS" height="150" width="190" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>DIETAS</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
+                        </div>
+                                
+                        <div class="col-lg-3">
+                            <div style="background-color: #9999CC ">
+                                <center>
+                                    <a title="ESPECIALIDADES" href="../configuracion/admin/imgsistema.php">
+                                    <img class="card-img-top" src="../img/config.png" alt="ESPECIALIDADES" height="80" width="100" /></a>
+                                </center>
+                                <center><h3>ADMIN SIMA</h3></center>
                             </div>
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="ESPECIALIDADES" href="../configuracion/especialidad/cat_espec.php"><img class="card-img-top" src="../img/especialidad.jpg" alt="ESPECIALIDADES" height="150" width="190" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>ESPECIALIDADES</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-<div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="ESPECIALIDADES" href="../configuracion/admin/imgsistema.php"><img class="card-img-top" src="../img/config.jpg" alt="ESPECIALIDADES" height="150" width="190" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>ADMIN SIMA</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-                                </div>
                         </div>
                     </div>
 
@@ -520,7 +537,8 @@ if ($usuario['id_rol'] == 5){
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <center>
-                                            <a title="SERVICIOS" href="../configuracion/servicios/cat_servicios.php"><img class="card-img-top" src="../img/servicios.png" alt="SERVICIOS" height="150" width="200" /></a>
+                                            <a title="SERVICIOS" href="../configuracion/servicios/cat_servicios.php">
+                                            <img class="card-img-top" src="../img/servicios.png" alt="SERVICIOS" height="150" width="200" /></a>
                                         </center>
                                         <center>
                                             <h3>SERVICIOS</h3>

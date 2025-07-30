@@ -4,7 +4,7 @@
     $usuario = $_SESSION['login'];
     $id_usua = $usuario['id_usua'];
     $id_atencion = $_SESSION['pac'];
-include('connection.php');
+include('../../conexionbd.php');
 
 
 

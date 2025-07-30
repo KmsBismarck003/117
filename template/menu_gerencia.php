@@ -30,7 +30,7 @@ if (!($usuario['id_rol'] == 5)) {
 <head>
     <meta charset="UTF-8">
     <title>INEO Metepec</title>
-        <link rel="icon" href="../imagenes/SIF.PNG">
+    <link rel="icon" href="../imagenes/SIF.PNG">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -319,26 +319,12 @@ while($f = mysqli_fetch_array($resultado)){
                     </a>
                     <ul class="treeview-menu">
               
-                    <li><a href="../template/menu_administrativo.php"><i class="fa fa-folder"></i> ADMINISTRATIVO</a></li>
-                    <li><a href="../template/menu_enfermera.php"><i class="fa fa-folder"></i> ENFERMERÍA</a></li>
-                    <li><a href="../template/menu_medico.php"><i class="fa fa-folder"></i> MÉDICO</a></li>
-                     <li class="treeview">
-                  <a href="#">
-                    <i class="fa fa-medkit" aria-hidden="true"></i> <span>SERVICIOS AUXILIARES</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="../template/menu_sauxiliares.php"><i class="fa fa-circle"></i>ALMACENES</a></li>
-                    <!-- <li><a href="../template/menu_imagenologia.php"><i class="fa fa-circle"></i>IMAGENOLOGÍA</a></li> -->
-                    <li><a href="../template/menu_laboratorio.php"><i class="fa fa-circle"></i>LABORATORIO</a></li>
-                   
-                  </ul>
-                </li>
-
-
-
-               
-                <li><a href="../template/menu_configuracion.php"><i class="fa fa-folder"></i> CONFIGURACIÓN</a></li>
+                        <li><a href="../template/menu_administrativo.php"><i class="fa fa-folder"></i> ADMINISTRATIVO</a></li>
+                        <li><a href="../template/menu_enfermera.php"><i class="fa fa-heart"></i> ENFERMERÍA</a></li>
+                        <li><a href="../template/menu_medico.php"><i class="fa fa-stethoscope"></i> MÉDICO</a></li>
+                        <li><a href="../template/menu_laboratorio.php"><i class="fa fa-circle"></i> ESTUDIOS</a></li> 
+                        <li><a href="../template/menu_sauxiliares.php"><i class="fa fa-circle"></i> ALMACENES</a></li>
+                        <li><a href="../template/menu_configuracion.php"><i class="fa fa-folder"></i> CONFIGURACIÓN</a></li>
 
                     </ul>
                 </li>
@@ -371,26 +357,25 @@ while($f = mysqli_fetch_array($resultado)){
                     <div class="row">
                         <div class="col-sm-4 col-xs-6">
                             <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
+                               
+                                
                                     <center>
                                         <a title="Administrativo" href="../template/menu_administrativo.php"><img
                                                     class="img-fluid"
-                                                    src="../img/admin.jpeg"
+                                                    src="../img/admin.jpg"
                                                     alt="admision" height="150"
                                                     width="200"/></a>
                                     </center>
                                     <center><h4><strong> ADMINISTRATIVO </strong></h4></center>
 
-                                </div>
-                                <div class="col-lg-1"></div>
+                             
+                               
                             </div>
 
                         </div>
                         <div class="col-lg-4 col-xs-6 enf">
                                 <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
+                                    
                                         <center>
                                             <a title="Enfermera" href="../template/menu_enfermera.php"><img
                                                         class="img-fluid"
@@ -400,67 +385,76 @@ while($f = mysqli_fetch_array($resultado)){
                                         </center>
                                         <center><h4><strong>ENFERMERÍA</strong></h4></center>
 
-                                    </div>
-                                    <div class="col-lg-1"></div>
+                                    
                                 </div>
 
-                            </div>
+                        </div>
 
-                            <div class="col-lg-4 col-xs-6 medi">
+                        <div class="col-lg-4 col-xs-6 medi">
                                 <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
+                                   
                                         <center>
                                             <a title="Medico" href="../template/menu_medico.php"><img
                                                         class="img-fluid"
-                                                        src="../img/doc.png"
+                                                        src="../img/doc.jpg"
                                                         alt="admision" height="150"
                                                         width="200"/></a>
                                         </center>
                                         <center><h4><strong>MÉDICO</strong></h4></center>
-                                    </div>
-                                    <div class="col-lg-1"></div>
+                                   
+                                    
                                 </div>
 
-                            </div>
+                        </div>
                         
   
 
-                        <div class="row">
+                   
                         
-                         <div class="col-lg-4 col-xs-6">
+                        <div class="col-lg-4 col-xs-6">
                             <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
+                                
                                     <center>
-                                        <a title="Servicios Aux" data-toggle="modal" data-target="#exampleModal"><img
+                                        <a title="Medico" href="../template/menu_laboratorio.php"><img
                                                     class="img-fluid"
-                                                    src="../img/serv_aux.jpg"
-                                                    alt="Servicios Auxiliares" height="150"
+                                                    src="../img/gabinete.jpg"
+                                                    alt="admision" height="150"
                                                     width="200"/></a>
                                     </center>
-                                    <center><h4><strong>SERVICIOS AUXILIARES</strong></h4></center>
+                                    <center><h4><strong>ESTUDIOS</strong></h4></center>
 
-                                </div>
-                                <div class="col-lg-1"></div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xs-6">
+                            <div class="row">
+                                
+                                    <center>
+                                        <a title="Medico" href="../template/menu_sauxiliares.php"><img
+                                                    class="img-fluid"
+                                                    src="../img/almacen_central.jpg"
+                                                    alt="admision" height="150"
+                                                    width="200"/></a>
+                                    </center>
+                                    <center><h4><strong>ALMACENES</strong></h4></center>
+
+                                
                             </div>
                         </div>
                      
                         <div class="col-lg-4 col-xs-6 confii">
                             <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
+                                
                                     <center>
                                     <a title="Configuracion" href="../template/menu_configuracion.php"><img
                                         class="img-fluid"
-                                        src="../img/config.jpg"
-                                        alt="configuracion" height="150"
-                                        width="200"/></a>
+                                        src="../img/configuracion.jpg"
+                                        alt="admision" height="150"
+                                        width="180"/></a>
                                         </center>
                                         <center><h4><strong>CONFIGURACIÓN</strong></h4></center>
-                                </div>
-                                <div class="col-lg-1"></div>
-                            </div
+                                
+                            </div>
                         </div>
                     </div>
                 
@@ -508,7 +502,24 @@ while($f = mysqli_fetch_array($resultado)){
                                 <div class="col-lg-1"></div>
                             </div>
                         </div>
+                       
+                       
+                       
                         <div class="row">
+                            <div class="col-lg-6 col-xs-6">
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-8">
+                                        <center>
+                                            <a title="Imagen" href="../template/menu_imagenologia.php" ><img class="card-img-top" src="../img/torax.jpg" alt="admision" height="150" width="200" /></a>
+                                        </center>
+                                        <center>
+                                             <h4><strong>IMAGENOLOGÍA</strong></h4>
+                                        </center>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                </div>
+                            </div>
                             <div class="col-lg-6 col-xs-6">
                                 <div class="row">
                                     <div class="col-lg-1"></div>

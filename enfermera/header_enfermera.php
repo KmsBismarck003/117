@@ -1,26 +1,29 @@
 <?php
 include "../../conexionbd.php";
-//session_start();
-//
-if (!isset($_SESSION['login'])) {
-    // remove all session variables
-    session_unset();
-    // destroy the session
-    session_destroy();
-    //  header('Location: ../index.php');
-}else{
-    $lifetime=11000;
+
+// Solo modificar parámetros y iniciar sesión si no está activa
+if (session_status() === PHP_SESSION_NONE) {
+    $lifetime = 100000;
     session_set_cookie_params($lifetime);
+    session_start();
 }
-$usuario = $_SESSION['login'];
-//$resultado = $conexion->query("SELECT * FROM reg_usuarios WHERE id_usua='" . $usuario . "'") or die($conexion->error);
 
-if (!($usuario['id_rol'] == 3 || $usuario['id_rol'] == 5 || $usuario['id_rol'] == 12 || $usuario['id_rol'] == 1)) {
-
+// Verificar si está logueado
+if (!isset($_SESSION['login'])) {
     session_unset();
     session_destroy();
-    // echo "<script>window.Location='../../index.php';</script>";
+    header('Location: ../index.php');
+    exit;
+}
+
+$usuario = $_SESSION['login'];
+
+// Verificar rol
+if (!in_array($usuario['id_rol'], [3, 5, 12, 1])) {
+    session_unset();
+    session_destroy();
     header('Location: ../../index.php');
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -30,14 +33,16 @@ if (!($usuario['id_rol'] == 3 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
   <title>INEO Metepec</title>
   <link rel="icon" href="../imagenes/SIF.PNG">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../template/dist/js/pages/dashboard2.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/e547be4475.js" crossorigin="anonymous"></script>
 
     <!-- AdminLTE for demo purposes -->
     <script src="../../template/dist/js/demo.js" type="text/javascript"></script>
 
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
@@ -57,20 +62,7 @@ if (!($usuario['id_rol'] == 3 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-    <!-- Ionicons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="../../template/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="../../template/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Daterange picker -->
-    <link href="../../template/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="../../template/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-           folder instead of downloading all of them to reduce the load. -->
-    <link href="../../template/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    <!-- jQuery 2.1.3 -->
+    
     <script src="../../template/plugins/jQuery/jQuery-2.1.3.min.js"></script>
 
 
@@ -91,8 +83,6 @@ if (!($usuario['id_rol'] == 3 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <script src="../../template/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- ChartJS 1.0.1 -->
     <script src="../../template/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
-
-        <script src="https://kit.fontawesome.com/e547be4475.js" crossorigin="anonymous"></script>
 
 
     <style>

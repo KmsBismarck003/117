@@ -1,0 +1,267 @@
+[26-Jul-2025 11:24:19 America/Guatemala] Iniciando proceso de confirmación
+[26-Jul-2025 11:24:19 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1454
+)
+
+[26-Jul-2025 11:24:19 America/Guatemala] Ubicaciones: Array
+(
+    [1440] => 1
+    [1441] => 1
+    [1442] => 1
+    [1443] => 1
+    [1444] => 1
+    [1446] => 1
+    [1448] => 1
+    [1449] => 1
+    [1450] => 1
+    [1451] => 1
+    [1452] => 1
+    [1453] => 1
+    [1454] => 1
+)
+
+[26-Jul-2025 11:24:19 America/Guatemala] Procesando ID recib: 1454
+[26-Jul-2025 11:24:19 America/Guatemala] Proceso de confirmación completado exitosamente
+[26-Jul-2025 11:34:20 America/Guatemala] Iniciando proceso de confirmación
+[26-Jul-2025 11:34:20 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1440
+    [1] => 1441
+    [2] => 1442
+    [3] => 1443
+    [4] => 1444
+    [5] => 1446
+    [6] => 1448
+    [7] => 1449
+    [8] => 1450
+    [9] => 1451
+    [10] => 1452
+    [11] => 1453
+)
+
+[26-Jul-2025 11:34:20 America/Guatemala] Ubicaciones: Array
+(
+    [1440] => 1
+    [1441] => 1
+    [1442] => 1
+    [1443] => 1
+    [1444] => 1
+    [1446] => 1
+    [1448] => 1
+    [1449] => 1
+    [1450] => 1
+    [1451] => 1
+    [1452] => 1
+    [1453] => 1
+)
+
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1440
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1441
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1442
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1443
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1444
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1446
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1448
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1449
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1450
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1451
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1452
+[26-Jul-2025 11:34:20 America/Guatemala] Procesando ID recib: 1453
+[26-Jul-2025 11:34:20 America/Guatemala] Proceso de confirmación completado exitosamente
+[26-Jul-2025 11:38:32 America/Guatemala] Iniciando proceso de confirmación
+[26-Jul-2025 11:38:32 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1455
+)
+
+[26-Jul-2025 11:38:32 America/Guatemala] Ubicaciones: Array
+(
+    [1455] => 1
+)
+
+[26-Jul-2025 11:38:32 America/Guatemala] Procesando ID recib: 1455
+[26-Jul-2025 11:38:32 America/Guatemala] Proceso de confirmación completado exitosamente
+[26-Jul-2025 13:53:43 America/Guatemala] Error: Usuario no logueado o sesión inválida
+[26-Jul-2025 15:40:07 America/Guatemala] Iniciando proceso de confirmación
+[26-Jul-2025 15:40:07 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1456
+)
+
+[26-Jul-2025 15:40:07 America/Guatemala] Ubicaciones: Array
+(
+    [1456] => 1
+)
+
+[26-Jul-2025 15:40:07 America/Guatemala] Procesando ID recib: 1456
+[26-Jul-2025 15:40:07 America/Guatemala] Proceso de confirmación completado exitosamente
+[26-Jul-2025 16:01:47 America/Guatemala] Iniciando proceso de confirmación
+[26-Jul-2025 16:01:47 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1457
+    [1] => 1458
+    [2] => 1459
+    [3] => 1460
+    [4] => 1461
+    [5] => 1462
+    [6] => 1463
+    [7] => 1464
+    [8] => 1465
+    [9] => 1466
+    [10] => 1467
+    [11] => 1468
+)
+
+[26-Jul-2025 16:01:47 America/Guatemala] Ubicaciones: Array
+(
+    [1457] => 1
+    [1458] => 1
+    [1459] => 1
+    [1460] => 1
+    [1461] => 1
+    [1462] => 1
+    [1463] => 1
+    [1464] => 1
+    [1465] => 1
+    [1466] => 1
+    [1467] => 1
+    [1468] => 1
+)
+
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1457
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1458
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1459
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1460
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1461
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1462
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1463
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1464
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1465
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1466
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1467
+[26-Jul-2025 16:01:47 America/Guatemala] Procesando ID recib: 1468
+[26-Jul-2025 16:01:47 America/Guatemala] Proceso de confirmación completado exitosamente
+[28-Jul-2025 09:32:53 America/Guatemala] Iniciando proceso de confirmación
+[28-Jul-2025 09:32:53 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1474
+)
+
+[28-Jul-2025 09:32:53 America/Guatemala] Ubicaciones: Array
+(
+    [1474] => 1
+)
+
+[28-Jul-2025 09:32:53 America/Guatemala] Procesando ID recib: 1474
+[28-Jul-2025 09:32:53 America/Guatemala] Proceso de confirmación completado exitosamente
+[28-Jul-2025 16:17:16 America/Guatemala] Iniciando proceso de confirmación
+[28-Jul-2025 16:17:16 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1475
+)
+
+[28-Jul-2025 16:17:16 America/Guatemala] Ubicaciones: Array
+(
+    [1475] => 1
+)
+
+[28-Jul-2025 16:17:16 America/Guatemala] Procesando ID recib: 1475
+[28-Jul-2025 16:17:16 America/Guatemala] Proceso de confirmación completado exitosamente
+[29-Jul-2025 08:15:25 America/Guatemala] Iniciando proceso de confirmación
+[29-Jul-2025 08:15:25 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1476
+)
+
+[29-Jul-2025 08:15:25 America/Guatemala] Ubicaciones: Array
+(
+    [1476] => 1
+)
+
+[29-Jul-2025 08:15:25 America/Guatemala] Procesando ID recib: 1476
+[29-Jul-2025 08:15:25 America/Guatemala] Proceso de confirmación completado exitosamente
+[30-Jul-2025 10:32:27 America/Guatemala] Iniciando proceso de confirmación
+[30-Jul-2025 10:32:27 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1469
+    [1] => 1470
+    [2] => 1471
+    [3] => 1472
+    [4] => 1473
+)
+
+[30-Jul-2025 10:32:27 America/Guatemala] Ubicaciones: Array
+(
+    [1469] => 1
+    [1470] => 1
+    [1471] => 1
+    [1472] => 1
+    [1473] => 1
+)
+
+[30-Jul-2025 10:32:27 America/Guatemala] Procesando ID recib: 1469
+[30-Jul-2025 10:32:27 America/Guatemala] Procesando ID recib: 1470
+[30-Jul-2025 10:32:27 America/Guatemala] Procesando ID recib: 1471
+[30-Jul-2025 10:32:27 America/Guatemala] Procesando ID recib: 1472
+[30-Jul-2025 10:32:27 America/Guatemala] Procesando ID recib: 1473
+[30-Jul-2025 10:32:27 America/Guatemala] Proceso de confirmación completado exitosamente
+[30-Jul-2025 11:18:57 America/Guatemala] Iniciando proceso de confirmación
+[30-Jul-2025 11:18:57 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1477
+    [1] => 1480
+    [2] => 1481
+    [3] => 1482
+    [4] => 1483
+    [5] => 1484
+    [6] => 1485
+    [7] => 1486
+    [8] => 1487
+    [9] => 1490
+    [10] => 1491
+    [11] => 1492
+)
+
+[30-Jul-2025 11:18:57 America/Guatemala] Ubicaciones: Array
+(
+    [1477] => 1
+    [1480] => 1
+    [1481] => 1
+    [1482] => 1
+    [1483] => 1
+    [1484] => 1
+    [1485] => 1
+    [1486] => 1
+    [1487] => 1
+    [1490] => 1
+    [1491] => 1
+    [1492] => 1
+)
+
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1477
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1480
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1481
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1482
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1483
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1484
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1485
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1486
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1487
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1490
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1491
+[30-Jul-2025 11:18:57 America/Guatemala] Procesando ID recib: 1492
+[30-Jul-2025 11:18:57 America/Guatemala] Proceso de confirmación completado exitosamente
+[30-Jul-2025 13:39:52 America/Guatemala] Iniciando proceso de confirmación
+[30-Jul-2025 13:39:52 America/Guatemala] IDs recibidos: Array
+(
+    [0] => 1506
+)
+
+[30-Jul-2025 13:39:52 America/Guatemala] Ubicaciones: Array
+(
+    [1506] => 1
+)
+
+[30-Jul-2025 13:39:52 America/Guatemala] Procesando ID recib: 1506
+[30-Jul-2025 13:39:52 America/Guatemala] Proceso de confirmación completado exitosamente
