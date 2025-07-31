@@ -990,7 +990,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         <select class="custom-select" id="serviceSelect" onchange="addService()">
                             <option value="">Seleccione un equipo</option>
                             <?php
-                            $sql = "SELECT id_serv, serv_desc, serv_costo FROM cat_servicios WHERE grupo = 'CEYE' AND serv_activo = 'SI'";
+                            $sql = "SELECT id_serv, serv_desc, serv_costo FROM cat_servicios WHERE tip_insumo = 'CEYE' AND serv_activo = 'SI'";
                             $result = $conexion->query($sql);
                             if ($result) {
                                 while ($row = $result->fetch_assoc()) {
