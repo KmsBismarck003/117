@@ -288,8 +288,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle LASIK checkbox
     function handleLasikCheckbox() {
         const lasikChecked = document.querySelectorAll('.tratamiento-checkbox.lasik-checkbox:checked').length > 0;
-        document.getElementById('campos_lasik').style.display = lasikChecked ? 'flex' : 'none';
-        document.getElementById('btn_cargar_tratamientos').style.display = document.querySelectorAll('.tratamiento-checkbox:checked').length > 0 ? 'block' : 'none';
+        const checkboxesSeleccionados = document.querySelectorAll('.tratamiento-checkbox:checked');
+        
+        // Mostrar/ocultar campos LASIK
+        const camposLasik = document.getElementById('campos_lasik');
+        if (camposLasik) {
+            camposLasik.style.display = lasikChecked ? 'flex' : 'none';
+        }
+        
+        // Mostrar/ocultar botón cargar tratamientos
+        const btnCargar = document.getElementById('btn_cargar_tratamientos');
+        if (btnCargar) {
+            btnCargar.style.display = checkboxesSeleccionados.length > 0 ? 'block' : 'none';
+        }
+        
+        // Solo actualizar el título, NO mostrar el formulario automáticamente
+        const tituloTratamientos = document.getElementById('titulo_tratamientos_dinamico');
+        
+        if (checkboxesSeleccionados.length > 0) {
+            let nombresTratamientos = [];
+            checkboxesSeleccionados.forEach(checkbox => {
+                const tipo = checkbox.getAttribute('data-tipo');
+                nombresTratamientos.push(tipo.toUpperCase());
+            });
+
+            // Actualizar título dinámicamente pero mantener formulario oculto
+            if (tituloTratamientos) {
+                const tituloCompleto = 'FORMULARIO DE TRATAMIENTOS SELECCIONADOS<br><span style="color: #4a4ed1; font-weight: bold; font-size: 16px;">' + nombresTratamientos.join(' - ') + '</span>';
+                tituloTratamientos.innerHTML = tituloCompleto;
+            }
+        } else {
+            // Ocultar todo cuando no hay tratamientos seleccionados
+            const contenedor = document.getElementById('formulario_contenedor');
+            const formularioGeneral = document.getElementById('formulario_general');
+            
+            if (contenedor) contenedor.style.display = 'none';
+            if (formularioGeneral) formularioGeneral.style.display = 'none';
+            if (tituloTratamientos) {
+                tituloTratamientos.innerHTML = 'FORMULARIO DE TRATAMIENTOS SELECCIONADOS';
+            }
+        }
     }
 
     // Handle treatment selection and form display
@@ -306,42 +344,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
     btnCargar.addEventListener('click', function() {
         const checkboxesSeleccionados = document.querySelectorAll('.tratamiento-checkbox:checked');
-        contenedor.style.display = checkboxesSeleccionados.length > 0 ? 'block' : 'none';
+        const contenedor = document.getElementById('formulario_contenedor');
+        const formularioGeneral = document.getElementById('formulario_general');
+        const tratamientosLista = document.getElementById('tratamientos_seleccionados_lista');
+        const tratamientosInput = document.getElementById('tratamientos_seleccionados_input');
 
-        const tratamientosGenerales = [];
-        let tieneClasik = false;
-        let idLasik = '';
+        if (checkboxesSeleccionados.length > 0) {
+            // Mostrar el contenedor del formulario
+            contenedor.style.display = 'block';
 
-        checkboxesSeleccionados.forEach(checkbox => {
-            const tipo = checkbox.getAttribute('data-tipo');
-            if (tipo.toUpperCase().includes('LASIK')) {
-                tieneClasik = true;
-                idLasik = checkbox.value;
+            const tratamientosGenerales = [];
+            let tieneClasik = false;
+            let idLasik = '';
+
+            checkboxesSeleccionados.forEach(checkbox => {
+                const tipo = checkbox.getAttribute('data-tipo');
+                if (tipo.toUpperCase().includes('LASIK')) {
+                    tieneClasik = true;
+                    idLasik = checkbox.value;
+                } else {
+                    tratamientosGenerales.push({
+                        id: checkbox.value,
+                        tipo: tipo
+                    });
+                }
+            });
+
+            // Mostrar formulario general si hay tratamientos no-LASIK
+            if (tratamientosGenerales.length > 0) {
+                formularioGeneral.style.display = 'block';
+                if (tratamientosLista) {
+                    const listaTipos = tratamientosGenerales.map(t => `<span class="badge bg-primary me-1">${t.tipo.toUpperCase()}</span>`).join(' ');
+                    tratamientosLista.innerHTML = listaTipos;
+                }
+                if (tratamientosInput) {
+                    tratamientosInput.value = JSON.stringify(tratamientosGenerales.map(t => t.id));
+                }
             } else {
-                tratamientosGenerales.push({
-                    id: checkbox.value,
-                    tipo: tipo
-                });
+                formularioGeneral.style.display = 'none';
             }
-        });
 
-        if (tratamientosGenerales.length > 0) {
-            formularioGeneral.style.display = 'block';
-            const listaTipos = tratamientosGenerales.map(t => `<span class="badge bg-primary me-1">${t.tipo.toUpperCase()}</span>`).join(' ');
-            tratamientosLista.innerHTML = listaTipos;
-            tratamientosInput.value = JSON.stringify(tratamientosGenerales.map(t => t.id));
-        } else {
-            formularioGeneral.style.display = 'none';
-        }
-
-        if (tieneClasik) {
-            const formularioLasik = document.getElementById('formulario_' + idLasik);
-            if (formularioLasik) {
-                formularioLasik.style.display = 'block';
+            // Mostrar formulario LASIK si está seleccionado
+            if (tieneClasik) {
+                const formularioLasik = document.getElementById('formulario_' + idLasik);
+                if (formularioLasik) {
+                    formularioLasik.style.display = 'block';
+                }
             }
-        }
 
-        contenedor.scrollIntoView({ behavior: 'smooth' });
+            // Hacer scroll suave al formulario
+            contenedor.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 
     // Handle medico responsable toggle

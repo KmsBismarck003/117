@@ -1,0 +1,286 @@
+/* Mejoras para notificaciones del sistema de signos vitales */
+
+/* Estilos para Alertify personalizados */
+.alertify-notifier .ajs-success {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #2b2d7f;
+    border-left: 4px solid #28a745;
+    border: 1px solid #2b2d7f;
+    box-shadow: 0 4px 12px rgba(43, 45, 127, 0.2);
+}
+
+.alertify-notifier .ajs-error {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #2b2d7f;
+    border-left: 4px solid #dc3545;
+    border: 1px solid #2b2d7f;
+    box-shadow: 0 4px 12px rgba(43, 45, 127, 0.2);
+}
+
+.alertify-notifier .ajs-warning {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #2b2d7f;
+    border-left: 4px solid #ffc107;
+    border: 1px solid #2b2d7f;
+    box-shadow: 0 4px 12px rgba(43, 45, 127, 0.2);
+}
+
+.alertify-notifier .ajs-message {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #2b2d7f;
+    border-left: 4px solid #17a2b8;
+    border: 1px solid #2b2d7f;
+    box-shadow: 0 4px 12px rgba(43, 45, 127, 0.2);
+}
+
+/* Animaciones mejoradas */
+.alertify-notifier .ajs-message,
+.alertify-notifier .ajs-success,
+.alertify-notifier .ajs-error,
+.alertify-notifier .ajs-warning {
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 12px 16px;
+    margin: 8px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para diálogos de confirmación */
+.alertify .ajs-dialog .ajs-header {
+    background: linear-gradient(135deg, #2b2d7f, #1e2070);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.alertify .ajs-dialog .ajs-body {
+    padding: 20px;
+    background: #ffffff;
+    line-height: 1.6;
+    border: 1px solid #2b2d7f;
+}
+
+.alertify .ajs-dialog .ajs-content {
+    color: #2b2d7f;
+    font-size: 14px;
+}
+
+.alertify .ajs-dialog .ajs-footer {
+    background: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #2b2d7f;
+    border-top: none;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-buttons .ajs-button {
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    margin-left: 8px;
+    transition: all 0.2s ease;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+    background: linear-gradient(135deg, #2b2d7f, #1e2070);
+    color: white;
+    border: none;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-buttons .ajs-button.ajs-ok:hover {
+    background: linear-gradient(135deg, #1e2070, #16195c);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(43, 45, 127, 0.4);
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-buttons .ajs-button.ajs-cancel {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #2b2d7f;
+    border: 1px solid #2b2d7f;
+}
+
+.alertify .ajs-dialog .ajs-footer .ajs-buttons .ajs-button.ajs-cancel:hover {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(43, 45, 127, 0.2);
+}
+
+/* Estilos para botones con estados específicos */
+.btn-guardar-exitoso {
+    background: linear-gradient(135deg, #2b2d7f, #1e2070) !important;
+    color: white !important;
+    border: none !important;
+    animation: pulseSuccess 0.6s ease-out;
+}
+
+@keyframes pulseSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(43, 45, 127, 0.4); }
+    100% { transform: scale(1); }
+}
+
+.btn-actualizar-exitoso {
+    background: linear-gradient(135deg, #2b2d7f, #1e2070) !important;
+    color: white !important;
+    border: none !important;
+    animation: pulseUpdate 0.6s ease-out;
+}
+
+@keyframes pulseUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(43, 45, 127, 0.4); }
+    100% { transform: scale(1); }
+}
+
+/* Indicadores de estado en inputs */
+.input-guardado {
+    border-left: 4px solid #2b2d7f !important;
+    background-color: #ffffff !important;
+    border: 1px solid #2b2d7f !important;
+}
+
+.input-actualizado {
+    border-left: 4px solid #2b2d7f !important;
+    background-color: #f8f9fa !important;
+    border: 1px solid #2b2d7f !important;
+}
+
+.input-error {
+    border-left: 4px solid #dc3545 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #dc3545 !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Mejoras para la tabla de signos vitales */
+.tabla-signos-vitales {
+    box-shadow: 0 4px 12px rgba(43, 45, 127, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2b2d7f;
+}
+
+.tabla-signos-vitales thead th {
+    background: linear-gradient(135deg, #2b2d7f, #1e2070);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 8px;
+}
+
+.tabla-signos-vitales tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Estados de filas */
+.fila-guardada {
+    background: linear-gradient(90deg, rgba(43, 45, 127, 0.1), rgba(43, 45, 127, 0.05));
+    border-left: 4px solid #2b2d7f;
+}
+
+.fila-actualizada {
+    background: linear-gradient(90deg, rgba(43, 45, 127, 0.15), rgba(43, 45, 127, 0.08));
+    border-left: 4px solid #2b2d7f;
+}
+
+.fila-editando {
+    background: linear-gradient(90deg, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.05));
+    border-left: 4px solid #ffc107;
+}
+
+/* Iconos mejorados */
+.icono-estado {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.icono-guardado::before {
+    content: "✅";
+    color: #2b2d7f;
+}
+
+.icono-actualizado::before {
+    content: "🔄";
+    color: #2b2d7f;
+}
+
+.icono-error::before {
+    content: "❌";
+    color: #dc3545;
+}
+
+.icono-editando::before {
+    content: "✏️";
+    color: #ffc107;
+}
+
+/* Tooltips informativos */
+.tooltip-info {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-info::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2b2d7f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.tooltip-info:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mejoras responsivas */
+@media (max-width: 768px) {
+    .alertify-notifier .ajs-message,
+    .alertify-notifier .ajs-success,
+    .alertify-notifier .ajs-error,
+    .alertify-notifier .ajs-warning {
+        margin: 4px;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .alertify .ajs-dialog {
+        max-width: 95%;
+        margin: 10px auto;
+    }
+}

@@ -342,11 +342,112 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
       color: #721c24;
       border-left: 4px solid #dc3545;
     }
+    
+    /* Estilos para guardado en tiempo real */
+    .guardando {
+      background-color: #fff3cd !important;
+      border-left: 4px solid #ffc107 !important;
+      transition: all 0.3s ease;
+    }
+    
+    .table-success {
+      background-color: #d4edda !important;
+      transition: background-color 0.3s ease;
+    }
+    
+    #modalEditarSignos input:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    
+    /* Estilos para validaciones */
+    .campo-valido {
+      border-color: #28a745 !important;
+      box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+    }
+    
+    .campo-invalido {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+    }
+    
+    .campo-advertencia {
+      border-color: #ffc107 !important;
+      box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25) !important;
+    }
+    
+    /* Tooltips de validación */
+    .tooltip-validacion {
+      position: absolute;
+      background: #dc3545;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 1000;
+      margin-top: 5px;
+      white-space: nowrap;
+    }
+    
+    .tooltip-validacion::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 10px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #dc3545;
+    }
+    
+    /* Rangos de referencia */
+    .text-muted {
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+    
+    /* Indicadores de rango crítico */
+    .rango-critico {
+      background: linear-gradient(45deg, #fff3cd, #f8d7da);
+      border-left: 4px solid #dc3545;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    
+    .rango-normal {
+      background: linear-gradient(45deg, #d4edda, #d1ecf1);
+      border-left: 4px solid #28a745;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
   </style>
 
 </head>
 
 <body>
+  <!-- Mensajes de alerta -->
+  <?php if (isset($_SESSION['mensaje_exito'])): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);">
+      <i class="fas fa-check-circle"></i> <strong>¡Éxito!</strong> <?php echo $_SESSION['mensaje_exito']; ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php unset($_SESSION['mensaje_exito']); ?>
+  <?php endif; ?>
+
+  <?php if (isset($_SESSION['mensaje_error'])): ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);">
+      <i class="fas fa-exclamation-triangle"></i> <strong>Error:</strong> <?php echo $_SESSION['mensaje_error']; ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php unset($_SESSION['mensaje_error']); ?>
+  <?php endif; ?>
+
   <font size="2">
     <div class="container">
       <div class="row">
@@ -614,11 +715,48 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
           <?php
           // Incluir verificación de cirugía
           include "verificar_cirugia.php";
-          
           // Verificar si la cirugía ha terminado
           $cirugiaTerminada = cirugiaTerminada($conexion, $id_atencion);
           
-          if ($cirugiaTerminada) {
+          // Verificar si la cirugía está cancelada - implementación directa
+          $sql_cancelada = "SELECT cancelada FROM dat_ingreso WHERE id_atencion = ?";
+          $stmt_cancelada = $conexion->prepare($sql_cancelada);
+          $stmt_cancelada->bind_param("i", $id_atencion);
+          $stmt_cancelada->execute();
+          $result_cancelada = $stmt_cancelada->get_result();
+          $cirugiaCancelada = false;
+          if ($result_cancelada->num_rows > 0) {
+              $row_cancelada = $result_cancelada->fetch_assoc();
+              $cirugiaCancelada = ($row_cancelada['cancelada'] === 'SI');
+          }
+          $stmt_cancelada->close();
+          
+          // Mostrar el botón para cancelar cirugía SOLO si NO está cancelada
+          if (!$cirugiaCancelada) {
+              echo '<div class="text-center mb-3">';
+              echo '<button type="button" class="btn btn-danger btn-improved" data-toggle="modal" data-target="#modalCancelarCirugia">';
+              echo '<i class="fas fa-ban"></i> Cancelar Cirugía';
+              echo '</button>';
+              echo '</div>';
+          }
+
+          // Si la cirugía está cancelada, permitir agregar signos y mostrar botón para terminar cirugía
+          if ($cirugiaCancelada) {
+              echo "<div class='alert alert-info text-center' style='background: linear-gradient(135deg, #2b2d7f, #4a4ea8); border: none; border-radius: 15px; padding: 25px; margin: 20px 0; box-shadow: 0 8px 25px rgba(43, 45, 127, 0.2);'>";
+              echo "<h4 style='color: #ffffff; margin-bottom: 15px;'><i class='fas fa-undo'></i> Cirugía Cancelada</h4>";
+              echo "<p style='color: #f8f9fa; font-size: 16px; margin-bottom: 20px;'>La cirugía ha sido <strong>cancelada</strong>. Ahora puedes agregar signos vitales y volver a terminar la cirugía si lo deseas.</p>";
+              echo "<div class='text-center'>";
+              echo "<form action='terminar_cirugia.php' method='POST' style='display:inline;'>";
+              echo "<input type='hidden' name='id_atencion' value='" . $id_atencion . "'>";
+              echo "<button type='submit' class='btn btn-success btn-lg' style='background: linear-gradient(135deg, #2b2d7f, #2b2d7f); border: none; border-radius: 10px; padding: 12px 30px; font-weight: bold; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3); transition: all 0.3s ease;' onmouseover=\"this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(40, 167, 69, 0.4)';\" onmouseout=\"this.style.transform='translateY(0px)'; this.style.boxShadow='0 4px 15px rgba(40, 167, 69, 0.3)';\">";
+              echo "<i class='fas fa-check-circle'></i> Terminar Cirugía";
+              echo "</button>";
+              echo "</form>";
+              echo "</div>";
+              echo "</div>";
+              // Permitir agregar signos (no ocultar el formulario)
+              $cirugiaTerminada = false;
+          } else if ($cirugiaTerminada) {
               echo "<div class='alert alert-warning text-center' style='background: linear-gradient(135deg, #ffeaa7, #fdcb6e); border: none; border-radius: 15px; padding: 25px; margin: 20px 0;'>";
               echo "<h4 style='color: #2d3436; margin-bottom: 15px;'><i class='fas fa-lock'></i> 🚫 Cirugía Terminada</h4>";
               echo "<p style='color: #2d3436; font-size: 16px; margin-bottom: 20px;'>Los signos vitales han sido <strong>bloqueados</strong> porque la cirugía ha sido marcada como terminada.</p>";
@@ -627,15 +765,25 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
           }
           ?>
 
-          <!-- Botón Ver Gráfica siempre visible -->
+          <!-- Botones de acción siempre visibles -->
           <div class="text-center mb-3">
             <a href="ver_grafica.php" class="btn btn-warning btn-improved">
               <i class="fas fa-chart-line"></i>
               <span>Ver Gráfica</span>
             </a>
+            
+            <?php 
+            // Mostrar botón "Terminar Cirugía" solo si NO está terminada Y NO está cancelada
+            if (!$cirugiaTerminada && !$cirugiaCancelada) { 
+            ?>
+            <button type="button" class="btn btn-success btn-improved" data-toggle="modal" data-target="#modalTerminarCirugia" style="margin-left: 10px;">
+              <i class="fas fa-check-circle"></i>
+              <span>Terminar Cirugía</span>
+            </button>
+            <?php } ?>
           </div>
 
-          <form action="insertar_trans_grafico.php" method="POST" <?php if ($cirugiaTerminada) echo 'style="display: none;"'; ?>>
+          <form action="insertar_trans_grafico.php" method="POST" <?php if ($cirugiaTerminada && !$cirugiaCancelada) echo 'style="display: none;"'; ?> id="formSignosVitales">
             <div class="row">
               <div class="col-sm-12">
                 <?php
@@ -661,14 +809,16 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                 <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                   <label class="label-with-icon">
                     <i class="fas fa-tachometer-alt text-primary"></i>
-                    Presión Arterial
+                    Presión Arterial <small class="text-muted">(60-250 / 30-150 mmHg)</small>
                   </label>
                   <div class="pressure-inputs-wrapper">
                     <input type="text" class="form-control pressure-input"
-                      id="sist" name="sistg" required placeholder="SISTÓLICA">
+                      id="sist" name="sistg" required placeholder="SISTÓLICA" 
+                      min="60" max="250" data-validation="sistolica">
                     <span class="pressure-divider">/</span>
                     <input type="text" class="form-control pressure-input"
-                      id="diast" name="diastg" required placeholder="DIASTÓLICA">
+                      id="diast" name="diastg" required placeholder="DIASTÓLICA" 
+                      min="30" max="150" data-validation="diastolica">
                   </div>
                 </div>
 
@@ -676,40 +826,44 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                 <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
                   <label class="label-with-icon">
                     <i class="fas fa-heart text-danger"></i>
-                    Frecuencia Cardíaca
+                    Frecuencia Cardíaca <small class="text-muted">(30-220 lpm)</small>
                   </label>
                   <input type="text" class="form-control"
-                    name="fcardg" required placeholder="PULSO">
+                    name="fcardg" required placeholder="PULSO" 
+                    min="30" max="220" data-validation="frecuencia-cardiaca">
                 </div>
 
                 <!-- Frecuencia Respiratoria -->
                 <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
                   <label class="label-with-icon">
                     <i class="fas fa-lungs text-info"></i>
-                    Frecuencia Respiratoria
+                    Frecuencia Respiratoria <small class="text-muted">(8-60 rpm)</small>
                   </label>
                   <input type="text" class="form-control"
-                    name="frespg" required placeholder="RESP">
+                    name="frespg" required placeholder="RESP" 
+                    min="8" max="60" data-validation="frecuencia-respiratoria">
                 </div>
 
                 <!-- Saturación de Oxígeno -->
                 <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
                   <label class="label-with-icon">
                     <i class="fas fa-percentage text-success"></i>
-                    Saturación O₂
+                    Saturación O₂ <small class="text-muted">(60-100%)</small>
                   </label>
                   <input type="text" class="form-control"
-                    name="satg" required placeholder="SAT O₂">
+                    name="satg" required placeholder="SAT O₂" 
+                    min="60" max="100" data-validation="saturacion">
                 </div>
 
                 <!-- Temperatura -->
                 <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
                   <label class="label-with-icon">
                     <i class="fas fa-thermometer-half text-warning"></i>
-                    Temperatura
+                    Temperatura <small class="text-muted">(34-44°C)</small>
                   </label>
                   <input type="text" class="form-control"
-                    name="tempg" required placeholder="°C">
+                    name="tempg" required placeholder="°C" 
+                    min="34" max="44" step="0.1" data-validation="temperatura">
                 </div>
               </div>
             </div>
@@ -833,20 +987,705 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
                   <td><strong><?php echo $no ?></strong></td>
                   <td><strong><?php $date = date_create($f['fecha_g']);
                               echo date_format($date, "d/m/Y H:i:s"); ?></strong></td>
-                  <td><strong><?php echo $f['cuenta']; ?></strong></td>
+                  <td><strong><?php echo $f['hora']; ?></strong></td>
                   <td><strong><?php echo $f['sistg']; ?>/<?php echo $f['diastg']; ?></strong></td>
                   <td><strong><?php echo $f['fcardg']; ?></strong></td>
                   <td><strong><?php echo $f['frespg']; ?></strong></td>
                   <td><strong><?php echo $f['tempg']; ?> °C</strong></td>
                   <td><strong><?php echo $f['satg']; ?> %</strong></td>
-                  <td>
-                    <button type="button" class="btn btn-danger btn-sm eliminar-signos" 
-                            data-id="<?php echo $f['id_trans_graf']; ?>" 
-                            data-fecha="<?php echo date_format($date, "d/m/Y H:i:s"); ?>"
-                            title="Eliminar registro">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>
+              <td>
+                <button type="button" class="btn btn-danger btn-sm eliminar-signos" 
+                        data-id="<?php echo $f['id_trans_graf']; ?>" 
+                        title="Eliminar registro">
+                  <i class="fas fa-trash"></i>
+                </button>
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal fade" id="modalEliminarSignos" tabindex="-1" role="dialog" aria-labelledby="modalEliminarSignosLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalEliminarSignosLabel">Confirmar eliminación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ¿Seguro que deseas eliminar este registro de signos vitales?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de confirmación para cancelar cirugía -->
+    <div class="modal fade" id="modalCancelarCirugia" tabindex="-1" role="dialog" aria-labelledby="modalCancelarCirugiaLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="modalCancelarCirugiaLabel">
+              <i class="fas fa-exclamation-triangle"></i> Cancelar Cirugía
+            </h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <i class="fas fa-ban fa-3x text-danger"></i>
+            </div>
+            <p class="text-center">¿Está seguro que desea <strong>cancelar esta cirugía</strong>?</p>
+            <div class="alert alert-warning">
+              <strong><i class="fas fa-info-circle"></i> Importante:</strong>
+              <ul class="mb-0 mt-2">
+                <li>Al cancelar la cirugía podrá volver a agregar signos vitales</li>
+                <li>Podrá terminar la cirugía nuevamente cuando sea necesario</li>
+                <li>Esta acción quedará registrada en el sistema</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              <i class="fas fa-times"></i> No, mantener cirugía
+            </button>
+            <button type="button" class="btn btn-danger" id="confirmarCancelarCirugia">
+              <i class="fas fa-ban"></i> Sí, cancelar cirugía
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de confirmación para terminar cirugía -->
+    <div class="modal fade" id="modalTerminarCirugia" tabindex="-1" role="dialog" aria-labelledby="modalTerminarCirugiaLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="modalTerminarCirugiaLabel">
+              <i class="fas fa-check-circle"></i> Terminar Cirugía
+            </h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <i class="fas fa-check-circle fa-3x text-success"></i>
+            </div>
+            <p class="text-center">¿Está seguro que desea <strong>terminar esta cirugía</strong>?</p>
+            <div class="alert alert-info">
+              <strong><i class="fas fa-info-circle"></i> Importante:</strong>
+              <ul class="mb-0 mt-2">
+                <li>Al terminar la cirugía se bloqueará la adición de nuevos signos vitales</li>
+                <li>Los registros existentes permanecerán disponibles para consulta</li>
+                <li>Esta acción quedará registrada en el sistema</li>
+                <li>Podrá cancelar la cirugía posteriormente si es necesario</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              <i class="fas fa-times"></i> No, continuar cirugía
+            </button>
+            <button type="button" class="btn btn-success" id="confirmarTerminarCirugia">
+              <i class="fas fa-check-circle"></i> Sí, terminar cirugía
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+                <button type="button" class="btn btn-warning btn-sm editar-signos"
+                        data-id="<?php echo $f['id_trans_graf']; ?>"
+                        data-fecha="<?php echo date_format($date, 'Y-m-d'); ?>"
+                        data-hora="<?php echo $f['hora']; ?>"
+                        data-sistg="<?php echo htmlspecialchars($f['sistg']); ?>"
+                        data-diastg="<?php echo htmlspecialchars($f['diastg']); ?>"
+                        data-fcardg="<?php echo htmlspecialchars($f['fcardg']); ?>"
+                        data-frespg="<?php echo htmlspecialchars($f['frespg']); ?>"
+                        data-tempg="<?php echo htmlspecialchars($f['tempg']); ?>"
+                        data-satg="<?php echo htmlspecialchars($f['satg']); ?>"
+                        data-toggle="modal" data-target="#modalEditarSignos">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+<!-- Modal para editar signos vitales -->
+<div class="modal fade" id="modalEditarSignos" tabindex="-1" role="dialog" aria-labelledby="modalEditarSignosLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="formEditarSignos" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarSignosLabel">Editar signos vitales</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="id_registro" id="edit_id_registro" />
+          
+          <!-- Guía de rangos normales -->
+          <div class="alert alert-info" style="margin-bottom: 20px;">
+            <h6 class="mb-2"><i class="fas fa-info-circle"></i> <strong>Rangos médicos normales</strong></h6>
+            <div class="row text-center">
+              <div class="col-6 col-md-4 mb-2">
+                <small><strong>Presión:</strong><br>60-250 / 30-150 mmHg</small>
+              </div>
+              <div class="col-6 col-md-4 mb-2">
+                <small><strong>F. Cardíaca:</strong><br>30-220 lpm</small>
+              </div>
+              <div class="col-6 col-md-4 mb-2">
+                <small><strong>F. Respiratoria:</strong><br>8-60 rpm</small>
+              </div>
+              <div class="col-6 col-md-4 mb-2">
+                <small><strong>Temperatura:</strong><br>34-44°C</small>
+              </div>
+              <div class="col-6 col-md-4 mb-2">
+                <small><strong>Saturación:</strong><br>60-100%</small>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="edit_fecha">Fecha de nota</label>
+            <input type="date" class="form-control" id="edit_fecha" name="fecha_g">
+          </div>
+          <div class="form-group">
+            <label for="edit_hora">Hora</label>
+            <input type="text" class="form-control" id="edit_hora" name="hora">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="edit_sistg">Presión sistólica <small class="text-muted">(60-250 mmHg)</small></label>
+              <input type="text" class="form-control" id="edit_sistg" name="sistg" min="60" max="250">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="edit_diastg">Presión diastólica <small class="text-muted">(30-150 mmHg)</small></label>
+              <input type="text" class="form-control" id="edit_diastg" name="diastg" min="30" max="150">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="edit_fcardg">Frecuencia cardíaca <small class="text-muted">(30-220 lpm)</small></label>
+              <input type="text" class="form-control" id="edit_fcardg" name="fcardg" min="30" max="220">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="edit_frespg">Frecuencia respiratoria <small class="text-muted">(8-60 rpm)</small></label>
+              <input type="text" class="form-control" id="edit_frespg" name="frespg" min="8" max="60">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="edit_tempg">Temperatura <small class="text-muted">(34-44°C)</small></label>
+              <input type="text" class="form-control" id="edit_tempg" name="tempg" min="34" max="44" step="0.1">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="edit_satg">Sat. Oxígeno <small class="text-muted">(60-100%)</small></label>
+              <input type="text" class="form-control" id="edit_satg" name="satg" min="60" max="100">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <i class="fas fa-times"></i> Cerrar
+          </button>
+          <div class="text-center flex-grow-1">
+            <span class="text-muted small">
+              <i class="fas fa-save text-warning"></i> Los cambios se guardan automáticamente
+            </span>
+            <br>
+            <span class="text-muted" style="font-size: 11px;">
+              <i class="fas fa-shield-alt text-success"></i> Validación automática de rangos médicos
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- AlertifyJS -->
+    <link rel="stylesheet" href="../../librerias/alertifyjs/css/alertify.css">
+    <link rel="stylesheet" href="../../librerias/alertifyjs/css/themes/default.css">
+    <script src="../../librerias/alertifyjs/alertify.js"></script>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>      
+    </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        
+        // === VALIDACIÓN DEL FORMULARIO PRINCIPAL ===
+        $('#formSignosVitales').on('submit', function(e) {
+          var errores = [];
+          
+          // Validar presión sistólica
+          var sistolica = parseFloat($('#sist').val());
+          if (isNaN(sistolica) || sistolica < 60 || sistolica > 250) {
+            errores.push('Presión sistólica debe estar entre 60 y 250 mmHg');
+          }
+          
+          // Validar presión diastólica
+          var diastolica = parseFloat($('#diast').val());
+          if (isNaN(diastolica) || diastolica < 30 || diastolica > 150) {
+            errores.push('Presión diastólica debe estar entre 30 y 150 mmHg');
+          }
+          
+          // Validar que sistólica sea mayor que diastólica
+          if (!isNaN(sistolica) && !isNaN(diastolica) && sistolica <= diastolica) {
+            errores.push('La presión sistólica debe ser mayor que la diastólica');
+          }
+          
+          // Validar frecuencia cardíaca
+          var frecCardiaca = parseFloat($('input[name="fcardg"]').val());
+          if (isNaN(frecCardiaca) || frecCardiaca < 30 || frecCardiaca > 220) {
+            errores.push('Frecuencia cardíaca debe estar entre 30 y 220 latidos por minuto');
+          }
+          
+          // Validar frecuencia respiratoria
+          var frecRespiratoria = parseFloat($('input[name="frespg"]').val());
+          if (isNaN(frecRespiratoria) || frecRespiratoria < 8 || frecRespiratoria > 60) {
+            errores.push('Frecuencia respiratoria debe estar entre 8 y 60 respiraciones por minuto');
+          }
+          
+          // Validar saturación
+          var saturacion = parseFloat($('input[name="satg"]').val());
+          if (isNaN(saturacion) || saturacion < 60 || saturacion > 100) {
+            errores.push('Saturación de oxígeno debe estar entre 60% y 100%');
+          }
+          
+          // Validar temperatura
+          var temperatura = parseFloat($('input[name="tempg"]').val());
+          if (isNaN(temperatura) || temperatura < 34 || temperatura > 44) {
+            errores.push('Temperatura debe estar entre 34°C y 44°C');
+          }
+          
+          // Si hay errores, mostrarlos y prevenir envío
+          if (errores.length > 0) {
+            e.preventDefault();
+            var mensajeError = '<ul style="text-align: left; margin: 0; padding-left: 20px;">';
+            errores.forEach(function(error) {
+              mensajeError += '<li>' + error + '</li>';
+            });
+            mensajeError += '</ul>';
+            
+            Swal.fire({
+              icon: 'error',
+              title: 'Valores fuera de rango',
+              html: mensajeError,
+              confirmButtonText: 'Entendido',
+              confirmButtonColor: '#dc3545'
+            });
+            return false;
+          }
+        });
+        
+        // === VALIDACIÓN EN TIEMPO REAL PARA FORMULARIO PRINCIPAL ===
+        $('#formSignosVitales input[data-validation]').on('blur', function() {
+          var campo = $(this);
+          var valor = parseFloat(campo.val());
+          var tipoValidacion = campo.data('validation');
+          var esValido = true;
+          var mensaje = '';
+          
+          if (campo.val().trim() === '') return; // No validar campos vacíos
+          
+          switch(tipoValidacion) {
+            case 'sistolica':
+              if (isNaN(valor) || valor < 60 || valor > 250) {
+                esValido = false;
+                mensaje = 'Presión sistólica: 60-250 mmHg';
+              }
+              break;
+            case 'diastolica':
+              if (isNaN(valor) || valor < 30 || valor > 150) {
+                esValido = false;
+                mensaje = 'Presión diastólica: 30-150 mmHg';
+              }
+              break;
+            case 'frecuencia-cardiaca':
+              if (isNaN(valor) || valor < 30 || valor > 220) {
+                esValido = false;
+                mensaje = 'Frecuencia cardíaca: 30-220 lpm';
+              }
+              break;
+            case 'frecuencia-respiratoria':
+              if (isNaN(valor) || valor < 8 || valor > 60) {
+                esValido = false;
+                mensaje = 'Frecuencia respiratoria: 8-60 rpm';
+              }
+              break;
+            case 'saturacion':
+              if (isNaN(valor) || valor < 60 || valor > 100) {
+                esValido = false;
+                mensaje = 'Saturación: 60-100%';
+              }
+              break;
+            case 'temperatura':
+              if (isNaN(valor) || valor < 34 || valor > 44) {
+                esValido = false;
+                mensaje = 'Temperatura: 34-44°C';
+              }
+              break;
+          }
+          
+          if (!esValido) {
+            campo.css('border-color', '#dc3545');
+            campo.attr('title', mensaje);
+            // Mostrar tooltip con el error
+            setTimeout(function() {
+              campo.css('border-color', '');
+              campo.removeAttr('title');
+            }, 3000);
+          } else {
+            campo.css('border-color', '#28a745');
+            setTimeout(function() {
+              campo.css('border-color', '');
+            }, 1000);
+          }
+        });
+        
+        // Botón editar
+        $(document).on('click', '.editar-signos', function() {
+          $('#edit_id_registro').val($(this).data('id'));
+          $('#edit_fecha').val($(this).data('fecha'));
+          $('#edit_hora').val($(this).data('hora'));
+          $('#edit_sistg').val($(this).data('sistg'));
+          $('#edit_diastg').val($(this).data('diastg'));
+          $('#edit_fcardg').val($(this).data('fcardg'));
+          $('#edit_frespg').val($(this).data('frespg'));
+          $('#edit_tempg').val($(this).data('tempg'));
+          $('#edit_satg').val($(this).data('satg'));
+          $('#modalEditarSignos').modal('show');
+        });
+        
+        // === GUARDADO EN TIEMPO REAL ===
+        // Detectar cambios en los campos del modal y guardar automáticamente
+        $('#modalEditarSignos input').on('blur change', function() {
+          var campo = $(this);
+          var valor = campo.val().trim();
+          var nombreCampo = campo.attr('name');
+          var idRegistro = $('#edit_id_registro').val();
+          
+          // No procesar si no hay ID de registro o si es el campo hidden
+          if (!idRegistro || nombreCampo === 'id_registro') return;
+          
+          // Si el campo está vacío, no validar ni enviar
+          if (!valor) return;
+          
+          // === VALIDACIONES ESPECÍFICAS POR CAMPO ===
+          var esValido = true;
+          var mensajeError = '';
+          
+          switch(nombreCampo) {
+            case 'hora':
+              if (!/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/.test(valor)) {
+                esValido = false;
+                mensajeError = 'Formato de hora inválido. Use HH:MM (00:00 - 23:59)';
+              }
+              break;
+              
+            case 'sistg':
+              var sistolica = parseFloat(valor);
+              if (isNaN(sistolica) || sistolica < 60 || sistolica > 250) {
+                esValido = false;
+                mensajeError = 'Presión sistólica debe estar entre 60 y 250 mmHg';
+              }
+              break;
+              
+            case 'diastg':
+              var diastolica = parseFloat(valor);
+              if (isNaN(diastolica) || diastolica < 30 || diastolica > 150) {
+                esValido = false;
+                mensajeError = 'Presión diastólica debe estar entre 30 y 150 mmHg';
+              }
+              break;
+              
+            case 'fcardg':
+              var frecCardiaca = parseFloat(valor);
+              if (isNaN(frecCardiaca) || frecCardiaca < 30 || frecCardiaca > 220) {
+                esValido = false;
+                mensajeError = 'Frecuencia cardíaca debe estar entre 30 y 220 latidos por minuto';
+              }
+              break;
+              
+            case 'frespg':
+              var frecRespiratoria = parseFloat(valor);
+              if (isNaN(frecRespiratoria) || frecRespiratoria < 8 || frecRespiratoria > 60) {
+                esValido = false;
+                mensajeError = 'Frecuencia respiratoria debe estar entre 8 y 60 respiraciones por minuto';
+              }
+              break;
+              
+            case 'tempg':
+              var temperatura = parseFloat(valor);
+              if (isNaN(temperatura) || temperatura < 34 || temperatura > 44) {
+                esValido = false;
+                mensajeError = 'Temperatura debe estar entre 34°C y 44°C';
+              }
+              break;
+              
+            case 'satg':
+              var saturacion = parseFloat(valor);
+              if (isNaN(saturacion) || saturacion < 60 || saturacion > 100) {
+                esValido = false;
+                mensajeError = 'Saturación de oxígeno debe estar entre 60% y 100%';
+              }
+              break;
+          }
+          
+          // Si no es válido, mostrar error y no enviar
+          if (!esValido) {
+            campo.css('border-color', '#dc3545');
+            alertify.error(mensajeError);
+            
+            // Restaurar borde después de 3 segundos
+            setTimeout(function() {
+              campo.css('border-color', '');
+            }, 3000);
+            return;
+          }
+          
+          // Mostrar indicador visual de guardado
+          campo.addClass('guardando');
+          campo.css('border-color', '#ffc107');
+          
+          // Enviar cambio individual
+          $.ajax({
+            url: 'editar_signos_ajax.php',
+            type: 'POST',
+            data: {
+              action: 'editar_tiempo_real',
+              id_trans_graf: idRegistro,
+              field: nombreCampo,
+              value: valor
+            },
+            dataType: 'json',
+            success: function(resp) {
+              if (resp.success) {
+                // Indicador visual de éxito
+                campo.removeClass('guardando');
+                campo.css('border-color', '#28a745');
+                
+                // Actualizar la tabla inmediatamente
+                actualizarFilaTabla(idRegistro, nombreCampo, valor);
+                
+                // Quitar indicador después de 1 segundo
+                setTimeout(function() {
+                  campo.css('border-color', '');
+                }, 1000);
+                
+              } else {
+                // Error del servidor
+                campo.removeClass('guardando');
+                campo.css('border-color', '#dc3545');
+                alertify.error(resp.message || 'Error al guardar');
+                
+                setTimeout(function() {
+                  campo.css('border-color', '');
+                }, 2000);
+              }
+            },
+            error: function() {
+              campo.removeClass('guardando');
+              campo.css('border-color', '#dc3545');
+              alertify.error('Error de conexión');
+              
+              setTimeout(function() {
+                campo.css('border-color', '');
+              }, 2000);
+            }
+          });
+        });
+        
+        // Función para actualizar una celda específica de la tabla
+        function actualizarFilaTabla(idRegistro, campo, valor) {
+          var fila = $('button.editar-signos[data-id="'+idRegistro+'"]').closest('tr');
+          if (!fila.length) return;
+          
+          var btnEditar = fila.find('.editar-signos');
+          
+          switch(campo) {
+            case 'hora':
+              fila.find('td:eq(2)').html('<strong>' + valor + '</strong>');
+              btnEditar.attr('data-hora', valor);
+              break;
+            case 'sistg':
+              var diastg = btnEditar.attr('data-diastg') || '';
+              fila.find('td:eq(3)').html('<strong>' + valor + '/' + diastg + '</strong>');
+              btnEditar.attr('data-sistg', valor);
+              break;
+            case 'diastg':
+              var sistg = btnEditar.attr('data-sistg') || '';
+              fila.find('td:eq(3)').html('<strong>' + sistg + '/' + valor + '</strong>');
+              btnEditar.attr('data-diastg', valor);
+              break;
+            case 'fcardg':
+              fila.find('td:eq(4)').html('<strong>' + valor + '</strong>');
+              btnEditar.attr('data-fcardg', valor);
+              break;
+            case 'frespg':
+              fila.find('td:eq(5)').html('<strong>' + valor + '</strong>');
+              btnEditar.attr('data-frespg', valor);
+              break;
+            case 'tempg':
+              fila.find('td:eq(6)').html('<strong>' + valor + ' °C</strong>');
+              btnEditar.attr('data-tempg', valor);
+              break;
+            case 'satg':
+              fila.find('td:eq(7)').html('<strong>' + valor + ' %</strong>');
+              btnEditar.attr('data-satg', valor);
+              break;
+          }
+          
+          // Efecto visual de actualización
+          fila.addClass('table-success');
+          setTimeout(function() {
+            fila.removeClass('table-success');
+          }, 1500);
+        }
+        // Botón eliminar con modal
+        var idEliminar = null;
+        $(document).on('click', '.eliminar-signos', function() {
+          idEliminar = $(this).data('id');
+          $('#modalEliminarSignos').modal('show');
+        });
+        // Confirmar eliminación
+        $('#confirmarEliminar').on('click', function() {
+          if(idEliminar) {
+            // Mostrar indicador de carga
+            const btn = $(this);
+            const originalText = btn.html();
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Eliminando...');
+            
+            $.post('eliminar_signos_vitales.php', { 
+              id_registro: idEliminar,
+              action: 'eliminar',
+              ajax: true
+            }, function(resp) {
+              if(resp.success) {
+                $('#modalEliminarSignos').modal('hide');
+                
+                // Mostrar mensaje de éxito
+                Swal.fire({
+                  icon: 'success',
+                  title: '¡Eliminado!',
+                  text: 'El registro de signos vitales se eliminó correctamente',
+                  timer: 2000,
+                  showConfirmButton: false
+                }).then(() => {
+                  location.reload();
+                });
+              } else {
+                // Restaurar botón
+                btn.prop('disabled', false).html(originalText);
+                
+                // Mostrar error con SweetAlert
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Error al eliminar',
+                  text: resp.message || 'No se pudo eliminar el registro',
+                  confirmButtonColor: '#dc3545'
+                });
+              }
+            }, 'json').fail(function() {
+              // Restaurar botón en caso de error de conexión
+              btn.prop('disabled', false).html(originalText);
+              
+              Swal.fire({
+                icon: 'error',
+                title: 'Error de conexión',
+                text: 'No se pudo conectar con el servidor',
+                confirmButtonColor: '#dc3545'
+              });
+            });
+          }
+        });
+
+        // Confirmar cancelación de cirugía - VERSIÓN SIMPLIFICADA
+        $('#confirmarCancelarCirugia').on('click', function() {
+          const btn = $(this);
+          
+          console.log('Cancelando cirugía...');
+          
+          // Cambiar botón inmediatamente
+          btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Cancelando...');
+          
+          // Crear formulario dinámico para envío directo
+          const form = $('<form>', {
+            'method': 'POST',
+            'action': 'cancelar_cirugia_simple.php'
+          });
+          
+          form.append($('<input>', {
+            'type': 'hidden',
+            'name': 'id_atencion',
+            'value': '<?php echo $id_atencion; ?>'
+          }));
+          
+          form.append($('<input>', {
+            'type': 'hidden',
+            'name': 'direct_submit',
+            'value': '1'
+          }));
+          
+          // Agregar al DOM y enviar
+          $('body').append(form);
+          
+          // Enviar formulario después de 500ms
+          setTimeout(function() {
+            form.submit();
+          }, 500);
+        });
+
+        // Confirmar terminación de cirugía
+        $('#confirmarTerminarCirugia').on('click', function() {
+          const btn = $(this);
+          
+          console.log('Terminando cirugía...');
+          
+          // Cambiar botón inmediatamente
+          btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Terminando...');
+          
+          // Crear formulario dinámico para envío directo
+          const form = $('<form>', {
+            'method': 'POST',
+            'action': 'terminar_cirugia.php'
+          });
+          
+          form.append($('<input>', {
+            'type': 'hidden',
+            'name': 'id_atencion',
+            'value': '<?php echo $id_atencion; ?>'
+          }));
+          
+          form.append($('<input>', {
+            'type': 'hidden',
+            'name': 'direct_submit',
+            'value': '1'
+          }));
+          
+          // Agregar al DOM y enviar
+          $('body').append(form);
+          
+          // Enviar formulario después de 500ms
+          setTimeout(function() {
+            form.submit();
+          }, 500);
+        });
+      });
+    </script>
+
+              </td>
 
                   <?php $no++; ?>
                 </tr>
@@ -1428,16 +2267,6 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
 
           echo $resp_r['diastg'];
         } ?>, <?php
-        $resp = $conexion->query("select diastg from dat_trans_grafico where id_atencion=$id_atencion and hora=45") or die($conexion->error);
-        while ($resp_r = mysqli_fetch_array($resp)) {
-
-          echo $resp_r['diastg'];
-        } ?>, <?php
-        $resp = $conexion->query("select diastg from dat_trans_grafico where id_atencion=$id_atencion and hora=46") or die($conexion->error);
-        while ($resp_r = mysqli_fetch_array($resp)) {
-
-          echo $resp_r['diastg'];
-        } ?>, <?php
         $resp = $conexion->query("select diastg from dat_trans_grafico where id_atencion=$id_atencion and hora=47") or die($conexion->error);
         while ($resp_r = mysqli_fetch_array($resp)) {
 
@@ -1500,6 +2329,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
 
           echo $resp_r['fcardg'];
         } ?>, <?php
+       
         $resp = $conexion->query("select fcardg from dat_trans_grafico where id_atencion=$id_atencion and hora=12") or die($conexion->error);
         while ($resp_r = mysqli_fetch_array($resp)) {
 
@@ -2152,6 +2982,11 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
           inicializarBotonesEliminar();
         }, 1000);
       });
+
+      // Auto-ocultar alertas después de 5 segundos
+      setTimeout(function() {
+        $('.alert').alert('close');
+      }, 5000);
 
     </script>
 

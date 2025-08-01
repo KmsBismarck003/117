@@ -53,19 +53,38 @@ if (isset($_POST['ajax']) || isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
     header('Content-Type: application/json');
 }
 
-// VERIFICAR SI LA CIRUGÍA HA TERMINADO ANTES DE PERMITIR ELIMINAR
-if (isset($_SESSION['pac']) && cirugiaTerminada($conexion, $_SESSION['pac'])) {
-    echo json_encode([
-        'success' => false, 
-        'message' => '🚫 No se puede eliminar registros: La cirugía ha sido marcada como terminada',
-        'bloqueado' => true
-    ]);
-    exit;
+// VERIFICAR ESTADO DE LA CIRUGÍA ANTES DE PERMITIR ELIMINAR
+if (isset($_SESSION['pac'])) {
+    $id_atencion = $_SESSION['pac'];
+    
+    // Verificar si la cirugía fue cancelada
+    $sql_cancelada = "SELECT cancelada FROM dat_ingreso WHERE id_atencion = $id_atencion";
+    $result_cancelada = $conexion->query($sql_cancelada);
+    $cirugia_cancelada = false;
+    if ($result_cancelada) {
+        $row_cancelada = $result_cancelada->fetch_assoc();
+        $cirugia_cancelada = ($row_cancelada['cancelada'] == 'SI');
+    }
+    
+    // Verificar si la cirugía ha terminado (pero NO está cancelada)
+    $cirugia_terminada = cirugiaTerminada($conexion, $id_atencion);
+    
+    // SOLO bloquear si la cirugía está terminada Y NO está cancelada
+    // Si está cancelada, permitir eliminar (para permitir correcciones)
+    if ($cirugia_terminada && !$cirugia_cancelada) {
+        echo json_encode([
+            'success' => false, 
+            'message' => '� No se puede eliminar registros de una cirugía terminada',
+            'bloqueado' => true
+        ]);
+        exit;
+    }
 }
 
-// Obtener y validar datos
-$id_registro = isset($_POST['id_registro']) ? (int)$_POST['id_registro'] : 0;
-$action = isset($_POST['action']) ? $_POST['action'] : '';
+// Obtener y validar datos (mantener compatibilidad con ambos formatos)
+$id_registro = isset($_POST['id_registro']) ? (int)$_POST['id_registro'] : 
+              (isset($_POST['id']) ? (int)$_POST['id'] : 0);
+$action = isset($_POST['action']) ? $_POST['action'] : 'eliminar'; // Default action
 
 // Log para debugging
 error_log("ELIMINAR SIGNOS VITALES DEBUG:");
@@ -73,18 +92,27 @@ error_log("ID registro: " . $id_registro);
 error_log("Action: " . $action);
 error_log("POST data: " . print_r($_POST, true));
 
-if (!$id_registro || $action !== 'eliminar') {
-    echo json_encode(['success' => false, 'message' => 'Datos inválidos - ID: ' . $id_registro . ' Action: ' . $action]);
+if (!$id_registro) {
+    echo json_encode(['success' => false, 'message' => 'ID de registro no valido - ID: ' . $id_registro]);
     exit;
 }
 
 try {
-    // Verificar que el registro existe antes de eliminarlo
-    $verificar_sql = "SELECT id_trans_graf, fecha_g, hora FROM dat_trans_grafico WHERE id_trans_graf = ?";
+    // Verificar que el registro existe y pertenece al paciente actual
+    $verificar_sql = "SELECT id_trans_graf, fecha_g, hora, id_atencion FROM dat_trans_grafico WHERE id_trans_graf = ?";
     $stmt_verificar = $conexion->prepare($verificar_sql);
+    
+    if (!$stmt_verificar) {
+        error_log("Error preparando consulta de verificación: " . $conexion->error);
+        echo json_encode(['success' => false, 'message' => 'Error preparando consulta: ' . $conexion->error]);
+        exit;
+    }
+    
     $stmt_verificar->bind_param("i", $id_registro);
     $stmt_verificar->execute();
     $resultado_verificacion = $stmt_verificar->get_result();
+    
+    error_log("Registros encontrados para ID $id_registro: " . $resultado_verificacion->num_rows);
     
     if ($resultado_verificacion->num_rows === 0) {
         echo json_encode(['success' => false, 'message' => 'El registro no existe']);
@@ -94,13 +122,32 @@ try {
     $registro_info = $resultado_verificacion->fetch_assoc();
     $stmt_verificar->close();
     
+    // Validar que el registro pertenece al paciente actual (seguridad)
+    if (isset($_SESSION['pac']) && $registro_info['id_atencion'] != $_SESSION['pac']) {
+        error_log("Intento de eliminar registro que no pertenece al paciente actual. Registro: " . $registro_info['id_atencion'] . ", Sesión: " . $_SESSION['pac']);
+        echo json_encode(['success' => false, 'message' => 'No tiene permisos para eliminar este registro']);
+        exit;
+    }
+    
+    error_log("Registro encontrado: " . print_r($registro_info, true));
+    
     // Eliminar el registro usando prepared statement
     $eliminar_sql = "DELETE FROM dat_trans_grafico WHERE id_trans_graf = ?";
     $stmt_eliminar = $conexion->prepare($eliminar_sql);
+    
+    if (!$stmt_eliminar) {
+        error_log("Error preparando consulta de eliminación: " . $conexion->error);
+        echo json_encode(['success' => false, 'message' => 'Error preparando eliminación: ' . $conexion->error]);
+        exit;
+    }
+    
     $stmt_eliminar->bind_param("i", $id_registro);
     
     if ($stmt_eliminar->execute()) {
-        if ($stmt_eliminar->affected_rows > 0) {
+        $filas_afectadas = $stmt_eliminar->affected_rows;
+        error_log("Filas afectadas en eliminación: " . $filas_afectadas);
+        
+        if ($filas_afectadas > 0) {
             echo json_encode([
                 'success' => true, 
                 'message' => '✅ Registro eliminado correctamente',
@@ -113,10 +160,12 @@ try {
         }
         $stmt_eliminar->close();
     } else {
-        echo json_encode(['success' => false, 'message' => 'Error en la base de datos: ' . $conexion->error]);
+        error_log("Error ejecutando eliminación: " . $stmt_eliminar->error);
+        echo json_encode(['success' => false, 'message' => 'Error en la base de datos: ' . $stmt_eliminar->error]);
     }
     
 } catch (Exception $e) {
+    error_log("Excepción en eliminación: " . $e->getMessage());
     echo json_encode(['success' => false, 'message' => 'Error interno del servidor: ' . $e->getMessage()]);
 }
 

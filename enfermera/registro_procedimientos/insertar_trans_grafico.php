@@ -9,8 +9,24 @@ if (!isset($_SESSION['pac'])) {
     exit;
 }
 
-// VERIFICAR SI LA CIRUGÍA HA TERMINADO
-if (cirugiaTerminada($conexion, $_SESSION['pac'])) {
+// VERIFICAR SI LA CIRUGÍA HA TERMINADO (pero permitir si está cancelada)
+$cirugia_terminada = cirugiaTerminada($conexion, $_SESSION['pac']);
+
+// Verificar si la cirugía está cancelada
+$sql_cancelada = "SELECT cancelada FROM dat_ingreso WHERE id_atencion = ?";
+$stmt_cancelada = $conexion->prepare($sql_cancelada);
+$stmt_cancelada->bind_param("i", $_SESSION['pac']);
+$stmt_cancelada->execute();
+$result_cancelada = $stmt_cancelada->get_result();
+$cirugia_cancelada = false;
+if ($result_cancelada->num_rows > 0) {
+    $row_cancelada = $result_cancelada->fetch_assoc();
+    $cirugia_cancelada = ($row_cancelada['cancelada'] === 'SI');
+}
+$stmt_cancelada->close();
+
+// Solo bloquear si la cirugía está terminada Y NO está cancelada
+if ($cirugia_terminada && !$cirugia_cancelada) {
     echo mostrarMensajeBloqueo();
     exit;
 }
@@ -313,6 +329,102 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $satg = str_replace('%', '', preg_replace('/[^0-9.]/', '', $satg));
         $tempg = preg_replace('/[^0-9.]/', '', $tempg);
         
+        // === VALIDACIONES DE RANGOS MÉDICOS ===
+        $errores_rango = [];
+        
+        // Validar presión sistólica (60-250 mmHg)
+        $sistg_val = floatval($sistg);
+        if ($sistg_val < 60 || $sistg_val > 250) {
+            $errores_rango[] = "Presión sistólica fuera de rango: {$sistg_val} mmHg (permitido: 60-250 mmHg)";
+        }
+        
+        // Validar presión diastólica (30-150 mmHg)
+        $diastg_val = floatval($diastg);
+        if ($diastg_val < 30 || $diastg_val > 150) {
+            $errores_rango[] = "Presión diastólica fuera de rango: {$diastg_val} mmHg (permitido: 30-150 mmHg)";
+        }
+        
+        // Validar que sistólica sea mayor que diastólica
+        if ($sistg_val <= $diastg_val) {
+            $errores_rango[] = "La presión sistólica ({$sistg_val}) debe ser mayor que la diastólica ({$diastg_val})";
+        }
+        
+        // Validar frecuencia cardíaca (30-220 lpm)
+        $fcardg_val = floatval($fcardg);
+        if ($fcardg_val < 30 || $fcardg_val > 220) {
+            $errores_rango[] = "Frecuencia cardíaca fuera de rango: {$fcardg_val} lpm (permitido: 30-220 lpm)";
+        }
+        
+        // Validar frecuencia respiratoria (8-60 rpm)
+        $frespg_val = floatval($frespg);
+        if ($frespg_val < 8 || $frespg_val > 60) {
+            $errores_rango[] = "Frecuencia respiratoria fuera de rango: {$frespg_val} rpm (permitido: 8-60 rpm)";
+        }
+        
+        // Validar saturación de oxígeno (60-100%)
+        $satg_val = floatval($satg);
+        if ($satg_val < 60 || $satg_val > 100) {
+            $errores_rango[] = "Saturación de oxígeno fuera de rango: {$satg_val}% (permitido: 60-100%)";
+        }
+        
+        // Validar temperatura (34-44°C)
+        $tempg_val = floatval($tempg);
+        if ($tempg_val < 34 || $tempg_val > 44) {
+            $errores_rango[] = "Temperatura fuera de rango: {$tempg_val}°C (permitido: 34-44°C)";
+        }
+        
+        // Si hay errores de rango, mostrarlos y detener la inserción
+        if (!empty($errores_rango)) {
+            echo "
+            <!DOCTYPE html>
+            <html lang='es'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>⚠️ Valores Fuera de Rango - Sistema Médico INEO</title>
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <style>
+                    body { 
+                        font-family: 'Arial', sans-serif; 
+                        background: linear-gradient(135deg, #ff6b6b, #ffa726);
+                        margin: 0; padding: 20px;
+                    }
+                </style>
+            </head>
+            <body>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: '⚠️ Valores Fuera de Rango Médico',
+                        html: `
+                            <div style='text-align: left; margin: 20px 0;'>
+                                <p><strong>Los siguientes valores están fuera de los rangos médicos aceptables:</strong></p>
+                                <ul style='margin: 15px 0; padding-left: 20px;'>
+                                    " . implode('', array_map(function($error) { return "<li style='margin: 8px 0; color: #d32f2f;'>$error</li>"; }, $errores_rango)) . "
+                                </ul>
+                                <div style='background: #fff3e0; border-left: 4px solid #ff9800; padding: 12px; margin: 15px 0; border-radius: 4px;'>
+                                    <strong>📋 Rangos normales:</strong><br>
+                                    • Presión arterial: 60-250 / 30-150 mmHg<br>
+                                    • Frecuencia cardíaca: 30-220 lpm<br>
+                                    • Frecuencia respiratoria: 8-60 rpm<br>
+                                    • Saturación O₂: 60-100%<br>
+                                    • Temperatura: 34-44°C
+                                </div>
+                            </div>
+                        `,
+                        confirmButtonText: '🔄 Corregir valores',
+                        confirmButtonColor: '#d32f2f',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    }).then(() => {
+                        window.history.back();
+                    });
+                </script>
+            </body>
+            </html>";
+            exit;
+        }
+        
         // Obtener la fecha y hora actual completa
         $fecha_g = date('Y-m-d H:i:s');
         
@@ -372,7 +484,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body { 
                         font-family: 'Inter', sans-serif; 
-                        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); 
+                        background: linear-gradient(135deg, #2b2d7f 0%, #4a4ea8 100%); 
                         min-height: 100vh; 
                         display: flex; 
                         align-items: center; 
@@ -436,7 +548,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         left: -50%;
                         width: 200%;
                         height: 200%;
-                        background: conic-gradient(from 0deg, transparent, rgba(46, 204, 113, 0.1), transparent);
+                        background: conic-gradient(from 0deg, transparent, rgba(43, 45, 127, 0.1), transparent);
                         animation: rotate 4s linear infinite;
                         z-index: -1;
                     }
@@ -453,7 +565,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                     .icon-success {
-                        background: linear-gradient(135deg, #27ae60, #2ecc71);
+                        background: linear-gradient(135deg, #2b2d7f, #2b2d7f);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
@@ -471,7 +583,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         left: 50%;
                         width: 120px;
                         height: 120px;
-                        border: 3px solid #27ae60;
+                        border: 3px solid #2b2d7f;
                         border-radius: 50%;
                         transform: translate(-50%, -50%);
                         animation: circleExpand 1s ease-out;
@@ -495,7 +607,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                     .title {
-                        background: linear-gradient(135deg, #2c3e50, #27ae60);
+                        background: linear-gradient(135deg, #2c3e50, #2b2d7f);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
@@ -563,13 +675,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                     .detail-value {
-                        background: linear-gradient(135deg, #27ae60, #2ecc71);
+                        background: linear-gradient(135deg, #2b2d7f, #2b2d7f);
                         color: white;
                         padding: 8px 15px;
                         border-radius: 25px;
                         font-weight: 700;
                         font-size: 14px;
-                        box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+                        box-shadow: 0 4px 15px rgba(43, 45, 127, 0.3);
                     }
                     
                     .btn-container {
@@ -586,7 +698,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                     .btn-continue {
-                        background: linear-gradient(135deg, #27ae60, #2ecc71);
+                        background: linear-gradient(135deg, #2b2d7f, #2b2d7f);
                         border: none;
                         border-radius: 50px;
                         padding: 18px 40px;
@@ -598,7 +710,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         position: relative;
                         overflow: hidden;
                         min-width: 200px;
-                        box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+                        box-shadow: 0 10px 30px rgba(43, 45, 127, 0.3);
                     }
                     
                     .btn-continue::before {
@@ -615,7 +727,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     .btn-continue:hover::before { left: 100%; }
                     .btn-continue:hover {
                         transform: translateY(-5px) scale(1.05);
-                        box-shadow: 0 20px 40px rgba(39, 174, 96, 0.5);
+                        box-shadow: 0 20px 40px rgba(43, 45, 127, 0.5);
                     }
                     
                     .btn-continue:active { transform: translateY(-2px) scale(1.02); }
@@ -627,7 +739,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         width: 60px;
                         height: 60px;
                         border: 4px solid rgba(255,255,255,0.3);
-                        border-top: 4px solid #27ae60;
+                        border-top: 4px solid #2b2d7f;
                         border-radius: 50%;
                         animation: spin 1s linear infinite;
                     }
@@ -742,7 +854,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     
                     function redirectNow() {
-                        document.querySelector('.progress-circle').style.borderTopColor = '#2ecc71';
+                        document.querySelector('.progress-circle').style.borderTopColor = '#2b2d7f';
                         window.location.href = 'nota_registro_grafico.php';
                     }
                     
