@@ -366,7 +366,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             h2,
             h3 {
-                color: #0c675e;
+                color: #2b2d7f;
                 text-align: center;
             }
 
@@ -389,7 +389,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             th {
-                background-color: #0c675e;
+                background-color: #2b2d7f;
                 color: white;
             }
 
@@ -409,7 +409,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             input[type="submit"] {
-                background-color: #0c675e;
+                background-color: #2b2d7f;
                 color: white;
                 border: none;
                 padding: 10px 20px;
@@ -420,7 +420,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             input[type="submit"]:hover {
-                background-color: #084c47;
+                background-color: #2b2d7f;
             }
 
             .scrollable-area {
@@ -466,7 +466,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
             .btn-calcular {
-                background-color: #0c675e;
+                background-color: #2b2d7f;
                 color: white;
                 border: none;
                 padding: 10px 20px;
@@ -476,7 +476,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             .btn-calcular:hover {
-                background-color: #084c47;
+                background-color: #2b2d7f;
             }
 
             .btn-calcular:disabled {
@@ -521,8 +521,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 /* Mantiene la distancia del borde derecho */
                 font-size: 24px;
                 /* Tamaño del ícono */
-                color: #0c675e;
-                /* Color verde */
+                color: #2b2d7f;
+                /* Color azul */
                 display: inline-block;
                 cursor: pointer;
                 transition: color 0.3s;
@@ -531,7 +531,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             /* Botón para agregar lotes */
             .btn-agregar-lote {
-                background-color: #28a745;
+                background-color: #2b2d7f;
                 color: white;
                 border: none;
                 padding: 8px 12px;
@@ -547,7 +547,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             .btn-agregar-lote:hover {
-                background-color: #218838;
+                background-color: #2b2d7f;
             }
 
             /* Botón para eliminar filas de lotes */
@@ -634,42 +634,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <!-- Proveedor -->
                         <div style="padding: 10px;">
-                            <label style="display: block; color: #0c675e;">Proveedor</label>
+                            <label style="display: block; color: #2b2d7f;">Proveedor</label>
                             <input type="text" value="<?php echo $proveedorNombre; ?>" readonly style="width: 200px; height: 40px;">
                             <!-- Ajusta el ancho -->
                         </div>
 
                         <div style="padding: 10px;">
-                            <label style="display: block; color: #0c675e;">Factura</label>
+                            <label style="display: block; color: #2b2d7f;">Factura</label>
                             <input type="text" name="Cfactura" id="facturaInput" value="" required style="width: 120px;">
                         </div>
 
                         <!-- Monto -->
                         <div style="padding: 10px;">
-                            <label style="display: block; color: #0c675e;">Monto</label>
+                            <label style="display: block; color: #2b2d7f;">Monto</label>
                             <input type="text" name="Cmonto[]" value="" placeholder="0.00" required style="width: 120px;" id="Cmonto">
                         </div>
 
                         <!-- Descuento -->
                         <div style="padding: 10px;">
-                            <label style="display: block; color: #0c675e;">Descuento</label>
+                            <label style="display: block; color: #2b2d7f;">Descuento</label>
                             <input type="text" name="Cdescuento[]" value="" placeholder="0.00" style="width: 120px;" id="Cdescuento">
                         </div>
 
                         <!-- IVA -->
                         <div style="padding: 10px;">
-                            <label style="display: block; color: #0c675e;">IVA</label>
+                            <label style="display: block; color: #2b2d7f;">IVA</label>
                             <input type="text" name="Civa[]" value="" placeholder="0.00" style="width: 120px;" id="Civa">
                         </div>
 
                         <!-- Total -->
                         <div style="padding: 10px;">
-                            <label style="display: block; color: #0c675e;">Total</label>
+                            <label style="display: block; color: #2b2d7f;">Total</label>
                             <input type="text" name="Ctotal[]" id="Ctotal" value="" readonly style="width: 120px;">
                         </div>
                     </div>
                     <div style="text-align: center; margin-top: 20px;"> <!-- Centra el botón -->
-                        <button type="submit" onclick="calcularTotales()" style="background-color: #084c47; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">Calcular</button>
+                        <button type="submit" onclick="calcularTotales()" style="background-color: #2b2d7f; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">Calcular</button>
                     </div>
                 </form>
             </div>
@@ -701,7 +701,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (total > 0 && monto > 0) {
                         // Solo habilitar si hay un total válido
                         btnEnviarCarrito.disabled = false;
-                        btnEnviarCarrito.style.backgroundColor = '#0c675e';
+                        btnEnviarCarrito.style.backgroundColor = '#2b2d7f';
                         btnEnviarCarrito.style.cursor = 'pointer';
                         console.log("Botón 'Enviar al Carrito' habilitado. Total calculado:", total);
                     } else {
@@ -1189,7 +1189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (totalesCoinciden && totalOrdenCalculado) {
             document.getElementById('btnAfectarEntrada').disabled = false; // Habilitar el botón
-            document.getElementById('btnAfectarEntrada').style.backgroundColor = '#0c675e';
+            document.getElementById('btnAfectarEntrada').style.backgroundColor = '#2b2d7f';
             document.getElementById('btnAfectarEntrada').style.color = 'white';
             document.getElementById('btnAfectarEntrada').style.cursor = 'pointer';
             document.getElementById('mensajeError').style.display = 'none'; // Ocultar el mensaje de error
@@ -1363,7 +1363,7 @@ if (isset($_GET['ver_transacciones'])) {
     $transacciones = obtenerTransaccionesConEntregasParciales($conexion, $id_compra_consulta);
     
     echo "<div style='background-color: white; padding: 50px; border-radius: 30px;margin-top: 15px;'>";
-    echo "<h2 style='margin-top: 40px;color: #0c675e;text-align: center;'>Historial de Transacciones</h2>";
+    echo "<h2 style='margin-top: 40px;color: #2b2d7f;text-align: center;'>Historial de Transacciones</h2>";
     
     // Formulario de filtrado
     echo "<div style='text-align: center; margin: 20px 0; padding: 20px; background-color: #f8f9fa; border-radius: 10px;'
@@ -1374,7 +1374,7 @@ if (isset($_GET['ver_transacciones'])) {
                    value='" . ($id_compra_consulta ?? '') . "' 
                    placeholder='Ingrese ID de compra' 
                    style='padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;'>
-            <button type='submit' style='color: white; background-color: #0c675e; border: none; border-radius: 5px; padding: 5px 15px; cursor: pointer;'>
+            <button type='submit' style='color: white; background-color: #2b2d7f; border: none; border-radius: 5px; padding: 5px 15px; cursor: pointer;'>
                 Filtrar
             </button>
             <a href='" . $_SERVER['PHP_SELF'] . "?ver_transacciones=1' style='color: white; background-color: #6c757d; border: none; border-radius: 5px; padding: 5px 15px; text-decoration: none;'>
@@ -1387,7 +1387,7 @@ if (isset($_GET['ver_transacciones'])) {
         echo "<table class='carrito-table' style='width: 100%; margin-top: 20px; border-collapse: collapse;'>
 
         <thead>
-            <tr style='background-color: #0c675e; color: white;'>
+            <tr style='background-color: #2b2d7f; color: white;'>
                 <th style='padding: 10px; border: 1px solid #ddd;'>ID Compra</th>
                 <th style='padding: 10px; border: 1px solid #ddd;'>Ítem</th>
                 <th style='padding: 10px; border: 1px solid #ddd;'>Lote</th>
@@ -1436,7 +1436,7 @@ if (isset($_GET['ver_transacciones'])) {
     }
     
     echo "<div style='text-align: center; margin-top: 20px;'>
-        <a href='" . $_SERVER['PHP_SELF'] . "' style='color: white; background-color: #0c675e; border: none; border-radius: 5px; padding: 10px 20px; text-decoration: none;'>Volver al Formulario</a>
+        <a href='" . $_SERVER['PHP_SELF'] . "' style='color: white; background-color: #2b2d7f; border: none; border-radius: 5px; padding: 10px 20px; text-decoration: none;'>Volver al Formulario</a>
     </div>";
     echo "</div>";
     exit();

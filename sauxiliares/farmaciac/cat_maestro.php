@@ -49,17 +49,30 @@ $start_page = max(1, $end_page - $max_links + 1); // Ajustar si llegamos al lím
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMA Venecia Metepec</title>
-    <link rel="icon" href="../imagenes/SIF.PNG">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<link rel="stylesheet" type="text/css" href="css/select2.css">
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFMw5uZjQz4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldLv/Pr4nhuBviF5jGqQK/5i2Q5iZ64dxBl+zOZ" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.magnific-popup.min.js"></script>
+    <script src="../../js/aos.js"></script>
+    <script src="../../js/main.js"></script>
     <style>
         body {
             background-color: #f8f9fa;
         }
 
         .header {
-            background-color: #0c675e;
+            background-color: #2b2d7f;
             color: white;
             padding: 15px;
             text-align: center;
@@ -76,7 +89,7 @@ $start_page = max(1, $end_page - $max_links + 1); // Ajustar si llegamos al lím
         }
 
         .table thead th {
-            background-color: #0c675e;
+            background-color: #2b2d7f;
             color: white;
         }
 
@@ -89,7 +102,7 @@ $start_page = max(1, $end_page - $max_links + 1); // Ajustar si llegamos al lím
         }
 
         .modal-header {
-            background-color: #0c675e;
+            background-color: #2b2d7f;
             color: white;
         }
 
@@ -334,6 +347,10 @@ $start_page = max(1, $end_page - $max_links + 1); // Ajustar si llegamos al lím
             </div>
         </div>
     </div>
+        <!-- FastClick -->
+    <script src='../../template/plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="../../template/dist/js/app.min.js" type="text/javascript"></script>
 </body>
 
 </html>
