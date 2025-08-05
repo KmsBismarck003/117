@@ -58,7 +58,7 @@ $resultado = $conexion->query("select * from reg_usuarios") or die($conexion->er
       });
     });
   </script>
-  <title>REGISTRO DE HOSPITALIZACIÓN - ENFERMERÍA</title>
+  <title>DATOS DEL PACIENTE</title>
   <style type="text/css">
     #contenido{
         display: none;
@@ -214,8 +214,9 @@ if ($meses < 0)
     ?>
       <div class="container ">
         <div class="content">
-          
-            <h2>REGISTROS DE HOSPITALIZACIÓN - ENFERMERÍA</h2>
+
+            <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 22px;"><strong><center>
+                DATOS DEL PACIENTE</center> </strong></div>
          <hr>
   <font size="2">
          <div class="container">
@@ -381,94 +382,77 @@ $m=$row_mot['motivo_atn'];
                 <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars" id="side"></i></a>
             </h2>
 
+            <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 22px;"><strong><center>
+                TRATAMIENTOS GENÉRICOS DEL PACIENTE</center> </strong></div>
+            
             <div class="form-group">
                 <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Buscar...">
-            </div> 
+            </div>
+            
             <?php
-
-
-include "../../conexionbd.php";
-$id_atencion=$_SESSION['pac'];
-$resultado = $conexion->query("SELECT DISTINCT(fecha_mat) as fecham,id_clinreg, id_atencion,hora_mat,turno,enf_fecha,id_usua from enf_reg_clin WHERE id_atencion=$id_atencion ORDER BY id_clinreg DESC") or die($conexion->error);
-$usuario = $_SESSION['login'];
-?>
-            <div class="table-responsive">
-
-            <table class="table table-bordered table-striped" id="mytable">
-                <thead class="thead">
-                <tr>
-                    <th scope="col">Ver PDF</th>
-                    <th scope="col">Fecha hoja <br>de enfermería</th>
-                    <th scope="col">Hora hoja <br>de enfermería</th>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Fecha de registro</th>
-                    <th scope="col">Enfermer@ que registró</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <?php
-                while($f = mysqli_fetch_array($resultado)){
-                  $id_clinreg=$f['id_clinreg'];
-                  $id_atencion=$f['id_atencion'];
-                  $fecham=$f['fecham'];
-                  $hora_mat=$f['hora_mat'];
-                  
-                  $enfermera=$f['id_usua'];
-                  $sql_enfermera = "SELECT * from reg_usuarios where id_usua=$enfermera";
-                  $result_enfermera = $conexion->query($sql_enfermera);
-
-                  while ($row_enfermera = $result_enfermera->fetch_assoc()) {
-                        $user_pred = $row_enfermera['pre'];
-                        $user_papelld = $row_enfermera['papell'];
-                        $user_sapelld = $row_enfermera['sapell'];
-                        $user_nombred = $row_enfermera['nombre'];
-                        $user_cedulad = $row_enfermera['cedp'];
-                  }
-
-                    ?>
-
-                    <tr>
-                        <td><a href="../pdf/pdf_reg_clin_enf.php?id_clinreg=<?php echo $id_clinreg?>&id_atencion=<?php echo $id_atencion?>&id_exp=<?php echo $id_exp?>&fechar=<?php echo $fecham?>&hora_mat=<?php echo $hora_mat?>"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> </button></td>
-                        
-                        <td><strong><?php $fecre=date_create($f['fecham']); echo date_format($fecre,"d/m/Y");?></strong></td>
-                        <td><strong><?php echo $f['hora_mat'];?></strong></td>
-                        <td><strong><?php echo $f['turno'];?></strong></td>
-                        <td><strong><?php $fecreg=date_create($f['enf_fecha']); echo date_format($fecreg,"d/m/Y H:i a");?></strong></td>
-                        <td><strong><?php echo $user_papelld ?> </strong></td>
-                        
-                        <?php 
-                        if($idusua===$enfermera||$idusua==='1'){
-                        ?>
-                        <td><a href="editfecha.php?id_clinreg=<?php echo $id_clinreg?>&id_atencion=<?php echo $id_atencion?>&id_exp=<?php echo $id_exp?>&fechar=<?php echo $fecham?>&hora_mat=<?php echo $hora_mat?>"><button type="button" class="btn btn-warning btn-sm" title="Editar fecha"><i class="fa fa-edit" aria-hidden="true"></i> </button></td>
-                          <td><a href="eliminarregistro.php?id_clinreg=<?php echo $id_clinreg?>&id_atencion=<?php echo $id_atencion?>&id_exp=<?php echo $id_exp?>&fechar=<?php echo $fecham?>&hora_mat=<?php echo $hora_mat?>"><button type="button" class="btn btn-danger btn-sm" title="Editar fecha"><i class="fa fa-trash" aria-hidden="true"></i> </button></td>
+            // Consulta para obtener tratamientos genéricos
+            $resultado = $conexion->query("
+                SELECT dt.*, ru.nombre, ru.papell, ru.sapell, ru.pre
+                FROM dat_tratamientos_genericos dt 
+                LEFT JOIN reg_usuarios ru ON dt.id_usua = ru.id_usua 
+                WHERE dt.id_atencion = $id_atencion 
+                ORDER BY dt.fecha_registro DESC
+            ") or die($conexion->error);
+            ?>
+            
+            <div class="table-containt">
+                <table class="table table-bordered table-striped" id="mytable">
+                    <thead class="thead bg-navy">
+                        <tr>
+                            <th scope="col">PDF</th>
+                            <th scope="col">Tipo de Tratamiento</th>
+                            <th scope="col">Médico Tratante</th>
+                            <th scope="col">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                        }else{
-                            ?>
-                              <td><div class="alert alert-warning" role="alert" title="Sin permisos para edición">
-                                  <i class="fa fa-ban" aria-hidden="true"></i></div></td>
-                         <td><div class="alert alert-danger alert-sm" role="alert" title="Sin permisos para eliminar">
-                                  <i class="fa fa-ban" aria-hidden="true"></i></div></td>
-                            
-                            <?php
+                        if ($resultado->num_rows > 0) {
+                            while($tratamiento = mysqli_fetch_array($resultado)) {
+                                $id = $tratamiento['id'];
+                                echo "<tr>";
+                                echo "<td>
+                                    <a href=\"../pdf/pdf_tratamiento.php?id=" . $id . "&id_exp=" . $id_exp . "&id_atencion=" . $id_atencion . "\" target=\"_blank\">
+                                        <button type=\"button\" class=\"btn btn-danger\">
+                                            <i class=\"fa fa-file-pdf-o\" aria-hidden=\"true\"></i>
+                                        </button>
+                                    </a>
+                                </td>";
+                                echo "<td><strong>" . htmlspecialchars($tratamiento['tipo_tratamiento'] ?? 'No especificado') . "</strong></td>";
+                                echo "<td>" . htmlspecialchars($tratamiento['medico_tratante'] ?? 'No asignado') . "</td>";
+                                
+                                // Formatear solo fecha
+                                if ($tratamiento['fecha_registro']) {
+                                    $fecha_formato = date_create($tratamiento['fecha_registro']);
+                                    echo "<td><strong>" . date_format($fecha_formato, "d/m/Y H:i") . " horas</strong></td>";
+                                } else {
+                                    echo "<td>No registrada</td>";
+                                }
+                                
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='4' class='text-center'><strong>No se encontraron tratamientos genéricos registrados para este paciente.</strong></td></tr>";
                         }
                         ?>
-                        
-                       
-                    </tr>
-                    <?php
-                }
-
-                ?>
-                </tbody>
-              
-            </table>
+                    </tbody>
+                </table>
             </div>
 
         </div>
     </div>
+</div>
+</div>
+<footer class="main-footer">
+    <?php
+    include("../../template/footer.php");
+    ?>
+</footer>
 </div>
 </div>
 <footer class="main-footer">
