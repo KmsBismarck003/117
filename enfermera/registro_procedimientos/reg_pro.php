@@ -3,6 +3,9 @@ session_start();
 require_once '../../conexionbd.php';
 include '../header_enfermera.php';
 
+$usuario = $_SESSION['login'];
+$id_usua = $usuario['id_usua'];
+
 // Security: Validate session
 if (!isset($_SESSION['login']) || !is_array($_SESSION['login']) || !isset($_SESSION['login']['id_usua'])) {
     header('Location: ../../../../index.php');
@@ -21,6 +24,284 @@ if (isset($_SESSION['login'])) {
 
 // Generate CSRF token
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+date_default_timezone_set('America/Mexico_City');
+
+// Obtener los pacientes
+$sqlPac = "
+    SELECT 
+        di.id_atencion, 
+        CONCAT(p.nom_pac, ' ', p.papell, ' ', p.sapell) AS nombre_paciente
+    FROM 
+        dat_ingreso di
+    JOIN 
+        paciente p ON di.Id_exp = p.Id_exp
+    WHERE 
+        di.activo = 'SI'
+";
+$resultPac = $conexion->query($sqlPac);
+
+$pacientesOptions = '';
+if ($resultPac && $resultPac->num_rows > 0) {
+    while ($paciente = $resultPac->fetch_assoc()) {
+        $selected = (isset($_SESSION['paciente_seleccionado']) && $_SESSION['paciente_seleccionado'] == $paciente['id_atencion']) ? 'selected' : '';
+        $pacientesOptions .= "<option value='{$paciente['id_atencion']}' $selected>{$paciente['nombre_paciente']}</option>";
+    }
+}
+
+// Guardar el id_atencion en la sesión cuando se seleccione el paciente
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['paciente'])) {
+    $_SESSION['paciente_seleccionado'] = $_POST['paciente'];
+}
+
+// Obtener los medicamentos
+$queryMedicamentos = "SELECT DISTINCT 
+    ea.item_id, 
+    CONCAT(ia.item_name, ', ', ia.item_grams) AS item_name
+    FROM existencias_almacenq ea 
+    JOIN item_almacen ia ON ea.item_id = ia.item_id 
+    ORDER BY ia.item_name
+";
+$resultMedicamentos = $conexion->query($queryMedicamentos);
+
+$medicamentosOptions = '';
+if ($resultMedicamentos && $resultMedicamentos->num_rows > 0) {
+    while ($medicamento = $resultMedicamentos->fetch_assoc()) {
+        $selected = (isset($_POST['medicamento']) && $_POST['medicamento'] == $medicamento['item_id']) ? 'selected' : '';
+        $medicamentosOptions .= "<option value='{$medicamento['item_id']}' $selected>{$medicamento['item_name']}</option>";
+    }
+}
+
+// Obtener los lotes y la suma total de existencias para el medicamento seleccionado
+$lotesOptions = '';
+$totalExistencias = 0;
+if (isset($_POST['medicamento'])) {
+    $itemId = intval($_POST['medicamento']);
+    $sqlTotalExistencias = "
+        SELECT SUM(ea.existe_qty) AS total_existencias
+        FROM existencias_almacenh ea
+        WHERE ea.item_id = $itemId
+    ";
+    $resultTotalExistencias = $conexion->query($sqlTotalExistencias);
+    if ($resultTotalExistencias && $resultTotalExistencias->num_rows > 0) {
+        $row = $resultTotalExistencias->fetch_assoc();
+        $totalExistencias = $row['total_existencias'];
+    }
+
+    $sqlLotes = "
+        SELECT 
+            ea.existe_lote, ea.existe_caducidad, ea.existe_qty, ea.existe_id
+        FROM 
+            existencias_almacenh ea
+        WHERE 
+            ea.item_id = ? AND ea.existe_qty > 0
+        ORDER BY 
+            ea.existe_caducidad ASC
+    ";
+    $stmt = $conexion->prepare($sqlLotes);
+    $stmt->bind_param('i', $itemId);
+    $stmt->execute();
+    $resultLotes = $stmt->get_result();
+
+    $lotesOptions = '';
+    if ($resultLotes && $resultLotes->num_rows > 0) {
+        while ($lote = $resultLotes->fetch_assoc()) {
+            $lotesOptions .= "<option value='{$lote['existe_id']}|{$lote['existe_lote']}|$itemId' data-caducidad='{$lote['existe_caducidad']}' data-cantidad='{$lote['existe_qty']}'>
+                {$lote['existe_lote']} / {$lote['existe_caducidad']} / {$lote['existe_qty']}
+            </option>";
+        }
+    } else {
+        $lotesOptions .= "<option value='' disabled>No hay lotes disponibles</option>";
+    }
+    $stmt->close();
+}
+
+// Captura del formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['paciente']) && isset($_POST['medicamento']) && isset($_POST['lote']) && isset($_POST['cantidad'])) {
+    list($existeId, $nombreLote, $itemId) = explode('|', $_POST['lote']);
+    $itemId = intval($itemId);
+
+    $sqlAtencion = "SELECT id_atencion FROM dat_ingreso WHERE Id_exp = (SELECT Id_exp FROM dat_ingreso WHERE id_atencion = ?)";
+    $stmtAtencion = $conexion->prepare($sqlAtencion);
+    $stmtAtencion->bind_param('i', $_POST['paciente']);
+    $stmtAtencion->execute();
+    $stmtAtencion->bind_result($idAtencion);
+    $stmtAtencion->fetch();
+    $stmtAtencion->close();
+
+    $_SESSION['id_atencion'] = $idAtencion;
+
+    $sqlPacienteNombre = "SELECT CONCAT(nom_pac, ' ', papell, ' ', sapell) AS nombre_paciente FROM paciente WHERE Id_exp = (SELECT Id_exp FROM dat_ingreso WHERE id_atencion = ?)";
+    $stmtPaciente = $conexion->prepare($sqlPacienteNombre);
+    $stmtPaciente->bind_param('i', $_POST['paciente']);
+    $stmtPaciente->execute();
+    $stmtPaciente->bind_result($nombrePaciente);
+    $stmtPaciente->fetch();
+    $stmtPaciente->close();
+
+    $sqlMedicamentoNombrePrecio = "SELECT CONCAT(item_name, ', ', item_grams) AS item_name, item_price FROM item_almacen WHERE item_id = ?";
+    $stmtMedicamento = $conexion->prepare($sqlMedicamentoNombrePrecio);
+    $stmtMedicamento->bind_param('i', $_POST['medicamento']);
+    $stmtMedicamento->execute();
+    $stmtMedicamento->bind_result($nombreMedicamento, $precioMedicamento);
+    $stmtMedicamento->fetch();
+    $stmtMedicamento->close();
+
+    if (isset($_POST['agregar'])) {
+        if (!isset($_SESSION['medicamento_seleccionado'])) {
+            $_SESSION['medicamento_seleccionado'] = [];
+        }
+        $_SESSION['medicamento_seleccionado'][] = [
+            'paciente' => $nombrePaciente,
+            'item_id' => $itemId,
+            'medicamento' => $nombreMedicamento,
+            'lote' => $nombreLote,
+            'cantidad' => $_POST['cantidad'],
+            'existe_id' => $existeId,
+            'id_atencion' => $idAtencion,
+            'precio' => $precioMedicamento
+        ];
+        echo "<script>window.location.href = 'surtir_pacienteq.php';</script>";
+        exit();
+    }
+}
+
+// Eliminar registro
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_index'])) {
+    $index = intval($_POST['eliminar_index']);
+    if (isset($_SESSION['medicamento_seleccionado'][$index])) {
+        unset($_SESSION['medicamento_seleccionado'][$index]);
+        $_SESSION['medicamento_seleccionado'] = array_values($_SESSION['medicamento_seleccionado']);
+    }
+}
+
+// Procesar medicamentos
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'])) {
+    $fechaActual = date('Y-m-d H:i:s');
+
+    if (!isset($_SESSION['medicamento_seleccionado']) || empty($_SESSION['medicamento_seleccionado'])) {
+        echo "<script>alert('No hay registros en la memoria para procesar.'); window.location.href = 'surtir_pacienteq.php';</script>";
+        exit();
+    }
+
+    $conexion->begin_transaction();
+
+    try {
+        foreach ($_SESSION['medicamento_seleccionado'] as $index => $medicamento) {
+            $paciente = $medicamento['paciente'];
+            $nombreMedicamento = $medicamento['medicamento'];
+            $loteNombre = $medicamento['lote'];
+            $cantidadLote = $medicamento['cantidad'];
+            $existeId = $medicamento['existe_id'];
+            $Id_Atencion = $medicamento['id_atencion'];
+            $itemId = $medicamento['item_id'];
+
+            $queryItemAlmacen = "SELECT item_name, item_price FROM item_almacen WHERE item_id = ?";
+            $stmt = $conexion->prepare($queryItemAlmacen);
+            $stmt->bind_param("i", $itemId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $itemData = $result->fetch_assoc();
+                $salidaCostsu = $itemData['item_price'];
+            } else {
+                throw new Exception("Error: No se encontró el ítem con ID $itemId.");
+            }
+            $stmt->close();
+
+            $selectExistenciasQuery = "SELECT existe_qty, existe_caducidad, existe_salidas FROM existencias_almacenh WHERE existe_id = ?";
+            $stmtSelect = $conexion->prepare($selectExistenciasQuery);
+            $stmtSelect->bind_param('i', $existeId);
+            $stmtSelect->execute();
+            $stmtSelect->bind_result($existeQty, $caducidad, $existeSalidas);
+            $stmtSelect->fetch();
+            $stmtSelect->close();
+
+            $nuevaExistenciaQty = $existeQty - $cantidadLote;
+            $nuevaExistenciaSalidas = $existeSalidas + $cantidadLote;
+
+            if ($existeQty < $cantidadLote) {
+                echo "<script>alert('Error: El lote \"$loteNombre\" no tiene suficiente stock. Disponible: $existeQty, requerido: $cantidadLote.'); window.location.href = 'surtir_pacienteq.php';</script>";
+                exit;
+            }
+
+            $insert_kardex = "
+                INSERT INTO kardex_almacenh (
+                    kardex_fecha, item_id, kardex_lote, kardex_caducidad, kardex_inicial, kardex_entradas, kardex_salidas, kardex_qty, 
+                    kardex_dev_stock, kardex_dev_merma, kardex_movimiento, kardex_destino, id_surte
+                ) 
+                VALUES (NOW(), ?, ?, ?, 0, 0, ?, 0, 0, 0, 'Salida', 'QUIROFANO', ?)
+            ";
+            $stmt_kardex = $conexion->prepare($insert_kardex);
+            $stmt_kardex->bind_param('issii', $itemId, $loteNombre, $caducidad, $cantidadLote, $id_usua);
+            $stmt_kardex->execute();
+            $stmt_kardex->close();
+
+            $salio = "QUIROFANO";
+            $queryInsercion = "
+                INSERT INTO salidas_almacenh (
+                    item_id, item_name, salida_fecha, salida_lote, salida_caducidad, salida_qty, salida_costsu, id_usua, id_atencion, solicita, fecha_solicitud, salio
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)
+            ";
+            $stmtInsertSalida = $conexion->prepare($queryInsercion);
+            $stmtInsertSalida->bind_param(
+                "issssdiisss",
+                $itemId,
+                $nombreMedicamento,
+                $fechaActual,
+                $loteNombre,
+                $caducidad,
+                $cantidadLote,
+                $salidaCostsu,
+                $id_usua,
+                $Id_Atencion,
+                $fechaActual,
+                $salio
+            );
+            $stmtInsertSalida->execute();
+            $salidaId = $stmtInsertSalida->insert_id;
+            $stmtInsertSalida->close();
+
+            $insertDatCtapacQuery = "
+                INSERT INTO dat_ctapac (
+                    id_atencion, prod_serv, insumo, cta_fec, cta_cant, cta_tot, id_usua, cta_activo, salida_id, existe_lote, existe_caducidad
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ";
+            $stmtInsertDatCtapac = $conexion->prepare($insertDatCtapacQuery);
+            $prodServ = 'PC';
+            $ctaActivo = 'SI';
+            $stmtInsertDatCtapac->bind_param(
+                'isssddsssss',
+                $Id_Atencion,
+                $prodServ,
+                $itemId,
+                $fechaActual,
+                $cantidadLote,
+                $salidaCostsu,
+                $id_usua,
+                $ctaActivo,
+                $salidaId,
+                $loteNombre,
+                $caducidad
+            );
+            $stmtInsertDatCtapac->execute();
+            $stmtInsertDatCtapac->close();
+
+            $updateExistenciasQuery = "UPDATE existencias_almacenh SET existe_qty = ?, existe_fecha = ?, existe_salidas = ? WHERE existe_id = ?";
+            $stmtUpdateExistencias = $conexion->prepare($updateExistenciasQuery);
+            $stmtUpdateExistencias->bind_param('isii', $nuevaExistenciaQty, $fechaActual, $nuevaExistenciaSalidas, $existeId);
+            $stmtUpdateExistencias->execute();
+            $stmtUpdateExistencias->close();
+        }
+
+        $conexion->commit();
+        unset($_SESSION['medicamento_seleccionado']);
+        echo "<script>alert('Los medicamentos han sido registrados correctamente.'); window.location.href = 'surtir_pacienteq.php';</script>";
+    } catch (Exception $e) {
+        $conexion->rollback();
+        echo "<script>alert('Error: " . $e->getMessage() . "'); window.location.href = 'surtir_pacienteq.php';</script>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -160,13 +441,13 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             border-radius: 8px;
             padding: 10px 20px;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         #agregar-signos-adicionales:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         /* Estilos para formulario de nota de enfermería */
@@ -263,9 +544,20 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
         /* Animación de pulso para el indicador de grabación */
         @keyframes pulse-recording {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .pulse-animation {
@@ -298,6 +590,64 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         .reproducir-nota:hover {
             background-color: #219a52;
             transform: scale(1.05);
+        }
+
+        /* Estilos Insumos */
+        .insumos-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .insumos-container .form-group label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .insumos-container .form-group select,
+        .insumos-container .form-group input {
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        .insumos-container .btn-custom {
+            background-color: #0a4d44;
+            color: white;
+            font-size: 16px;
+        }
+
+        .insumos-container .btn-custom:hover {
+            background-color: #085c52;
+        }
+
+        .insumos-container .btn-danger {
+            font-size: 12px;
+            padding: 3px 8px;
+        }
+
+        .insumos-container .table {
+            font-size: 18px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .insumos-container h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .insumos-container .thead-custom {
+            background-color: #0c675e;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px auto;
+            width: fit-content;
         }
     </style>
 </head>
@@ -873,7 +1223,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                                 <input type="hidden" name="id_exp" value="<?php echo $id_exp; ?>">
                                 <input type="hidden" name="id_usua" value="<?php echo $id_usuario; ?>">
                                 <input type="hidden" name="id_atencion" value="<?php echo $id_atencion; ?>">
-                                
+
                                 <!-- Campos ocultos para capturar datos de tratamientos desde el formulario principal -->
                                 <input type="hidden" name="tratamientos_seleccionados" id="tratamientos_seleccionados_nota" value="">
                                 <input type="hidden" name="medico_tratante" id="medico_tratante_nota" value="">
@@ -1163,8 +1513,97 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     </div>
                 </div>
                 <div class="tab-pane fade" id="insumos" role="tabpanel">
-                    <h5 class="text-primary font-weight-bold"><i class="fas fa-box-open"></i> Insumos</h5>
-                    <p class="text-muted">Control y registro de insumos utilizados.</p>
+                    <div class="thead">
+                        <strong>
+                            SURTIR PACIENTE
+                        </strong>
+
+                    </div>
+                    <div class="insumos-container">
+
+                        <br><br>
+
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="paciente">Paciente</label>
+                                <select class="form-control" name="paciente" id="paciente">
+                                    <option value="" disabled selected>Seleccionar Paciente</option>
+                                    <?= $pacientesOptions ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="medicamento">Medicamento</label>
+                                <select class="form-control" name="medicamento" id="medicamento" onchange="this.form.submit()">
+                                    <option value="" disabled selected>Seleccionar Medicamento</option>
+                                    <?= $medicamentosOptions ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lote">Lote</label>
+                                <select class="form-control" name="lote" id="lote" onchange="actualizarLote()">
+                                    <option value="" disabled selected>Lote/Caducidad/Total</option>
+                                    <?= $lotesOptions ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidad" name="cantidad" min="1">
+                            </div>
+
+                            <div id="existe_id_display" class="font-weight-bold mt-2"></div>
+
+                            <div class="d-flex justify-content-start">
+                                <button type="submit" name="agregar" value="2" class="btn btn-custom mr-2">Agregar</button>
+                                <button type="submit" name="enviar_medicamentos" value="1" class="btn btn-custom">Enviar</button>
+                            </div>
+                        </form>
+
+                        <hr>
+
+                        <h3>ITEMS A SURTIR</h3>
+
+                        <?php
+                        if (isset($_SESSION['medicamento_seleccionado']) && is_array($_SESSION['medicamento_seleccionado'])) {
+                            echo "<table class='table table-bordered table-striped'>";
+                            echo "<thead class='thead-dark'>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Medicamento</th>
+                            <th>Lote</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead><tbody>";
+
+                            foreach ($_SESSION['medicamento_seleccionado'] as $index => $medicamento) {
+                                if (is_array($medicamento) && isset($medicamento['paciente'], $medicamento['medicamento'], $medicamento['lote'], $medicamento['cantidad'])) {
+                                    echo "<tr>";
+                                    echo "<td>{$medicamento['paciente']}</td>";
+                                    echo "<td>{$medicamento['medicamento']}</td>";
+                                    echo "<td>{$medicamento['lote']}</td>";
+                                    echo "<td>{$medicamento['cantidad']}</td>";
+                                    echo "<td>{$medicamento['precio']}</td>";
+                                    echo "<td>
+                                <form action='' method='post' style='display:inline;'>
+                                    <input type='hidden' name='eliminar_index' value='$index'>
+                                    <button type='submit' class='btn btn-danger'>Eliminar</button>
+                                </form>
+                            </td>";
+                                    echo "</tr>";
+                                } else {
+                                    echo "<tr><td colspan='6'>Datos incompletos para el medicamento.</td></tr>";
+                                }
+                            }
+                            echo "</tbody></table>";
+                        } else {
+                            echo "<p class='text-center'>No hay medicamentos seleccionados.</p>";
+                        }
+                        ?>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="equipos" role="tabpanel">
                     <div class="thead"><strong>REGISTRAR EQUIPOS</strong></div>
@@ -1786,14 +2225,14 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             // Función común para manejar tratamientos
             function manejarTratamientos(contexto) {
                 var tratamientosSeleccionados = $('.tratamiento-checkbox:checked');
-                
+
                 // Elementos específicos del contexto (nota)
                 var formularioContenedor = $('#formulario_contenedor_nota');
                 var formularioGeneral = $('#formulario_general_nota');
                 var tituloTratamientos = $('#titulo_tratamientos_dinamico_nota');
                 var camposLasik = $('#campos_lasik_nota');
                 var inputTratamientos = $('#tratamientos_seleccionados_input_nota');
-                
+
                 if (tratamientosSeleccionados.length > 0) {
                     // Obtener nombres de tratamientos seleccionados
                     var nombresTratamientos = [];
@@ -1801,15 +2240,15 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         var nombreTratamiento = $(this).data('tipo');
                         nombresTratamientos.push(nombreTratamiento.toUpperCase());
                     });
-                    
+
                     // Actualizar título dinámicamente
                     var tituloCompleto = 'FORMULARIO DE TRATAMIENTOS SELECCIONADOS<br><span style="color: #4a4ed1; font-weight: bold; font-size: 16px;">' + nombresTratamientos.join(' - ') + '</span>';
                     tituloTratamientos.html(tituloCompleto);
-                    
+
                     // Mostrar formulario inmediatamente
                     formularioContenedor.show();
                     formularioGeneral.show();
-                    
+
                     // Verificar si hay tratamientos LASIK seleccionados
                     var hayLasik = false;
                     tratamientosSeleccionados.each(function() {
@@ -1818,21 +2257,21 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                             return false;
                         }
                     });
-                    
+
                     // Mostrar/ocultar campos específicos de LASIK
                     if (hayLasik) {
                         camposLasik.show();
                     } else {
                         camposLasik.hide();
                     }
-                    
+
                     // Actualizar input hidden con tratamientos seleccionados
                     var tratamientosIds = [];
                     tratamientosSeleccionados.each(function() {
                         tratamientosIds.push($(this).val());
                     });
                     inputTratamientos.val(tratamientosIds.join(','));
-                    
+
                 } else {
                     // Restaurar título original y ocultar formulario
                     tituloTratamientos.html('FORMULARIO DE TRATAMIENTOS SELECCIONADOS');
@@ -1841,7 +2280,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     camposLasik.hide();
                 }
             }
-            
+
             // Event listener para checkboxes de tratamiento en pestaña nota
             $(document).on('change', '.tratamiento-checkbox', function() {
                 manejarTratamientos('nota');
@@ -1853,23 +2292,23 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             // Configurar Alertify con opciones mejoradas
             alertify.set('notifier', 'position', 'top-right');
             alertify.set('notifier', 'delay', 5);
-            
+
             // Configurar diálogos
             alertify.defaults.theme.ok = "btn btn-primary";
             alertify.defaults.theme.cancel = "btn btn-secondary";
             alertify.defaults.theme.input = "form-control";
-            
+
             // Personalizar textos
             alertify.defaults.glossary.title = 'Sistema de Signos Vitales';
             alertify.defaults.glossary.ok = 'Aceptar';
             alertify.defaults.glossary.cancel = 'Cancelar';
-            
+
             console.log('🎨 Sistema de notificaciones mejoradas inicializado');
         });
 
         // Funcionalidad para signos vitales múltiples
         let contadorFilasSignos = 1; // Solo tenemos 1 fila por defecto
-        
+
         // Agregar nueva fila de signos vitales
         $('#agregar-signos-adicionales').on('click', function() {
             contadorFilasSignos++;
@@ -1911,25 +2350,25 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             }
 
             console.log('Cargando signos vitales existentes...');
-            
+
             fetch(`obtener_signos_vitales.php?id_atencion=<?php echo $id_atencion; ?>`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Respuesta de signos vitales:', data);
-                
-                if (data.success && data.data && data.data.length > 0) {
-                    // Limpiar tabla actual (mantener solo la fila base)
-                    $('#signos-vitales-tbody tr.fila-signos-existente').remove();
-                    
-                    // Agregar signos vitales existentes
-                    data.data.forEach((signo, index) => {
-                        contadorFilasSignos++;
-                        const filaExistente = `
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta de signos vitales:', data);
+
+                    if (data.success && data.data && data.data.length > 0) {
+                        // Limpiar tabla actual (mantener solo la fila base)
+                        $('#signos-vitales-tbody tr.fila-signos-existente').remove();
+
+                        // Agregar signos vitales existentes
+                        data.data.forEach((signo, index) => {
+                            contadorFilasSignos++;
+                            const filaExistente = `
                             <tr class="fila-signos-vitales fila-signos-existente" data-id-trans-graf="${signo.id_trans_graf}">
                                 <td><strong>Registro Guardado</strong><br><small class="text-muted">${signo.fecha} - ${signo.tratamientos}</small></td>
                                 <td><input type="text" class="form-control signos-input bg-light" name="sistg[]" value="${signo.sistg}" readonly></td>
@@ -1949,20 +2388,20 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                                 </td>
                             </tr>
                         `;
-                        $('#signos-vitales-tbody').append(filaExistente);
-                    });
-                    
-                    alertify.success(`📊 Se cargaron ${data.data.length} registro(s) de signos vitales existentes.`);
-                    signosVitalesCargados = true;
-                } else {
-                    console.log('No hay signos vitales guardados para hoy');
-                    alertify.message('ℹ️ No hay signos vitales registrados para el día de hoy.');
-                }
-            })
-            .catch(error => {
-                console.error('Error al cargar signos vitales:', error);
-                alertify.error('❌ Error al cargar signos vitales existentes: ' + error.message);
-            });
+                            $('#signos-vitales-tbody').append(filaExistente);
+                        });
+
+                        alertify.success(`📊 Se cargaron ${data.data.length} registro(s) de signos vitales existentes.`);
+                        signosVitalesCargados = true;
+                    } else {
+                        console.log('No hay signos vitales guardados para hoy');
+                        alertify.message('ℹ️ No hay signos vitales registrados para el día de hoy.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar signos vitales:', error);
+                    alertify.error('❌ Error al cargar signos vitales existentes: ' + error.message);
+                });
         }
 
         // Editar signos vitales guardados
@@ -1971,15 +2410,15 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             const inputs = fila.find('input');
             const btnEditar = $(this);
             const btnGuardar = fila.find('.guardar-signos');
-            
+
             // Habilitar inputs para edición
             inputs.prop('readonly', false).removeClass('bg-light');
-            
+
             // Ocultar botón editar y mostrar botón guardar
             btnEditar.hide();
             btnGuardar.show().removeClass('btn-success').addClass('btn-primary');
             btnGuardar.html('<i class="fas fa-save"></i> Actualizar');
-            
+
             alertify.success('Modo de edición activado. Modifique los valores y presione "Actualizar".');
         });
 
@@ -1989,17 +2428,17 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             const inputs = fila.find('input');
             const btn = $(this);
             const btnEditar = fila.find('.editar-signos');
-            
+
             // Verificar si estamos en modo de actualización - mejora de detección
-            const esActualizacion = btn.html().includes('Actualizar') || 
-                                   fila.hasClass('fila-signos-existente') || 
-                                   btn.data('id-trans-graf');
+            const esActualizacion = btn.html().includes('Actualizar') ||
+                fila.hasClass('fila-signos-existente') ||
+                btn.data('id-trans-graf');
             const idTransGraf = btn.data('id-trans-graf') || fila.data('id-trans-graf');
-            
+
             console.log('Modo de operación:', esActualizacion ? 'ACTUALIZACIÓN' : 'NUEVO REGISTRO');
             console.log('ID Trans Graf:', idTransGraf);
             console.log('Es fila existente:', fila.hasClass('fila-signos-existente'));
-            
+
             // Validar que todos los campos estén llenos
             let todosLlenos = true;
             inputs.each(function() {
@@ -2064,25 +2503,25 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             formData.append('hora_signos', fila.find('input[name="hora_signos[]"]').val());
             formData.append('id_usua', '<?php echo $id_usuario; ?>');
             formData.append('id_atencion', '<?php echo $id_atencion; ?>');
-            
+
             // Agregar ID del registro si es una actualización
             if (esActualizacion && idTransGraf) {
                 formData.append('id_trans_graf', idTransGraf);
                 formData.append('es_actualizacion', '1');
             }
-            
+
             // Obtener tratamientos seleccionados
             const tratamientosSeleccionados = $('.tratamiento-checkbox:checked');
             let tratamientosIds = [];
             tratamientosSeleccionados.each(function() {
                 tratamientosIds.push($(this).val());
             });
-            
+
             // Si no hay tratamientos seleccionados, usar ID por defecto
             if (tratamientosIds.length === 0) {
                 tratamientosIds = ['1']; // ID por defecto para signos vitales
             }
-            
+
             formData.append('tratamientos_ids', tratamientosIds.join(','));
             formData.append('csrf_token', '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>');
 
@@ -2106,91 +2545,91 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
             // Enviar por AJAX
             fetch('insertar_signos_vitales.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Respuesta del servidor:', data);
-                
-                if (data.success) {
-                    btn.removeClass('btn-primary').addClass('btn-success');
-                    btn.html('<i class="fas fa-check"></i> Guardado');
-                    btn.hide(); // Ocultar botón guardar
-                    
-                    // Crear y mostrar botón editar
-                    if (btnEditar.length === 0) {
-                        const botonEditar = $('<button type="button" class="btn btn-warning btn-sm ml-1 editar-signos"><i class="fas fa-edit"></i> Editar</button>');
-                        btn.parent().append(botonEditar);
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+
+                    if (data.success) {
+                        btn.removeClass('btn-primary').addClass('btn-success');
+                        btn.html('<i class="fas fa-check"></i> Guardado');
+                        btn.hide(); // Ocultar botón guardar
+
+                        // Crear y mostrar botón editar
+                        if (btnEditar.length === 0) {
+                            const botonEditar = $('<button type="button" class="btn btn-warning btn-sm ml-1 editar-signos"><i class="fas fa-edit"></i> Editar</button>');
+                            btn.parent().append(botonEditar);
+                        } else {
+                            btnEditar.show();
+                        }
+
+                        // Deshabilitar inputs de la fila
+                        inputs.prop('readonly', true).addClass('bg-light');
+
+                        // Mensajes específicos según el tipo de operación
+                        let mensaje = data.message;
+                        if (data.details) {
+                            mensaje += ' ' + data.details;
+                        }
+
+                        if (data.registros_actualizados > 0) {
+                            alertify.success(`🔄 ${mensaje}`);
+                            console.log(`✅ Registros actualizados: ${data.registros_actualizados}`);
+                        } else if (data.registros_insertados > 0) {
+                            alertify.success(`💾 ${mensaje}`);
+                            console.log(`✅ Registros insertados: ${data.registros_insertados}`);
+                        } else {
+                            alertify.success(`✅ ${mensaje}`);
+                        }
+
+                        // Log adicional para debugging
+                        if (data.summary) {
+                            console.log('Resumen de la operación:', data.summary);
+                        }
+
+                        // Preguntar si quiere ir a nota de registro gráfico
+                        setTimeout(() => {
+                            alertify.confirm('Signos Vitales Guardados',
+                                `✅ Los signos vitales se han guardado correctamente.<br><br>¿Desea ir a la página de Nota de Registro Gráfico?`,
+                                function() {
+                                    // Sí, ir a la página
+                                    window.open('nota_registro_grafico.php', '_blank');
+                                },
+                                function() {
+                                    // No, permanecer en la página actual
+                                    console.log('Usuario decidió permanecer en la página actual');
+                                }
+                            );
+                        }, 1000);
+
                     } else {
-                        btnEditar.show();
+                        throw new Error(data.message || 'Error desconocido');
                     }
-                    
-                    // Deshabilitar inputs de la fila
-                    inputs.prop('readonly', true).addClass('bg-light');
-                    
-                    // Mensajes específicos según el tipo de operación
-                    let mensaje = data.message;
-                    if (data.details) {
-                        mensaje += ' ' + data.details;
+                })
+                .catch(error => {
+                    console.error('Error completo:', error);
+                    console.error('Modo era:', esActualizacion ? 'ACTUALIZACIÓN' : 'NUEVO REGISTRO');
+
+                    // Mostrar mensaje de error más informativo
+                    let mensajeError = 'Error al ' + (esActualizacion ? 'actualizar' : 'guardar') + ' signos vitales';
+
+                    // Si hay información adicional en el error, mostrarla
+                    if (error.message) {
+                        mensajeError += ': ' + error.message;
                     }
-                    
-                    if (data.registros_actualizados > 0) {
-                        alertify.success(`🔄 ${mensaje}`);
-                        console.log(`✅ Registros actualizados: ${data.registros_actualizados}`);
-                    } else if (data.registros_insertados > 0) {
-                        alertify.success(`💾 ${mensaje}`);
-                        console.log(`✅ Registros insertados: ${data.registros_insertados}`);
+
+                    alertify.error(mensajeError);
+
+                    // Restaurar estado del botón
+                    btn.prop('disabled', false);
+                    if (esActualizacion) {
+                        btn.html('<i class="fas fa-save"></i> Actualizar');
                     } else {
-                        alertify.success(`✅ ${mensaje}`);
+                        btn.html('<i class="fas fa-save"></i> Guardar');
                     }
-                    
-                    // Log adicional para debugging
-                    if (data.summary) {
-                        console.log('Resumen de la operación:', data.summary);
-                    }
-                    
-                    // Preguntar si quiere ir a nota de registro gráfico
-                    setTimeout(() => {
-                        alertify.confirm('Signos Vitales Guardados', 
-                            `✅ Los signos vitales se han guardado correctamente.<br><br>¿Desea ir a la página de Nota de Registro Gráfico?`,
-                            function() {
-                                // Sí, ir a la página
-                                window.open('nota_registro_grafico.php', '_blank');
-                            },
-                            function() {
-                                // No, permanecer en la página actual
-                                console.log('Usuario decidió permanecer en la página actual');
-                            }
-                        );
-                    }, 1000);
-                    
-                } else {
-                    throw new Error(data.message || 'Error desconocido');
-                }
-            })
-            .catch(error => {
-                console.error('Error completo:', error);
-                console.error('Modo era:', esActualizacion ? 'ACTUALIZACIÓN' : 'NUEVO REGISTRO');
-                
-                // Mostrar mensaje de error más informativo
-                let mensajeError = 'Error al ' + (esActualizacion ? 'actualizar' : 'guardar') + ' signos vitales';
-                
-                // Si hay información adicional en el error, mostrarla
-                if (error.message) {
-                    mensajeError += ': ' + error.message;
-                }
-                
-                alertify.error(mensajeError);
-                
-                // Restaurar estado del botón
-                btn.prop('disabled', false);
-                if (esActualizacion) {
-                    btn.html('<i class="fas fa-save"></i> Actualizar');
-                } else {
-                    btn.html('<i class="fas fa-save"></i> Guardar');
-                }
-            });
+                });
         });
 
         // Guardar todos los signos vitales de una vez
@@ -2199,9 +2638,9 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             const todasLasFilas = $('#signos-vitales-tbody tr.fila-signos-vitales');
             let signosParaGuardar = [];
             let erroresValidacion = [];
-            
+
             console.log('🔄 Iniciando validación de todos los signos vitales...');
-            
+
             // Validar todas las filas y recopilar datos
             todasLasFilas.each(function(index) {
                 const fila = $(this);
@@ -2212,10 +2651,10 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 const satg = fila.find('input[name="satg[]"]').val();
                 const tempg = fila.find('input[name="tempg[]"]').val();
                 const hora_signos = fila.find('input[name="hora_signos[]"]').val();
-                
+
                 // Verificar si la fila tiene datos
                 const tieneAlgunDato = sistg || diastg || fcardg || frespg || satg || tempg || hora_signos;
-                
+
                 if (tieneAlgunDato) {
                     // Validar que todos los campos estén completos
                     if (!sistg || !diastg || !fcardg || !frespg || !satg || !tempg || !hora_signos) {
@@ -2235,7 +2674,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         const frecRespiratoria = parseInt(frespg);
                         const saturacion = parseInt(satg.replace('%', ''));
                         const temperatura = parseFloat(tempg);
-                        
+
                         if (sistolica < 50 || sistolica > 200) {
                             erroresValidacion.push(`Fila ${index + 1}: Presión sistólica debe estar entre 50 y 200 mmHg`);
                         }
@@ -2254,7 +2693,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         if (temperatura < 34 || temperatura > 42) {
                             erroresValidacion.push(`Fila ${index + 1}: Temperatura debe estar entre 34°C y 42°C`);
                         }
-                        
+
                         if (erroresValidacion.length === 0 || !erroresValidacion.some(error => error.includes(`Fila ${index + 1}`))) {
                             // Solo agregar si no hay errores para esta fila
                             signosParaGuardar.push({
@@ -2269,19 +2708,19 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                                 es_actualizacion: fila.hasClass('fila-signos-existente'),
                                 id_trans_graf: fila.data('id-trans-graf') || null
                             });
-                            
+
                             // Remover clases de error
                             fila.find('input').removeClass('is-invalid');
                         }
                     }
                 }
             });
-            
+
             console.log(`📊 Signos para guardar: ${signosParaGuardar.length}`);
             console.log(`⚠️ Errores de validación: ${erroresValidacion.length}`);
-            
+
             if (erroresValidacion.length > 0) {
-                alertify.alert('Errores de Validación', 
+                alertify.alert('Errores de Validación',
                     '⚠️ Se encontraron los siguientes errores:<br><br>• ' + erroresValidacion.join('<br>• '),
                     function() {
                         // Focus en el primer campo con error
@@ -2290,14 +2729,14 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 );
                 return;
             }
-            
+
             if (signosParaGuardar.length === 0) {
                 alertify.warning('📝 No hay signos vitales para guardar. Complete al menos una fila con todos los datos.');
                 return;
             }
-            
+
             // Confirmar antes de proceder
-            alertify.confirm('Guardar Múltiples Registros', 
+            alertify.confirm('Guardar Múltiples Registros',
                 `🔄 ¿Está seguro de guardar ${signosParaGuardar.length} registro(s) de signos vitales?<br><br>Esta operación puede tardar unos momentos...`,
                 function() {
                     procesarSignosMultiples(signosParaGuardar, btn);
@@ -2311,32 +2750,32 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         // Función para procesar múltiples signos vitales
         function procesarSignosMultiples(signosParaGuardar, btn) {
             const totalSignos = signosParaGuardar.length;
-            
+
             // Cambiar estado del botón
             btn.prop('disabled', true);
             btn.html('<i class="fas fa-spinner fa-spin"></i> Guardando...');
-            
+
             console.log(`🚀 Iniciando procesamiento de ${totalSignos} signos vitales...`);
-            
+
             // Obtener tratamientos seleccionados
             const tratamientosSeleccionados = $('.tratamiento-checkbox:checked');
             let tratamientosIds = [];
             tratamientosSeleccionados.each(function() {
                 tratamientosIds.push($(this).val());
             });
-            
+
             // Si no hay tratamientos seleccionados, usar ID por defecto
             if (tratamientosIds.length === 0) {
                 tratamientosIds = ['1']; // ID por defecto para signos vitales
             }
-            
+
             // Preparar datos para envío múltiple
             const formData = new FormData();
             formData.append('id_usua', '<?php echo $id_usuario; ?>');
             formData.append('id_atencion', '<?php echo $id_atencion; ?>');
             formData.append('tratamientos_ids', tratamientosIds.join(','));
             formData.append('csrf_token', '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>');
-            
+
             // Agregar cada signo vital como array estructurado
             signosParaGuardar.forEach((signo, index) => {
                 formData.append(`signos_vitales[${index}][sistg]`, signo.sistg);
@@ -2347,87 +2786,87 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 formData.append(`signos_vitales[${index}][tempg]`, signo.tempg);
                 formData.append(`signos_vitales[${index}][hora_signos]`, signo.hora_signos);
             });
-            
+
             // Enviar todo de una vez
             fetch('guardar_signos_multiples.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('📊 Respuesta del procesamiento múltiple:', data);
-                
-                if (data.success) {
-                    // Marcar todas las filas como guardadas
-                    signosParaGuardar.forEach(signo => {
-                        const fila = $(`#signos-vitales-tbody tr.fila-signos-vitales:eq(${signo.fila_index})`);
-                        fila.find('.guardar-signos').hide();
-                        fila.find('input').prop('readonly', true).addClass('bg-light');
-                        
-                        // Agregar botón de editar si no existe
-                        if (fila.find('.editar-signos').length === 0) {
-                            const botonEditar = $('<button type="button" class="btn btn-warning btn-sm ml-1 editar-signos"><i class="fas fa-edit"></i> Editar</button>');
-                            fila.find('td:last').append(botonEditar);
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('📊 Respuesta del procesamiento múltiple:', data);
+
+                    if (data.success) {
+                        // Marcar todas las filas como guardadas
+                        signosParaGuardar.forEach(signo => {
+                            const fila = $(`#signos-vitales-tbody tr.fila-signos-vitales:eq(${signo.fila_index})`);
+                            fila.find('.guardar-signos').hide();
+                            fila.find('input').prop('readonly', true).addClass('bg-light');
+
+                            // Agregar botón de editar si no existe
+                            if (fila.find('.editar-signos').length === 0) {
+                                const botonEditar = $('<button type="button" class="btn btn-warning btn-sm ml-1 editar-signos"><i class="fas fa-edit"></i> Editar</button>');
+                                fila.find('td:last').append(botonEditar);
+                            }
+                        });
+
+                        // Mensaje de éxito detallado
+                        let mensajeCompleto = data.message;
+                        if (data.details) {
+                            mensajeCompleto += `<br><small>${data.details}</small>`;
                         }
-                    });
-                    
-                    // Mensaje de éxito detallado
-                    let mensajeCompleto = data.message;
-                    if (data.details) {
-                        mensajeCompleto += `<br><small>${data.details}</small>`;
+
+                        alertify.success(`🎉 ${mensajeCompleto}`);
+
+                        // Log detallado
+                        console.log(`✅ Procesamiento exitoso:`);
+                        console.log(`   - Total procesados: ${data.registros_procesados}`);
+                        console.log(`   - Exitosos: ${data.registros_exitosos}`);
+                        console.log(`   - Actualizados: ${data.registros_actualizados}`);
+                        console.log(`   - Insertados: ${data.registros_insertados}`);
+
+                        // Preguntar si quiere ir a nota de registro gráfico
+                        alertify.confirm('Signos Vitales Guardados',
+                            `🎉 Se han guardado exitosamente ${data.registros_procesados} registro(s) de signos vitales.<br><br>¿Desea ir a la página de Nota de Registro Gráfico?`,
+                            function() {
+                                // Sí, ir a la página
+                                window.open('http://127.0.0.1:8000/enfermera/registro_procedimientos/nota_registro_grafico.php', '_blank');
+                                // También recargar después de abrir la nueva página
+                                setTimeout(() => {
+                                    if (typeof cargarSignosVitalesExistentes === 'function') {
+                                        cargarSignosVitalesExistentes();
+                                    }
+                                }, 1000);
+                            },
+                            function() {
+                                // No, solo recargar
+                                setTimeout(() => {
+                                    if (typeof cargarSignosVitalesExistentes === 'function') {
+                                        cargarSignosVitalesExistentes();
+                                    }
+                                }, 1000);
+                            }
+                        );
+
+                    } else {
+                        throw new Error(data.message || 'Error desconocido en el procesamiento múltiple');
                     }
-                    
-                    alertify.success(`🎉 ${mensajeCompleto}`);
-                    
-                    // Log detallado
-                    console.log(`✅ Procesamiento exitoso:`);
-                    console.log(`   - Total procesados: ${data.registros_procesados}`);
-                    console.log(`   - Exitosos: ${data.registros_exitosos}`);
-                    console.log(`   - Actualizados: ${data.registros_actualizados}`);
-                    console.log(`   - Insertados: ${data.registros_insertados}`);
-                    
-                    // Preguntar si quiere ir a nota de registro gráfico
-                    alertify.confirm('Signos Vitales Guardados', 
-                        `🎉 Se han guardado exitosamente ${data.registros_procesados} registro(s) de signos vitales.<br><br>¿Desea ir a la página de Nota de Registro Gráfico?`,
+                })
+                .catch(error => {
+                    console.error('❌ Error en procesamiento múltiple:', error);
+                    alertify.alert('Error de Procesamiento',
+                        `❌ Error al guardar los signos vitales:<br><br>${error.message}`,
                         function() {
-                            // Sí, ir a la página
-                            window.open('http://127.0.0.1:8000/enfermera/registro_procedimientos/nota_registro_grafico.php', '_blank');
-                            // También recargar después de abrir la nueva página
-                            setTimeout(() => {
-                                if (typeof cargarSignosVitalesExistentes === 'function') {
-                                    cargarSignosVitalesExistentes();
-                                }
-                            }, 1000);
-                        },
-                        function() {
-                            // No, solo recargar
-                            setTimeout(() => {
-                                if (typeof cargarSignosVitalesExistentes === 'function') {
-                                    cargarSignosVitalesExistentes();
-                                }
-                            }, 1000);
+                            // Permitir al usuario intentar nuevamente
+                            console.log('🔄 Usuario puede intentar nuevamente');
                         }
                     );
-                    
-                } else {
-                    throw new Error(data.message || 'Error desconocido en el procesamiento múltiple');
-                }
-            })
-            .catch(error => {
-                console.error('❌ Error en procesamiento múltiple:', error);
-                alertify.alert('Error de Procesamiento', 
-                    `❌ Error al guardar los signos vitales:<br><br>${error.message}`,
-                    function() {
-                        // Permitir al usuario intentar nuevamente
-                        console.log('🔄 Usuario puede intentar nuevamente');
-                    }
-                );
-            })
-            .finally(() => {
-                // Restaurar estado del botón
-                btn.prop('disabled', false);
-                btn.html('<i class="fas fa-save"></i> Guardar todos los signos vitales');
-            });
+                })
+                .finally(() => {
+                    // Restaurar estado del botón
+                    btn.prop('disabled', false);
+                    btn.html('<i class="fas fa-save"></i> Guardar todos los signos vitales');
+                });
         }
 
         function deleteService(id_ctapac) {
@@ -2471,7 +2910,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         // Enviar formulario completo
         $(document).on('click', '#enviar-formulario-completo', function() {
             const btn = $(this);
-            
+
             // Validar que haya tratamientos seleccionados
             const tratamientosSeleccionados = $('.tratamiento-checkbox:checked');
             if (tratamientosSeleccionados.length === 0) {
@@ -2517,7 +2956,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
             if (signosVitales.length === 0) {
                 // Si no hay signos vitales en el formulario, verificar si el usuario quiere usar los guardados previamente
-                alertify.confirm('📊 Signos Vitales', 
+                alertify.confirm('📊 Signos Vitales',
                     'No hay signos vitales completados en el formulario actual.<br><br>¿Desea enviar el formulario utilizando los signos vitales guardados previamente?',
                     function() {
                         // Usuario acepta usar signos vitales previos
@@ -2530,9 +2969,9 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 );
                 return;
             }
-            
+
             procederConEnvio();
-            
+
             function procederConEnvio() {
                 // Confirmar envío
                 let mensajeConfirmacion;
@@ -2541,7 +2980,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 } else {
                     mensajeConfirmacion = '📤 ¿Está seguro de enviar el formulario completo?<br><br>Se utilizarán los signos vitales guardados previamente para los <strong>' + tratamientosSeleccionados.length + ' tratamiento(s)</strong> seleccionado(s).';
                 }
-                
+
                 alertify.confirm('🚀 Confirmación de Envío', mensajeConfirmacion,
                     function() {
                         // Usuario confirma el envío
@@ -2553,7 +2992,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     }
                 );
             }
-            
+
             function ejecutarEnvio() {
                 // Cambiar estado del botón
                 btn.prop('disabled', true);
@@ -2604,60 +3043,63 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
                 // Enviar por AJAX
                 fetch('enviar_formulario_completo.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Respuesta completa del servidor:', data);
-                    
-                    if (data.success) {
-                        btn.removeClass('btn-success').addClass('btn-primary');
-                        btn.html('<i class="fas fa-check"></i> Enviado Correctamente');
-                        
-                        // Mostrar mensaje de éxito con detalles
-                        let mensaje = data.message;
-                        if (data.details) {
-                            mensaje += '<br><small>' + data.details + '</small>';
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Respuesta completa del servidor:', data);
+
+                        if (data.success) {
+                            btn.removeClass('btn-success').addClass('btn-primary');
+                            btn.html('<i class="fas fa-check"></i> Enviado Correctamente');
+
+                            // Mostrar mensaje de éxito con detalles
+                            let mensaje = data.message;
+                            if (data.details) {
+                                mensaje += '<br><small>' + data.details + '</small>';
+                            }
+
+                            alertify.alert('✅ Formulario Enviado', mensaje, function() {
+                                // Preguntar sobre próximos pasos
+                                alertify.confirm('📊 Opciones',
+                                    '¿Qué desea hacer a continuación?<br><br>• <strong>Ver Gráficas:</strong> Consultar los signos vitales registrados<br>• <strong>Nuevo Registro:</strong> Recargar para registrar otro caso',
+                                    function() {
+                                        // Ir a ver gráficas
+                                        window.location.href = 'ver_grafica.php';
+                                    },
+                                    function() {
+                                        // Recargar página
+                                        window.location.reload();
+                                    }
+                                ).set('labels', {
+                                    ok: '📊 Ver Gráficas',
+                                    cancel: '🔄 Nuevo Registro'
+                                });
+                            });
+
+                            // Log detallado para debugging
+                            if (data.summary) {
+                                console.log('📊 Resumen de la operación:', data.summary);
+                            }
+
+                        } else {
+                            throw new Error(data.message || 'Error desconocido');
                         }
-                        
-                        alertify.alert('✅ Formulario Enviado', mensaje, function() {
-                            // Preguntar sobre próximos pasos
-                            alertify.confirm('📊 Opciones', 
-                                '¿Qué desea hacer a continuación?<br><br>• <strong>Ver Gráficas:</strong> Consultar los signos vitales registrados<br>• <strong>Nuevo Registro:</strong> Recargar para registrar otro caso',
-                                function() {
-                                    // Ir a ver gráficas
-                                    window.location.href = 'ver_grafica.php';
-                                },
-                                function() {
-                                    // Recargar página
-                                    window.location.reload();
-                                }
-                            ).set('labels', {ok:'📊 Ver Gráficas', cancel:'🔄 Nuevo Registro'});
+                    })
+                    .catch(error => {
+                        console.error('❌ Error completo:', error);
+
+                        let mensajeError = '❌ Error al enviar formulario';
+                        if (error.message) {
+                            mensajeError += ':<br>' + error.message;
+                        }
+
+                        alertify.alert('Error', mensajeError, function() {
+                            btn.prop('disabled', false);
+                            btn.html('<i class="fas fa-paper-plane"></i> Enviar Formulario Completo');
                         });
-                        
-                        // Log detallado para debugging
-                        if (data.summary) {
-                            console.log('📊 Resumen de la operación:', data.summary);
-                        }
-                        
-                    } else {
-                        throw new Error(data.message || 'Error desconocido');
-                    }
-                })
-                .catch(error => {
-                    console.error('❌ Error completo:', error);
-                    
-                    let mensajeError = '❌ Error al enviar formulario';
-                    if (error.message) {
-                        mensajeError += ':<br>' + error.message;
-                    }
-                    
-                    alertify.alert('Error', mensajeError, function() {
-                        btn.prop('disabled', false);
-                        btn.html('<i class="fas fa-paper-plane"></i> Enviar Formulario Completo');
                     });
-                });
             }
         });
 
@@ -2665,11 +3107,11 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         $('form[action="insertar_nota_enfermeria.php"]').on('submit', function(e) {
             console.log('🚀 Formulario de nota de enfermería enviado');
             e.preventDefault();
-            
+
             const form = $(this);
             const btn = form.find('button[type="submit"]');
             const originalHtml = btn.html();
-            
+
             console.log('📋 Datos del formulario:', {
                 nota: $('textarea[name="nota_enfermeria"]').val(),
                 enfermera: $('input[name="enfermera_responsable"]').val(),
@@ -2677,16 +3119,16 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 id_usua: $('input[name="id_usua"]').val(),
                 id_atencion: $('input[name="id_atencion"]').val()
             });
-            
+
             // Validar campos requeridos
             let errores = [];
-            
+
             if (!$('textarea[name="nota_enfermeria"]').val().trim()) {
                 errores.push('Nota de enfermería es requerida');
             }
-            
+
             console.log('⚠️ Errores encontrados:', errores);
-            
+
             if (errores.length > 0) {
                 alertify.alert('Campos Requeridos', '⚠️ ' + errores.join('<br>• '), function() {
                     // Focus en el primer campo con error
@@ -2696,112 +3138,112 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 });
                 return;
             }
-            
+
             // Capturar datos de tratamientos del formulario principal antes de enviar
             capturarDatosTratamientos();
-            
+
             // Deshabilitar botón y mostrar loading
             btn.prop('disabled', true);
             btn.html('<i class="fas fa-spinner fa-spin"></i> Guardando...');
-            
+
             console.log('🔄 Enviando formulario...');
-            
+
             // Preparar datos del formulario
             const formData = new FormData(this);
-            
+
             // Debug: Mostrar todos los datos que se envían
             console.log('📤 Datos a enviar:');
             for (let [key, value] of formData.entries()) {
                 console.log(`  ${key}: ${value}`);
             }
-            
+
             // Enviar datos por AJAX
             $.ajax({
-                url: 'insertar_nota_enfermeria.php',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: 'json',
-                timeout: 30000
-            })
-            .done(function(response) {
-                console.log('✅ Respuesta recibida:', response);
-                
-                if (response.success) {
-                    // Mostrar notificación de éxito
-                    alertify.success(response.message || '✅ Nota de enfermería guardada exitosamente');
-                    
-                    // Limpiar formulario excepto campos que deben mantenerse
-                    $('textarea[name="nota_enfermeria"]').val('');
-                    
-                    // Opcional: mostrar detalles adicionales si están disponibles
-                    if (response.data) {
-                        console.log('📋 Datos guardados:', response.data);
+                    url: 'insertar_nota_enfermeria.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    timeout: 30000
+                })
+                .done(function(response) {
+                    console.log('✅ Respuesta recibida:', response);
+
+                    if (response.success) {
+                        // Mostrar notificación de éxito
+                        alertify.success(response.message || '✅ Nota de enfermería guardada exitosamente');
+
+                        // Limpiar formulario excepto campos que deben mantenerse
+                        $('textarea[name="nota_enfermeria"]').val('');
+
+                        // Opcional: mostrar detalles adicionales si están disponibles
+                        if (response.data) {
+                            console.log('📋 Datos guardados:', response.data);
+                        }
+
+                    } else {
+                        console.error('❌ Error del servidor:', response);
+                        // Mostrar error
+                        alertify.alert('Error', response.message || '❌ Error al guardar nota de enfermería');
                     }
-                    
-                } else {
-                    console.error('❌ Error del servidor:', response);
-                    // Mostrar error
-                    alertify.alert('Error', response.message || '❌ Error al guardar nota de enfermería');
-                }
-            })
-            .fail(function(xhr, status, error) {
-                console.error('❌ Error AJAX completo:', {
-                    xhr: xhr,
-                    status: status,
-                    error: error,
-                    responseText: xhr.responseText,
-                    responseJSON: xhr.responseJSON
+                })
+                .fail(function(xhr, status, error) {
+                    console.error('❌ Error AJAX completo:', {
+                        xhr: xhr,
+                        status: status,
+                        error: error,
+                        responseText: xhr.responseText,
+                        responseJSON: xhr.responseJSON
+                    });
+
+                    let mensajeError = '❌ Error de conexión al guardar la nota de enfermería';
+
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        mensajeError = xhr.responseJSON.message;
+                    } else if (xhr.responseText) {
+                        console.error('Respuesta del servidor:', xhr.responseText);
+                        mensajeError = '❌ Error del servidor: ' + xhr.responseText.substring(0, 200);
+                    } else if (status === 'timeout') {
+                        mensajeError = '⏱️ Tiempo de espera agotado. Verifique su conexión.';
+                    } else if (status === 'error') {
+                        mensajeError = '🔌 Error de conexión con el servidor.';
+                    }
+
+                    alertify.alert('Error de Conexión', mensajeError);
+                })
+                .always(function() {
+                    // Rehabilitar botón
+                    btn.prop('disabled', false);
+                    btn.html(originalHtml);
                 });
-                
-                let mensajeError = '❌ Error de conexión al guardar la nota de enfermería';
-                
-                if (xhr.responseJSON && xhr.responseJSON.message) {
-                    mensajeError = xhr.responseJSON.message;
-                } else if (xhr.responseText) {
-                    console.error('Respuesta del servidor:', xhr.responseText);
-                    mensajeError = '❌ Error del servidor: ' + xhr.responseText.substring(0, 200);
-                } else if (status === 'timeout') {
-                    mensajeError = '⏱️ Tiempo de espera agotado. Verifique su conexión.';
-                } else if (status === 'error') {
-                    mensajeError = '🔌 Error de conexión con el servidor.';
-                }
-                
-                alertify.alert('Error de Conexión', mensajeError);
-            })
-            .always(function() {
-                // Rehabilitar botón
-                btn.prop('disabled', false);
-                btn.html(originalHtml);
-            });
         });
 
         // Función para capturar datos de tratamientos del formulario principal
         function capturarDatosTratamientos() {
             console.log('📋 Capturando datos de tratamientos...');
-            
+
             // Capturar tratamientos seleccionados
             const tratamientosSeleccionados = $('.tratamiento-checkbox:checked');
             let tratamientosIds = [];
             let nombresTratamientos = [];
-            
+
             tratamientosSeleccionados.each(function() {
                 tratamientosIds.push($(this).val());
                 nombresTratamientos.push($(this).data('tipo'));
             });
-            
+
             // Capturar datos del formulario de tratamientos (si está visible)
             const medicoTratante = $('select[name="medico_tratante"]').val() || 'Sin asignar';
             const anestesiologo = $('select[name="anestesiologo"]').val() || 'Sin asignar';
             const anestesia = $('select[name="anestesia"]').val() || 'Sin asignar';
-            
+
             // Actualizar campos ocultos en el formulario de nota
             $('#tratamientos_seleccionados_nota').val(nombresTratamientos.join(', '));
             $('#medico_tratante_nota').val(medicoTratante);
             $('#anestesiologo_nota').val(anestesiologo);
             $('#anestesia_nota').val(anestesia);
-            
+
             console.log('✅ Datos capturados:', {
                 tratamientos: nombresTratamientos.join(', '),
                 medico_tratante: medicoTratante,
@@ -2831,7 +3273,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 textarea: $('textarea[name="nota_enfermeria"]').length,
                 select_medico: $('select[name="medico_responsable"]').length
             });
-            
+
             if ($('form[action="insertar_nota_enfermeria.php"]').length === 0) {
                 console.error('❌ PROBLEMA: No se encontró el formulario de nota de enfermería');
             } else {
@@ -2844,7 +3286,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         // =========================================
         // FUNCIONALIDAD DE DICTADO POR VOZ
         // =========================================
-        
+
         // Variables globales para el reconocimiento de voz
         let recognition = null;
         let isRecording = false;
@@ -2856,24 +3298,24 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
                 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
                 recognition = new SpeechRecognition();
-                
+
                 // Configuración del reconocimiento
                 recognition.continuous = true;
                 recognition.interimResults = true;
                 recognition.lang = 'es-ES'; // Español
                 recognition.maxAlternatives = 1;
-                
+
                 // Eventos del reconocimiento
                 recognition.onstart = function() {
                     console.log('🎤 Dictado iniciado');
                     isRecording = true;
                     updateRecordingUI(true);
                 };
-                
+
                 recognition.onresult = function(event) {
                     let finalTranscript = '';
                     let interimTranscript = '';
-                    
+
                     for (let i = event.resultIndex; i < event.results.length; i++) {
                         const transcript = event.results[i][0].transcript;
                         if (event.results[i].isFinal) {
@@ -2882,25 +3324,25 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                             interimTranscript += transcript;
                         }
                     }
-                    
+
                     // Solo agregar el texto final nuevo al texto base
                     if (finalTranscript) {
                         recordedText += finalTranscript;
                     }
-                    
+
                     // Mostrar texto base + texto final + texto temporal
                     $('.nota-enfermeria').val(recordedText + interimTranscript);
-                    
+
                     // Auto-scroll del textarea
                     const textarea = $('.nota-enfermeria')[0];
                     textarea.scrollTop = textarea.scrollHeight;
                 };
-                
+
                 recognition.onerror = function(event) {
                     console.error('❌ Error en el reconocimiento de voz:', event.error);
                     let errorMessage = 'Error en el reconocimiento de voz';
-                    
-                    switch(event.error) {
+
+                    switch (event.error) {
                         case 'network':
                             errorMessage = 'Error de conexión. Verifique su conexión a internet.';
                             break;
@@ -2917,20 +3359,20 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                             errorMessage = 'Servicio de reconocimiento de voz no disponible.';
                             break;
                     }
-                    
+
                     alertify.alert('Error de Dictado', '🎤 ' + errorMessage);
                     stopRecording();
                 };
-                
+
                 recognition.onend = function() {
                     console.log('🛑 Dictado finalizado');
                     isRecording = false;
                     updateRecordingUI(false);
-                    
+
                     // Asegurar que el texto final se guarde sin duplicaciones
                     $('.nota-enfermeria').val(recordedText);
                 };
-                
+
             } else {
                 console.warn('⚠️ Web Speech API no soportada en este navegador');
                 $('.grabar-nota, .detener-nota').prop('disabled', true).attr('title', 'Dictado no soportado en este navegador');
@@ -2945,9 +3387,9 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     .addClass('btn-warning')
                     .html('<i class="fas fa-microphone-slash"></i>')
                     .attr('title', 'Detener grabación');
-                
+
                 $('.detener-nota').prop('disabled', false);
-                
+
                 // Agregar indicador visual de grabación
                 if (!$('.recording-indicator').length) {
                     $('.btn-group').append('<span class="recording-indicator ml-2 text-danger"><i class="fas fa-circle" style="animation: pulse 1s infinite;"></i> Grabando...</span>');
@@ -2958,7 +3400,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     .addClass('btn-danger')
                     .html('<i class="fas fa-microphone"></i>')
                     .attr('title', 'Iniciar dictado');
-                
+
                 $('.detener-nota').prop('disabled', true);
                 $('.recording-indicator').remove();
             }
@@ -2970,19 +3412,19 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                 alertify.alert('No Soportado', '🎤 El dictado por voz no está disponible en este navegador.<br><br>💡 <strong>Navegadores compatibles:</strong><br>• Google Chrome<br>• Microsoft Edge<br>• Safari (macOS/iOS)');
                 return;
             }
-            
+
             if (isRecording) {
                 stopRecording();
                 return;
             }
-            
+
             try {
                 // Guardar el texto actual como base (sin duplicar)
                 recordedText = $('.nota-enfermeria').val();
                 recognition.start();
-                
+
                 alertify.success('🎤 Dictado iniciado. Hable claramente hacia el micrófono.');
-                
+
             } catch (error) {
                 console.error('Error al iniciar grabación:', error);
                 alertify.alert('Error', '🎤 No se pudo iniciar el dictado. Verifique los permisos del micrófono.');
@@ -3000,27 +3442,27 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         // Función para reproducir texto
         const playText = () => {
             const text = $('.nota-enfermeria').val().trim();
-            
+
             if (!text) {
                 alertify.alert('Sin Texto', '📝 No hay texto para reproducir en la nota de enfermería.');
                 return;
             }
-            
+
             if (!speechSynthesis) {
                 alertify.alert('No Soportado', '🔊 La síntesis de voz no está disponible en este navegador.');
                 return;
             }
-            
+
             // Detener cualquier reproducción anterior
             speechSynthesis.cancel();
-            
+
             // Crear nueva utterance
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'es-ES';
             utterance.rate = 0.9;
             utterance.pitch = 1;
             utterance.volume = 0.8;
-            
+
             // Eventos de la síntesis
             utterance.onstart = function() {
                 $('.reproducir-nota')
@@ -3028,31 +3470,31 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     .addClass('btn-warning')
                     .html('<i class="fas fa-stop"></i>')
                     .attr('title', 'Detener reproducción');
-                
+
                 alertify.success('🔊 Reproduciendo nota de enfermería...');
             };
-            
+
             utterance.onend = function() {
                 $('.reproducir-nota')
                     .removeClass('btn-warning')
                     .addClass('btn-success')
                     .html('<i class="fas fa-play"></i>')
                     .attr('title', 'Reproducir texto');
-                
+
                 alertify.success('✅ Reproducción finalizada.');
             };
-            
+
             utterance.onerror = function(event) {
                 console.error('Error en síntesis de voz:', event.error);
                 alertify.alert('Error de Reproducción', '🔊 Error al reproducir el texto: ' + event.error);
-                
+
                 $('.reproducir-nota')
                     .removeClass('btn-warning')
                     .addClass('btn-success')
                     .html('<i class="fas fa-play"></i>')
                     .attr('title', 'Reproducir texto');
             };
-            
+
             // Iniciar síntesis
             speechSynthesis.speak(utterance);
         };
@@ -3070,7 +3512,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
         $('.reproducir-nota').on('click', function(e) {
             e.preventDefault();
-            
+
             // Si ya está reproduciendo, detener
             if (speechSynthesis.speaking) {
                 speechSynthesis.cancel();
@@ -3079,7 +3521,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     .addClass('btn-success')
                     .html('<i class="fas fa-play"></i>')
                     .attr('title', 'Reproducir texto');
-                
+
                 alertify.success('🛑 Reproducción detenida.');
             } else {
                 playText();
@@ -3100,13 +3542,13 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     startRecording();
                 }
             }
-            
+
             // Ctrl+Shift+S para detener grabación
             if (e.ctrlKey && e.shiftKey && e.key === 'S') {
                 e.preventDefault();
                 stopRecording();
             }
-            
+
             // Ctrl+Shift+P para reproducir/detener reproducción
             if (e.ctrlKey && e.shiftKey && e.key === 'P') {
                 e.preventDefault();
@@ -3170,6 +3612,20 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         console.log('   • Botón rojo: Iniciar/Detener dictado');
         console.log('   • Botón azul: Detener dictado manualmente');
         console.log('   • Botón verde: Reproducir texto escrito');
+
+        function actualizarLote() {
+            const loteSelect = document.getElementById('lote');
+            const selectedOption = loteSelect.options[loteSelect.selectedIndex];
+
+            if (selectedOption) {
+                const caducidad = selectedOption.getAttribute('data-caducidad');
+                const cantidad = selectedOption.getAttribute('data-cantidad');
+                const existeId = selectedOption.value;
+
+                document.getElementById('existe_id_display').textContent = "Existe ID del lote seleccionado: " + existeId;
+                console.log("existe_id del lote seleccionado: " + existeId);
+            }
+        }
     </script>
 </body>
 
