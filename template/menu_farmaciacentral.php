@@ -29,7 +29,7 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
           type="text/css"/>
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
@@ -155,15 +155,7 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
-                  <?php
-$resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
-while($f = mysqli_fetch_array($resultado)){
-       $id_simg=$f['id_simg'];
-?>
-            <center><span class="fondo"><img src="../configuracion/admin/img/<?php echo $f['img_base']?>" alt="imgsistema" class="img-fluid" width="112"></span></center>
-          <?php
-}
-?>
+                    <span class="logo-lg"><b><img src="../imagenes/SI.PNG" height="30" width="120"></b></span>
                 </a>
             <?php
         } else if ($usuario['id_rol'] == 5) {
@@ -173,15 +165,7 @@ while($f = mysqli_fetch_array($resultado)){
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
-                  <?php
-$resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
-while($f = mysqli_fetch_array($resultado)){
-       $id_simg=$f['id_simg'];
-?>
-            <center><span class="fondo"><img src="../configuracion/admin/img/<?php echo $f['img_base']?>" alt="imgsistema" class="img-fluid" width="112"></span></center>
-          <?php
-}
-?>
+                    <span class="logo-lg"><b><img src="../imagenes/SI.PNG" height="30" width="120"></b></span>
                 </a>
             <?php
         } else {
@@ -250,7 +234,7 @@ while($f = mysqli_fetch_array($resultado)){
                 <div class="pull-left info">
                     <p><?php echo $usuario['nombre']; ?> <?php echo $usuario['papell']; ?></p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <a href="#"><i class="fas fa-circle text-success"></i> Online</a>
                 </div>
             </div>
 
@@ -258,56 +242,56 @@ while($f = mysqli_fetch_array($resultado)){
             <ul class="sidebar-menu">
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/cat_maestro.php">
-                        <i class="fa fa-folder"></i> <span>CATÁLOGO MAESTRO</span>
+                        <i class="fas fa-book-medical"></i> <span>CATÁLOGO MAESTRO</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/entradas.php">
-                        <i class="fa fa-folder"></i> <span>REGISTRAR ENTRADAS</span>
+                        <i class="fas fa-arrow-down"></i> <span>REGISTRAR ENTRADAS</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class=" treeview">
                     <a href="../sauxiliares/farmaciac/surtir_subalma.php">
-                        <i class="fa fa-folder"></i> <span>SURTIR SUBALMACENES</span>
+                        <i class="fas fa-shipping-fast"></i> <span>SURTIR SUBALMACENES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class=" treeview">
                     <a href="../sauxiliares/farmaciac/existencias.php">
-                        <i class="fa fa-folder"></i> <span>EXISTENCIAS</span>
+                        <i class="fas fa-boxes"></i> <span>EXISTENCIAS</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class=" treeview">
                     <a href="../sauxiliares/farmaciac/kardex.php">
-                        <i class="fa fa-folder"></i> <span>KARDEX</span>
+                        <i class="fas fa-chart-line"></i> <span>KAR</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/devoluciones.php">
-                        <i class="fa fa-folder"></i> <span>CONTROL DE CADUCIDADES</span>
+                        <i class="fas fa-calendar-times"></i> <span>CONTROL DE CADUCIDADES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/devoluciones.php">
-                        <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
+                        <i class="fas fa-undo"></i> <span>DEVOLUCIONES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/proveedores.php">
-                        <i class="fa fa-folder"></i> <span>PROVEEDORES</span>
+                        <i class="fas fa-truck"></i> <span>PROVEEDORES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
@@ -317,7 +301,7 @@ while($f = mysqli_fetch_array($resultado)){
                
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/ordenes_compra.php">
-                        <i class="fa fa-folder"></i> <span>COMPRAS</span>
+                        <i class="fas fa-shopping-cart"></i> <span>COMPRAS</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
 

@@ -28,8 +28,8 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+    <!-- Font Awesome Icons 6.0.0 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
         type="text/css" />
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
@@ -54,6 +54,76 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
     <![endif]-->
 
     <style>
+        /* Estilos para las tarjetas del menú principal */
+        .menu-card {
+            background: var(--card-color);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .menu-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .menu-icon i {
+            font-size: 2.8rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .menu-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Colores específicos para cada módulo */
+        .card-surtir { --card-color: linear-gradient(135deg, #28a745, #20c997); }
+        .card-existencias { --card-color: linear-gradient(135deg, #17a2b8, #6610f2); }
+        .card-kardex { --card-color: linear-gradient(135deg, #6f42c1, #e83e8c); }
+        .card-caducados { --card-color: linear-gradient(135deg, #ffc107, #fd7e14); }
+        .card-devoluciones { --card-color: linear-gradient(135deg, #dc3545, #fd7e14); }
+        .card-confirmar { --card-color: linear-gradient(135deg, #007bff, #6610f2); }
+        .card-pedir { --card-color: linear-gradient(135deg, #fd7e14, #ffc107); }
+        .card-salidas { --card-color: linear-gradient(135deg, #e83e8c, #dc3545); }
+        .card-inventario { --card-color: linear-gradient(135deg, #6c757d, #495057); }
+
+        /* Mantener estilos originales del AdminLTE */
         .dropdwn {
             float: left;
             overflow: hidden;
@@ -155,7 +225,7 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b><img src="../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                    <span class="logo-lg"><b><img src="../imagenes/SI.PNG" height="30" width="120"></b></span>
                 </a>
             <?php
             } else if ($usuario['id_rol'] == 5) {
@@ -165,7 +235,7 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b><img src="../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                    <span class="logo-lg"><b><img src="../imagenes/SI.PNG" height="30" width="120"></b></span>
                 </a>
             <?php
             } else {
@@ -234,7 +304,7 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
                     <div class="pull-left info">
                         <p><?php echo $usuario['nombre']; ?> <?php echo $usuario['papell']; ?></p>
 
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        <a href="#"><i class="fas fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
 
@@ -242,42 +312,42 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
                 <ul class="sidebar-menu">
                     <li class=" treeview">
                         <a href="../sauxiliares/farmaciaq/surtir_pacienteq.php">
-                            <i class="fa fa-folder"></i> <span>SURTIR MÉDICAMENTOS</span>
+                            <i class="fas fa-hand-holding-medical"></i> <span>SURTIR MÉDICAMENTOS</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class=" treeview">
                         <a href="../sauxiliares/farmaciaq/existenciasq.php">
-                            <i class="fa fa-folder"></i> <span>EXISTENCIAS</span>
+                            <i class="fas fa-boxes"></i> <span>EXISTENCIAS</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class="treeview">
                         <a href="">
-                            <i class="fa fa-folder"></i> <span>TOMA DE INVENTARIO</span>
+                            <i class="fas fa-clipboard-list"></i> <span>TOMA DE INVENTARIO</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class=" treeview">
                         <a href="../sauxiliares/farmaciaq/kardexq.php">
-                            <i class="fa fa-folder"></i> <span>KARDEX</span>
+                            <i class="fas fa-chart-line"></i> <span>KARDEX</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class=" treeview">
                         <a href="../sauxiliares/farmaciaq/caducadoq.php">
-                            <i class="fa fa-folder"></i> <span>CONTROL DE <br> CADUCIDADES</span>
+                            <i class="fas fa-calendar-times"></i> <span>CONTROL DE <br> CADUCIDADES</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class=" treeview">
                         <a href="../sauxiliares/farmaciaq/devolucionesq.php">
-                            <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
+                            <i class="fas fa-undo"></i> <span>DEVOLUCIONES</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
@@ -285,21 +355,21 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
 
                     <li class="treeview">
                         <a href="../sauxiliares/farmaciaq/confirmar_envioq.php">
-                            <i class="fa fa-folder"></i> <span>CONFIRMAR DE RECIBIDO</span>
+                            <i class="fas fa-check-circle"></i> <span>CONFIRMAR DE RECIBIDO</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class="treeview">
                         <a href="../sauxiliares/farmaciaq/pedir_almacenq.php">
-                            <i class="fa fa-folder"></i> <span>PEDIR A ALMACEN</span>
+                            <i class="fas fa-shopping-cart"></i> <span>PEDIR A ALMACEN</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                     </li>
                     <li class="treeview">
                         <a href="../sauxiliares/farmaciaq/salidasq.php">
-                            <i class="fa fa-folder"></i> <span>SALIDAS MEDICAMENTO</span>
+                            <i class="fas fa-file-export"></i> <span>SALIDAS MEDICAMENTO</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
@@ -330,179 +400,81 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
                         <!-- CONTENIDOO -->
                         <div class="row">
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="SURTIR MÉDICAMENTOS" href="../sauxiliares/farmaciaq/surtir_pacienteq.php"><img
-                                                    class="card-img-top" src="../img/cat_maestro.PNG"
-                                                    alt="SURTIR MÉDICAMENTOS" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>SURTIR MÉDICAMENTOS</h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/surtir_pacienteq.php" class="menu-card card-surtir">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-hand-holding-medical"></i>
                                     </div>
-
-                                </div>
+                                    <h3 class="menu-title">Surtir Medicamentos</h3>
+                                </a>
                             </div>
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Existencias"
-                                                href="../sauxiliares/farmaciaq/existenciasq.php"><img
-                                                    class="card-img-top" src="../img/inventariosfc.png"
-                                                    alt="Existencias" height="150" width="160" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>EXISTENCIAS</h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/existenciasq.php" class="menu-card card-existencias">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-boxes"></i>
                                     </div>
-
-                                </div>
-
+                                    <h3 class="menu-title">Existencias</h3>
+                                </a>
                             </div>
-
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Kardex" href="../sauxiliares/farmaciaq/kardexq.php"><img
-                                                    class="card-img-top" src="../img/kardex.png"
-                                                    alt="Kardex" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>KARDEX</h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/kardexq.php" class="menu-card card-kardex">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-chart-line"></i>
                                     </div>
-
-                                </div>
+                                    <h3 class="menu-title">Kardex</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Medicamentos Caducados"
-                                                href="../sauxiliares/farmaciaq/caducadoq.php"><img class="card-img-top"
-                                                    src="../img/caducado.webp"
-                                                    alt="medicamentos caducados"
-                                                    height="150"
-                                                    width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>CONTROL DE CADUCIDADES</h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/caducadoq.php" class="menu-card card-caducados">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-calendar-times"></i>
                                     </div>
-
-                                </div>
-
+                                    <h3 class="menu-title">Control de Caducidades</h3>
+                                </a>
                             </div>
-
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href="../sauxiliares/farmaciaq/devolucionesq.php"><img
-                                                    class="card-img-top" src="../img/dev.jpg"
-                                                    alt="Devoluciones" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>DEVOLUCIONES </h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/devolucionesq.php" class="menu-card card-devoluciones">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-undo"></i>
                                     </div>
-
-                                </div>
-
+                                    <h3 class="menu-title">Devoluciones</h3>
+                                </a>
                             </div>
-
-
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Surtir Medicamentos" href="../sauxiliares/farmaciaq/confirmar_envioq.php"><img
-                                                    class="card-img-top" src="../img/entradas_fc.png"
-                                                    alt="Surtir Medicamentos" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>CONFIRMAR DE RECIBIDO </h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/confirmar_envioq.php" class="menu-card card-confirmar">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-check-circle"></i>
                                     </div>
-
-                                </div>
-
+                                    <h3 class="menu-title">Confirmar de Recibido</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Existencias"
-                                                href="../sauxiliares/farmaciaq/pedir_almacenq.php"><img
-                                                    class="card-img-top" src="../img/resurte_subalma.png"
-                                                    alt="Existencias" height="150" width="160" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>PEDIR ALMACEN</h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/pedir_almacenq.php" class="menu-card card-pedir">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-shopping-cart"></i>
                                     </div>
-
-                                </div>
-
+                                    <h3 class="menu-title">Pedir Almacén</h3>
+                                </a>
                             </div>
-
-
                             <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Salidas"
-                                                href="../sauxiliares/farmaciaq/salidasq.php"><img class="card-img-top"
-                                                    src="../img/med_sald.jpg"
-                                                    alt="Salidas"
-                                                    height="150"
-                                                    width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>SALIDAS MEDICAMENTOS</h3>
-                                        </center>
-
+                                <a href="../sauxiliares/farmaciaq/salidasq.php" class="menu-card card-salidas">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-file-export"></i>
                                     </div>
-
-                                </div>
-
+                                    <h3 class="menu-title">Salidas Medicamentos</h3>
+                                </a>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Devoluciones" href=""><img
-                                                        class="card-img-top" src="../img/inventario.jpg" alt="devolucion"
-                                                        height="150" width="160" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>TOMA DE INVENTARIO</h3>
-                                            </center>
-
-                                        </div>
-
+                            <div class="col-lg-4 col-xs-6">
+                                <a href="#" class="menu-card card-inventario">
+                                    <div class="menu-icon">
+                                        <i class="fas fa-clipboard-list"></i>
                                     </div>
-                                </div>
-
-
+                                    <h3 class="menu-title">Toma de Inventario</h3>
+                                </a>
                             </div>
-
-
                         </div>
                     </div>
 
