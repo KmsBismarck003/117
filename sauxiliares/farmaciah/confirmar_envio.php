@@ -446,7 +446,7 @@ if (isset($_POST['confirmar'])) {
     </a>
 
     <div class="container">
-        <div class="thead" style="background-color: #0c675e; color: white; font-size: 20px;">
+        <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
             <strong>
                 <center>CONFIRMAR RECIBIDO</center>
             </strong>
@@ -454,7 +454,7 @@ if (isset($_POST['confirmar'])) {
 
         <form method="POST" action="" onsubmit="return confirmarEnvio();">
             <table class="table table-bordered table-striped" id="mytable">
-                <thead class="thead" style="background-color: #0c675e">
+                <thead class="thead" style="background-color: #2b2d7f">
                     <tr>
                         <th><input type="checkbox" id="select-all" disabled></th>
                         <th>
@@ -599,7 +599,7 @@ if (isset($_POST['confirmar'])) {
 
         .enviar {
             padding: 5px 10px;
-            background-color: #0c675e;
+            background-color: #2b2d7f;
             color: white;
             border: none;
             border-radius: 3px;

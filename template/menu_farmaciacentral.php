@@ -21,29 +21,28 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>INEO Metepec</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Font Awesome Icons -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons 6.0.0 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
-          type="text/css"/>
+          type="text/css" />
     <!-- Ionicons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
-    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- Daterange picker -->
-    <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
+    <link href="plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
            folder instead of downloading all of them to reduce the load. -->
-    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,8 +51,76 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
     <style>
+        /* Estilos para las tarjetas del menú principal */
+        .menu-card {
+            background: var(--card-color);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .menu-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .menu-icon i {
+            font-size: 2.8rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .menu-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .card-catalogo     { --card-color: linear-gradient(135deg, #2b2d7f 60%, #5a5ccf 100%); }
+        .card-entradas     { --card-color: linear-gradient(135deg, #007bff 60%, #66b3ff 100%); }
+        .card-surtir       { --card-color: linear-gradient(135deg, #28a745 60%, #6fdc8c 100%); }
+        .card-existencias  { --card-color: linear-gradient(135deg, #17a2b8 60%, #6ed3e6 100%); }
+        .card-kardex       { --card-color: linear-gradient(135deg, #6f42c1 60%, #b18be6 100%); }
+        .card-caducados    { --card-color: linear-gradient(135deg, #ffc107 60%, #ffe082 100%); }
+        .card-devoluciones { --card-color: linear-gradient(135deg, #dc3545 60%, #ff7b8a 100%); }
+        .card-proveedores  { --card-color: linear-gradient(135deg, #20c997 60%, #7be3c1 100%); }
+        .card-compras      { --card-color: linear-gradient(135deg, #fd7e14 60%, #ffc085 100%); }
+
+        /* Mantener estilos originales del AdminLTE */
         .dropdwn {
             float: left;
             overflow: hidden;
@@ -338,198 +405,94 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
         <section class="content">
             <section class="content container-fluid">
                 <div class="content box">
-                    <!-- CONTENIDOO -->
                     <div class="row">
                         <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Catálogo maestro" href="../sauxiliares/farmaciac/cat_maestro.php"><img
-                                                        class="card-img-top" src="../img/cat_maestro.PNG"
-                                                        alt="Catálogo maestro" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>CATÁLOGO MAESTRO</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
+                            <a href="../sauxiliares/farmaciac/cat_maestro.php" class="menu-card card-catalogo">
+                                <div class="menu-icon">
+                                    <i class="fas fa-book-medical"></i>                               </div>
+                                <h3 class="menu-title">Catálogo Maestro</h3>
+                            </a>
                         </div>
+
                         <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Entradas" href="../sauxiliares/farmaciac/entradas.php"><img
-                                                        class="card-img-top" src="../img/entradas_fc.png"
-                                                        alt="Entradas" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>REGISTRAR ENTRADAS</h3>
-                                        </center>
-
-                                    </div>
-
+                            <a href="../sauxiliares/farmaciac/entradas.php" class="menu-card card-entradas">
+                                <div class="menu-icon">
+                                    <i class="fas fa-arrow-down"></i>
                                 </div>
+                                <h3 class="menu-title">Registrar Entradas</h3>
+                            </a>
                         </div>
+
                         <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="Surtir Medicamentos" href="../sauxiliares/farmaciac/surtir_subalma.php"><img
-                                                    class="card-img-top" src="../img/resurte_subalma.png"
-                                                    alt="Surtir Medicamentos" height="150" width="200"/></a>
-                                    </center>
-                                    <center>
-                                        <h3>SURTIR SUBALMACENES</h3>
-                                    </center>
-
+                            <a href="../sauxiliares/farmaciac/surtir_subalma.php" class="menu-card card-surtir">
+                                <div class="menu-icon">
+                                    <i class="fas fa-shipping-fast"></i>
                                 </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row">
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="Existencias"
-                                           href="../sauxiliares/farmaciac/existencias.php"><img
-                                                    class="card-img-top" src="../img/inventariosfc.png"
-                                                    alt="Existencias" height="150" width="160"/></a>
-                                    </center>
-                                    <center>
-                                        <h3>EXISTENCIAS</h3>
-                                    </center>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Kardex" href="../sauxiliares/farmaciac/kardex.php"><img
-                                                        class="card-img-top" src="../img/kardex.png"
-                                                        alt="Kardex" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>KARDEX</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Medicamentos Caducados"
-                                               href="../sauxiliares/farmaciac/caducado.php"><img class="card-img-top"
-                                               src="../img/caducado.jpg"
-                                               alt="medicamentos caducados"
-                                               height="150"
-                                               width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>CONTROL DE CADUCIDADES</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href="../sauxiliares/farmaciac/devoluciones.php"><img
-                                                        class="card-img-top" src="../img/dev.jpg" alt="devolucion"
-                                                        height="150" width="160"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>DEVOLUCIONES</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Existencias" href="../sauxiliares/farmaciac/proveedores.php"><img
-                                                        class="card-img-top" src="../img/proveedor.PNG"
-                                                        alt="Existencias" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>PROVEEDORES</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Existencias" href="../sauxiliares/farmaciac/ordenes_compra.php"><img
-                                                        class="card-img-top" src="../img/compras.PNG"
-                                                        alt="Existencias" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>COMPRAS</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                    <!--
-                            <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href=""><img
-                                                        class="card-img-top" src="../img/inventario.jpg" alt="devolucion"
-                                                        height="150" width="160"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>TOMA DE INVENTARIO</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            </div>
-                    -->
-                            </div>
-
-
-            
+                                <h3 class="menu-title">Surtir Subalmacenes</h3>
+                            </a>
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-6">
+                            <a href="../sauxiliares/farmaciac/existencias.php" class="menu-card card-existencias">
+                                <div class="menu-icon">
+                                    <i class="fas fa-boxes"></i>
+                                </div>
+                                <h3 class="menu-title">Existencias</h3>
+                            </a>
+                        </div>
 
+                        <div class="col-lg-4 col-xs-6">
+                            <a href="../sauxiliares/farmaciac/kardex.php" class="menu-card card-kardex">
+                                <div class="menu-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 class="menu-title">Kardex</h3>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-6">
+                            <a href="../sauxiliares/farmaciac/caducado.php" class="menu-card card-caducados">
+                                <div class="menu-icon">
+                                    <i class="fas fa-calendar-times"></i>
+                                </div>
+                                <h3 class="menu-title">Control de Caducidades</h3>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-6">
+                            <a href="../sauxiliares/farmaciac/devoluciones.php" class="menu-card card-devoluciones">
+                                <div class="menu-icon">
+                                    <i class="fas fa-undo"></i>
+                                </div>
+                                <h3 class="menu-title">Devoluciones</h3>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-6">
+                            <a href="../sauxiliares/farmaciac/proveedores.php" class="menu-card card-proveedores">
+                                <div class="menu-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <h3 class="menu-title">Proveedores</h3>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-6">
+                            <a href="../sauxiliares/farmaciac/ordenes_compra.php" class="menu-card card-compras">
+                                <div class="menu-icon">
+                                    <i class="fas fa-shopping-cart"></i>                                </div>
+                                <h3 class="menu-title">Compras</h3>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            </section>
+        </section>
 
-
-            </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
     <footer class="main-footer">

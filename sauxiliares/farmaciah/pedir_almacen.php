@@ -106,7 +106,7 @@ if (isset($_GET['success_delete']) && $_GET['success_delete'] == 'true') {
 
         <div class="container">
 
-            <div class="thead" style="background-color: #0c675e; color: white; font-size: 20px;">
+            <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
                 <tr><strong>
                         <center>PEDIR A ALMACÉN</center>
                     </strong>
@@ -146,7 +146,7 @@ if (isset($_GET['success_delete']) && $_GET['success_delete'] == 'true') {
             <div class="table-responsive">
                 <h3>Medicamentos (Confirmados y No Confirmados)</h3>
                 <table class="table table-bordered table-striped" id="mytable">
-                    <thead class="thead" style="background-color: #0c675e">
+                    <thead class="thead" style="background-color: #2b2d7f">
                         <tr>
                             <th>
                                 <font color="white">No.

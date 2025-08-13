@@ -31,7 +31,7 @@ if ($usuario['id_rol'] == 11 || $usuario['id_rol'] == 4 || $usuario['id_rol'] ==
         }
 
         .thead {
-            background-color: #0c675e;
+            background-color: #2b2d7f;
             color: white;
             font-size: 20px;
             text-align: center;

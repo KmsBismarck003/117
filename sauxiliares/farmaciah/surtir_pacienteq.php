@@ -441,7 +441,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'
         Regresar
     </a>
     <div class="form-container">
-        <div class="thead" style="background-color: #0c675e; margin: 5px auto; padding: 5px; color: white; width: fit-content; text-align: center; border-radius: 5px;">
+        <div class="thead" style="background-color: #2b2d7f; margin: 5px auto; padding: 5px; color: white; width: fit-content; text-align: center; border-radius: 5px;">
             <h1 style="font-size: 26px; margin: 2;">SURTIR PACIENTE</h1>
         </div>
         <br><br>
@@ -611,7 +611,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'
     button {
         width: 100%;
         padding: 10px;
-        background-color: #0a4d44;
+        background-color: #2b2d7f;
         color: white;
         border: none;
         border-radius: 5px;
