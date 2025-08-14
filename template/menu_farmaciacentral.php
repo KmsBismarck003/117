@@ -153,7 +153,7 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 
              <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><b><img src="../imagenes/SI.PNG" height="30" width="120"></b></span>
                 </a>
@@ -163,7 +163,7 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
             ?>
              <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><b><img src="../imagenes/SI.PNG" height="30" width="120"></b></span>
                 </a>
@@ -326,210 +326,315 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
         <!-- Content Header (Page header) -->
 
         <!--AQUI VA QUE PUESTO TIENE-->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"><STRONG>
-                        <h4>FARMACIA CENTRAL</h4>
-                    </STRONG></li>
+        <nav aria-label="breadcrumb" style="background: #2b2d7f; padding: 15px; margin: 0;">
+            <ol class="breadcrumb" style="background: none; margin: 0; padding: 0;">
+                <li class="breadcrumb-item active" aria-current="page" style="color: white;">
+                    <strong>
+                        <h4 style="margin: 0; color: white;">
+                            <i class="fas fa-pills" style="margin-right: 10px;"></i>
+                            FARMACIA CENTRAL
+                        </h4>
+                    </strong>
+                </li>
             </ol>
         </nav>
 
         <!-- Main content -->
         <section class="content">
-            <section class="content container-fluid">
-                <div class="content box">
-                    <!-- CONTENIDOO -->
-                    <div class="row">
-                        <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Catálogo maestro" href="../sauxiliares/farmaciac/cat_maestro.php"><img
-                                                        class="card-img-top" src="../img/cat_maestro.PNG"
-                                                        alt="Catálogo maestro" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>CATÁLOGO MAESTRO</h3>
-                                        </center>
+            <style>
+                body {
+                    background: #f5f5f5;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
 
-                                    </div>
+                .farmacia-container {
+                    padding: 30px;
+                    background: #ffffff;
+                    min-height: 100vh;
+                    margin: 0;
+                }
 
-                                </div>
-                        </div>
-                        <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Entradas" href="../sauxiliares/farmaciac/entradas.php"><img
-                                                        class="card-img-top" src="../img/entradas_fc.png"
-                                                        alt="Entradas" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>REGISTRAR ENTRADAS</h3>
-                                        </center>
+                .farmacia-card {
+                    border-radius: 20px;
+                    padding: 40px 20px;
+                    margin: 20px 0;
+                    text-decoration: none;
+                    transition: all 0.4s ease;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                    height: 220px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                    border: none;
+                }
 
-                                    </div>
+                .farmacia-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 20px;
+                    padding: 2px;
+                    background: rgba(255,255,255,0.5);
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: exclude;
+                    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    mask-composite: exclude;
+                }
 
-                                </div>
-                        </div>
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="Surtir Medicamentos" href="../sauxiliares/farmaciac/surtir_subalma.php"><img
-                                                    class="card-img-top" src="../img/resurte_subalma.png"
-                                                    alt="Surtir Medicamentos" height="150" width="200"/></a>
-                                    </center>
-                                    <center>
-                                        <h3>SURTIR SUBALMACENES</h3>
-                                    </center>
+                .farmacia-card:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+                    text-decoration: none;
+                }
 
-                                </div>
+                .farmacia-card.catalogo {
+                    background: #e3f2fd;
+                    color: #1565c0;
+                }
 
+                .farmacia-card.entradas {
+                    background: #f3e5f5;
+                    color: #7b1fa2;
+                }
+
+                .farmacia-card.surtir {
+                    background: #e8f5e8;
+                    color: #388e3c;
+                }
+
+                .farmacia-card.existencias {
+                    background: #fff3e0;
+                    color: #f57c00;
+                }
+
+                .farmacia-card.kardex {
+                    background: #fce4ec;
+                    color: #c2185b;
+                }
+
+                .farmacia-card.caducidades {
+                    background: #ffebee;
+                    color: #d32f2f;
+                }
+
+                .farmacia-card.devoluciones {
+                    background: #e0f2f1;
+                    color: #00796b;
+                }
+
+                .farmacia-card.proveedores {
+                    background: #e8eaf6;
+                    color: #3f51b5;
+                }
+
+                .farmacia-card.compras {
+                    background: #fff8e1;
+                    color: #ff8f00;
+                }
+
+                .farmacia-card:hover.catalogo {
+                    background: #bbdefb;
+                }
+
+                .farmacia-card:hover.entradas {
+                    background: #e1bee7;
+                }
+
+                .farmacia-card:hover.surtir {
+                    background: #c8e6c9;
+                }
+
+                .farmacia-card:hover.existencias {
+                    background: #ffe0b2;
+                }
+
+                .farmacia-card:hover.kardex {
+                    background: #f8bbd9;
+                }
+
+                .farmacia-card:hover.caducidades {
+                    background: #ffcdd2;
+                }
+
+                .farmacia-card:hover.devoluciones {
+                    background: #b2dfdb;
+                }
+
+                .farmacia-card:hover.proveedores {
+                    background: #c5cae9;
+                }
+
+                .farmacia-card:hover.compras {
+                    background: #ffecb3;
+                }
+
+                .farmacia-icon-circle {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 15px auto;
+                    background: rgba(255, 255, 255, 0.9);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                }
+
+                .farmacia-card:hover .farmacia-icon-circle {
+                    transform: scale(1.1);
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                }
+
+                .farmacia-card i {
+                    font-size: 32px;
+                    opacity: 0.9;
+                }
+
+                .farmacia-card h4 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0;
+                    letter-spacing: 0.5px;
+                    line-height: 1.3;
+                    text-transform: uppercase;
+                }
+
+                .farmacia-title {
+                    text-align: center;
+                    color: #2b2d7f;
+                    font-weight: bold;
+                    margin-bottom: 40px;
+                    font-size: 32px;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                }
+
+                @media (max-width: 768px) {
+                    .farmacia-container {
+                        padding: 15px;
+                    }
+                    .farmacia-card {
+                        margin: 15px 0;
+                        padding: 30px 15px;
+                        height: 180px;
+                    }
+                    .farmacia-icon-circle {
+                        width: 60px;
+                        height: 60px;
+                    }
+                    .farmacia-card i {
+                        font-size: 24px;
+                    }
+                    .farmacia-card h4 {
+                        font-size: 14px;
+                    }
+                    .farmacia-title {
+                        font-size: 24px;
+                    }
+                }
+            </style>
+
+            <div class="farmacia-container">
+                <div class="row">
+                    <!-- Catálogo Maestro -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/cat_maestro.php" class="farmacia-card catalogo">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-book-medical"></i>
                             </div>
-
-                        </div>
-                        <div class="row">
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="Existencias"
-                                           href="../sauxiliares/farmaciac/existencias.php"><img
-                                                    class="card-img-top" src="../img/inventariosfc.png"
-                                                    alt="Existencias" height="150" width="160"/></a>
-                                    </center>
-                                    <center>
-                                        <h3>EXISTENCIAS</h3>
-                                    </center>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Kardex" href="../sauxiliares/farmaciac/kardex.php"><img
-                                                        class="card-img-top" src="../img/kardex.png"
-                                                        alt="Kardex" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>KARDEX</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Medicamentos Caducados"
-                                               href="../sauxiliares/farmaciac/caducado.php"><img class="card-img-top"
-                                               src="../img/caducado.jpg"
-                                               alt="medicamentos caducados"
-                                               height="150"
-                                               width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>CONTROL DE CADUCIDADES</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href="../sauxiliares/farmaciac/devoluciones.php"><img
-                                                        class="card-img-top" src="../img/dev.jpg" alt="devolucion"
-                                                        height="150" width="160"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>DEVOLUCIONES</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Existencias" href="../sauxiliares/farmaciac/proveedores.php"><img
-                                                        class="card-img-top" src="../img/proveedor.PNG"
-                                                        alt="Existencias" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>PROVEEDORES</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Existencias" href="../sauxiliares/farmaciac/ordenes_compra.php"><img
-                                                        class="card-img-top" src="../img/compras.PNG"
-                                                        alt="Existencias" height="150" width="200"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>COMPRAS</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                    <!--
-                            <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href=""><img
-                                                        class="card-img-top" src="../img/inventario.jpg" alt="devolucion"
-                                                        height="150" width="160"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>TOMA DE INVENTARIO</h3>
-                                        </center>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            </div>
-                    -->
-                            </div>
-
-
-            
-                        </div>
+                            <h4>CATÁLOGO MAESTRO</h4>
+                        </a>
                     </div>
 
+                    <!-- Registrar Entradas -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/entradas.php" class="farmacia-card entradas">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-box-open"></i>
+                            </div>
+                            <h4>REGISTRAR ENTRADAS</h4>
+                        </a>
+                    </div>
 
+                    <!-- Surtir Subalmacenes -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/surtir_subalma.php" class="farmacia-card surtir">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-truck-loading"></i>
+                            </div>
+                            <h4>SURTIR SUBALMACENES</h4>
+                        </a>
+                    </div>
+
+                    <!-- Existencias -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/existencias.php" class="farmacia-card existencias">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <h4>EXISTENCIAS</h4>
+                        </a>
+                    </div>
+
+                    <!-- Kardex -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/kardex.php" class="farmacia-card kardex">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h4>KARDEX</h4>
+                        </a>
+                    </div>
+
+                    <!-- Control de Caducidades -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/caducado.php" class="farmacia-card caducidades">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-calendar-times"></i>
+                            </div>
+                            <h4>CONTROL DE CADUCIDADES</h4>
+                        </a>
+                    </div>
+
+                    <!-- Devoluciones -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/devoluciones.php" class="farmacia-card devoluciones">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-undo-alt"></i>
+                            </div>
+                            <h4>DEVOLUCIONES</h4>
+                        </a>
+                    </div>
+
+                    <!-- Proveedores -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/proveedores.php" class="farmacia-card proveedores">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h4>PROVEEDORES</h4>
+                        </a>
+                    </div>
+
+                    <!-- Compras -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="../sauxiliares/farmaciac/ordenes_compra.php" class="farmacia-card compras">
+                            <div class="farmacia-icon-circle">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h4>COMPRAS</h4>
+                        </a>
+                    </div>
                 </div>
-
-
-            </section><!-- /.content -->
+            </div>
+        </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
     <footer class="main-footer">

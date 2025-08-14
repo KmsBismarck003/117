@@ -99,45 +99,155 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
             background-color: #ddd;
         }
 
-        .show {
+        .dropdwn:hover .dropdwn-content {
             display: block;
         }
 
-        * {
-            box-sizing: border-box;
+        /* Estilos modernos para el menú de servicios auxiliares */
+        .content {
+            padding: 20px;
         }
 
-        .todo-container {
-            max-width: 15000px;
-            height: auto;
-            display: flex;
-            overflow-y: scroll;
-            column-gap: 0.5em;
-            column-rule: 1px solid white;
-            column-width: 140px;
-            column-count: 7;
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .status {
-            width: 25%;
-            background-color: #ecf0f5;
-            position: relative;
-            padding: 60px 1rem 0.5rem;
+        .modern-card {
+            transition: all 0.3s ease !important;
+            border: none !important;
+            overflow: hidden;
+            border-radius: 20px !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+            background: white;
             height: 100%;
-
+            margin-bottom: 30px;
         }
 
-        .status h4 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #0b3e6f;
-            color: white;
+        .modern-card:hover {
+            transform: translateY(-15px) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+        }
+
+        .modern-card a {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+        .icon-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .modern-card:hover .icon-circle {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+        }
+
+        .modern-card .fa {
+            transition: all 0.3s ease;
+            font-size: 60px;
+        }
+
+        .modern-card:hover .fa {
+            transform: scale(1.1);
+            animation: pulse 1.5s infinite;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.4rem;
             margin: 0;
-            width: 100%;
-
-            padding: 0.5rem 1rem;
+            text-align: center;
+            padding: 20px;
         }
+
+        /* Animación pulso */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsividad mejorada */
+        @media (max-width: 768px) {
+            .modern-card {
+                margin-bottom: 25px;
+            }
+            
+            .icon-circle {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .modern-card .fa {
+                font-size: 40px !important;
+            }
+            
+            .card-title {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .icon-circle {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            .modern-card .fa {
+                font-size: 30px !important;
+            }
+            
+            .card-title {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Mejoras para el breadcrumb */
+        .breadcrumb {
+            background: linear-gradient(135deg, #2b2d7f 0%, #2b2d7f 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb h4 {
+            color: white !important;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modern-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .modern-card:nth-child(1) { animation-delay: 0.1s; }
+        .modern-card:nth-child(2) { animation-delay: 0.3s; }
+        .modern-card:nth-child(3) { animation-delay: 0.5s; }
     </style>
 </head>
 
@@ -153,7 +263,7 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 
                  <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -171,7 +281,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                  <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -294,60 +404,53 @@ while($f = mysqli_fetch_array($resultado)){
 
             <!-- Main content -->
             <section class="content">
-                            <section class="content container-fluid">
-                <div class="content box">
-                    <!-- CONTENIDOO -->
-                    <div class="row">
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
-                                    <center>
-                                        <a title="FARMACIA CENTRAL" 
-                                            href="../template/menu_farmaciacentral.php"  
-                                            title="FARMACIA CENTRAL">
-                                            <img class="card-img-top" src="../img/farmacia_central.png" alt="ceye" height="150" width="200" />
-                                        </a>                                      
-                                    </center>
-                                    <center><h4><strong> FARMACIA CENTRAL</strong></h4></center>
-
-                                </div>
-                                <div class="col-lg-1"></div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
-                                    <center>
-                                        <a title="FARMACIA" 
-                                           href="../template/menu_farmaciahosp.php" 
-                                           title="Farmacia">
-                                           <img class="card-img-top" src="../img/farmacia_hospitalaria.png" alt="farmacia" height="150" width="200" /></a>
-                                    </center>
-                                    <center><h4><strong>FARMACIA HOSPITALARIA</strong></h4></center>
-
-                                </div>
-                                <div class="col-lg-1"></div>
-                            </div>
-                        </div>
-                <div class="col-lg-4 col-xs-6">
+                <section class="content container-fluid">
+                    <div class="content box">
+                        <!-- CONTENIDOO -->
                         <div class="row">
-                            <div class="col-lg-1"></div>
-                            <div class="col-lg-8">
-                                <center>
-                                    <a title="QUIRÓFANO" 
-                                    href="../template/menu_farmaciaq.php"  
-                                    title="QUIRÓFANO">
-                                    <img class="card-img-top" src="../img/farmacia_quirofano.png" alt="ceye" height="150" width="200" /></a>
-                                </center>
-                                <center><h4><strong>FARMACIA QUIRÓFANO</strong></h4></center>
+                            <!-- FARMACIA CENTRAL -->
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="modern-card text-center" style="background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%);">
+                                    <div style="padding: 40px 20px;">
+                                        <a href="../template/menu_farmaciacentral.php" title="Farmacia Central" style="text-decoration: none;">
+                                            <div class="icon-circle" style="background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);">
+                                                <i class="fa fa-hospital-o" style="color: #2E7D32;"></i>
+                                            </div>
+                                            <h4 class="card-title" style="color: #2E7D32;">FARMACIA CENTRAL</h4>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-lg-1"></div>
+
+                            <!-- FARMACIA HOSPITALARIA -->
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="modern-card text-center" style="background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%);">
+                                    <div style="padding: 40px 20px;">
+                                        <a href="../template/menu_farmaciahosp.php" title="Farmacia Hospitalaria" style="text-decoration: none;">
+                                            <div class="icon-circle" style="background: linear-gradient(135deg, #B3E5FC 0%, #81D4FA 100%);">
+                                                <i class="fa fa-medkit" style="color: #0277BD;"></i>
+                                            </div>
+                                            <h4 class="card-title" style="color: #0277BD;">FARMACIA HOSPITALARIA</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FARMACIA QUIRÓFANO -->
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="modern-card text-center" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%);">
+                                    <div style="padding: 40px 20px;">
+                                        <a href="../template/menu_farmaciaq.php" title="Farmacia Quirófano" style="text-decoration: none;">
+                                            <div class="icon-circle" style="background: linear-gradient(135deg, #FFE0B2 0%, #FFCC02 100%);">
+                                                <i class="fa fa-heartbeat" style="color: #F57C00;"></i>
+                                            </div>
+                                            <h4 class="card-title" style="color: #F57C00;">FARMACIA QUIRÓFANO</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-</div>
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
 

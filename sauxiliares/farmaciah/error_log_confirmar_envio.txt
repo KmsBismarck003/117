@@ -265,3 +265,23 @@
 
 [30-Jul-2025 13:39:52 America/Guatemala] Procesando ID recib: 1506
 [30-Jul-2025 13:39:52 America/Guatemala] Proceso de confirmación completado exitosamente
+[12-Aug-2025 13:49:29 America/Guatemala] Iniciando proceso de confirmación
+[12-Aug-2025 13:49:29 America/Guatemala] IDs recibidos: Array
+(
+)
+
+[12-Aug-2025 13:49:29 America/Guatemala] Ubicaciones: Array
+(
+)
+
+[12-Aug-2025 13:49:29 America/Guatemala] Error: Faltan datos obligatorios - IDs: 0, Ubicaciones: 0
+[12-Aug-2025 13:49:35 America/Guatemala] Iniciando proceso de confirmación
+[12-Aug-2025 13:49:35 America/Guatemala] IDs recibidos: Array
+(
+)
+
+[12-Aug-2025 13:49:35 America/Guatemala] Ubicaciones: Array
+(
+)
+
+[12-Aug-2025 13:49:35 America/Guatemala] Error: Faltan datos obligatorios - IDs: 0, Ubicaciones: 0

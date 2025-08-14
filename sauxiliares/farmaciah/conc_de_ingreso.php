@@ -35,7 +35,7 @@ $resultado_historico = $conexion->query("
     <title>Seleccionar Paciente</title>
     <style>
         .btn-custom {
-            background-color: #0c675e;
+            background-color: #2b2d7f;
             color: white;
         }
     </style>

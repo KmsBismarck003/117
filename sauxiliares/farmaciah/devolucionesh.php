@@ -13,7 +13,14 @@ exit;
 $id_usua = $_SESSION['login']['id_usua']; // Obtiene el ID del usuario en sesión
 include "../header_farmaciah.php";
 ?>
-
+<style>
+    .thead {
+        background-color: #2b2d7f;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -50,7 +57,7 @@ include "../header_farmaciah.php";
         <h3 class="text-center text-primary">Devoluciones Pendientes</h3>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
+                <thead class="thead">
                     <tr>
                         <th>ID Paciente</th>
                         <th>Salida</th>

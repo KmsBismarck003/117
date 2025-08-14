@@ -29,7 +29,7 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"
         type="text/css" />
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
@@ -153,7 +153,7 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
 
                  <a href="menu_sauxiliares.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -171,7 +171,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                  <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -189,7 +189,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                 <a href="menu_imagenologia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><b><img src="../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
                 </a>
@@ -199,7 +199,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                  <a href="menu_administrativo.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+                    <span class="logo-mini"><b>SI</b>MA</span>
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -284,109 +284,42 @@ while($f = mysqli_fetch_array($resultado)){
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class=" treeview">
-                        <a href="../sauxiliares/farmaciah/surtir_paciente.php">
-                            <i class="fa fa-folder"></i> <span>SURTIR MÉDICAMENTOS <BR> HABITACIONES</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/surtir_paciente.php"><i class="fas fa-bed" style="color:#3399cc;"></i> <span style="color:#3399cc;">SURTIR HABITACIONES</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class=" treeview">
-                        <a href="../sauxiliares/farmaciah/surtir_pacienteq.php">
-                            <i class="fa fa-folder"></i> <span>SURTIR MÉDICAMENTOS <br> CIRUGÍAS y URGENCIAS</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/surtir_pacienteq.php"><i class="fas fa-user-md" style="color:#3399cc;"></i> <span style="color:#3399cc;">SURTIR CIRUGÍAS</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class=" treeview">
-                        <a href="../sauxiliares/farmaciah/existenciash.php">
-                            <i class="fa fa-folder"></i> <span>EXISTENCIAS</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/existenciash.php"><i class="fas fa-warehouse" style="color:#3399cc;"></i> <span style="color:#3399cc;">EXISTENCIAS</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class=" treeview">
-                        <a href="../sauxiliares/farmaciah/kardexh.php">
-                            <i class="fa fa-folder"></i> <span>KARDEX</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/kardexh.php"><i class="fas fa-clipboard-list" style="color:#3399cc;"></i> <span style="color:#3399cc;">KARDEX</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class=" treeview">
-                        <a href="../sauxiliares/farmaciah/caducadoh.php">
-                            <i class="fa fa-folder"></i> <span>CONTROL DE <br> CADUCIDADES</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/caducadoh.php"><i class="fas fa-calendar-times" style="color:#3399cc;"></i> <span style="color:#3399cc;">CADUCIDADES</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class=" treeview">
-                        <a href="../sauxiliares/farmaciah/devolucionesh.php">
-                            <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/devolucionesh.php"><i class="fas fa-undo-alt" style="color:#3399cc;"></i> <span style="color:#3399cc;">DEVOLUCIONES</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/confirmar_envio.php">
-                            <i class="fa fa-folder"></i> <span>CONFIRMAR ENTRADAS</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/confirmar_envio.php"><i class="fas fa-check-circle" style="color:#3399cc;"></i> <span style="color:#3399cc;">CONFIRMAR ENTRADAS</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/pedir_almacen.php">
-                            <i class="fa fa-folder"></i> <span>PEDIR A ALMACEN</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/pedir_almacen.php"><i class="fas fa-truck-loading" style="color:#3399cc;"></i> <span style="color:#3399cc;">PEDIR ALMACÉN</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                <!--
-                    <li class="treeview">
-                    <a href="">
-                        <i class="fa fa-folder"></i> <span>TOMA DE INVENTARIO</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-
-                    </li> 
-                -->
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/salidash.php">
-                            <i class="fa fa-folder"></i> <span>SALIDAS MEDICAMENTO</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/salidash.php"><i class="fas fa-sign-out-alt" style="color:#3399cc;"></i> <span style="color:#3399cc;">SALIDAS MEDICAMENTO</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/salidas_medh.php">
-                            <i class="fa fa-folder"></i> <span>SALIDAS x MEDICAMENTO</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/order_indica.php"><i class="fas fa-prescription" style="color:#3399cc;"></i> <span style="color:#3399cc;">INDICACIONES MÉDICAS</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/order_indica.php">
-                            <i class="fa fa-folder"></i> <span>INDICACIONES <br>MÉDICAS </span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
+                    <li>
+                        <a href="../sauxiliares/farmaciah/conc_de_ingreso.php"><i class="fas fa-balance-scale" style="color:#3399cc;"></i> <span style="color:#3399cc;">CONCILIACIÓN INGRESO</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/conc_de_ingreso.php">
-                            <i class="fa fa-folder"></i> <span>CONCILIACION <br>DE INGRESO </span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
+                    <li>
+                        <a href="../sauxiliares/farmaciah/select_pac.php"><i class="fas fa-user-circle" style="color:#3399cc;"></i> <span style="color:#3399cc;">PERFIL FARMACOTERAPÉUTICO</span> <span style="float:right;color:#3399cc;"><i class="fas fa-chevron-right"></i></span></a>
                     </li>
-                    <li class="treeview">
-                        <a href="../sauxiliares/farmaciah/select_pac.php">
-                            <i class="fa fa-folder"></i> <span>PERFIL <br>FARMACOTERAPÉUTICO </span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-
-                    </li>
-
-
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -397,281 +330,360 @@ while($f = mysqli_fetch_array($resultado)){
             <!-- Content Header (Page header) -->
 
             <!--AQUI VA QUE PUESTO TIENE-->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><STRONG>
-                            <h4>FARMACIA HOSPITALARIA</h4>
-                        </STRONG></li>
+            <nav aria-label="breadcrumb" style="background: #2b2d7f; padding: 15px; margin: 0;">
+                <ol class="breadcrumb" style="background: none; margin: 0; padding: 0;">
+                    <li class="breadcrumb-item active" aria-current="page" style="color: white;">
+                        <strong>
+                            <h4 style="margin: 0; color: white;">
+                                <i class="fas fa-hospital" style="margin-right: 10px;"></i>
+                                FARMACIA HOSPITALARIA
+                            </h4>
+                        </strong>
+                    </li>
                 </ol>
             </nav>
 
             <!-- Main content -->
             <section class="content">
-                <section class="content container-fluid">
-                    <div class="content box">
-                        <!-- CONTENIDOO -->
-                        <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="SURTIR MÉDICAMENTOS" href="../sauxiliares/farmaciah/surtir_paciente.php"><img
-                                                    class="card-img-top" src="../img/cat_maestro.PNG"
-                                                    alt="SURTIR MÉDICAMENTOS" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>SURTIR MÉDICAMENTOS <BR> HABITACIONES</h3>
-                                        </center>
+                <style>
+                    body {
+                        background: #f5f5f5;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
 
-                                    </div>
+                    .farmacia-container {
+                        padding: 30px;
+                        background: #ffffff;
+                        min-height: 100vh;
+                        margin: 0;
+                    }
 
+                    .farmacia-card {
+                        border-radius: 20px;
+                        padding: 40px 20px;
+                        margin: 20px 0;
+                        text-decoration: none;
+                        transition: all 0.4s ease;
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                        height: 220px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        position: relative;
+                        overflow: hidden;
+                        border: none;
+                    }
+
+                    .farmacia-card::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        border-radius: 20px;
+                        padding: 2px;
+                        background: rgba(255,255,255,0.5);
+                        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                        -webkit-mask-composite: exclude;
+                        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                        mask-composite: exclude;
+                    }
+
+                    .farmacia-card:hover {
+                        transform: translateY(-8px) scale(1.02);
+                        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+                        text-decoration: none;
+                    }
+
+                    .farmacia-card.surtir-hab {
+                        background: #e3f2fd;
+                        color: #1565c0;
+                    }
+
+                    .farmacia-card.surtir-cir {
+                        background: #f3e5f5;
+                        color: #7b1fa2;
+                    }
+
+                    .farmacia-card.existencias {
+                        background: #e8f5e8;
+                        color: #388e3c;
+                    }
+
+                    .farmacia-card.kardex {
+                        background: #fff3e0;
+                        color: #f57c00;
+                    }
+
+                    .farmacia-card.caducidades {
+                        background: #fce4ec;
+                        color: #c2185b;
+                    }
+
+                    .farmacia-card.devoluciones {
+                        background: #ffebee;
+                        color: #d32f2f;
+                    }
+
+                    .farmacia-card.confirmar {
+                        background: #e0f2f1;
+                        color: #00796b;
+                    }
+
+                    .farmacia-card.pedir {
+                        background: #e8eaf6;
+                        color: #3f51b5;
+                    }
+
+                    .farmacia-card.salidas {
+                        background: #fff8e1;
+                        color: #ff8f00;
+                    }
+
+                    .farmacia-card.indicaciones {
+                        background: #f1f8e9;
+                        color: #689f38;
+                    }
+
+                    .farmacia-card.conciliacion {
+                        background: #fce4ec;
+                        color: #e91e63;
+                    }
+
+                    .farmacia-card.perfil {
+                        background: #e8f5e8;
+                        color: #4caf50;
+                    }
+
+                    .farmacia-card:hover.surtir-hab {
+                        background: #bbdefb;
+                    }
+
+                    .farmacia-card:hover.surtir-cir {
+                        background: #e1bee7;
+                    }
+
+                    .farmacia-card:hover.existencias {
+                        background: #c8e6c9;
+                    }
+
+                    .farmacia-card:hover.kardex {
+                        background: #ffe0b2;
+                    }
+
+                    .farmacia-card:hover.caducidades {
+                        background: #f8bbd9;
+                    }
+
+                    .farmacia-card:hover.devoluciones {
+                        background: #ffcdd2;
+                    }
+
+                    .farmacia-card:hover.confirmar {
+                        background: #b2dfdb;
+                    }
+
+                    .farmacia-card:hover.pedir {
+                        background: #c5cae9;
+                    }
+
+                    .farmacia-card:hover.salidas {
+                        background: #ffecb3;
+                    }
+
+                    .farmacia-card:hover.indicaciones {
+                        background: #dcedc8;
+                    }
+
+                    .farmacia-card:hover.conciliacion {
+                        background: #f8bbd9;
+                    }
+
+                    .farmacia-card:hover.perfil {
+                        background: #c8e6c9;
+                    }
+
+                    .farmacia-icon-circle {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 15px auto;
+                        background: rgba(255, 255, 255, 0.9);
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease;
+                    }
+
+                    .farmacia-card:hover .farmacia-icon-circle {
+                        transform: scale(1.1);
+                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                    }
+
+                    .farmacia-card i {
+                        font-size: 32px;
+                        opacity: 0.9;
+                    }
+
+                    .farmacia-card h4 {
+                        font-size: 15px;
+                        font-weight: 600;
+                        margin: 0;
+                        letter-spacing: 0.5px;
+                        line-height: 1.3;
+                        text-transform: uppercase;
+                    }
+
+                    @media (max-width: 768px) {
+                        .farmacia-container {
+                            padding: 15px;
+                        }
+                        .farmacia-card {
+                            margin: 15px 0;
+                            padding: 30px 15px;
+                            height: 180px;
+                        }
+                        .farmacia-icon-circle {
+                            width: 60px;
+                            height: 60px;
+                        }
+                        .farmacia-card i {
+                            font-size: 24px;
+                        }
+                        .farmacia-card h4 {
+                            font-size: 13px;
+                        }
+                    }
+                </style>
+
+                <div class="farmacia-container">
+                    <div class="row">
+                        <!-- Surtir Medicamentos Habitaciones -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/surtir_paciente.php" class="farmacia-card surtir-hab">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-bed"></i>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="SURTIR MÉDICAMENTOS" href="../sauxiliares/farmaciah/surtir_pacienteq.php"><img
-                                                    class="card-img-top" src="../img/insumos_cx.jpg"
-                                                    alt="SURTIR MÉDICAMENTOS" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>SURTIR MÉDICAMENTOS <br> CIRUGÍAS y URGENCIAS</h3>
-                                        </center>
+                                <h4>SURTIR MEDICAMENTOS<br>HABITACIONES</h4>
+                            </a>
+                        </div>
 
-                                    </div>
-
+                        <!-- Surtir Medicamentos Cirugías y Urgencias -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/surtir_pacienteq.php" class="farmacia-card surtir-cir">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-user-md"></i>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Existencias"
-                                                    href="../sauxiliares/farmaciah/existenciash.php"><img
-                                                        class="card-img-top" src="../img/inventariosfc.png"
-                                                        alt="Existencias" height="150" width="160" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>EXISTENCIAS</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
+                                <h4>SURTIR MEDICAMENTOS<br>CIRUGÍAS Y URGENCIAS</h4>
+                            </a>
                         </div>
-                        <div class="row">    
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Kardex" href="../sauxiliares/farmaciah/kardexh.php"><img
-                                                        class="card-img-top" src="../img/kardex.png"
-                                                        alt="Kardex" height="150" width="200" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>KARDEX</h3>
-                                            </center>
 
-                                        </div>
-
-                                    </div>
-                            </div>
-                        
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Medicamentos Caducados"
-                                                    href="../sauxiliares/farmaciah/caducadoh.php"><img class="card-img-top"
-                                                        src="../img/caducado.webp"
-                                                        alt="medicamentos caducados"
-                                                        height="150"
-                                                        width="200" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>CONTROL DE CADUCIDADES</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                            
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href="../sauxiliares/farmaciah/devolucionesh.php"><img
-                                                    class="card-img-top" src="../img/dev.jpg"
-                                                    alt="Devoluciones" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>DEVOLUCIONES </h3>
-                                        </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                        </div>
-                        <div class="row">    
-                            
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                        <center>
-                                            <a title="Surtir Medicamentos" href="../sauxiliares/farmaciah/confirmar_envio.php"><img
-                                                    class="card-img-top" src="../img/entradas_fc.png"
-                                                    alt="Surtir Medicamentos" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>CONFIRMAR ENTRADAS </h3>
-                                        </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                        
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Existencias"
-                                                    href="../sauxiliares/farmaciah/pedir_almacen.php"><img
-                                                        class="card-img-top" src="../img/resurte_subalma.png"
-                                                        alt="Existencias" height="150" width="160" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>PEDIR ALMACEN</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                           
-
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Salidas"
-                                                    href="../sauxiliares/farmaciah/salidash.php"><img class="card-img-top"
-                                                        src="../img/med_sald.jpg"
-                                                        alt="Salidas"
-                                                        height="150"
-                                                        width="200" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>SALIDAS MEDICAMENTOS</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                        </div>
-                        <div class="row">        
-                            
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Indicaciones Médicas"
-                                                    href="../sauxiliares/farmaciah/order_indica.php"><img
-                                                        class="card-img-top" src="../img/ind_med.jpg"
-                                                        alt="Indicaciones médicas" height="150" width="160" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>INDICACIONES MÉDICAS</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-
-
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="Salidas"
-                                                    href="../sauxiliares/farmaciah/conc_de_ingreso.php"><img class="card-img-top"
-                                                        src="../img/conc_ingr.jpg"
-                                                        alt="Salidas"
-                                                        height="150"
-                                                        width="200" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>CONCILIACION DE INGRESO</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                                
-                            <div class="col-lg-4 col-xs-6">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <center>
-                                                <a title="perfil farmacoterapeutico"
-                                                    href="../sauxiliares/farmaciah/select_pac.php"><img class="card-img-top"
-                                                        src="../img/perfil_farma.jpg"
-                                                        alt="perfil farmacoterapeutico"
-                                                        height="150"
-                                                        width="200" /></a>
-                                            </center>
-                                            <center>
-                                                <h3>PERFIL FARMACOTERAPEUTICO</h3>
-                                            </center>
-
-                                        </div>
-
-                                    </div>
-
-                            </div>
-                        </div>
-                        
-                        <!-- 
-                            <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="Devoluciones" href=""><img
-                                                        class="card-img-top" src="../img/inventario.jpg" alt="devolucion"
-                                                        height="150" width="160"/></a>
-                                        </center>
-                                        <center>
-                                            <h3>TOMA DE INVENTARIO</h3>
-                                        </center>
-
-                                    </div>
-
+                        <!-- Existencias -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/existenciash.php" class="farmacia-card existencias">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-warehouse"></i>
                                 </div>
-                            </div>
-                                
-                            </div>
-                        -->
-                            
-                       
+                                <h4>EXISTENCIAS</h4>
+                            </a>
+                        </div>
+
+                        <!-- Kardex -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/kardexh.php" class="farmacia-card kardex">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <h4>KARDEX</h4>
+                            </a>
+                        </div>
+
+                        <!-- Control de Caducidades -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/caducadoh.php" class="farmacia-card caducidades">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-calendar-times"></i>
+                                </div>
+                                <h4>CONTROL DE CADUCIDADES</h4>
+                            </a>
+                        </div>
+
+                        <!-- Devoluciones -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/devolucionesh.php" class="farmacia-card devoluciones">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-undo-alt"></i>
+                                </div>
+                                <h4>DEVOLUCIONES</h4>
+                            </a>
+                        </div>
+
+                        <!-- Confirmar Entradas -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/confirmar_envio.php" class="farmacia-card confirmar">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h4>CONFIRMAR ENTRADAS</h4>
+                            </a>
+                        </div>
+
+                        <!-- Pedir Almacén -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/pedir_almacen.php" class="farmacia-card pedir">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-truck-loading"></i>
+                                </div>
+                                <h4>PEDIR ALMACÉN</h4>
+                            </a>
+                        </div>
+
+                        <!-- Salidas Medicamentos -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/salidash.php" class="farmacia-card salidas">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </div>
+                                <h4>SALIDAS MEDICAMENTOS</h4>
+                            </a>
+                        </div>
+
+                        <!-- Indicaciones Médicas -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/order_indica.php" class="farmacia-card indicaciones">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-prescription"></i>
+                                </div>
+                                <h4>INDICACIONES MÉDICAS</h4>
+                            </a>
+                        </div>
+
+                        <!-- Conciliación de Ingreso -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/conc_de_ingreso.php" class="farmacia-card conciliacion">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h4>CONCILIACIÓN DE INGRESO</h4>
+                            </a>
+                        </div>
+
+                        <!-- Perfil Farmacoterapéutico -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <a href="../sauxiliares/farmaciah/select_pac.php" class="farmacia-card perfil">
+                                <div class="farmacia-icon-circle">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <h4>PERFIL FARMACOTERAPÉUTICO</h4>
+                            </a>
+                        </div>
                     </div>
-
-
-                </section><!-- /.content -->
+                </div>
+            </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
 
         <footer class="main-footer">

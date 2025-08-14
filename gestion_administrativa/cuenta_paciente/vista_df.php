@@ -49,85 +49,283 @@ $rol = $usuario['id_rol'];
 
     <title>Menu Gestión administrativa </title>
     <link rel="shortcut icon" href="logp.png">
+    
+    <!-- Estilos modernos para vista_df.php -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container-fluid {
+            padding: 20px;
+        }
+        
+        /* Botones modernos */
+        .btn {
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        /* Header mejorado */
+        .thead {
+            background: linear-gradient(135deg, #2b2d7f 0%, #3c3f8f 100%) !important;
+            color: white !important;
+            font-size: 18px !important;
+            padding: 20px !important;
+            border-radius: 10px !important;
+            margin-bottom: 20px !important;
+            box-shadow: 0 4px 15px rgba(43, 45, 127, 0.3) !important;
+            text-align: center !important;
+        }
+        
+        /* Buscador mejorado */
+        .form-group {
+            margin: 20px 0;
+        }
+        
+        #search {
+            border-radius: 25px !important;
+            border: 2px solid #e9ecef !important;
+            padding: 12px 20px !important;
+            font-size: 16px !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+        }
+        
+        #search:focus {
+            border-color: #2b2d7f !important;
+            box-shadow: 0 0 0 0.2rem rgba(43, 45, 127, 0.25) !important;
+            outline: none !important;
+        }
+        
+        /* Tabla mejorada */
+        .table-responsive {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            background: white;
+            margin: 20px 0;
+        }
+        
+        .table {
+            margin-bottom: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .table thead th {
+            background: linear-gradient(135deg, #2b2d7f 0%, #3c3f8f 100%);
+            color: white;
+            border: none;
+            padding: 15px 12px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.01);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .table tbody td {
+            padding: 12px;
+            vertical-align: middle;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 13px;
+        }
+        
+        /* Botones de acción mejorados */
+        .table .btn-sm {
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        /* Colores especiales para celdas */
+        .table td[bgcolor="green"] {
+            background: linear-gradient(135deg, #27ae60, #2ecc71) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        
+        .table td[style*="background:grey"] {
+            background: linear-gradient(135deg, #7f8c8d, #95a5a6) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        
+        /* Números y totales */
+        .table td font[color="red"] {
+            color: #e74c3c !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+        }
+        
+        /* Animaciones suaves */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .table-responsive {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Responsividad mejorada */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 10px;
+            }
+            
+            .table {
+                font-size: 11px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .thead {
+                font-size: 16px !important;
+                padding: 15px !important;
+            }
+        }
+        
+        /* Card wrapper para mejor presentación */
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Header de página mejorado */
+        .page-header {
+            background: linear-gradient(135deg, #2b2d7f 0%, #667eea 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(43, 45, 127, 0.3);
+        }
+        
+        .page-header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 
 <div class="container-fluid">
+    <!-- Header de página moderno -->
+    <div class="page-header">
+        <h1><i class="fas fa-file-invoice-dollar"></i> CUENTA DE PACIENTES ACTIVOS</h1>
+    </div>
 
-    <div class="row">
-        <div class="col-sm-2">
-            <a type="submit" class="btn btn-danger btn-sm" onclick="history.back()">
-                <font color="white">Regresar</font>
-            </a>
-        </div>
-        <?php
-            if ($usuario['id_usua'] == 1 ) {
-            ?>
-        <div class="col-sm-4"><a href="vista_pagadas.php">
-                <button type="button" class="btn btn-primary col-md-8" data-target="#exampleModal">
-                    <i class="fa fa-plus"></i>
-                    <font id="letra">Cuentas pagadas</font>
+    <!-- Botones de acción -->
+    <div class="content-card">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-danger" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i> Regresar
                 </button>
+            </div>
+            <?php if ($usuario['id_usua'] == 1) { ?>
+                <div class="col-md-6">
+                    <a href="vista_pagadas.php" class="btn btn-primary">
+                        <i class="fas fa-check-circle"></i> Cuentas Pagadas
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="excel_cuentas_activas.php" class="btn btn-success">
+                        <i class="fas fa-file-excel"></i> Exportar Excel
+                    </a>
+                </div>
+            <?php } ?>
         </div>
-        <div class="col-sm">
-            <a href="excel_cuentas_activas.php">
-                <!--<button type="button" class="btn btn-warning"><img src="https://img.icons8.com/color/48/000000/ms-excel.png"/><strong>Exporta a excel</strong></a>-->
+    </div>
+
+    <!-- Buscador mejorado -->
+    <div class="content-card">
+        <div class="row">
+            <div class="col-md-6">
+                <h5><i class="fas fa-search"></i> Buscar en la tabla</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="search" placeholder="🔍 Buscar por nombre, expediente, habitación...">
+                </div>
+            </div>
         </div>
-        <?php } ?>
     </div>
 </div>
-<br>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col col-12">
-            <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"
-                    id="side"></i></a>
-            <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
-                <tr><strong>
-                        <center>CUENTA DE PACIENTES ACTIVOS</center>
-                    </strong>
-            </div>
-            <br>
-        </div>
-    </div>
-
-</div>
-<?php
-        
-?>
-<h2>
-    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars" id="side"></i></a>
-</h2>
-
-<div class="form-group">
-    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Buscar...">
-</div>
-
-<div class="table-responsive">
-    <table class="table table-bordered table-striped" id="mytable">
-        <thead class="thead">
-            <tr>
-                <th scope="col">Cuenta</th>
-                <th scope="col">Exp</th>
-                <th scope="col">Id <br> Atencion</th>
-                <th scope="col">Hab</th>
-                <th scope="col">Paciente</th>
-                <th scope="col">Médico</th>
-                <th scope="col">Especialidad</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Subtotal</th>
-                <th scope="col">IVA</th>
-                <th style="text-align: center" bgcolor="green">Total </th>
-                <th scope="col">Anticipos</th>
-
-
-                <?php
-                           
-                            ?>
-                <th scope="col">Fecha de Ingreso</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover" id="mytable">
+            <thead>
+                <tr>
+                    <th scope="col"><i class="fas fa-cogs"></i> Acciones</th>
+                    <th scope="col"><i class="fas fa-file-medical"></i> Exp</th>
+                    <th scope="col"><i class="fas fa-hashtag"></i> ID Atención</th>
+                    <th scope="col"><i class="fas fa-bed"></i> Hab</th>
+                    <th scope="col"><i class="fas fa-user"></i> Paciente</th>
+                    <th scope="col"><i class="fas fa-user-md"></i> Médico</th>
+                    <th scope="col"><i class="fas fa-stethoscope"></i> Especialidad</th>
+                    <th scope="col"><i class="fas fa-building"></i> Cliente</th>
+                    <th scope="col"><i class="fas fa-calculator"></i> Subtotal</th>
+                    <th scope="col"><i class="fas fa-percent"></i> IVA</th>
+                    <th scope="col" style="background: linear-gradient(135deg, #27ae60, #2ecc71); color: white;">
+                        <i class="fas fa-dollar-sign"></i> Total
+                    </th>
+                    <th scope="col"><i class="fas fa-money-bill"></i> Anticipos</th>
+                    <th scope="col"><i class="fas fa-calendar"></i> Fecha Ingreso</th>
+                </tr>
+            </thead>
+            <tbody>
 
             <?php
                         $resultado = $conexion->query("SELECT * from cat_camas c, dat_ingreso di, paciente p  WHERE c.id_atencion=di.id_atencion and p.Id_exp=di.Id_exp and di.activo='SI'  ORDER BY di.fecha DESC") or die($conexion->error);
@@ -273,48 +471,44 @@ $rol = $usuario['id_rol'];
         }
         ?>
             <tr>
-                <td>
-                    <center><a type="submit" class="btn btn-warning btn-sm"
-                            href="detalle_cuenta.php?id_at=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp ?>&id_usua=<?php echo $usuario1; ?>&rol=<?php echo $rol ?>"><span
-                                class="fas fa-dollar-sign" style="font-size:22px"></span></a>
-                        <a type="submit" class="btn btn-danger btn-sm"
-                            href="cuenta.php?id_atencion=<?php echo $id_atencion ?>&id_usua=<?php echo $usuario1 ?>"
-                            target="blank">
-                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
-                    </center>
+                <td style="text-align: center;">
+                    <div class="btn-group" role="group">
+                        <a href="detalle_cuenta.php?id_at=<?php echo $id_atencion ?>&id_exp=<?php echo $id_exp ?>&id_usua=<?php echo $usuario1; ?>&rol=<?php echo $rol ?>" 
+                           class="btn btn-warning btn-sm" title="Ver Detalle">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a href="cuenta.php?id_atencion=<?php echo $id_atencion ?>&id_usua=<?php echo $usuario1 ?>" 
+                           target="_blank" class="btn btn-danger btn-sm" title="Generar PDF">
+                            <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
                 </td>
                 <td><strong><?php echo $id_exp; ?></strong></td>
-                <td style="background:grey;"><strong>
-                        <font color="white"> <?php echo $id_atencion; ?></font>
-                    </strong></td>
-                <td bgcolor="green"><strong>
-                        <font color="white"> <?php echo $cama; ?></font>
-                    </strong></td>
+                <td style="background: linear-gradient(135deg, #6c757d, #95a5a6); color: white; border-radius: 6px; text-align: center;">
+                    <strong><?php echo $id_atencion; ?></strong>
+                </td>
+                <td style="background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; border-radius: 6px; text-align: center;">
+                    <strong><?php echo $cama; ?></strong>
+                </td>
                 <td><strong><?php echo $nombre; ?></strong></td>
                 <td><strong><?php echo $nom_medico; ?></strong></td>
                 <td><strong><?php echo $especialidad; ?></strong></td>
                 <td><strong><?php echo $asegura; ?></strong></td>
-                <td><strong><?php echo number_format($total, 2); ?></strong></td>
-                <td><strong><?php echo number_format($totaliva, 2); ?></strong></td>
-                <td style="text-align: center; font-weight:bold; background:white;">
-                    <font size="3" , color="red"><strong><?php echo number_format($Stotal, 2); ?></strong>
+                <td style="text-align: right;"><strong>$<?php echo number_format($total, 2); ?></strong></td>
+                <td style="text-align: right;"><strong>$<?php echo number_format($totaliva, 2); ?></strong></td>
+                <td style="text-align: center; font-weight: bold; background: linear-gradient(135deg, #e8f5e8, #f1f8e9); border-radius: 6px;">
+                    <span style="color: #e74c3c; font-size: 16px; font-weight: 700;">
+                        $<?php echo number_format($Stotal, 2); ?>
+                    </span>
                 </td>
-                <td><strong><?php echo number_format($totaldep, 2); ?></strong></td>
-
-                <?php
-           
-            ?>
-                <td><strong>
-                        <font size="3"><?php echo $fecing; ?>
-                    </strong></td>
+                <td style="text-align: right;"><strong>$<?php echo number_format($totaldep, 2); ?></strong></td>
+                <td><strong><?php echo $fecing; ?></strong></td>
             </tr>
             <?php
         }
         ?>
         </tbody>
     </table>
-</div>
-</div>
 </div>
 </div>
 

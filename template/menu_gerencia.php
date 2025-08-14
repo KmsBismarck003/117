@@ -215,6 +215,119 @@ left:9px;
         
 }
     </style>
+
+    <!-- Estilos modernos para el menú -->
+    <style>
+        /* Estilos modernos para el menú de gerencia */
+        .content {
+            padding: 20px;
+        }
+
+        .card {
+            transition: all 0.3s ease !important;
+            border: none !important;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+        }
+
+        .card a {
+            text-decoration: none !important;
+        }
+
+        .card .fa {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .fa {
+            transform: scale(1.1);
+        }
+
+        .card:hover div[style*="background"] {
+            transform: scale(1.05);
+        }
+
+        /* Responsividad mejorada */
+        @media (max-width: 768px) {
+            .col-lg-4 {
+                margin-bottom: 20px;
+            }
+            
+            .card h4 {
+                font-size: 1.1rem !important;
+            }
+            
+            div[style*="width: 120px"] {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .fa {
+                font-size: 36px !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card h4 {
+                font-size: 1rem !important;
+            }
+            
+            div[style*="width: 120px"] {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            .fa {
+                font-size: 28px !important;
+            }
+        }
+
+        /* Animaciones suaves */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Mejoras para el breadcrumb */
+        .breadcrumb {
+            background: linear-gradient(135deg, #2b2d7f 0%, #2b2d7f 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb li {
+            color: white !important;
+        }
+
+        .breadcrumb h4 {
+            color: white !important;
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -227,7 +340,7 @@ left:9px;
     if ($ejecutivo != '429'){?>    
          <a href="menu_gerencia.php" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            
+            <span class="logo-mini"><b>SI</b>MA</span>
             <!-- logo for regular state and mobile devices -->
 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -350,110 +463,104 @@ while($f = mysqli_fetch_array($resultado)){
 
         <!-- Main content -->
         <section class="content">
-            <!-- CONTENIDOO -->
+            <!-- CONTENIDO -->
             <section class="content container-fluid">
                 <div class="content box">
-                    <!-- CONTENIDOO -->
+                    <!-- CONTENIDO -->
                     <div class="row">
-                        <div class="col-sm-4 col-xs-6">
-                            <div class="row">
-                               
-                                
-                                    <center>
-                                        <a title="Administrativo" href="../template/menu_administrativo.php"><img
-                                                    class="img-fluid"
-                                                    src="../img/admin.jpg"
-                                                    alt="admision" height="150"
-                                                    width="200"/></a>
-                                    </center>
-                                    <center><h4><strong> ADMINISTRATIVO </strong></h4></center>
-
-                             
-                               
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-xs-6 enf">
-                                <div class="row">
-                                    
-                                        <center>
-                                            <a title="Enfermera" href="../template/menu_enfermera.php"><img
-                                                        class="img-fluid"
-                                                        src="../img/nuevas_imagenes/enfermeria.gif"
-                                                        alt="admision" height="150"
-                                                        width="200"/></a>
-                                        </center>
-                                        <center><h4><strong>ENFERMERÍA</strong></h4></center>
-
-                                    
+                        <!-- ADMINISTRATIVO -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_administrativo.php" title="Administrativo" style="text-decoration: none;">
+                                            <div style="background: #B3E5FC; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-briefcase" style="font-size: 48px; color: #0277BD;"></i>
+                                            </div>
+                                            <h4 style="color: #0277BD; font-weight: 600; margin: 0;">ADMINISTRATIVO</h4>
+                                        </a>
+                                    </div>
                                 </div>
-
+                            </div>
                         </div>
 
-                        <div class="col-lg-4 col-xs-6 medi">
-                                <div class="row">
-                                   
-                                        <center>
-                                            <a title="Medico" href="../template/menu_medico.php"><img
-                                                        class="img-fluid"
-                                                        src="../img/doc.jpg"
-                                                        alt="admision" height="150"
-                                                        width="200"/></a>
-                                        </center>
-                                        <center><h4><strong>MÉDICO</strong></h4></center>
-                                   
-                                    
+                        <!-- ENFERMERÍA -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #F3E5F5 0%, #FCE4EC 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_enfermera.php" title="Enfermería" style="text-decoration: none;">
+                                            <div style="background: #F8BBD9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-heart" style="font-size: 48px; color: #C2185B;"></i>
+                                            </div>
+                                            <h4 style="color: #C2185B; font-weight: 600; margin: 0;">ENFERMERÍA</h4>
+                                        </a>
+                                    </div>
                                 </div>
-
-                        </div>
-                        
-  
-
-                   
-                        
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                
-                                    <center>
-                                        <a title="Medico" href="../template/menu_laboratorio.php"><img
-                                                    class="img-fluid"
-                                                    src="../img/gabinete.jpg"
-                                                    alt="admision" height="150"
-                                                    width="200"/></a>
-                                    </center>
-                                    <center><h4><strong>ESTUDIOS</strong></h4></center>
-
-                                
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                
-                                    <center>
-                                        <a title="Medico" href="../template/menu_sauxiliares.php"><img
-                                                    class="img-fluid"
-                                                    src="../img/almacen_central.jpg"
-                                                    alt="admision" height="150"
-                                                    width="200"/></a>
-                                    </center>
-                                    <center><h4><strong>ALMACENES</strong></h4></center>
 
-                                
+                        <!-- MÉDICO -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_medico.php" title="Médico" style="text-decoration: none;">
+                                            <div style="background: #C8E6C9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-stethoscope" style="font-size: 48px; color: #388E3C;"></i>
+                                            </div>
+                                            <h4 style="color: #388E3C; font-weight: 600; margin: 0;">MÉDICO</h4>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                     
-                        <div class="col-lg-4 col-xs-6 confii">
-                            <div class="row">
-                                
-                                    <center>
-                                    <a title="Configuracion" href="../template/menu_configuracion.php"><img
-                                        class="img-fluid"
-                                        src="../img/configuracion.jpg"
-                                        alt="admision" height="150"
-                                        width="180"/></a>
-                                        </center>
-                                        <center><h4><strong>CONFIGURACIÓN</strong></h4></center>
-                                
+
+                        <!-- ESTUDIOS -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_laboratorio.php" title="Estudios" style="text-decoration: none;">
+                                            <div style="background: #FFE0B2; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-flask" style="font-size: 48px; color: #F57C00;"></i>
+                                            </div>
+                                            <h4 style="color: #F57C00; font-weight: 600; margin: 0;">ESTUDIOS</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ALMACENES -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E3F2FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_sauxiliares.php" title="Almacenes" style="text-decoration: none;">
+                                            <div style="background: #BBDEFB; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-cubes" style="font-size: 48px; color: #1976D2;"></i>
+                                            </div>
+                                            <h4 style="color: #1976D2; font-weight: 600; margin: 0;">ALMACENES</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONFIGURACIÓN -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #F3E5F5 0%, #E8EAF6 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_configuracion.php" title="Configuración" style="text-decoration: none;">
+                                            <div style="background: #D1C4E9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-cogs" style="font-size: 48px; color: #7B1FA2;"></i>
+                                            </div>
+                                            <h4 style="color: #7B1FA2; font-weight: 600; margin: 0;">CONFIGURACIÓN</h4>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -477,70 +584,73 @@ while($f = mysqli_fetch_array($resultado)){
             </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-         <!-- Servicios Auxiliares--> 
+         <!-- Modal Servicios Auxiliares Modernizado--> 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="border-radius: 15px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px 15px 0 0;">
+                    <h5 class="modal-title" style="color: white; font-weight: 600;">
+                        <i class="fa fa-hospital-o"></i> Servicios Auxiliares
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding: 30px;">
                     <div class="row">
-                         <div class="col-lg-6 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
-                                    <center>
-                                        <a href="../template/menu_sauxiliares.php"  title="Almacenes"><img class="card-img-top" src="../img/almacenes.jpg" alt="ceye" height="150" width="200" /></a>  
-                                    </center>
-                                    <center>
-                                        <h4><strong>ALMACENES</strong></h4>
-                                    </center>
+                        <!-- ALMACENES -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E3F2FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_sauxiliares.php" title="Almacenes" style="text-decoration: none;">
+                                            <div style="background: #BBDEFB; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-cubes" style="font-size: 40px; color: #1976D2;"></i>
+                                            </div>
+                                            <h5 style="color: #1976D2; font-weight: 600; margin: 0;">ALMACENES</h5>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-lg-1"></div>
                             </div>
                         </div>
-                       
-                       
-                       
-                        <div class="row">
-                            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                                        <center>
-                                            <a title="Imagen" href="../template/menu_imagenologia.php" ><img class="card-img-top" src="../img/torax.jpg" alt="admision" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                             <h4><strong>IMAGENOLOGÍA</strong></h4>
-                                        </center>
-                                    </div>
-                                    <div class="col-lg-1"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                                        <center>
-                                            <a title="Laboratorio" href="../template/menu_laboratorio.php" ><img class="card-img-top" src="../img/laboratorio.jpg" alt="admision" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                             <h4><strong>LABORATORIO</strong></h4>
-                                        </center>
 
+                        <!-- IMAGENOLOGÍA -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_imagenologia.php" title="Imagenología" style="text-decoration: none;">
+                                            <div style="background: #C8E6C9; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-search" style="font-size: 40px; color: #388E3C;"></i>
+                                            </div>
+                                            <h5 style="color: #388E3C; font-weight: 600; margin: 0;">IMAGENOLOGÍA</h5>
+                                        </a>
                                     </div>
-                                    <div class="col-lg-1"></div>
                                 </div>
                             </div>
-                               
+                        </div>
+
+                        <!-- LABORATORIO -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_laboratorio.php" title="Laboratorio" style="text-decoration: none;">
+                                            <div style="background: #FFE0B2; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-flask" style="font-size: 40px; color: #F57C00;"></i>
+                                            </div>
+                                            <h5 style="color: #F57C00; font-weight: 600; margin: 0;">LABORATORIO</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+                <div class="modal-footer" style="border: none; padding: 20px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="background: #6c757d; color: white; border-radius: 25px; padding: 8px 25px;">
+                        <i class="fa fa-times"></i> CERRAR
+                    </button>
                 </div>
             </div>
         </div>

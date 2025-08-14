@@ -73,7 +73,7 @@ if ($usuario['id_rol'] == 7) {
         <div class="container box">
             <div class="content">
                 <br>
-                <div class="thead" style="background-color: #0c675e; color: white; font-size: 20px;">
+                <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
                     <strong>
                         <center>PACIENTES CON SALIDAS DE MEDICAMENTOS E INSUMOS</center>
                     </strong>
@@ -95,7 +95,7 @@ if ($usuario['id_rol'] == 7) {
 
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="mytable">
-                        <thead class="thead" style="background-color: #0c675e; color:white;">
+                        <thead class="thead" style="background-color: #2b2d7f; color:white;">
                             <tr>
                                 <th>EXPEDIENTE</th>
                                 <th>PACIENTE</th>
