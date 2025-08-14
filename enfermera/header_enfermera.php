@@ -357,7 +357,7 @@ while($f = mysqli_fetch_array($resultado)){
             </a>
             <ul class="treeview-menu">
                             <li><a href="../registro_procedimientos/reg_pro.php"><i class="fa-solid fa-notes-medical"></i> <span>REGISTRO DE  <br>PROCEDIMIENTOS</span></a></li>
-              <li><a href="../registro_quirurgico/enf_cirugia_segura.php"><i class="fa-solid fa-file-waveform"></i> <span>HOJA PROGRAMACIÓN<br> QUIRÚRGICA</span></a></li>
+              <!-- <li><a href="../registro_quirurgico/enf_cirugia_segura.php"><i class="fa-solid fa-file-waveform"></i> <span>HOJA PROGRAMACIÓN<br> QUIRÚRGICA</span></a></li> -->
               <li><a href="../registro_quirurgico/vista_enf_quirurgico.php"><i class="fa fa-folder"></i> <span>QUIRÓFANO</span></a></li>
               
               <li><a href="../registro_clinico_neonatal/nota_bebes.php"><i class="fa fa-folder"></i> <span>PEDIÁTRICO/NEONATAL </span></a></li>

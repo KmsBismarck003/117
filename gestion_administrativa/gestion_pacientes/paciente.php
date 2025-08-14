@@ -361,7 +361,7 @@ while ($row = mysqli_fetch_array($result_diag)) {
                             <select name="id_usua1" id="id_usua1" class="form-control select2" required>
                                 <option value="" disabled selected>Seleccionar</option>
                                 <?php
-                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' AND id_rol=2 ORDER BY nombre ASC") or die($conexion->error);
                                 while ($opciones = mysqli_fetch_assoc($resultado1)) {
                                     echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
                                 }
@@ -376,7 +376,7 @@ while ($row = mysqli_fetch_array($result_diag)) {
                             <select name="id_usua2" id="id_usua2" class="form-control select2">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <?php
-                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' AND id_rol=2 ORDER BY nombre ASC") or die($conexion->error);
                                 while ($opciones = mysqli_fetch_assoc($resultado1)) {
                                     echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
                                 }
@@ -391,7 +391,7 @@ while ($row = mysqli_fetch_array($result_diag)) {
                             <select name="id_usua3" id="id_usua3" class="form-control select2">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <?php
-                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' AND id_rol=2 ORDER BY nombre ASC") or die($conexion->error);
                                 while ($opciones = mysqli_fetch_assoc($resultado1)) {
                                     echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
                                 }
@@ -408,7 +408,7 @@ while ($row = mysqli_fetch_array($result_diag)) {
                             <select name="id_usua4" id="id_usua4" class="form-control select2">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <?php
-                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' AND id_rol=2 ORDER BY nombre ASC") or die($conexion->error);
                                 while ($opciones = mysqli_fetch_assoc($resultado1)) {
                                     echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
                                 }
@@ -423,7 +423,7 @@ while ($row = mysqli_fetch_array($result_diag)) {
                             <select name="id_usua5" id="id_usua5" class="form-control select2">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <?php
-                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' /* AND (id_rol=2 OR id_rol=12 OR id_rol=0) */ ORDER BY nombre ASC") or die($conexion->error);
+                                $resultado1 = $conexion->query("SELECT * FROM reg_usuarios WHERE u_activo='SI' AND id_rol=2 ORDER BY nombre ASC") or die($conexion->error);
                                 while ($opciones = mysqli_fetch_assoc($resultado1)) {
                                     echo "<option value='{$opciones['id_usua']}'>{$opciones['nombre']} {$opciones['papell']} {$opciones['sapell']}</option>";
                                 }
@@ -465,7 +465,8 @@ while ($row = mysqli_fetch_array($result_diag)) {
                             <label for="motivo_atn">Motivo de atención:</label>
                             <select name="motivo_atn" class="form-control" required>
                                 <option value="" disabled selected>Seleccionar</option>
-                                <option value="Hospitalización">Requiere Hospitalización</option>
+                                <option value="Consulta oftalmológica">Consulta oftalmológica</option>
+                                <!-- <option value="Cirugía">Cirugía</option> -->
                                 <option value="Cirugía programada">Cirugía programada</option>
                                 <option value="Cirugía de urgencia">Cirugía de urgencia</option>
                             </select>

@@ -10,9 +10,7 @@ error_reporting(E_ALL);
 
 // Helper function to log errors to a file
 function logError($message) {
-    // Asegúrate de que esta ruta sea ABSOLUTA y que el usuario del servidor web tenga permisos de escritura.
-    // Por ejemplo: /var/www/html/tu_proyecto/logs/services_handler_errors.log
-    error_log(date('[Y-m-d H:i:s] ') . $message . PHP_EOL);
+    error_log(date('[Y-m-d H:i:s] ') . $message . PHP_EOL, 3, dirname(__DIR__, 2) . '/logs/services_handler_errors.log');
 }
 
 // Set JSON header
@@ -50,10 +48,7 @@ logError("Processing action: $action, id_usua: $id_usua, id_atencion: $id_atenci
 switch ($action) {
     case 'get':
         // Fetch registered services
-        // MODIFICADO:
-        // 1. Se eliminó la condición 'AND c.prod_serv = "S"'
-        // 2. Se añadió la condición 'AND s.tip_insumo = "CEYE"' para filtrar por el tip_insumo correcto de servicios.
-        $sql = "SELECT c.id_ctapac, c.insumo, c.cta_tot, c.cta_fec, s.serv_desc 
+        $sql = "SELECT c.id_ctapac, c.insumo, c.cta_tot, c.cta_fec, c.hora, s.serv_desc 
                 FROM dat_ctapac c 
                 LEFT JOIN cat_servicios s ON c.insumo = s.id_serv 
                 WHERE c.id_usua = ? AND c.id_atencion = ? AND c.cta_activo = 'SI' AND s.tip_insumo = 'CEYE'";
@@ -77,10 +72,10 @@ switch ($action) {
         while ($row = $result->fetch_assoc()) {
             $services[] = [
                 'id_ctapac' => $row['id_ctapac'],
-                'serv_desc' => $row['serv_desc'] ?? 'Desconocido', // Usa serv_desc de cat_servicios
+                'serv_desc' => $row['serv_desc'] ?? 'Desconocido',
                 'cta_tot' => $row['cta_tot'],
                 'cta_fec' => $row['cta_fec'],
-                'insumo' => $row['insumo']
+                'hora' => $row['hora'] ?? 'N/A'
             ];
         }
         $stmt->close();
@@ -97,7 +92,6 @@ switch ($action) {
             ob_end_flush();
             exit();
         }
-        // Agregamos la verificación de tip_insumo para asegurar que solo se eliminen los del tip_insumo CEYE.
         $sql = "DELETE c FROM dat_ctapac c
                 INNER JOIN cat_servicios s ON c.insumo = s.id_serv
                 WHERE c.id_ctapac = ? AND c.id_usua = ? AND c.id_atencion = ? AND s.tip_insumo = 'CEYE'";
@@ -110,10 +104,9 @@ switch ($action) {
         }
         $stmt->bind_param("iii", $id_ctapac, $id_usua, $id_atencion);
         if ($stmt->execute()) {
-            // Verificar si se afectó alguna fila para confirmar la eliminación.
             if ($stmt->affected_rows > 0) {
                 logError("Service deleted: id_ctapac=$id_ctapac");
-                echo json_encode(['success' => true]);
+                echo json_encode(['success' => true, 'message' => 'Equipo eliminado correctamente']);
             } else {
                 logError("Delete failed: No service found with id_ctapac=$id_ctapac for user/attention/group CEYE or already deleted.");
                 echo json_encode(['success' => false, 'message' => 'No se encontró el servicio para eliminar o ya fue eliminado.']);
@@ -121,46 +114,6 @@ switch ($action) {
         } else {
             logError("Delete failed: id_ctapac=$id_ctapac, error=" . $stmt->error);
             echo json_encode(['success' => false, 'message' => 'Error al eliminar servicio']);
-        }
-        $stmt->close();
-        break;
-
-    case 'update':
-        // Update a service
-        $id_ctapac = (int)($data['id_ctapac'] ?? 0);
-        $cta_tot = (float)($data['cta_tot'] ?? 0);
-        $insumo = (int)($data['insumo'] ?? 0);
-        if ($id_ctapac <= 0 || $cta_tot <= 0 || $insumo <= 0) {
-            logError("Invalid update data: id_ctapac=$id_ctapac, cta_tot=$cta_tot, insumo=$insumo");
-            echo json_encode(['success' => false, 'message' => 'Datos inválidos']);
-            ob_end_flush();
-            exit();
-        }
-        // Agregamos el JOIN y la verificación de tip_insumo para asegurar que solo se actualicen los del tip_insumo CEYE.
-        // También podemos actualizar prod_serv si es necesario, obteniendo la nueva descripción.
-        $sql = "UPDATE dat_ctapac c
-                INNER JOIN cat_servicios s ON c.insumo = s.id_serv
-                SET c.cta_tot = ?, c.insumo = ?
-                WHERE c.id_ctapac = ? AND c.id_usua = ? AND c.id_atencion = ? AND s.tip_insumo = 'CEYE'";
-        $stmt = $conexion->prepare($sql);
-        if (!$stmt) {
-            logError("Prepare failed for update: " . $conexion->error);
-            echo json_encode(['success' => false, 'message' => 'Error al preparar la consulta']);
-            ob_end_flush();
-            exit();
-        }
-        $stmt->bind_param("diiii", $cta_tot, $insumo, $id_ctapac, $id_usua, $id_atencion);
-        if ($stmt->execute()) {
-            if ($stmt->affected_rows > 0) {
-                logError("Service updated: id_ctapac=$id_ctapac, cta_tot=$cta_tot, insumo=$insumo");
-                echo json_encode(['success' => true]);
-            } else {
-                logError("Update failed: No service found with id_ctapac=$id_ctapac for user/attention/group CEYE or no changes made.");
-                echo json_encode(['success' => false, 'message' => 'No se encontró el servicio para actualizar o no hubo cambios.']);
-            }
-        } else {
-            logError("Update failed: id_ctapac=$id_ctapac, error=" . $stmt->error);
-            echo json_encode(['success' => false, 'message' => 'Error al actualizar servicio']);
         }
         $stmt->close();
         break;

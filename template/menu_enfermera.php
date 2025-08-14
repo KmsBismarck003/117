@@ -398,9 +398,9 @@ if (!isset($_SESSION['login'])) {
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="../enfermera/registro_procedimientos/reg_pro.php"><i class="fa-solid fa-file-medical"></i> <span>REGISTRO DE <br>PROCEDIMIENTOS</span></a></li>
-                                <li><a href="../enfermera/registro_quirurgico/hoja_progquir.php"><i class="fa fa-folder"></i> <span>HOJA PROGRAMACIÓN<br> QUIRÚRGICA</span></a></li>
+                                <!-- <li><a href="../enfermera/registro_quirurgico/hoja_progquir.php"><i class="fa fa-folder"></i> <span>HOJA PROGRAMACIÓN<br> QUIRÚRGICA</span></a></li> -->
                                 <li><a href="../enfermera/registro_quirurgico/vista_enf_quirurgico.php"><i class="fa fa-folder"></i> <span>QUIRÓFANO</span></a></li>
-                                <li><a href="../enfermera/registro_quirurgico/enf_cirugia_segura.php"><i class="fa fa-folder"></i> <span>CIRUGÍA SEGURA</span></a></li>
+                                
 
 
                             </ul>
@@ -471,12 +471,8 @@ if (!isset($_SESSION['login'])) {
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>REGISTRO DE <br>PROCEDIMIENTOS</span></a></li>
-                                <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>HOJA PROGRAMACIÓN<br> QUIRÚRGICA</span></a></li>
+                                <!-- <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>HOJA PROGRAMACIÓN<br> QUIRÚRGICA</span></a></li> -->
                                 <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>QUIRÓFANO</span></a></li>
-
-                                <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>CIRUGÍA SEGURA</span></a></li>
-
-
 
                             </ul>
                         </li>

@@ -1097,6 +1097,12 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
             }
         }
 
+        /* Animacion boton de enviar - Insumos */
+        #enviar-btn {
+            transition: display 0.3s ease;
+        }
+
+
         /* Estilos mejorados para botones de acción */
         .action-buttons-container {
             display: flex;
@@ -1707,10 +1713,11 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                 <div class="tab-pane fade show active" id="cirugia" role="tabpanel">
                     <div class="thead"><strong>HOJA DE CIRUGÍA SEGURA</strong></div>
                     <hr>
-                    <form action="../../enfermera/registro_quirurgico/insertar_cir_seg.php" method="POST">
+                    <form action="../../enfermera/registro_procedimientos/insertar_cir_seg.php" method="POST">
                         <input type="hidden" name="id_exp" value="<?php echo htmlspecialchars($id_exp); ?>">
                         <input type="hidden" name="id_usua" value="<?php echo htmlspecialchars($id_usuario); ?>">
                         <input type="hidden" name="id_atencion" value="<?php echo htmlspecialchars($id_atencion); ?>">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                         <div class="card-container" style="display: flex; gap: 25px; margin: 20px 0;">
                             <!-- Sección 1 -->
                             <div class="card" style="flex: 1; padding: 20px; border: 2px solid #e3e6f0; border-radius: 15px; background: linear-gradient(135deg, #ffffff 0%, #f8f9fc 100%); box-shadow: 0 4px 15px rgba(43, 45, 127, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
@@ -2212,19 +2219,19 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                     </div>
                 </div>
                 <?php
-                    // Obtener el nombre completo del usuario actual
-                    $usuario_actual = '';
-                    $sql_usuario = "SELECT nombre, papell, sapell FROM reg_usuarios WHERE id_usua = ?";
-                    $stmt_usuario = $conexion->prepare($sql_usuario);
-                    $stmt_usuario->bind_param('i', $id_usua);
-                    $stmt_usuario->execute();
-                    $result_usuario = $stmt_usuario->get_result();
-                    
-                    if ($row_usuario = $result_usuario->fetch_assoc()) {
-                        $usuario_actual = trim($row_usuario['nombre'] . ' ' . $row_usuario['papell'] . ' ' . $row_usuario['sapell']);
-                    }
-                    $stmt_usuario->close();
-                    ?>
+                // Obtener el nombre completo del usuario actual
+                $usuario_actual = '';
+                $sql_usuario = "SELECT nombre, papell, sapell FROM reg_usuarios WHERE id_usua = ?";
+                $stmt_usuario = $conexion->prepare($sql_usuario);
+                $stmt_usuario->bind_param('i', $id_usua);
+                $stmt_usuario->execute();
+                $result_usuario = $stmt_usuario->get_result();
+
+                if ($row_usuario = $result_usuario->fetch_assoc()) {
+                    $usuario_actual = trim($row_usuario['nombre'] . ' ' . $row_usuario['papell'] . ' ' . $row_usuario['sapell']);
+                }
+                $stmt_usuario->close();
+                ?>
                 <!-- Nota -->
                 <div class="tab-pane fade" id="nota" role="tabpanel">
                     <!-- Sección de Tratamientos -->
@@ -2452,7 +2459,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                         <div class="mb-3 row">
                                             <label for="addvolumenField" class="col-md-3 form-label">Volumen</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="addvolumenField" name="volumen">
+                                                <input type="number" class="form-control" id="addvolumenField" name="volumen">
                                             </div>
                                         </div>
                                         <div class="text-center">
@@ -2476,8 +2483,8 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                 </div>
                                 <div class="modal-body">
                                     <form id="updateUserI">
-                                        <input type="hidden" name="id" id="id">
-                                        <input type="hidden" name="trid" id="trid">
+                                        <input type="hidden" name="id" id="updateIdI"> <!-- Cambiado: id="updateIdI" -->
+                                        <input type="hidden" name="trid" id="updateTridI"> <!-- Cambiado: id="updateTridI" -->
                                         <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
                                         <input type="hidden" name="fecha_registro" id="fecha_registroField">
                                         <input type="hidden" name="id_usua" id="id_usuaField" value="<?php echo $id_usuario; ?>">
@@ -2502,7 +2509,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                         <div class="mb-3 row">
                                             <label for="volumenField" class="col-md-3 form-label">Volumen</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="volumenField" name="volumen">
+                                                <input type="number" class="form-control" id="volumenField" name="volumen">
                                             </div>
                                         </div>
                                         <div class="text-center">
@@ -2576,7 +2583,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                         <div class="mb-3 row">
                                             <label for="addvolumeneField" class="col-md-3 form-label">Volumen</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="addvolumeneField" name="volumene">
+                                                <input type="number" class="form-control" id="addvolumeneField" name="volumene">
                                             </div>
                                         </div>
                                         <div class="text-center">
@@ -2600,8 +2607,8 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                 </div>
                                 <div class="modal-body">
                                     <form id="updateUserE">
-                                        <input type="hidden" name="id" id="id">
-                                        <input type="hidden" name="trid" id="trid">
+                                        <input type="hidden" name="id" id="updateIdE"> <!-- Cambiado: id="updateIdE" -->
+                                        <input type="hidden" name="trid" id="updateTridE"> <!-- Cambiado: id="updateTridE" -->
                                         <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
                                         <input type="hidden" name="fecha_registro" id="fecha_registroeField">
                                         <input type="hidden" name="id_usua" id="id_usuaeField" value="<?php echo $id_usuario; ?>">
@@ -2626,7 +2633,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                         <div class="mb-3 row">
                                             <label for="volumeneField" class="col-md-3 form-label">Volumen</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" id="volumeneField" name="volumene">
+                                                <input type="number" class="form-control" id="volumeneField" name="volumene">
                                             </div>
                                         </div>
                                         <div class="text-center">
@@ -2652,7 +2659,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                     <form id="insumos-form" method="post">
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                         <input type="hidden" name="paciente" value="<?= htmlspecialchars($pac_data['Id_exp'], ENT_QUOTES, 'UTF-8') ?>">
-                        <div class="form-group">
+                        <div class="form-group" style="display: none;">
                             <label>Paciente</label>
                             <p class="form-control-static">
                                 <strong><?= htmlspecialchars($pac_data['papell'] . ' ' . $pac_data['sapell'] . ' ' . $pac_data['nom_pac'], ENT_QUOTES, 'UTF-8') ?></strong>
@@ -2684,7 +2691,6 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
 
                         <div class="d-flex justify-content-center">
                             <button type="button" id="agregar-btn" class="btn btn-success mr-2">Agregar</button>
-                            <button type="button" id="enviar-btn" class="btn btn-primary">Enviar</button>
                         </div>
                         <input type="hidden" name="enviar_medicamentos" value="1">
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
@@ -2700,15 +2706,15 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                         if (isset($_SESSION['medicamento_seleccionado']) && is_array($_SESSION['medicamento_seleccionado'])) {
                             echo "<table class='table table-bordered table-striped'>";
                             echo "<thead class='thead-dark'>
-                                <tr>
-                                    <th>Paciente</th>
-                                    <th>Medicamento</th>
-                                    <th>Lote</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead><tbody>";
+                <tr>
+                    <th>Paciente</th>
+                    <th>Medicamento</th>
+                    <th>Lote</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead><tbody>";
                             foreach ($_SESSION['medicamento_seleccionado'] as $index => $medicamento) {
                                 if (is_array($medicamento) && isset($medicamento['paciente'], $medicamento['medicamento'], $medicamento['lote'], $medicamento['cantidad'])) {
                                     echo "<tr>";
@@ -2734,6 +2740,11 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                         }
                         ?>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" id="enviar-btn" class="btn btn-primary" style="display: none;">Enviar</button>
+                    </div>
+                    <input type="hidden" name="enviar_medicamentos" value="1">
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
 
                     <hr>
 
@@ -2751,7 +2762,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                     <!-- Dropdown Menu -->
                     <div class="mb-3">
                         <label for="serviceSelect" class="form-label">Seleccionar Equipo:</label>
-                        <select class="custom-select form-control" id="serviceSelect" onchange="addService()">
+                        <select class="custom-select form-control" id="serviceSelect">
                             <option value="">Seleccione un equipo</option>
                             <?php
                             include '../../conexionbd.php';
@@ -2770,7 +2781,10 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                             $conexion->close();
                             ?>
                         </select>
+                        <label for="serviceTime" class="form-label">Hora:</label>
+                        <input type="time" name="serviceTime" id="serviceTime" class="form-control" required onchange="addService()">
                     </div>
+
 
                     <!-- Table for Selected Services -->
                     <table class="table table-bordered table-hover" id="selectedServicesTable">
@@ -2778,6 +2792,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                             <tr>
                                 <th>Descripción</th>
                                 <th>Costo</th>
+                                <th>Hora</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -2796,12 +2811,13 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                 <th>Descripción</th>
                                 <th>Costo</th>
                                 <th>Fecha</th>
+                                <th>Hora</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="registeredServicesBody">
                             <tr>
-                                <td colspan="4"><i class="fas fa-spinner fa-spin"></i> Cargando...</td>
+                                <td colspan="5"><i class="fas fa-spinner fa-spin"></i> Cargando...</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2833,89 +2849,6 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                 $(this).tab('show');
             });
 
-            // Initialize DataTables for Ingresos
-            $('#exampleI').DataTable({
-                language: {
-                    decimal: "",
-                    emptyTable: "No hay información",
-                    info: "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                    infoEmpty: "Mostrando 0 to 0 of 0 Entradas",
-                    infoFiltered: "(Filtrado de _MAX_ total entradas)",
-                    infoPostFix: "",
-                    thousands: ",",
-                    lengthMenu: "Mostrar _MENU_ Entradas",
-                    loadingRecords: "Cargando...",
-                    processing: "Procesando...",
-                    search: "Buscar:",
-                    zeroRecords: "Sin resultados encontrados",
-                    paginate: {
-                        first: "Primero",
-                        last: "Ultimo",
-                        next: "Siguiente",
-                        previous: "Anterior"
-                    }
-                },
-                fnCreatedRow: function(nRow, aData) {
-                    $(nRow).attr('id', aData[0]);
-                },
-                serverSide: true,
-                processing: true,
-                paging: true,
-                searching: false,
-                order: [],
-                ajax: {
-                    url: 'fetch_dataI.php',
-                    type: 'POST',
-                    data: function(d) {
-                        d.id_atencion = '<?php echo $id_atencion; ?>';
-                        d.csrf_token = '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>';
-                    }
-                }
-            });
-
-            // Initialize DataTables for Egresos
-            $('#exampleE').DataTable({
-                language: {
-                    decimal: "",
-                    emptyTable: "No hay información",
-                    info: "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                    infoEmpty: "Mostrando 0 to 0 of 0 Entradas",
-                    infoFiltered: "(Filtrado de _MAX_ total entradas)",
-                    infoPostFix: "",
-                    thousands: ",",
-                    lengthMenu: "Mostrar _MENU_ Entradas",
-                    loadingRecords: "Cargando...",
-                    processing: "Procesando...",
-                    search: "Buscar:",
-                    zeroRecords: "Sin resultados encontrados",
-                    paginate: {
-                        first: "Primero",
-                        last: "Ultimo",
-                        next: "Siguiente",
-                        previous: "Anterior"
-                    }
-                },
-                fnCreatedRow: function(nRow, aData) {
-                    $(nRow).attr('id', aData[0]);
-                },
-                serverSide: true,
-                processing: true,
-                paging: true,
-                searching: false,
-                order: [],
-                ajax: {
-                    url: 'fetch_dataE.php',
-                    type: 'POST',
-                    data: {
-                        id_atencion: '<?php echo $id_atencion; ?>'
-                    }
-                },
-                columnDefs: [{
-                    targets: [7],
-                    orderable: false
-                }]
-            });
-
             // Cargar signos vitales existentes cuando se abra la pestaña de signos
             $('#signos-tab').on('shown.bs.tab', function(e) {
                 cargarSignosVitalesExistentes();
@@ -2923,321 +2856,6 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
 
             // Variable global para tracking de signos vitales cargados
             let signosVitalesCargados = false;
-
-            // Handle Ingresos form submission
-            $('#addUserI').on('submit', function(e) {
-                e.preventDefault();
-                const formData = $(this).serialize();
-                if ($('#addhoraiField').val() && $('#addfechaiField').val() &&
-                    $('#addsolucionesField').val() && $('#addvolumenField').val()) {
-                    $.ajax({
-                        url: "add_userI.php",
-                        type: "POST",
-                        data: formData,
-                        success: function(data) {
-                            try {
-                                const json = JSON.parse(data);
-                                if (json.status === 'true') {
-                                    $('#exampleI').DataTable().draw();
-                                    $('#addUserI')[0].reset();
-                                    $('#addUserModalI').modal('hide');
-                                    alertify.success("Registro agregado correctamente");
-                                } else {
-                                    alertify.error("Error al agregar el registro");
-                                }
-                            } catch (e) {
-                                alertify.error("Error en la respuesta del servidor");
-                            }
-                        },
-                        error: function() {
-                            alertify.error("Error en la comunicación con el servidor");
-                        }
-                    });
-                } else {
-                    alertify.warning("Completa todos los campos por favor!");
-                }
-            });
-
-            // Handle Egresos form submission
-            $('#addUserE').on('submit', function(e) {
-                e.preventDefault();
-                const formData = $(this).serialize();
-                if ($('#addhoraeField').val() && $('#addfechaeField').val() &&
-                    $('#addsolucioneseField').val() && $('#addvolumeneField').val()) {
-                    $.ajax({
-                        url: "add_userE.php",
-                        type: "POST",
-                        data: formData,
-                        success: function(data) {
-                            try {
-                                const json = JSON.parse(data);
-                                if (json.status === 'true') {
-                                    $('#exampleE').DataTable().draw();
-                                    $('#addUserE')[0].reset();
-                                    $('#addUserModalE').modal('hide');
-                                    alertify.success("Registro agregado correctamente");
-                                } else {
-                                    alertify.error("Error al agregar el registro");
-                                }
-                            } catch (e) {
-                                alertify.error("Error en la respuesta del servidor");
-                            }
-                        },
-                        error: function() {
-                            alertify.error("Error en la comunicación con el servidor");
-                        }
-                    });
-                } else {
-                    alertify.warning("Completa todos los campos por favor!");
-                }
-            });
-
-            // Handle Ingresos edit
-            $('#exampleI').on('click', '.editbtnI', function() {
-                const id = $(this).data('id');
-                const trid = $(this).closest('tr').attr('id');
-                $.ajax({
-                    url: "get_single_dataI.php",
-                    type: 'POST',
-                    data: {
-                        id: id
-                    },
-                    success: function(data) {
-                        try {
-                            const json = JSON.parse(data);
-                            $('#horaiField').val(json.hora);
-                            $('#fechaiField').val(json.fecha);
-                            $('#solucionesField').val(json.soluciones);
-                            $('#volumenField').val(json.volumen);
-                            $('#id_usuaField').val(json.id_usua);
-                            $('#fecha_registroField').val(json.fecha_registro);
-                            $('#id').val(id);
-                            $('#trid').val(trid);
-                            $('#exampleModalI').modal('show');
-                        } catch (e) {
-                            alertify.error("Error en la respuesta del servidor");
-                        }
-                    }
-                });
-            });
-
-            // Handle Egresos edit
-            $('#exampleE').on('click', '.editbtnE', function() {
-                const id = $(this).data('id');
-                const trid = $(this).closest('tr').attr('id');
-                $.ajax({
-                    url: "get_single_dataE.php",
-                    type: 'POST',
-                    data: {
-                        id: id
-                    },
-                    success: function(data) {
-                        try {
-                            const json = JSON.parse(data);
-                            $('#horaeField').val(json.hora);
-                            $('#fechaeField').val(json.fecha);
-                            $('#solucioneseField').val(json.soluciones);
-                            $('#volumeneField').val(json.volumen);
-                            $('#id_usuaeField').val(json.id_usua);
-                            $('#fecha_registroeField').val(json.fecha_registro);
-                            $('#id').val(id);
-                            $('#trid').val(trid);
-                            $('#exampleModalE').modal('show');
-                        } catch (e) {
-                            alertify.error("Error en la respuesta del servidor");
-                        }
-                    }
-                });
-            });
-
-            // Handle Ingresos update
-            $('#updateUserI').on('submit', function(e) {
-                e.preventDefault();
-                const formData = $(this).serialize();
-                if ($('#horaiField').val() && $('#fechaiField').val() &&
-                    $('#solucionesField').val() && $('#volumenField').val()) {
-                    $.ajax({
-                        url: "update_userI.php",
-                        type: "POST",
-                        data: formData,
-                        success: function(data) {
-                            try {
-                                const json = JSON.parse(data);
-                                if (json.status === 'true') {
-                                    const table = $('#exampleI').DataTable();
-                                    const id = $('#id').val();
-                                    const trid = $('#trid').val();
-                                    const button = `
-                                        <div class="action-buttons-container">
-                                            <a href="javascript:void(0);"
-                                               data-id="${id}"
-                                               class="btn btn-action btn-edit-modern editbtnI"
-                                               title="Editar registro">
-                                                <i class="fas fa-edit"></i>
-                                                <span>Editar</span>
-                                            </a>
-                                            <a href="javascript:void(0);"
-                                               data-id="${id}"
-                                               class="btn btn-action btn-delete-modern deleteBtnI"
-                                               title="Eliminar registro">
-                                                <i class="fas fa-trash-alt"></i>
-                                                <span>Eliminar</span>
-                                            </a>
-                                        </div>
-                                    `;
-                                    const rowData = [
-                                        id,
-                                        $('#fecha_registroField').val(),
-                                        $('#fechaiField').val(),
-                                        $('#horaiField').val(),
-                                        $('#solucionesField').val(),
-                                        $('#volumenField').val(),
-                                        $('#id_usuaField').val(),
-                                        button
-                                    ];
-                                    table.row(`[id='${trid}']`).data(rowData);
-                                    $('#exampleModalI').modal('hide');
-                                    alertify.success("Registro editado correctamente");
-                                } else {
-                                    alertify.error("Error al editar el registro");
-                                }
-                            } catch (e) {
-                                alertify.error("Error en la respuesta del servidor");
-                            }
-                        }
-                    });
-                } else {
-                    alertify.warning("Completa todos los campos por favor!");
-                }
-            });
-
-            // Handle Egresos update
-            $('#updateUserE').on('submit', function(e) {
-                e.preventDefault();
-                const formData = $(this).serialize();
-                if ($('#horaeField').val() && $('#fechaeField').val() &&
-                    $('#solucioneseField').val() && $('#volumeneField').val()) {
-                    $.ajax({
-                        url: "update_userE.php",
-                        type: "POST",
-                        data: formData,
-                        success: function(data) {
-                            try {
-                                const json = JSON.parse(data);
-                                if (json.status === 'true') {
-                                    const table = $('#exampleE').DataTable();
-                                    const id = $('#id').val();
-                                    const trid = $('#trid').val();
-                                    const button = `
-                                        <div class="action-buttons-container">
-                                            <a href="javascript:void(0);"
-                                               data-id="${id}"
-                                               class="btn btn-action btn-edit-modern editbtnE"
-                                               title="Editar registro">
-                                                <i class="fas fa-edit"></i>
-                                                <span>Editar</span>
-                                            </a>
-                                            <a href="javascript:void(0);"
-                                               data-id="${id}"
-                                               class="btn btn-action btn-delete-modern deleteBtnE"
-                                               title="Eliminar registro">
-                                                <i class="fas fa-trash-alt"></i>
-                                                <span>Eliminar</span>
-                                            </a>
-                                        </div>
-                                    `;
-                                    const rowData = [
-                                        id,
-                                        $('#fecha_registroeField').val(),
-                                        $('#fechaeField').val(),
-                                        $('#horaeField').val(),
-                                        $('#solucioneseField').val(),
-                                        $('#volumeneField').val(),
-                                        $('#id_usuaeField').val(),
-                                        button
-                                    ];
-                                    table.row(`[id='${trid}']`).data(rowData);
-                                    $('#exampleModalE').modal('hide');
-                                    alertify.success("Registro editado correctamente");
-                                } else {
-                                    alertify.error("Error al editar el registro");
-                                }
-                            } catch (e) {
-                                alertify.error("Error en la respuesta del servidor");
-                            }
-                        }
-                    });
-                } else {
-                    alertify.warning("Completa todos los campos por favor!");
-                }
-            });
-
-            // Handle Ingresos delete
-            $('#exampleI').on('click', '.deleteBtnI', function(e) {
-                e.preventDefault();
-                const id = $(this).data('id');
-                if (confirm("¿Estás seguro de eliminar este registro?")) {
-                    $.ajax({
-                        url: "delete_userI.php",
-                        type: "POST",
-                        data: {
-                            id: id,
-                            csrf_token: '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>'
-                        },
-                        success: function(data) {
-                            try {
-                                const json = JSON.parse(data);
-                                if (json.status === 'success') {
-                                    $("#" + id).closest('tr').remove();
-                                    alertify.success("Registro eliminado correctamente");
-                                } else {
-                                    alertify.error("Error al eliminar el registro");
-                                }
-                            } catch (e) {
-                                alertify.error("Error en la respuesta del servidor");
-                            }
-                        }
-                    });
-                }
-            });
-
-            // Handle Egresos delete
-            $('#exampleE').on('click', '.deleteBtnE', function(e) {
-                e.preventDefault();
-                const id = $(this).data('id');
-                if (confirm("¿Estás seguro de eliminar este registro?")) {
-                    $.ajax({
-                        url: "delete_userE.php",
-                        type: "POST",
-                        data: {
-                            id: id,
-                            csrf_token: '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>'
-                        },
-                        success: function(data) {
-                            try {
-                                const json = JSON.parse(data);
-                                if (json.status === 'success') {
-                                    $("#" + id).closest('tr').remove();
-                                    alertify.success("Registro eliminado correctamente");
-                                } else {
-                                    alertify.error("Error al eliminar el registro");
-                                }
-                            } catch (e) {
-                                alertify.error("Error en la respuesta del servidor");
-                            }
-                        }
-                    });
-                }
-            });
-
-            // Search functionality
-            $('#search_nuevoI').on('keyup', function() {
-                $('#exampleI').DataTable().search(this.value).draw();
-            });
-
-            $('#search_nuevoE').on('keyup', function() {
-                $('#exampleE').DataTable().search(this.value).draw();
-            });
 
             // Toggle medico responsable
             $('#btn_toggle_medico_responsable').on('click', function() {
@@ -3993,6 +3611,362 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
     </script>
 
     <script>
+        // ingresos y egresos
+        // Initialize DataTables for Ingresos
+        $('#exampleI').DataTable({
+            language: {
+                decimal: "",
+                emptyTable: "No hay información",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                infoEmpty: "Mostrando 0 to 0 of 0 Entradas",
+                infoFiltered: "(Filtrado de _MAX_ total entradas)",
+                infoPostFix: "",
+                thousands: ",",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                loadingRecords: "Cargando...",
+                processing: "Procesando...",
+                search: "Buscar:",
+                zeroRecords: "Sin resultados encontrados",
+                paginate: {
+                    first: "Primero",
+                    last: "Ultimo",
+                    next: "Siguiente",
+                    previous: "Anterior"
+                }
+            },
+            fnCreatedRow: function(nRow, aData) {
+                $(nRow).attr('id', aData[0]);
+            },
+            serverSide: true,
+            processing: true,
+            paging: true,
+            searching: false,
+            order: [],
+            ajax: {
+                url: 'fetch_dataI.php',
+                type: 'POST',
+                data: function(d) {
+                    d.id_atencion = '<?php echo $id_atencion; ?>';
+                    d.csrf_token = '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>';
+                }
+            }
+        });
+
+        // Initialize DataTables for Egresos
+        $('#exampleE').DataTable({
+            language: {
+                decimal: "",
+                emptyTable: "No hay información",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                infoEmpty: "Mostrando 0 to 0 of 0 Entradas",
+                infoFiltered: "(Filtrado de _MAX_ total entradas)",
+                infoPostFix: "",
+                thousands: ",",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                loadingRecords: "Cargando...",
+                processing: "Procesando...",
+                search: "Buscar:",
+                zeroRecords: "Sin resultados encontrados",
+                paginate: {
+                    first: "Primero",
+                    last: "Ultimo",
+                    next: "Siguiente",
+                    previous: "Anterior"
+                }
+            },
+            fnCreatedRow: function(nRow, aData) {
+                $(nRow).attr('id', aData[0]);
+            },
+            serverSide: true,
+            processing: true,
+            paging: true,
+            searching: false,
+            order: [],
+            ajax: {
+                url: 'fetch_dataE.php',
+                type: 'POST',
+                data: {
+                    id_atencion: '<?php echo $id_atencion; ?>'
+                }
+            },
+            columnDefs: [{
+                targets: [7],
+                orderable: false
+            }]
+        });
+
+        // Handle Ingresos form submission
+        $('#addUserI').on('submit', function(e) {
+            e.preventDefault();
+            const formData = $(this).serialize();
+            if ($('#addhoraiField').val() && $('#addfechaiField').val() &&
+                $('#addsolucionesField').val() && $('#addvolumenField').val()) {
+                $.ajax({
+                    url: "add_userI.php",
+                    type: "POST",
+                    data: formData,
+                    success: function(data) {
+                        try {
+                            const json = JSON.parse(data);
+                            if (json.status === 'true') {
+                                $('#exampleI').DataTable().draw();
+                                $('#addUserI')[0].reset();
+                                $('#addUserModalI').modal('hide');
+                                alertify.success("Registro agregado correctamente");
+                            } else {
+                                alertify.error("Error al agregar el registro");
+                            }
+                        } catch (e) {
+                            alertify.error("Error en la respuesta del servidor");
+                        }
+                    },
+                    error: function() {
+                        alertify.error("Error en la comunicación con el servidor");
+                    }
+                });
+            } else {
+                alertify.warning("Completa todos los campos por favor!");
+            }
+        });
+
+        // Handle Egresos form submission
+        $('#addUserE').on('submit', function(e) {
+            e.preventDefault();
+            const formData = $(this).serialize();
+            if ($('#addhoraeField').val() && $('#addfechaeField').val() &&
+                $('#addsolucioneseField').val() && $('#addvolumeneField').val()) {
+                $.ajax({
+                    url: "add_userE.php",
+                    type: "POST",
+                    data: formData,
+                    success: function(data) {
+                        try {
+                            const json = JSON.parse(data);
+                            if (json.status === 'true') {
+                                $('#exampleE').DataTable().draw();
+                                $('#addUserE')[0].reset();
+                                $('#addUserModalE').modal('hide');
+                                alertify.success("Registro agregado correctamente");
+                            } else {
+                                alertify.error("Error al agregar el registro");
+                            }
+                        } catch (e) {
+                            alertify.error("Error en la respuesta del servidor");
+                        }
+                    },
+                    error: function() {
+                        alertify.error("Error en la comunicación con el servidor");
+                    }
+                });
+            } else {
+                alertify.warning("Completa todos los campos por favor!");
+            }
+        });
+
+        // Handle Ingresos edit
+        $('#exampleI').on('click', '.editbtnI', function() {
+            const id = $(this).data('id');
+            const trid = $(this).closest('tr').attr('id');
+            console.log('Edit Ingresos clicked - ID:', id, 'TRID:', trid); // Depuración
+            $.ajax({
+                url: "get_single_dataI.php",
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    try {
+                        const json = JSON.parse(data);
+                        console.log('Respuesta de get_single_dataI.php:', json); // Depuración
+                        $('#horaiField').val(json.hora);
+                        $('#fechaiField').val(json.fecha);
+                        $('#solucionesField').val(json.soluciones);
+                        $('#volumenField').val(json.volumen);
+                        $('#id_usuaField').val(json.id_usua);
+                        $('#fecha_registroField').val(json.fecha_registro);
+                        $('#updateIdI').val(id);
+                        $('#updateTridI').val(trid);
+                        $('#exampleModalI').modal('show');
+                    } catch (e) {
+                        console.error('Error al parsear respuesta:', e);
+                        alertify.error("Error en la respuesta del servidor");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error en AJAX get_single_dataI.php:', status, error);
+                    alertify.error("Error en la comunicación con el servidor");
+                }
+            });
+        });
+
+        // Handle Egresos edit
+        $('#exampleE').on('click', '.editbtnE', function() {
+            const id = $(this).data('id');
+            const trid = $(this).closest('tr').attr('id');
+            $.ajax({
+                url: "get_single_dataE.php",
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    try {
+                        const json = JSON.parse(data);
+                        $('#horaeField').val(json.hora);
+                        $('#fechaeField').val(json.fecha);
+                        $('#solucioneseField').val(json.soluciones);
+                        $('#volumeneField').val(json.volumen);
+                        $('#id_usuaeField').val(json.id_usua);
+                        $('#fecha_registroeField').val(json.fecha_registro);
+                        $('#updateIdE').val(id); // Cambiado: usa ID único
+                        $('#updateTridE').val(trid); // Cambiado: usa ID único
+                        $('#exampleModalE').modal('show');
+                    } catch (e) {
+                        alertify.error("Error en la respuesta del servidor");
+                    }
+                }
+            });
+        });
+
+        // Handle Ingresos update
+        $('#updateUserI').on('submit', function(e) {
+            e.preventDefault();
+            const formData = $(this).serialize();
+            console.log('Form Data enviado a update_userI.php:', formData); // Depuración
+            if ($('#horaiField').val() && $('#fechaiField').val() &&
+                $('#solucionesField').val() && $('#volumenField').val()) {
+                $.ajax({
+                    url: "update_userI.php",
+                    type: "POST",
+                    data: formData,
+                    success: function(data) {
+                        try {
+                            const json = JSON.parse(data);
+                            console.log('Respuesta de update_userI.php:', json); // Depuración
+                            if (json.status === 'true') {
+                                $('#exampleI').DataTable().ajax.reload();
+                                $('#exampleModalI').modal('hide');
+                                alertify.success("Registro editado correctamente");
+                            } else {
+                                console.error("Server error:", json.error);
+                                alertify.error("Error al editar el registro: " + json.error);
+                            }
+                        } catch (e) {
+                            console.error("Parsing error:", e);
+                            alertify.error("Error en la respuesta del servidor");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error en AJAX update_userI.php:', status, error);
+                        alertify.error("Error en la comunicación con el servidor");
+                    }
+                });
+            } else {
+                alertify.warning("Completa todos los campos por favor!");
+            }
+        });
+
+        // Handle Egresos update
+        $('#updateUserE').on('submit', function(e) {
+            e.preventDefault();
+            const formData = $(this).serialize();
+            if ($('#horaeField').val() && $('#fechaeField').val() &&
+                $('#solucioneseField').val() && $('#volumeneField').val()) {
+                $.ajax({
+                    url: "update_userE.php",
+                    type: "POST",
+                    data: formData,
+                    success: function(data) {
+                        try {
+                            const json = JSON.parse(data);
+                            if (json.status === 'true') {
+                                $('#exampleE').DataTable().ajax.reload(); // Reload DataTable
+                                $('#exampleModalE').modal('hide');
+                                alertify.success("Registro editado correctamente");
+                            } else {
+                                console.error("Server error:", json.error);
+                                alertify.error("Error al editar el registro: " + json.error);
+                            }
+                        } catch (e) {
+                            console.error("Parsing error:", e);
+                            alertify.error("Error en la respuesta del servidor");
+                        }
+                    }
+                });
+            } else {
+                alertify.warning("Completa todos los campos por favor!");
+            }
+        });
+
+        // Handle Ingresos delete
+        $('#exampleI').on('click', '.deleteBtnI', function(e) {
+            e.preventDefault();
+            const id = $(this).data('id');
+            if (confirm("¿Estás seguro de eliminar este registro?")) {
+                $.ajax({
+                    url: "delete_userI.php",
+                    type: "POST",
+                    data: {
+                        id: id,
+                        csrf_token: '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>'
+                    },
+                    success: function(data) {
+                        try {
+                            const json = JSON.parse(data);
+                            if (json.status === 'success') {
+                                $("#" + id).closest('tr').remove();
+                                alertify.success("Registro eliminado correctamente");
+                            } else {
+                                alertify.error("Error al eliminar el registro");
+                            }
+                        } catch (e) {
+                            alertify.error("Error en la respuesta del servidor");
+                        }
+                    }
+                });
+            }
+        });
+
+        // Handle Egresos delete
+        $('#exampleE').on('click', '.deleteBtnE', function(e) {
+            e.preventDefault();
+            const id = $(this).data('id');
+            if (confirm("¿Estás seguro de eliminar este registro?")) {
+                $.ajax({
+                    url: "delete_userE.php",
+                    type: "POST",
+                    data: {
+                        id: id,
+                        csrf_token: '<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>'
+                    },
+                    success: function(data) {
+                        try {
+                            const json = JSON.parse(data);
+                            if (json.status === 'success') {
+                                $("#" + id).closest('tr').remove();
+                                alertify.success("Registro eliminado correctamente");
+                            } else {
+                                alertify.error("Error al eliminar el registro");
+                            }
+                        } catch (e) {
+                            alertify.error("Error en la respuesta del servidor");
+                        }
+                    }
+                });
+            }
+        });
+
+        // Search functionality
+        $('#search_nuevoI').on('keyup', function() {
+            $('#exampleI').DataTable().search(this.value).draw();
+        });
+
+        $('#search_nuevoE').on('keyup', function() {
+            $('#exampleE').DataTable().search(this.value).draw();
+        });
+    </script>
+
+    <script>
         // equipos
         // Array to store selected services
         let selectedServices = [];
@@ -4006,29 +3980,38 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
         // Add selected service to table
         function addService() {
             const select = document.getElementById('serviceSelect');
+            const timeInput = document.getElementById('serviceTime');
             const selectedOption = select.options[select.selectedIndex];
+
             if (!selectedOption || !selectedOption.value || selectedOption.value === '') {
                 alertify.warning('Por favor, seleccione un equipo válido.');
+                return;
+            }
+
+            if (!timeInput.value) {
+                alertify.warning('Por favor, ingrese una hora.');
                 return;
             }
 
             const service = {
                 id: selectedOption.value,
                 desc: selectedOption.getAttribute('data-desc') || 'Desconocido',
-                cost: parseFloat(selectedOption.getAttribute('data-cost') || 0)
+                cost: parseFloat(selectedOption.getAttribute('data-cost') || 0),
+                time: timeInput.value
             };
 
             console.log('Adding service:', service);
 
             // Avoid duplicates
-            if (!selectedServices.some(s => s.id === service.id)) {
+            if (!selectedServices.some(s => s.id === service.id && s.time === service.time)) {
                 selectedServices.push(service);
                 updateTable();
-                alertify.success(`Equipo "${service.desc}" añadido.`);
+                alertify.success(`Equipo "${service.desc}" añadido con hora ${service.time}.`);
             } else {
-                alertify.warning('Este equipo ya está seleccionado.');
+                alertify.warning('Este equipo con la misma hora ya está seleccionado.');
             }
             select.value = ''; // Reset dropdown
+            timeInput.value = ''; // Reset time
         }
 
         // Update selected services table
@@ -4036,18 +4019,19 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
             const tbody = document.getElementById('selectedServicesBody');
             tbody.innerHTML = '';
             if (selectedServices.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="3">No hay equipos seleccionados.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="4">No hay equipos seleccionados.</td></tr>';
                 return;
             }
             selectedServices.forEach((service, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-            <td>${service.desc}</td>
-            <td>$${service.cost.toFixed(2)}</td>
-            <td>
-                <button class="btn btn-sm btn-danger" onclick="deleteServices(${index})">Eliminar</button>
-            </td>
-        `;
+                                <td>${service.desc}</td>
+                                <td>$${service.cost.toFixed(2)}</td>
+                                <td>${service.time}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteServices(${index})">Eliminar</button>
+                                </td>
+                            `;
                 tbody.appendChild(row);
             });
         }
@@ -4075,8 +4059,10 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
             formData.append('id_usua', '<?php echo json_encode($_SESSION['login']['id_usua'] ?? 0); ?>');
             formData.append('id_atencion', '<?php echo json_encode($_SESSION['pac'] ?? 0); ?>');
             formData.append('csrf_token', '<?php echo htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8'); ?>');
-            selectedServices.forEach(service => {
-                formData.append(`services[${service.id}]`, service.cost);
+            selectedServices.forEach((service, index) => {
+                formData.append(`services[${index}][id]`, service.id);
+                formData.append(`services[${index}][cost]`, service.cost);
+                formData.append(`services[${index}][time]`, service.time);
             });
 
             console.log('Submitting formData:', Array.from(formData.entries()));
@@ -4114,7 +4100,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
         // Load registered services from backend
         function loadRegisteredServices() {
             const tbody = document.getElementById('registeredServicesBody');
-            tbody.innerHTML = '<tr><td colspan="4"><i class="fas fa-spinner fa-spin"></i> Cargando...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5"><i class="fas fa-spinner fa-spin"></i> Cargando...</td></tr>';
 
             fetch('services_handler.php', {
                     method: 'POST',
@@ -4144,22 +4130,23 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                         data.services.forEach(service => {
                             const row = document.createElement('tr');
                             row.innerHTML = `
-                        <td>${service.serv_desc || 'Desconocido'}</td>
-                        <td>$${parseFloat(service.cta_tot || 0).toFixed(2)}</td>
-                        <td>${service.cta_fec || 'N/A'}</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" onclick="deleteService(${service.id_ctapac})">Eliminar</button>
-                        </td>
-                    `;
+                                            <td>${service.serv_desc || 'Desconocido'}</td>
+                                            <td>$${parseFloat(service.cta_tot || 0).toFixed(2)}</td>
+                                            <td>${service.cta_fec || 'N/A'}</td>
+                                            <td>${service.hora || 'N/A'}</td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm" onclick="deleteService(${service.id_ctapac})">Eliminar</button>
+                                            </td>
+                                        `;
                             tbody.appendChild(row);
                         });
                     } else {
-                        tbody.innerHTML = '<tr><td colspan="4">No hay equipos registrados.</td></tr>';
+                        tbody.innerHTML = '<tr><td colspan="5">No hay equipos registrados.</td></tr>';
                     }
                 })
                 .catch(error => {
                     console.error('Load services fetch error:', error);
-                    tbody.innerHTML = `<tr><td colspan="4">Error al cargar equipos: ${error.message}</td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="5">Error al cargar equipos: ${error.message}</td></tr>`;
                     alertify.error(`Error al cargar equipos: ${error.message}`);
                 });
         }
@@ -4222,6 +4209,12 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
 
             // Initialize Alertify
             alertify.set('notifier', 'position', 'top-right');
+
+            // Function to toggle Enviar button visibility
+            function toggleEnviarButton() {
+                const hasItems = tablaMedicamentos.querySelector('tbody') && tablaMedicamentos.querySelector('tbody').children.length > 0;
+                enviarBtn.style.display = hasItems ? 'block' : 'none';
+            }
 
             // Validate form fields before sending
             function validateForm() {
@@ -4302,6 +4295,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                             loteSelect.innerHTML = '<option value="" disabled selected>Lote/Caducidad/Total</option>';
                             document.getElementById('existe_id_display').textContent = '';
                             alertify.success('Medicamento agregado a la lista');
+                            toggleEnviarButton(); // Update button visibility
                         } else {
                             alertify.error('Error al agregar el medicamento: ' + data.message);
                         }
@@ -4332,9 +4326,10 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                     .then(data => {
                         if (data.success) {
                             tablaMedicamentos.innerHTML = '<p class="text-center">No hay medicamentos seleccionados.</p>';
-                            tablaSurtidos.innerHTML = data.data.tablaSurtidos || ''; // Update surtidos table
+                            tablaSurtidos.innerHTML = data.data.tablaSurtidos || '';
                             asignarEventosEliminarSurtidos();
                             alertify.success('Registro agregado correctamente');
+                            toggleEnviarButton(); // Update button visibility
                         } else {
                             alertify.error('Error al agregar el registro: ' + data.message);
                         }
@@ -4399,6 +4394,7 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
                                     tablaMedicamentos.innerHTML = data.data.tabla;
                                     asignarEventosEliminar();
                                     alertify.success('Medicamento eliminado de la lista');
+                                    toggleEnviarButton(); // Update button visibility
                                 } else {
                                     alertify.error('Error al eliminar el medicamento: ' + data.message);
                                 }
@@ -4452,6 +4448,37 @@ if (isset($_SESSION['paciente_seleccionado']) && !empty($_SESSION['paciente_sele
             asignarEventosEliminar();
             asignarEventosEliminarSurtidos();
             cargarItemsSurtidos();
+            toggleEnviarButton(); // Initial check for button visibility
+        });
+    </script>
+
+    <script>
+        // cirugia segura
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const form = this;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alertify.success(data.message);
+                        setTimeout(() => {
+                            window.location.href = '../../enfermera/registro_procedimientos/reg_pro.php?success=1';
+                        }, 1500); // Redirect after 1.5 seconds
+                    } else {
+                        alertify.error(data.message);
+                    }
+                })
+                .catch(error => {
+                    alertify.error('Error de conexión al servidor');
+                    console.error('Error:', error);
+                });
         });
     </script>
 </body>
