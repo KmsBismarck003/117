@@ -30,8 +30,7 @@ if (!($usuario['id_rol'] == 6 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css"/>
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
     <!-- Morris chart -->
@@ -55,160 +54,256 @@ if (!($usuario['id_rol'] == 6 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <![endif]-->
  
     <style>
-        h3 {
-            text-align: center;
-
-        }
-
-        .dropdwn {
-            float: left;
-            overflow: hidden;
-        }
-
-        .dropdwn .dropbtn {
-            cursor: pointer;
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-
-        .navbar a:hover,
-        .dropdwn:hover .dropbtn,
-        .dropbtn:focus {
-            background-color: #367fa9;
-        }
-
-        .dropdwn-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdwn-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdwn-content a:hover {
-            background-color: #ddd;
-        }
-
-        .show {
-            display: block;
-        }
-
+        /* Reset de estilos básicos */
         * {
             box-sizing: border-box;
         }
 
-        .todo-container {
-            max-width: 15000px;
-            height: auto;
-            display: flex;
-            overflow-y: scroll;
-            column-gap: 0.5em;
-            column-rule: 1px solid white;
-            column-width: 140px;
-            column-count: 7;
+        /* Estilos del contenedor principal - fondo blanco */
+        .config-menu-container {
+            padding: 20px;
+            background: white;
+            min-height: 100vh;
         }
 
-        .status {
-            width: 25%;
-            background-color: #ecf0f5;
-            position: relative;
-            padding: 60px 1rem 0.5rem;
-            height: 100%;
-
+        /* Header del menú - fondo azul predeterminado */
+        .config-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #2b2d7f;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .status h4 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #0b3e6f;
+        .config-header h4 {
             color: white;
+            font-weight: 700;
             margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Grid de tarjetas - 4 columnas x 2 filas */
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Estilos de las tarjetas - diseño con fondo de color */
+        .config-card {
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .config-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        .config-card a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
             width: 100%;
-
-            padding: 0.5rem 1rem;
         }
-        @media screen and (max-width: 980px){
-            
-            
-            
-            
-              .footer{
-                   
-                 font-size:9px;
-            }
-            
-           
-            .esi{
-                   
-                   margin-top:-110px;
-            }
-            
-            .confii{
-                   
-                   margin-top:1px;
-            }
-            
-            #meddi{
-                   width:150px;
-                   height:auto;
-                
-            }
-            
-            .card-img-top{
-             width:80px;
- height: 80px;
-            }
-            
-      .img-fluid{
- width:80px;
- height: 80px;
-    
-      }
-  h4 {
-      font-size:8px;
 
+        /* Círculo de icono - blanco sobre fondo de color */
+        .icon-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
+
+        .config-card:hover .icon-circle {
+            transform: scale(1.05);
+        }
+
+        /* Iconos de colores */
+        .config-icon {
+            font-size: 50px;
+            transition: all 0.3s ease;
+        }
+
+        /* Títulos */
+        .config-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            color: #2c3e50;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Fondos de colores pasteles para las tarjetas */
+        .card-beds {
+            background: #E3F2FD; /* Azul pastel claro */
+        }
+        .card-beds .config-icon {
+            color: #1976D2; /* Azul */
+        }
+
+        .card-staff {
+            background: #FCE4EC; /* Rosa pastel claro */
+        }
+        .card-staff .config-icon {
+            color: #C2185B; /* Rosa */
+        }
+
+        .card-diagnostics {
+            background: #E8F5E8; /* Verde pastel claro */
+        }
+        .card-diagnostics .config-icon {
+            color: #388E3C; /* Verde */
+        }
+
+        .card-services {
+            background: #FFF8E1; /* Amarillo pastel claro */
+        }
+        .card-services .config-icon {
+            color: #F57C00; /* Naranja */
+        }
+
+        .card-insurance {
+            background: #F3E5F5; /* Morado pastel claro */
+        }
+        .card-insurance .config-icon {
+            color: #7B1FA2; /* Morado */
+        }
+
+        .card-diets {
+            background: #E8EAF6; /* Índigo pastel claro */
+        }
+        .card-diets .config-icon {
+            color: #3F51B5; /* Índigo */
+        }
+
+        .card-specialties {
+            background: #EFEBE9; /* Café pastel claro */
+        }
+        .card-specialties .config-icon {
+            color: #5D4037; /* Café */
+        }
+
+        .card-admin {
+            background: #FFF3E0; /* Naranja pastel claro */
+        }
+        .card-admin .config-icon {
+            color: #FF9800; /* Naranja */
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .config-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+                gap: 25px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .config-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .config-card {
+                padding: 30px 15px;
+                min-height: 180px;
+            }
+
+            .icon-circle {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 15px;
+            }
+
+            .config-icon {
+                font-size: 40px;
+            }
+
+            .config-title {
+                font-size: 14px;
+            }
+
+            .config-header {
+                margin-bottom: 30px;
+                padding: 15px;
+            }
+
+            .config-header h4 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .config-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 15px;
+                padding: 5px;
+            }
+
+            .config-card {
+                padding: 25px 15px;
+                min-height: 160px;
+            }
+
+            .icon-circle {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 12px;
+            }
+
+            .config-icon {
+                font-size: 32px;
+            }
+
+            .config-title {
+                font-size: 13px;
+            }
+        }
+
+        /* Ocultar estilos antiguos */
+        .dropdwn, .dropdwn-content, .todo-container, .status {
+            display: none !important;
+        }
+    </style>
+
     
-.patoi{
-top:-82px;
-left:9px;
- }   
-    
-    .medi{
-        top:1px;
-    }
-    
-    .inteni{
-         top:-112px;
-    }   
-   
-    .bioi{
-         top:-112px;
-    }   
-    
-    .patoi{
-        top:4px;
-        left:-4px;
-    }
-        
-}
+    </style>
     </style>
 </head>
 
@@ -226,7 +321,7 @@ left:9px;
 
             <a href="menu_administrativo.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+                <span class="logo-mini"><b>SI</b>MA</span>
                 <!-- logo for regular state and mobile devices -->
              <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -245,7 +340,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_gerencia.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+                <span class="logo-mini"><b>SI</b>MA</span>
                 <!-- logo for regular state and mobile devices -->
               <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -264,7 +359,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_configuracion.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+                <span class="logo-mini"><b>SI</b>MA</span>
                 <!-- logo for regular state and mobile devices -->
               <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -404,164 +499,111 @@ if ($usuario['id_usua'] == 1){
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
 
-      <!--AQUI VA QUE PUESTO TIENE-->
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page"><STRONG>
-              <h4>CONFIGURACION DEL SISTEMA</h4>
-            </STRONG></li>
-        </ol>
-      </nav>
-<?php
-if ($usuario['id_rol'] == 5 || $usuario['id_rol'] == 6){
-?>
-      <!-- Main content -->
-      <section class="responsive">
-        <section class="content container-fluid">
-                <div class="content box">
-                    <!-- CONTENIDOO -->
-                    <div class="row">
-                        <?php
-                         if ($usuario['id_usua'] == 1){
-                            ?>
+      <!--DISEÑO MODERNO CON CÍRCULOS COMO LA SEGUNDA IMAGEN-->
+      <div class="config-menu-container">
+        <div class="config-header">
+          <h4><i class="fas fa-cogs" style="margin-right: 10px;"></i>CONFIGURACIÓN DEL SISTEMA</h4>
+        </div>
 
-                        <div class="col-lg-3">
-                            <div style="background-color: #bbdefb">
-                                <center>
-                                    <a title="GESTIÓN DE CAMAS" href="../configuracion/camas/cat_camas.php">
-                                    <img class="card-img-top" src="../img/cama_hosp.png" alt="admision" height="80" width="100"/></a>
-                                </center>
-                                <center><h3>GESTIÓN DE CAMAS</h3></center>
-                            </div>
-                        </div>
-                          <?php }?>
-                        <div class="col-lg-3">
-                            <div style="background-color: #ffccbc">
-                                <center>
-                                        <a title="GESTIÓN DE PERSONAL" 
-                                        href="../configuracion/personal/alta_usuarios.php">
-                                        <img class="card-img-top" src="../img/personal_hospi.png" alt="GESTIÓN DE PERSONAL" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>GESTIÓN DE PERSONAL</h3></center>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div style="background-color: #dcedc8">
-                                <center>
-                                    <a title="DIAGNÓSTICOS" 
-                                    href="../configuracion/diagnosticos/cat_diagnosticos.php">
-                                    <img class="card-img-top" src="../img/diagnosticos.jpg" alt="DIAGNÓSTICOS" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>DIAGNÓSTICOS</h3></center>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-3">
-                            <div style="background-color: #ffecb3">
-                                <center>
-                                    <a title="SERVICIOS" href="../configuracion/servicios/cat_servicios.php">
-                                        <img class="card-img-top" src="../img/servicios.jpg" alt="SERVICIOS" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>SERVICIOS</h3></center>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">    
-                        <div class="col-lg-3">
-                            <div style="background-color: #e1bee7">
-                                <center>
-                                    <a title="ASEGURADORAS" href="../configuracion/aseguradoras/aseguradora.php">
-                                        <img class="card-img-top" src="../img/aseg.jpg" alt="ASEGURADORAS" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>ASEGURADORAS</h3></center>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div style="background-color: #EDE7F6 ">
-                                <center>
-                                    <a title="DIETAS" href="../configuracion/dietas/cat_dietas.php">
-                                    <img class="card-img-top" src="../img/dietas.jpg" alt="DIETAS" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>DIETAS</h3></center>
-                            </div>
-                        </div>
-                            
-                        <div class="col-lg-3">
-                            <div style="background-color: #d7ccc8">
-                                <center>
-                                    <a title="ESPECIALIDADES" href="../configuracion/especialidad/cat_espec.php">
-                                    <img class="card-img-top" src="../img/especialidades.jpg" alt="ESPECIALIDADES" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>ESPECIALIDADES</h3></center>
-                            </div>
-                        </div>
-                                
-                        <div class="col-lg-3">
-                            <div style="background-color: #9999CC ">
-                                <center>
-                                    <a title="ESPECIALIDADES" href="../configuracion/admin/imgsistema.php">
-                                    <img class="card-img-top" src="../img/config.png" alt="ESPECIALIDADES" height="80" width="100" /></a>
-                                </center>
-                                <center><h3>ADMIN SIMA</h3></center>
-                            </div>
-                        </div>
-                    </div>
+        <?php if ($usuario['id_rol'] == 5 || $usuario['id_rol'] == 6): ?>
+          <div class="config-grid">
+            <?php if ($usuario['id_usua'] == 1): ?>
+              <div class="config-card card-beds">
+                <a href="../configuracion/camas/cat_camas.php" title="GESTIÓN DE CAMAS">
+                  <div class="icon-circle">
+                    <i class="fas fa-bed config-icon"></i>
+                  </div>
+                  <h3 class="config-title">GESTIÓN DE CAMAS</h3>
+                </a>
+              </div>
+            <?php endif; ?>
+            
+            <div class="config-card card-staff">
+              <a href="../configuracion/personal/alta_usuarios.php" title="GESTIÓN DE PERSONAL">
+                <div class="icon-circle">
+                  <i class="fas fa-user-nurse config-icon"></i>
+                </div>
+                <h3 class="config-title">GESTIÓN DE PERSONAL</h3>
+              </a>
+            </div>
 
-            </section><!-- /.content -->
-      </section><!-- /.content -->
-      <?php }else if ($usuario['id_rol'] == 1){?>
-      
-      <section class="content">
-        <section class="content container-fluid">
-                <div class="content box">
-                    <!-- CONTENIDOO -->
-                    <div class="row">
-                    
-                        <div class="col-lg-4 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <center>
-                                        <a title="GESTIÓN DE PERSONAL" href="../configuracion/personal/alta_usuarios.php"><img class="card-img-top" src="../img/personal_hosp.jpg" alt="GESTIÓN DE PERSONAL" height="150" width="200" /></a>
-                                    </center>
-                                    <center>
-                                        <h3>GESTIÓN DE PERSONAL</h3>
-                                    </center>
+            <div class="config-card card-diagnostics">
+              <a href="../configuracion/diagnosticos/cat_diagnosticos.php" title="DIAGNÓSTICOS">
+                <div class="icon-circle">
+                  <i class="fas fa-stethoscope config-icon"></i>
+                </div>
+                <h3 class="config-title">DIAGNÓSTICOS</h3>
+              </a>
+            </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-lg-4 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <center>
-                                            <a title="SERVICIOS" href="../configuracion/servicios/cat_servicios.php">
-                                            <img class="card-img-top" src="../img/servicios.png" alt="SERVICIOS" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                            <h3>SERVICIOS</h3>
-                                        </center>
+            <div class="config-card card-services">
+              <a href="../configuracion/servicios/cat_servicios.php" title="SERVICIOS">
+                <div class="icon-circle">
+                  <i class="fas fa-concierge-bell config-icon"></i>
+                </div>
+                <h3 class="config-title">SERVICIOS</h3>
+              </a>
+            </div>
 
-                                    </div>
+            <div class="config-card card-insurance">
+              <a href="../configuracion/aseguradoras/aseguradora.php" title="ASEGURADORAS">
+                <div class="icon-circle">
+                  <i class="fas fa-shield-alt config-icon"></i>
+                </div>
+                <h3 class="config-title">ASEGURADORAS</h3>
+              </a>
+            </div>
 
-                                </div>
-                            </div>
-                            
-                            
-                          
-                            
-<div class="col-lg-4 col-xs-6">
-                                    
-                                </div>
-                        </div>
-                    </div>
+            <div class="config-card card-diets">
+              <a href="../configuracion/dietas/cat_dietas.php" title="DIETAS">
+                <div class="icon-circle">
+                  <i class="fas fa-utensils config-icon"></i>
+                </div>
+                <h3 class="config-title">DIETAS</h3>
+              </a>
+            </div>
 
-            </section><!-- /.content -->
-      </section><!-- /.content -->
-      
-      <?php }?>
+            <div class="config-card card-specialties">
+              <a href="../configuracion/especialidad/cat_espec.php" title="ESPECIALIDADES">
+                <div class="icon-circle">
+                  <i class="fas fa-user-md config-icon"></i>
+                </div>
+                <h3 class="config-title">ESPECIALIDADES</h3>
+              </a>
+            </div>
+
+            <div class="config-card card-admin">
+              <a href="../configuracion/admin/imgsistema.php" title="ADMIN SIMA">
+                <div class="icon-circle">
+                  <i class="fas fa-cog config-icon"></i>
+                </div>
+                <h3 class="config-title">ADMIN SIMA</h3>
+              </a>
+            </div>
+          </div>
+
+        <?php elseif ($usuario['id_rol'] == 1): ?>
+          <div class="config-grid">
+            <div class="config-card card-staff">
+              <a href="../configuracion/personal/alta_usuarios.php" title="GESTIÓN DE PERSONAL">
+                <div class="icon-circle">
+                  <i class="fas fa-user-nurse config-icon"></i>
+                </div>
+                <h3 class="config-title">GESTIÓN DE PERSONAL</h3>
+              </a>
+            </div>
+
+            <div class="config-card card-services">
+              <a href="../configuracion/servicios/cat_servicios.php" title="SERVICIOS">
+                <div class="icon-circle">
+                  <i class="fas fa-concierge-bell config-icon"></i>
+                </div>
+                <h3 class="config-title">SERVICIOS</h3>
+              </a>
+            </div>
+          </div>
+        <?php endif; ?>
+      </div>
     </div><!-- /.content-wrapper -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

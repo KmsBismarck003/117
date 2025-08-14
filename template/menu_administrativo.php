@@ -1,3 +1,4 @@
+
 <?php
 include "../conexionbd.php";
 session_start();
@@ -291,6 +292,108 @@ h4{
 
 
   </style>
+
+  <!-- Estilos modernos para el menú administrativo -->
+  <style>
+    /* Estilos modernos para el menú administrativo */
+    .content {
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+    }
+
+    .card {
+      transition: all 0.3s ease !important;
+      border: none !important;
+      overflow: hidden;
+      border-radius: 15px !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+      background: white;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) !important;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+    }
+
+    .card a {
+      text-decoration: none !important;
+    }
+
+    .card .fa {
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .fa {
+      transform: scale(1.1);
+    }
+
+    .card:hover div[style*="background"] {
+      transform: scale(1.05);
+    }
+
+    /* Responsividad mejorada */
+    @media (max-width: 768px) {
+      .col-sm-4 {
+        margin-bottom: 20px;
+      }
+      
+      .card div[style*="background"] {
+        width: 80px !important;
+        height: 80px !important;
+      }
+      
+      .card .fa {
+        font-size: 30px !important;
+      }
+      
+      .card h4, .card h5 {
+        font-size: 16px !important;
+      }
+    }
+
+    /* Estilos adicionales para modales */
+    .modal-xl {
+      max-width: 1200px;
+    }
+
+    .modal-content {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      border: none !important;
+    }
+
+    .modal-footer {
+      border: none !important;
+    }
+
+    /* Efectos específicos para iconos de servicios auxiliares */
+    .card[style*="linear-gradient"] div[style*="background"] {
+      transition: all 0.3s ease;
+    }
+
+    .card[style*="linear-gradient"]:hover div[style*="background"] {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Animación pulso para iconos */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .card:hover .fa {
+      animation: pulse 1s infinite;
+    }
+  </style>
+  </style>
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -306,7 +409,7 @@ h4{
 
         <a href="menu_administrativo.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+          <span class="logo-mini"><b>SI</b>MA</span>
           <!-- logo for regular state and mobile devices -->
 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -324,7 +427,7 @@ while($f = mysqli_fetch_array($resultado)){
       ?>
         <a href="menu_gerencia.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+          <span class="logo-mini"><b>SI</b>MA</span>
           <!-- logo for regular state and mobile devices -->
          <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -339,7 +442,7 @@ while($f = mysqli_fetch_array($resultado)){
       <?php }elseif($usuario['id_rol'] == 12) { ?>
          <a href="menu_residente.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+          <span class="logo-mini"><b>SI</b>MA</span>
           <!-- logo for regular state and mobile devices -->
          <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -354,7 +457,7 @@ while($f = mysqli_fetch_array($resultado)){
       <?php }elseif($usuario['id_rol'] == 9) { ?>
          <a href="menu_imagenologia.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+          <span class="logo-mini"><b>SI</b>MA</span>
           <!-- logo for regular state and mobile devices -->
          <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -482,41 +585,65 @@ while($f = mysqli_fetch_array($resultado)){
 
       <!--AQUI VA QUE PUESTO TIENE-->
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb" style="background: #2b2d7f; border: none; border-radius: 0; padding: 15px 25px; margin-bottom: 30px;">
           <li class="breadcrumb-item active" aria-current="page"><STRONG>
-              <h4>ADMINISTRATIVO</h4>
+              <h4 style="color: white; margin: 0; font-weight: 600;">ADMINISTRATIVO</h4>
             </STRONG></li>
         </ol>
       </nav>
 
    
             <div class="content box">
-              <!-- CONTENIDOO -->
+              <!-- CONTENIDO -->
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 ges">
-     <center>
-  <a title="Gestión de Pacientes" href="../gestion_administrativa/gestion_pacientes/registro_pac.php"><img class="card-img-top ge" src="../img/admision.png" alt="admision" height="150" width="200" /></a>
-    </center>
-   <center><h4 class="pac"><strong>GESTIÓN DE PACIENTES</strong></h4></center>
+    <!-- GESTIÓN DE PACIENTES -->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <div style="margin-bottom: 20px;">
+            <a href="../gestion_administrativa/gestion_pacientes/registro_pac.php" title="Gestión de Pacientes" style="text-decoration: none;">
+              <div style="background: #B3E5FC; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                <i class="fa fa-users" style="font-size: 48px; color: #0277BD;"></i>
+              </div>
+              <h4 style="color: #0277BD; font-weight: 600; margin: 0;">GESTIÓN DE PACIENTES</h4>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
-        <div class="col-sm-4 cuen">
-            <center>
-                <a title="Cuentas" data-toggle="modal" data-target="#exampleModal"><img class="card-img-top cue" src="../img/cobrar.png" alt="cuentas" height="150" width="200" /></a>
-            </center>
-            <center>
-                <h4 class="cu"><strong>GESTIÓN DE CUENTAS</strong></h4>
-            </center>
+    <!-- GESTIÓN DE CUENTAS -->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #F3E5F5 0%, #FCE4EC 100%); transition: all 0.3s ease;">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <div style="margin-bottom: 20px;">
+            <a href="#" data-toggle="modal" data-target="#exampleModal" title="Cuentas" style="text-decoration: none;">
+              <div style="background: #F8BBD9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                <i class="fa fa-calculator" style="font-size: 48px; color: #C2185B;"></i>
+              </div>
+              <h4 style="color: #C2185B; font-weight: 600; margin: 0;">GESTIÓN DE CUENTAS</h4>
+            </a>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="col-sm-4 censo">
-            <center>
-                <a title="Censo" href="../gestion_administrativa/censo/tabla_censo.php"><img class="card-img-top cen" src="../img/censo.png" alt="admision" height="150" width="200" /></a>
-            </center>
-            <center><h4 class="so"><strong>CENSO</strong></h4></center>
+    <!-- CENSO -->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <div style="margin-bottom: 20px;">
+            <a href="../gestion_administrativa/censo/tabla_censo.php" title="Censo" style="text-decoration: none;">
+              <div style="background: #C8E6C9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                <i class="fa fa-bed" style="font-size: 48px; color: #388E3C;"></i>
+              </div>
+              <h4 style="color: #388E3C; font-weight: 600; margin: 0;">CENSO</h4>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
@@ -525,93 +652,103 @@ while($f = mysqli_fetch_array($resultado)){
 
 
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content" style="border-radius: 15px; border: none;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px 15px 0 0;">
+                    <h5 class="modal-title" style="color: white; font-weight: 600;">
+                        <i class="fa fa-hospital-o"></i> Servicios Auxiliares
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding: 30px;">
                     <div class="row">
-                        <div class="col-lg-6 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
-                                    <center>
-                                        <a href="../template/menu_farmacia.php" title="Farmacia"><img class="card-img-top" src="../img/farmacia.jpg" alt="farmacia" height="150" width="200" /></a>
-                                    </center>
-                                    <center>
-                                        <h4><strong>FARMACIA</strong></h4>
-                                    </center>
-
-                                </div>
-                                <div class="col-lg-1"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
-                                    <center>
-                                        <a href="../template/menu_ceye.php"  title="CEYE"><img class="card-img-top" src="../img/ceye.jpg" alt="ceye" height="150" width="200" /></a>
-                                    </center>
-                                    <center>
-                                        <h4><strong>CEYE</strong></h4>
-                                    </center>
-                                </div>
-                                <div class="col-lg-1"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xs-6">
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-8">
-                                    <center>
-                                        <a href="../template/menu_almacencentral.php"  title="ALMACEN CENTRAL"><img class="card-img-top" src="../img/almacen_central.png" alt="ALMACEN CENTRAL" height="150" width="200" /></a>  
-                                    </center>
-                                    <center>
-                                        <h4><strong>ALMACEN CENTRAL</strong></h4>
-                                    </center>
-                                </div>
-                                <div class="col-lg-1"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                                        <center>
-                                            <a title="Imagen" href="../template/menu_imagenologia.php" ><img class="card-img-top" src="../img/torax.jpg" alt="admision" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                             <h4><strong>IMAGENOLOGÍA</strong></h4>
-                                        </center>
+                        <!-- FARMACIA -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_farmacia.php" title="Farmacia" style="text-decoration: none;">
+                                            <div style="background: #C8E6C9; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-medkit" style="font-size: 40px; color: #388E3C;"></i>
+                                            </div>
+                                            <h5 style="color: #388E3C; font-weight: 600; margin: 0;">FARMACIA</h5>
+                                        </a>
                                     </div>
-                                    <div class="col-lg-1"></div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                                        <center>
-                                            <a title="Laboratorio" href="../template/menu_laboratorio.php" ><img class="card-img-top" src="../img/laboratorio.jpg" alt="admision" height="150" width="200" /></a>
-                                        </center>
-                                        <center>
-                                             <h4><strong>LABORATORIO</strong></h4>
-                                        </center>
+                        </div>
 
+                        <!-- CEYE -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_ceye.php" title="CEYE" style="text-decoration: none;">
+                                            <div style="background: #B3E5FC; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-shield" style="font-size: 40px; color: #0277BD;"></i>
+                                            </div>
+                                            <h5 style="color: #0277BD; font-weight: 600; margin: 0;">CEYE</h5>
+                                        </a>
                                     </div>
-                                    <div class="col-lg-1"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ALMACÉN CENTRAL -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_almacencentral.php" title="Almacén Central" style="text-decoration: none;">
+                                            <div style="background: #FFE0B2; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-cubes" style="font-size: 40px; color: #F57C00;"></i>
+                                            </div>
+                                            <h5 style="color: #F57C00; font-weight: 600; margin: 0;">ALMACÉN CENTRAL</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IMAGENOLOGÍA -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #F3E5F5 0%, #FCE4EC 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_imagenologia.php" title="Imagenología" style="text-decoration: none;">
+                                            <div style="background: #F8BBD9; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-search" style="font-size: 40px; color: #C2185B;"></i>
+                                            </div>
+                                            <h5 style="color: #C2185B; font-weight: 600; margin: 0;">IMAGENOLOGÍA</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LABORATORIO -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #F3E5F5 0%, #E8EAF6 100%); transition: all 0.3s ease;">
+                                <div class="card-body d-flex flex-column justify-content-center">
+                                    <div style="margin-bottom: 20px;">
+                                        <a href="../template/menu_laboratorio.php" title="Laboratorio" style="text-decoration: none;">
+                                            <div style="background: #D1C4E9; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                                <i class="fa fa-flask" style="font-size: 40px; color: #7B1FA2;"></i>
+                                            </div>
+                                            <h5 style="color: #7B1FA2; font-weight: 600; margin: 0;">LABORATORIO</h5>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+                <div class="modal-footer" style="border: none; padding: 20px;">
+                    <button type="button" class="btn" data-dismiss="modal" style="background: #6c757d; color: white; border-radius: 25px; padding: 8px 25px;">
+                        <i class="fa fa-times"></i> CERRAR
+                    </button>
                 </div>
             </div>
         </div>
@@ -631,71 +768,71 @@ while($f = mysqli_fetch_array($resultado)){
   </div><!-- ./wrapper -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" style="border-radius: 15px; border: none;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #C2185B 0%, #E91E63 100%); border-radius: 15px 15px 0 0;">
+          <h5 class="modal-title" style="color: white; font-weight: 600;">
+            <i class="fa fa-calculator"></i> Gestión de Cuentas
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="padding: 30px;">
           <div class="row">
-             <div class="col-lg-6 col-xs-4">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                  <center>
-                    <a title="Cuenta del Paciente" href="../gestion_administrativa/cuenta_paciente/vista_df.php"><img class="card-img-top" src="../img/cuenta.png" alt="Gestión de Cuentas" height="150" width="200" /></a>
-                  </center>
-                  <center>
-                    <h3>CUENTA DE PACIENTES</h3>
-                  </center>
-
+            <!-- CUENTA DE PACIENTES -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                <div class="card-body d-flex flex-column justify-content-center">
+                  <div style="margin-bottom: 20px;">
+                    <a href="../gestion_administrativa/cuenta_paciente/vista_df.php" title="Cuenta del Paciente" style="text-decoration: none;">
+                      <div style="background: #B3E5FC; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <i class="fa fa-file-text" style="font-size: 40px; color: #0277BD;"></i>
+                      </div>
+                      <h5 style="color: #0277BD; font-weight: 600; margin: 0;">CUENTA DE PACIENTES</h5>
+                    </a>
+                  </div>
                 </div>
-                <div class="col-lg-1"></div>
               </div>
-
             </div>
-           
 
- 
-            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                  <center>
-                    <a title="Presupuestos" href="../gestion_administrativa/presupuesto/presupuesto.php"><img class="card-img-top" src="../img/co-cortedecaja.png" alt="corte" height="150" width="200" /></a>
-                  </center>
-                  <center>
-                    <h3>PRESUPUESTOS</h3>
-                  </center>
-
+            <!-- PRESUPUESTOS -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%); transition: all 0.3s ease;">
+                <div class="card-body d-flex flex-column justify-content-center">
+                  <div style="margin-bottom: 20px;">
+                    <a href="../gestion_administrativa/presupuesto/presupuesto.php" title="Presupuestos" style="text-decoration: none;">
+                      <div style="background: #FFE0B2; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <i class="fa fa-money" style="font-size: 40px; color: #F57C00;"></i>
+                      </div>
+                      <h5 style="color: #F57C00; font-weight: 600; margin: 0;">PRESUPUESTOS</h5>
+                    </a>
+                  </div>
                 </div>
-                <div class="col-lg-1"></div>
               </div>
-
             </div>
-            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                  <center>
-                    <a title="Corte de caja" href="../gestion_administrativa/cuenta_paciente/corte_caja.php"><img class="card-img-top" src="../img/corte.png" alt="corte" height="140" width="140" /></a>
-                  </center>
-                  <center>
-                    <h3>CORTE DE CAJA</h3>
-                  </center>
 
+            <!-- CORTE DE CAJA -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+                <div class="card-body d-flex flex-column justify-content-center">
+                  <div style="margin-bottom: 20px;">
+                    <a href="../gestion_administrativa/cuenta_paciente/corte_caja.php" title="Corte de caja" style="text-decoration: none;">
+                      <div style="background: #C8E6C9; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <i class="fa fa-cash-register" style="font-size: 40px; color: #388E3C;"></i>
+                      </div>
+                      <h5 style="color: #388E3C; font-weight: 600; margin: 0;">CORTE DE CAJA</h5>
+                    </a>
+                  </div>
                 </div>
-                <div class="col-lg-1"></div>
               </div>
-
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-
+        <div class="modal-footer" style="border: none; padding: 20px;">
+          <button type="button" class="btn" data-dismiss="modal" style="background: #6c757d; color: white; border-radius: 25px; padding: 8px 25px;">
+            <i class="fa fa-times"></i> CERRAR
+          </button>
         </div>
       </div>
     </div>
@@ -704,103 +841,116 @@ while($f = mysqli_fetch_array($resultado)){
 <!-- ./wrapper2 -->
 
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-lg-6 col-xs-6">
-              <div class="row">
-                <div class="col-lg-8">
-                  <center>
-                    <a title="Cuenta del Paciente" href="../gestion_administrativa/cuenta_paciente/valida_cta.php"><img class="card-img-top" src="../img/cuentas_pag.png" alt="Cuenta del Paciente" height="150" width="200" /></a>
-                  </center>
-                  <center>
-                    <h3>CUENTAS PAGADAS </h3>
-                  </center>
-
-                </div>
-                <div class="col-lg-1"></div>
-              </div>
-
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 15px; border: none;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px 15px 0 0;">
+                <h5 class="modal-title" style="color: white; font-weight: 600;">
+                    <i class="fa fa-money"></i> Cuentas y Servicios Pagados
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="col-lg-6 col-xs-6">
-              <div class="row">
-                <div class="col-lg-8">
-                  <center>
-                    <a title="Presupuestos" href="../gestion_administrativa/cuenta_paciente/valida_cta_serv.php"><img class="card-img-top" src="../img/pago_servicios.png" alt="corte" height="150" width="200" /></a>
-                  </center>
-                  <center>
-                    <h3>SERVICIOS PAGADOS</h3>
-                  </center>
+            <div class="modal-body" style="padding: 30px;">
+                <div class="row">
+                    <!-- CUENTAS PAGADAS -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                        <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <div style="margin-bottom: 20px;">
+                                    <a href="../gestion_administrativa/cuenta_paciente/valida_cta.php" title="Cuentas Pagadas" style="text-decoration: none;">
+                                        <div style="background: #C8E6C9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                            <i class="fa fa-check-circle" style="font-size: 50px; color: #388E3C;"></i>
+                                        </div>
+                                        <h4 style="color: #388E3C; font-weight: 600; margin: 0;">CUENTAS PAGADAS</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- SERVICIOS PAGADOS -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                        <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <div style="margin-bottom: 20px;">
+                                    <a href="../gestion_administrativa/cuenta_paciente/valida_cta_serv.php" title="Servicios Pagados" style="text-decoration: none;">
+                                        <div style="background: #B3E5FC; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                            <i class="fa fa-credit-card" style="font-size: 50px; color: #0277BD;"></i>
+                                        </div>
+                                        <h4 style="color: #0277BD; font-weight: 600; margin: 0;">SERVICIOS PAGADOS</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-1"></div>
-              </div>
             </div>
-
-          </div>
+            <div class="modal-footer" style="border: none; padding: 20px;">
+                <button type="button" class="btn" data-dismiss="modal" style="background: #6c757d; color: white; border-radius: 25px; padding: 8px 25px;">
+                    <i class="fa fa-times"></i> CERRAR
+                </button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
   <!-- ./wrapper2 -->
 
 <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                                        <center>
-                                            <a href="../sauxiliares/Farmacia/salidas.php" title="Farmacia"><img class="img-fluid far2" src="../img/sales.png" alt="farmacia" height="150" width="200" /></a>
-                                        </center>
-                                        <center><h4><strong>FARMACIA</strong></h4></center>
-                                    </div>
-                                    <div class="col-lg-1"></div>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 15px; border: none;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px 15px 0 0;">
+                <h5 class="modal-title" style="color: white; font-weight: 600;">
+                    <i class="fa fa-truck"></i> Servicios de Salida
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding: 30px;">
+                <div class="row">
+                    <!-- FARMACIA -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                        <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%); transition: all 0.3s ease;">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <div style="margin-bottom: 20px;">
+                                    <a href="../sauxiliares/Farmacia/salidas.php" title="Farmacia" style="text-decoration: none;">
+                                        <div style="background: #C8E6C9; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                            <i class="fa fa-shopping-cart" style="font-size: 50px; color: #388E3C;"></i>
+                                        </div>
+                                        <h4 style="color: #388E3C; font-weight: 600; margin: 0;">FARMACIA</h4>
+                                    </a>
                                 </div>
-
                             </div>
-                            <div class="col-lg-6 col-xs-6">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-8">
-                                        <center>
-                                            <a title="Gestión de Pacientes" href="../sauxiliares/Ceye/salidas.php"><img class="img-fluid quir2" src="../img/ceye.jpg" alt="admision" height="150" width="200" /></a>
-                                        </center>
-                                        <center><h4><strong>QUIRÓFANO</strong></h4></center>
-                                    </div>
-                                    <div class="col-lg-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- QUIRÓFANO -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                        <div class="card text-center h-100 shadow-sm" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #E8F4FD 0%, #E1F5FE 100%); transition: all 0.3s ease;">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <div style="margin-bottom: 20px;">
+                                    <a href="../sauxiliares/Ceye/salidas.php" title="Quirófano" style="text-decoration: none;">
+                                        <div style="background: #B3E5FC; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                            <i class="fa fa-heartbeat" style="font-size: 50px; color: #0277BD;"></i>
+                                        </div>
+                                        <h4 style="color: #0277BD; font-weight: 600; margin: 0;">QUIRÓFANO</h4>
+                                    </a>
                                 </div>
-
                             </div>
-
-          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="border: none; padding: 20px;">
+                <button type="button" class="btn" data-dismiss="modal" style="background: #6c757d; color: white; border-radius: 25px; padding: 8px 25px;">
+                    <i class="fa fa-times"></i> CERRAR
+                </button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
   <!-- jQuery 2.1.3 -->
   <script src="plugins/jQuery/jQuery-2.1.3.min.js"></script>
