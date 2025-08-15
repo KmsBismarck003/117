@@ -220,7 +220,7 @@ if (isset($_GET['success_delete']) && $_GET['success_delete'] == 'true') {
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             max-height: 70vh;
             overflow-y: auto;
             overflow-x: auto;
@@ -255,12 +255,12 @@ if (isset($_GET['success_delete']) && $_GET['success_delete'] == 'true') {
             border-bottom: 1px solid #e9ecef;
         }
 
-                .table-striped > tbody > tr:nth-of-type(odd),
-            .table-striped > tbody > tr:nth-of-type(even) {
-                background-color: white !important;
-            }
+        .table-striped>tbody>tr:nth-of-type(odd),
+        .table-striped>tbody>tr:nth-of-type(even) {
+            background-color: white !important;
+        }
 
-       .table tbody tr:hover {
+        .table tbody tr:hover {
             background-color: inherit;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -411,16 +411,7 @@ if (isset($_GET['success_delete']) && $_GET['success_delete'] == 'true') {
 <body>
     <div class="container-fluid">
         <div class="container-main">
-            <div class="d-flex">
-                <!-- Botón Regresar -->
-                <a href="../../template/menu_farmaciaq.php"
-                    style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
-                    border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
-                    text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
-                    transition: all 0.3s ease; margin-right: 10px;">
-                            ← Regresar
-                </a>
-            </div>
+
             <!-- Encabezado -->
             <div class="page-header">
                 <h1><i class="fas fa-shopping-cart"></i> SOLICITAR PRODUCTOS A ALMACÉN</h1>
@@ -428,7 +419,18 @@ if (isset($_GET['success_delete']) && $_GET['success_delete'] == 'true') {
             </div>
 
 
-
+            <div class="d-flex justify-content-start" style="margin: 20px 0; margin-left: 4px;">
+                <div class="d-flex">
+                    <!-- Botón Regresar -->
+                    <a href="../../template/menu_farmaciaq.php"
+                        style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
+            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
+            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
+            transition: all 0.3s ease; margin-right: 10px;">
+                        ← Regresar
+                    </a>
+                </div>
+            </div>
             <!-- Estadísticas rápidas -->
             <div class="stats-container">
                 <h5><i class="fas fa-chart-bar"></i> Resumen de Solicitudes</h5>

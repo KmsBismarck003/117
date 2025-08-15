@@ -3,9 +3,9 @@ session_start();
 include "../../conexionbd.php";
 
 // Configuración de paginación
-$filasPorPagina = 15; // Número de filas por página
-$paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1; // Página actual
-$inicio = ($paginaActual > 1) ? ($paginaActual * $filasPorPagina) - $filasPorPagina : 0;
+$records_per_page = 20; // Número de filas por página
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Página actual
+$start_from = ($page - 1) * $records_per_page;
 
 // Obtener el término de búsqueda
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
@@ -14,20 +14,10 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 $totalFilasQuery = $conexion->query("SELECT COUNT(*) as total FROM dat_ingreso 
     INNER JOIN paciente ON dat_ingreso.Id_exp = paciente.Id_exp
     WHERE paciente.nom_pac LIKE '%$searchTerm%' OR paciente.papell LIKE '%$searchTerm%' OR paciente.sapell LIKE '%$searchTerm%'");
-$totalFilas = $totalFilasQuery->fetch_assoc()['total'];
+$total_records = $totalFilasQuery->fetch_assoc()['total'];
 
 // Calcular el número total de páginas
-$totalPaginas = ceil($totalFilas / $filasPorPagina);
-
-// Calcular el rango de páginas para mostrar de a 5 páginas
-$inicioRango = max(1, $paginaActual - 2);
-$finRango = min($totalPaginas, $paginaActual + 2);
-
-// Si el total de páginas es menor a 5, mostramos todas
-if ($totalPaginas < 5) {
-    $inicioRango = 1;
-    $finRango = $totalPaginas;
-}
+$total_pages = ceil($total_records / $records_per_page);
 
 // Consulta con filtro de búsqueda y límite para paginación
 $query = "SELECT DISTINCT s.id_atencion=di.id_atencion, di.*, p.*
@@ -36,7 +26,7 @@ $query = "SELECT DISTINCT s.id_atencion=di.id_atencion, di.*, p.*
     INNER JOIN paciente p ON di.Id_exp = p.Id_exp
     WHERE p.nom_pac LIKE '%$searchTerm%' OR p.papell LIKE '%$searchTerm%' OR p.sapell LIKE '%$searchTerm%'
     ORDER BY di.id_atencion DESC
-    LIMIT $inicio, $filasPorPagina";
+    LIMIT $start_from, $records_per_page";
 
 $result = $conexion->query($query) or die($conexion->error);
 
@@ -61,16 +51,10 @@ if ($usuario['id_rol'] == 7) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salidas de Medicamentos - Farmacia Quirófano</title>
     
-    <!-- Bootstrap 4.0.0 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    
-    <!-- Font Awesome 6.0.0 -->
+       <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- jQuery y Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <style>
         :root {
             --primary-color: #2b2d7f;
@@ -133,15 +117,76 @@ if ($usuario['id_rol'] == 7) {
             box-shadow: 0 0 0 0.2rem rgba(43,45,127,0.25);
             border-color: var(--primary-light);
         }
-        
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
-            font-size: 18px;
+
+        /* Estilos para el formulario de búsqueda */
+        .filter-form {
+            display: flex;
+            gap: 15px;
+            align-items: end;
+            flex-wrap: wrap;
         }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(43, 45, 127, 0.1);
+        }
+
+        .filter-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: fit-content;
+            margin-right: 10px;
+        }
+
+        .filter-btn:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(43, 45, 127, 0.3);
+        }
+
+        .clear-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            height: fit-content;
+        }
+
+        .clear-btn:hover {
+            background: #545b62;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        
+     
         
         .table-container {
             background: white;
@@ -168,14 +213,21 @@ if ($usuario['id_rol'] == 7) {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
-            padding: 15px;
-            font-weight: 600;
+            padding: 18px 15px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
+            letter-spacing: 0.8px;
+            font-size: 14px;
             position: sticky;
             top: 0;
             z-index: 10;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .table thead th i {
+            margin-right: 8px;
+            font-size: 16px;
         }
         
         .table tbody tr {
@@ -190,10 +242,27 @@ if ($usuario['id_rol'] == 7) {
         }
         
         .table tbody td {
-            padding: 15px;
+            padding: 16px 15px;
             vertical-align: middle;
+            font-size: 15px;
+            font-weight: 500;
             border: none;
-            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .table tbody td:first-child {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+        
+        .table tbody td:nth-child(2) {
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+            max-width: 300px;
+            word-wrap: break-word;
         }
         
         .btn-expediente {
@@ -229,7 +298,7 @@ if ($usuario['id_rol'] == 7) {
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .stat-card {
@@ -238,30 +307,123 @@ if ($usuario['id_rol'] == 7) {
             border-radius: 10px;
             margin-bottom: 10px;
         }
-        
-        .pagination {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            justify-content: center;
+
+        .stat-card h4 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 8px 0 5px 0;
+            line-height: 1.2;
         }
-        
-        .page-link {
-            border-radius: 8px;
-            margin: 0 2px;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+
+        .stat-card small {
+            font-size: 0.875rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        /* Ocultar elementos no deseados del sidebar y resolver conflictos de iconos */
+        .sidebar .sidebar-menu li.header {
+            display: none !important;
         }
         
-        .page-link:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(43,45,127,0.3);
+        .sidebar .sidebar-search {
+            display: none !important;
         }
+        
+        /* Asegurar que no haya iconos de búsqueda flotando */
+        .sidebar .fa-search,
+        .sidebar .fas.fa-search,
+        .main-sidebar .fa-search,
+        .main-sidebar .fas.fa-search {
+            display: none !important;
+        }
+        
+        /* Ocultar cualquier elemento con clase search en el sidebar */
+        .sidebar *[class*="search"],
+        .main-sidebar *[class*="search"] {
+            display: none !important;
+        }
+        
+        /* Ocultar iconos de lupa específicamente */
+        .sidebar i.fa-search,
+        .sidebar i.fas.fa-search,
+        .main-sidebar i.fa-search,
+        .main-sidebar i.fas.fa-search {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        
+      
+        /* Asegurar que los iconos del contenido principal usen FA6 */
+        .content-wrapper .fas {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+        
+        /* Limpiar completamente el sidebar de elementos de búsqueda */
+        .main-sidebar::before,
+        .main-sidebar::after,
+        .sidebar::before,
+        .sidebar::after {
+            content: none !important;
+        }
+        
+        /* Ocultar cualquier pseudo-elemento que pueda mostrar iconos */
+        .sidebar-menu li::before,
+        .sidebar-menu li::after,
+        .sidebar-menu a::before,
+        .sidebar-menu a::after {
+            display: none !important;
+        }
+        
+        /* Asegurar que solo los iconos permitidos sean visibles en el sidebar */
+        .sidebar .fa-folder,
+        .sidebar .fa-angle-left {
+            display: inline-block !important;
+        }
+        
+        /* Estilos para el paginador - Igual a select_fecha_vista */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .pagination a {
+            padding: 8px 12px;
+            text-decoration: none;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border-radius: 8px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pagination a:hover {
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(43, 45, 127, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .pagination .current {
+            background: linear-gradient(45deg, #ffc107, #e0a800);
+            color: #212529;
+            font-weight: bold;
+        }
+        
+        .pagination-info {
+            text-align: center;
+            margin: 15px 0;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
         
         .page-item.active .page-link {
             background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
@@ -322,60 +484,46 @@ if ($usuario['id_rol'] == 7) {
                 <p>Consulta de dispensaciones desde farmacia quirófano</p>
             </div>
 
-            <!-- Botón de regreso -->
-            <div class="text-center mb-4">
-                <a href="../../template/menu_farmaciaq.php" class="back-button">
-                    <i class="fas fa-arrow-left"></i> Regresar 
-                </a>
-            </div>
-
-            <!-- Estadísticas rápidas -->
-            <div class="stats-container">
-                <h6><i class="fas fa-chart-bar"></i> Resumen de Consulta</h6>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, var(--primary-color), var(--primary-dark)); color: white;">
-                            <h4 id="total-patients"><?php echo $totalFilas; ?></h4>
-                            <small>Total Pacientes</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, #28a745, #1e7e34); color: white;">
-                            <h4><?php echo $totalPaginas; ?></h4>
-                            <small>Total Páginas</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, #17a2b8, #117a8b); color: white;">
-                            <h4><?php echo $paginaActual; ?></h4>
-                            <small>Página Actual</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, #ffc107, #e0a800); color: #333;">
-                            <h4><?php echo min($filasPorPagina, $totalFilas); ?></h4>
-                            <small>Registros por Página</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <div class="d-flex justify-content-start" style="margin: 20px 0; margin-left: 4px;">
+        <div class="d-flex">
+            <!-- Botón Regresar -->
+            <a href="../../template/menu_farmaciaq.php"
+                style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
+            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
+            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
+            transition: all 0.3s ease; margin-right: 10px;">
+                ← Regresar
+            </a>
+        </div>
+    </div>
 
             <!-- Buscador -->
             <div class="search-container">
                 <h6><i class="fas fa-search"></i> Búsqueda de Pacientes</h6>
-                <div class="position-relative">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" 
-                           class="form-control search-input" 
-                           id="search" 
-                           value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" 
-                           placeholder="Buscar por nombre o apellidos del paciente...">
-                </div>
+                <form method="GET" class="filter-form">
+                    <div class="filter-group">
+                        <input type="text" 
+                               class="filter-input search-input" 
+                               id="search" 
+                               name="search"
+                               value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" 
+                               placeholder="Buscar por nombre o apellidos del paciente...">
+                    </div>
+
+                    <div class="filter-group">
+                        <button type="submit" class="filter-btn">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                        <a href="salidasq.php" class="clear-btn">
+                            <i class="fas fa-times"></i> Limpiar
+                        </a>
+                    </div>
+                </form>
                 <?php if (!empty($searchTerm)): ?>
                 <div class="search-results-info mt-3">
                     <i class="fas fa-info-circle"></i> 
                     Mostrando resultados para: "<strong><?php echo htmlspecialchars($searchTerm); ?></strong>" 
-                    (<?php echo $totalFilas; ?> paciente<?php echo $totalFilas != 1 ? 's' : ''; ?> encontrado<?php echo $totalFilas != 1 ? 's' : ''; ?>)
+                    (<?php echo $total_records; ?> paciente<?php echo $total_records != 1 ? 's' : ''; ?> encontrado<?php echo $total_records != 1 ? 's' : ''; ?>)
                     <a href="salidasq.php" class="float-right text-primary">
                         <i class="fas fa-times"></i> Limpiar búsqueda
                     </a>
@@ -438,67 +586,57 @@ if ($usuario['id_rol'] == 7) {
                 </div>
             </div>
 
+            <!-- Información de paginación -->
+            <?php if ($total_records > 0): ?>
+            <div class="pagination-info">
+                Mostrando <?php echo (($page - 1) * $records_per_page + 1); ?> a 
+                <?php echo min($page * $records_per_page, $total_records); ?> de 
+                <?php echo $total_records; ?> pacientes
+            </div>
+            <?php endif; ?>
+            
             <!-- Paginación -->
-            <?php if ($totalPaginas > 1): ?>
-            <nav aria-label="Navegación de páginas" class="pagination">
-                <ul class="pagination">
-                    <?php if ($paginaActual > 1): ?>
-                        <li class="page-item">
-                            <a class="page-link" href="?pagina=<?php echo $paginaActual - 1; ?>&search=<?php echo urlencode($searchTerm); ?>" aria-label="Anterior">
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
+            <?php if ($total_pages > 1): ?>
+            <div class="pagination">
+                <?php
+                // Construir parámetros para mantener filtros en paginación
+                $filter_params = [];
+                if (!empty($searchTerm)) {
+                    $filter_params[] = "search=" . urlencode($searchTerm);
+                }
+                $filter_string = !empty($filter_params) ? "&" . implode("&", $filter_params) : "";
 
-                    <?php for ($i = $inicioRango; $i <= $finRango; $i++): ?>
-                        <li class="page-item <?php echo ($paginaActual == $i) ? 'active' : ''; ?>">
-                            <a class="page-link" href="?pagina=<?php echo $i; ?>&search=<?php echo urlencode($searchTerm); ?>"><?php echo $i; ?></a>
-                        </li>
-                    <?php endfor; ?>
+                // Establecer el rango de páginas a mostrar
+                $rango = 3;
+                $inicio = max(1, $page - $rango);
+                $fin = min($total_pages, $page + $rango);
 
-                    <?php if ($paginaActual < $totalPaginas): ?>
-                        <li class="page-item">
-                            <a class="page-link" href="?pagina=<?php echo $paginaActual + 1; ?>&search=<?php echo urlencode($searchTerm); ?>" aria-label="Siguiente">
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
-            </nav>
+                // Mostrar el enlace a la primera página
+                if ($page > 1) {
+                    echo '<a href="?page=1' . $filter_string . '" title="Primera página">&laquo; Primero</a>';
+                    echo '<a href="?page=' . ($page - 1) . $filter_string . '" title="Página anterior">&lt; Anterior</a>';
+                }
+
+                // Mostrar las páginas dentro del rango
+                for ($i = $inicio; $i <= $fin; $i++) {
+                    echo '<a href="?page=' . $i . $filter_string . '" class="' . ($i == $page ? 'current' : '') . '" title="Página ' . $i . '">' . $i . '</a>';
+                }
+
+                // Mostrar el enlace a la siguiente página
+                if ($page < $total_pages) {
+                    echo '<a href="?page=' . ($page + 1) . $filter_string . '" title="Página siguiente">Siguiente &gt;</a>';
+                    echo '<a href="?page=' . $total_pages . $filter_string . '" title="Última página">Último &raquo;</a>';
+                }
+                ?>
+            </div>
             <?php endif; ?>
         </div>
     </div>
 
-    <footer class="main-footer">
-        <?php include("../../template/footer.php"); ?>
-    </footer>
+   
 
     <script>
         $(document).ready(function () {
-            // Búsqueda en tiempo real mejorada
-            let searchTimeout;
-            
-            $("#search").on('input', function () {
-                clearTimeout(searchTimeout);
-                var searchTerm = $(this).val();
-                
-                // Debounce la búsqueda para evitar múltiples requests
-                searchTimeout = setTimeout(function() {
-                    if (searchTerm.length >= 2 || searchTerm.length === 0) {
-                        window.location.href = "?pagina=1&search=" + encodeURIComponent(searchTerm);
-                    }
-                }, 500);
-            });
-            
-            // Enter key para búsqueda inmediata
-            $("#search").keypress(function(e) {
-                if (e.which == 13) {
-                    clearTimeout(searchTimeout);
-                    var searchTerm = $(this).val();
-                    window.location.href = "?pagina=1&search=" + encodeURIComponent(searchTerm);
-                }
-            });
-            
             // Animaciones suaves para los botones
             $('.btn-expediente').hover(
                 function() {

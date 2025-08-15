@@ -374,9 +374,9 @@ if (isset($_POST['confirmar'])) {
 ?>
 
 <!DOCTYPE html>
- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <html lang="es">
 
@@ -384,8 +384,8 @@ if (isset($_POST['confirmar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Recibido - Farmacia Quirófano</title>
-    
- 
+
+
     <style>
         :root {
             --primary-color: #2b2d7f;
@@ -396,7 +396,7 @@ if (isset($_POST['confirmar'])) {
             --warning-color: #ffc107;
             --info-color: #17a2b8;
         }
-        
+
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -404,7 +404,7 @@ if (isset($_POST['confirmar'])) {
             margin: 0;
             padding: 20px 0;
         }
-        
+
         .btn-custom {
             border-radius: 25px;
             padding: 10px 25px;
@@ -413,24 +413,24 @@ if (isset($_POST['confirmar'])) {
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
             border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         .btn-danger-custom {
             background: linear-gradient(45deg, #dc3545, #c82333);
             color: white;
         }
-        
+
         .btn-danger-custom:hover {
             background: linear-gradient(45deg, #c82333, #bd2130);
             color: white;
         }
-        
+
         .btn-success-custom {
             background: linear-gradient(45deg, #28a745, #1e7e34);
             color: white;
@@ -438,57 +438,57 @@ if (isset($_POST['confirmar'])) {
             border-radius: 20px;
             font-size: 0.85rem;
         }
-        
+
         .btn-success-custom:hover {
             background: linear-gradient(45deg, #1e7e34, #155724);
             color: white;
             transform: translateY(-1px);
         }
-        
+
         .page-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(43,45,127,0.3);
+            box-shadow: 0 8px 32px rgba(43, 45, 127, 0.3);
             text-align: center;
         }
-        
+
         .page-header h1 {
             margin: 0;
             font-size: 2rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .stats-container {
             background: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .stat-card {
             text-align: center;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 10px;
         }
-        
+
         .table-container {
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             max-height: 70vh;
             overflow-y: auto;
             overflow-x: auto;
             width: 100%;
             min-width: 100%;
         }
-        
+
         .table thead th {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -509,18 +509,18 @@ if (isset($_POST['confirmar'])) {
             margin-right: 8px;
             font-size: 16px;
         }
-        
+
         .table tbody tr {
             transition: all 0.3s ease;
             border-bottom: 1px solid #e9ecef;
         }
-        
+
         .table tbody tr:hover {
             background-color: inherit;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-        
+
         .table tbody td {
             padding: 16px 15px;
             vertical-align: middle;
@@ -544,22 +544,22 @@ if (isset($_POST['confirmar'])) {
             max-width: 300px;
             word-wrap: break-word;
         }
-        
+
         .container-main {
             max-width: 100%;
             margin: 0 auto;
             padding: 0 15px;
         }
-        
+
         .no-data-message {
             background: white;
             padding: 40px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             color: #6c757d;
         }
-        
+
         .form-select-custom {
             border-radius: 20px;
             border: 2px solid #e9ecef;
@@ -567,34 +567,34 @@ if (isset($_POST['confirmar'])) {
             transition: all 0.3s ease;
             min-width: 150px;
         }
-        
+
         .form-select-custom:focus {
-            box-shadow: 0 0 0 0.2rem rgba(43,45,127,0.25);
+            box-shadow: 0 0 0 0.2rem rgba(43, 45, 127, 0.25);
             border-color: var(--primary-light);
         }
-        
+
         .badge-status {
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
         }
-        
+
         .status-pending {
             background: linear-gradient(45deg, #ffc107, #e0a800);
             color: #333;
         }
-        
+
         .status-complete {
             background: linear-gradient(45deg, #28a745, #1e7e34);
             color: white;
         }
-        
+
         .status-partial {
             background: linear-gradient(45deg, #fd7e14, #e55a00);
             color: white;
         }
-        
+
         .info-card {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             border: none;
@@ -602,7 +602,7 @@ if (isset($_POST['confirmar'])) {
             padding: 15px;
             margin-bottom: 15px;
         }
-        
+
         .lote-badge {
             background: linear-gradient(45deg, #17a2b8, #117a8b);
             color: white;
@@ -612,30 +612,30 @@ if (isset($_POST['confirmar'])) {
             margin: 2px;
             display: inline-block;
         }
-        
+
         .caducidad-info {
             font-size: 0.8rem;
             color: #6c757d;
             margin-top: 5px;
         }
-        
+
         .action-form {
             display: inline-block;
             width: 100%;
         }
-        
+
         .quantity-match {
             color: #28a745;
             font-weight: bold;
         }
-        
+
         .quantity-mismatch {
             color: #dc3545;
             font-weight: bold;
         }
 
         /* Estilos específicos para columnas de Lotes y Caducidades */
-        .table thead th:nth-child(5), 
+        .table thead th:nth-child(5),
         .table thead th:nth-child(6) {
             min-width: 180px;
             width: 180px;
@@ -643,7 +643,7 @@ if (isset($_POST['confirmar'])) {
             padding: 20px 18px !important;
         }
 
-        .table tbody td:nth-child(5), 
+        .table tbody td:nth-child(5),
         .table tbody td:nth-child(6) {
             min-width: 180px;
             width: 180px;
@@ -663,7 +663,7 @@ if (isset($_POST['confirmar'])) {
             display: inline-block;
             font-weight: 600;
         }
-        
+
         /* Mejoras para información de caducidades */
         .caducidad-info {
             font-size: 14px !important;
@@ -685,21 +685,21 @@ if (isset($_POST['confirmar'])) {
             .table-container {
                 overflow-x: scroll;
             }
-            
+
             .table-container::-webkit-scrollbar {
                 height: 8px;
             }
-            
+
             .table-container::-webkit-scrollbar-track {
                 background: #f1f1f1;
                 border-radius: 10px;
             }
-            
+
             .table-container::-webkit-scrollbar-thumb {
                 background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
                 border-radius: 10px;
             }
-            
+
             .table-container::-webkit-scrollbar-thumb:hover {
                 background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
             }
@@ -711,23 +711,25 @@ if (isset($_POST['confirmar'])) {
     <div class="container-fluid">
         <div class="container-main">
 
-           <div class="d-flex">
-                <!-- Botón Regresar -->
-                <a href="../../template/menu_farmaciaq.php"
-                    style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
-                    border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
-                    text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
-                    transition: all 0.3s ease; margin-right: 10px;">
-                            ← Regresar
-                </a>
-            </div>
+
             <!-- Encabezado -->
             <div class="page-header">
                 <h1><i class="fas fa-clipboard-check"></i> CONFIRMAR RECIBIDO</h1>
                 <p class="mb-0">Confirmación de productos enviados desde almacén principal</p>
             </div>
+            <div class="d-flex justify-content-start" style="margin: 20px 0; margin-left: 4px;">
+                <div class="d-flex">
+                    <!-- Botón Regresar -->
+                    <a href="../../template/menu_farmaciaq.php"
+                        style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
+            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
+            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
+            transition: all 0.3s ease; margin-right: 10px;">
+                        ← Regresar
+                    </a>
+                </div>
+            </div>
 
-          
             <!-- Estadísticas rápidas -->
             <div class="stats-container">
                 <h5><i class="fas fa-chart-bar"></i> Resumen de Envíos</h5>
@@ -792,7 +794,7 @@ if (isset($_POST['confirmar'])) {
                                 $statusClass = $isComplete ? 'status-complete' : 'status-partial';
                                 $statusText = $isComplete ? 'Completo' : 'Parcial';
                                 $quantityClass = $isComplete ? 'quantity-match' : 'quantity-mismatch';
-                                
+
                                 echo "<tr>
                         <td>" . date('d/m/Y H:i', strtotime($row['fecha'])) . "</td>
                         <td>
@@ -804,7 +806,7 @@ if (isset($_POST['confirmar'])) {
                             <div class='$quantityClass' style='font-size: 0.8rem;'>$statusText</div>
                         </td>
                         <td>";
-                                
+
                                 // Mostrar lotes como badges
                                 $lotes = explode(',', $row['lotes']);
                                 foreach ($lotes as $lote) {
@@ -812,11 +814,11 @@ if (isset($_POST['confirmar'])) {
                                         echo "<span class='lote-badge'>" . trim($lote) . "</span>";
                                     }
                                 }
-                                
+
                                 echo "</td>
                         <td>
                             <div class='caducidad-info'>";
-                                
+
                                 // Mostrar caducidades formateadas
                                 $caducidades = explode(',', $row['caducidades']);
                                 foreach ($caducidades as $caducidad) {
@@ -829,7 +831,7 @@ if (isset($_POST['confirmar'])) {
                                         }
                                     }
                                 }
-                                
+
                                 echo "</div>
                         </td>
                         <td>
@@ -837,15 +839,15 @@ if (isset($_POST['confirmar'])) {
                                 <input type='hidden' name='id_recib' value='" . $row['id_recib'] . "'>
                                 <select name='ubicacion_id' class='form-select-custom' required>
                                     <option value=''>Seleccionar ubicación...</option>";
-                                
+
                                 foreach ($ubicaciones as $ubicacion) {
                                     echo "<option value='" . $ubicacion['ubicacion_id'] . "'>" . $ubicacion['nombre_ubicacion'] . "</option>";
                                 }
-                                
+
                                 echo "</select>
                         </td>
                         <td>";
-                                
+
                                 if ($isComplete) {
                                     echo "<button type='submit' name='confirmar' class='btn btn-success-custom' title='Confirmar recepción'>
                                         <i class='fas fa-check'></i> Confirmar
@@ -855,7 +857,7 @@ if (isset($_POST['confirmar'])) {
                                         <i class='fas fa-times'></i> Parcial
                                     </button>";
                                 }
-                                
+
                                 echo "</form>
                         </td>
                     </tr>";
@@ -886,7 +888,7 @@ if (isset($_POST['confirmar'])) {
                 var completeRows = 0;
                 var partialRows = 0;
                 var pendingRows = 0;
-                
+
                 $("#enviosTable tbody tr").each(function() {
                     var row = $(this);
                     if (row.find('.status-complete').length > 0) {
@@ -894,18 +896,18 @@ if (isset($_POST['confirmar'])) {
                     } else if (row.find('.status-partial').length > 0) {
                         partialRows++;
                     }
-                    
+
                     if (row.find('button[name="confirmar"]:not(:disabled)').length > 0) {
                         pendingRows++;
                     }
                 });
-                
+
                 $("#stat-total").text(totalRows);
                 $("#stat-complete").text(completeRows);
                 $("#stat-partial").text(partialRows);
                 $("#stat-pending").text(pendingRows);
             }
-            
+
             // Confirmación antes de enviar
             $('form').on('submit', function(e) {
                 var ubicacion = $(this).find('select[name="ubicacion_id"]').val();
@@ -914,14 +916,14 @@ if (isset($_POST['confirmar'])) {
                     alert('Por favor seleccione una ubicación antes de confirmar.');
                     return false;
                 }
-                
+
                 var confirmMsg = '¿Está seguro de confirmar la recepción de este envío?';
                 if (!confirm(confirmMsg)) {
                     e.preventDefault();
                     return false;
                 }
             });
-            
+
             // Inicializar estadísticas
             updateStats();
         });

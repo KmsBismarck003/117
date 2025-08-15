@@ -46,7 +46,7 @@ if ($pagina < 1) {
 // Calcular el número total de registros
 $query_total = "
     SELECT COUNT(*) AS total 
-    FROM kardex_almacenh ka
+    FROM kardex_almacenq ka
     INNER JOIN item_almacen ia ON ka.item_id = ia.item_id
     LEFT JOIN ubicaciones_almacen ua ON ka.kardex_ubicacion = ua.ubicacion_id
     WHERE 1 ";
@@ -105,7 +105,7 @@ $query = "
         ka.id_usua,
         ka.id_surte,
     ka.motivo
-    FROM kardex_almacenh ka
+    FROM kardex_almacenq ka
     INNER JOIN item_almacen ia ON ka.item_id = ia.item_id
     LEFT JOIN ubicaciones_almacen ua ON ka.kardex_ubicacion = ua.ubicacion_id
 ";
@@ -514,16 +514,25 @@ if ($item_id) {
 
         <!-- Botón superior con mismo margen arriba y abajo -->
         <div class="d-flex justify-content-end" style="margin: 20px 0;">
-            <div class="d-flex">
-                <!-- Botón Regresar -->
-                <a href="../../template/menu_farmaciaq.php"
-                    style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
-            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
-            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
-            transition: all 0.3s ease; margin-right: 10px;">
-                    ← Regresar
-                </a>
-            </div>
+                <div class="d-flex">
+                    <!-- Botón Regresar -->
+                    <a href="../../template/menu_farmaciaq.php"
+                        style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
+                border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
+                text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
+                transition: all 0.3s ease; margin-right: 10px;">
+                        ← Regresar
+                    </a>
+
+                    <!-- Botones a Entradas y Salidas (historial) -->
+                    <a href="entradas_almacenq_historial.php" class="btn btn-success-custom btn-custom" style="margin-left:8px;">
+                        <i class="fas fa-arrow-down"></i> Entradas
+                    </a>
+
+                    <a href="salidas_almacenq_historial.php" class="btn btn-warning-custom btn-custom" style="margin-left:8px;">
+                        <i class="fas fa-arrow-up"></i> Salidas
+                    </a>
+                </div>
         </div>
 
 

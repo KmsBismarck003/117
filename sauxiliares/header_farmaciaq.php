@@ -407,13 +407,7 @@
                                 </a>
 
                             </li>
-                            <li class=" treeview">
-                                <a href="../farmaciaq/caducadoq.php">
-                                    <i class="fa fa-folder"></i> <span>CONTROL DE <br> CADUCIDADES</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-
-                            </li>
+                           
                             <li class=" treeview">
                                 <a href="../farmaciaq/devolucionesq.php">
                                     <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>

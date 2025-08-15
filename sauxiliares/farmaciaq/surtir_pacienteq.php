@@ -64,17 +64,21 @@ if (!$resultPac) {
 }
 
 $pacientesOptions = '';
+$pacienteSeleccionadoActual = '';
+
+// Determinar qué paciente está actualmente seleccionado
+if (isset($_POST['paciente'])) {
+    $pacienteSeleccionadoActual = $_POST['paciente'];
+} elseif (isset($_GET['paciente'])) {
+    $pacienteSeleccionadoActual = $_GET['paciente'];
+} elseif (isset($_SESSION['paciente_seleccionado'])) {
+    $pacienteSeleccionadoActual = $_SESSION['paciente_seleccionado'];
+}
+
 if ($resultPac && $resultPac->num_rows > 0) {
     while ($paciente = $resultPac->fetch_assoc()) {
-        // Verificar si el paciente está seleccionado (por POST, GET, o sesión)
-        $selectedPaciente = '';
-        if (isset($_POST['paciente']) && $_POST['paciente'] == $paciente['id_atencion']) {
-            $selectedPaciente = 'selected';
-        } elseif (isset($_GET['paciente']) && $_GET['paciente'] == $paciente['id_atencion']) {
-            $selectedPaciente = 'selected';
-        } elseif (isset($_SESSION['paciente_seleccionado']) && $_SESSION['paciente_seleccionado'] == $paciente['id_atencion']) {
-            $selectedPaciente = 'selected';
-        }
+        // Verificar si este paciente está seleccionado
+        $selectedPaciente = ($pacienteSeleccionadoActual == $paciente['id_atencion']) ? 'selected' : '';
         $pacientesOptions .= "<option value='{$paciente['id_atencion']}' $selectedPaciente>{$paciente['nombre_paciente']}</option>";
     }
 } else {
@@ -196,7 +200,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['paciente']) && isset(
     // Validar que el id_atencion es mayor que 0
     if ($idAtencion <= 0) {
         error_log("ID de atención inválido recibido: " . $_POST['paciente']);
-        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("ID de atención inválido: " . $_POST['paciente']));
+        $pacienteParam = isset($_POST['paciente']) ? "&paciente=" . $_POST['paciente'] : "";
+        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("ID de atención inválido: " . $_POST['paciente']) . $pacienteParam);
         exit();
     }
     
@@ -206,18 +211,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['paciente']) && isset(
     $stmtValidar = $conexion->prepare($sqlValidarAtencion);
     if (!$stmtValidar) {
         error_log("Error al preparar validación de id_atencion: " . $conexion->error);
-        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("Error al validar atención"));
+        $pacienteParam = isset($_POST['paciente']) ? "&paciente=" . $_POST['paciente'] : "";
+        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("Error al validar atención") . $pacienteParam);
         exit();
     }
     $stmtValidar->bind_param('i', $idAtencion);
     if (!$stmtValidar->execute()) {
-        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("Error al validar atención"));
+        $pacienteParam = isset($_POST['paciente']) ? "&paciente=" . $_POST['paciente'] : "";
+        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("Error al validar atención") . $pacienteParam);
         exit();
     }
     
     $resultValidar = $stmtValidar->get_result();
     if ($resultValidar->num_rows == 0) {
-        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("ID de atención no encontrado: " . $idAtencion));
+        $pacienteParam = isset($_POST['paciente']) ? "&paciente=" . $_POST['paciente'] : "";
+        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . urlencode("ID de atención no encontrado: " . $idAtencion) . $pacienteParam);
         exit();
     }
     
@@ -334,8 +342,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_index'])) {
         unset($_SESSION['medicamento_seleccionado'][$index]); // Eliminar el registro
         $_SESSION['medicamento_seleccionado'] = array_values($_SESSION['medicamento_seleccionado']); // Reindexar array
         
-        // Redireccionar con mensaje de eliminación
-        header("Location: surtir_pacienteq.php?eliminated=1");
+        // Redireccionar con mensaje de eliminación manteniendo el paciente seleccionado
+        $pacienteParam = isset($_SESSION['paciente_seleccionado']) ? "&paciente=" . $_SESSION['paciente_seleccionado'] : "";
+        header("Location: surtir_pacienteq.php?eliminated=1" . $pacienteParam);
         exit();
     }
 }
@@ -344,7 +353,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'
     $fechaActual = date('Y-m-d H:i:s');
 
     if (!isset($_SESSION['medicamento_seleccionado']) || empty($_SESSION['medicamento_seleccionado'])) {
-        header("Location: surtir_pacienteq.php?envio=empty");
+        $pacienteParam = isset($_SESSION['paciente_seleccionado']) ? "&paciente=" . $_SESSION['paciente_seleccionado'] : "";
+        header("Location: surtir_pacienteq.php?envio=empty" . $pacienteParam);
         exit();
     }
 
@@ -580,16 +590,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'
         // Limpiar la memoria
         unset($_SESSION['medicamento_seleccionado']);
 
-        // Redirección directa con PHP
-        header("Location: surtir_pacienteq.php?envio=success");
+        // Redirección directa con PHP manteniendo el paciente seleccionado
+        $pacienteParam = isset($_SESSION['paciente_seleccionado']) ? "&paciente=" . $_SESSION['paciente_seleccionado'] : "";
+        header("Location: surtir_pacienteq.php?envio=success" . $pacienteParam);
         exit();
     } catch (Exception $e) {
         // Si hay algún error, hacer rollback
         $conexion->rollback();
 
-        // Redirección con mensaje de error
+        // Redirección con mensaje de error manteniendo el paciente seleccionado
+        $pacienteParam = isset($_SESSION['paciente_seleccionado']) ? "&paciente=" . $_SESSION['paciente_seleccionado'] : "";
         $errorMessage = urlencode($e->getMessage());
-        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . $errorMessage);
+        header("Location: surtir_pacienteq.php?envio=error&mensaje=" . $errorMessage . $pacienteParam);
         exit();
     } finally {
         // Restaurar autocommit
@@ -799,7 +811,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'
 
             <label for="paciente">Paciente</label>
             <select name="paciente" id="paciente">
-                <option value="" disabled selected>Seleccionar Paciente</option>
+                <?php if (empty($pacienteSeleccionadoActual)): ?>
+                    <option value="" disabled selected>Seleccionar Paciente</option>
+                <?php else: ?>
+                    <option value="" disabled>Seleccionar Paciente</option>
+                <?php endif; ?>
                 <?= $pacientesOptions ?>
             </select>
 
@@ -1024,6 +1040,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['enviar_medicamentos'
         const loteSelect = document.getElementById('lote');
         const medicamentoSelect = document.getElementById('medicamento');
         const pacienteSelect = document.getElementById('paciente');
+
+        // Manejar el cambio de paciente
+        pacienteSelect.addEventListener('change', function() {
+            const pacienteSeleccionado = this.value;
+            
+            if (pacienteSeleccionado) {
+                // Recargar la página con el nuevo paciente seleccionado
+                window.location.href = `surtir_pacienteq.php?paciente=${pacienteSeleccionado}`;
+            }
+        });
 
         // Manejar el cambio de medicamento
         medicamentoSelect.addEventListener('change', function() {
