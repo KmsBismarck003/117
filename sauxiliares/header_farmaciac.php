@@ -25,7 +25,9 @@ if (!($usuario1['id_rol'] == 4 || $usuario1['id_rol'] == 5 || $usuario1['id_rol'
 
 <head>
     <meta charset="UTF-8">
-    <title>SIMA Venecia Metepec</title>
+    <title>INEO METEPEC</title>
+        <link rel="icon" href="../../imagenes/SIF.PNG">
+
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -203,7 +205,7 @@ if (!($usuario1['id_rol'] == 4 || $usuario1['id_rol'] == 5 || $usuario1['id_rol'
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b><img src="../../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                <span class="logo-lg"><b><img src="../../imagenes/SI.PNG" height="30" width="120"></b> </span>
             </a>
             <?php
         } else
@@ -270,70 +272,57 @@ if (!($usuario1['id_rol'] == 4 || $usuario1['id_rol'] == 5 || $usuario1['id_rol'
             <ul class="sidebar-menu">
                <li class="treeview">
                     <a href="../farmaciac/cat_maestro.php">
-                        <i class="fa fa-folder"></i> <span>CATÁLOGO MAESTRO</span>
+                        <i class="fas fa-book-medical"></i> <span>CATÁLOGO MAESTRO</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
                 <li class="treeview">
                     <a href="../farmaciac/entradas.php">
-                        <i class="fa fa-folder"></i> <span>REGISTRAR ENTRADAS</span>
+                        <i class="fas fa-box-open"></i> <span>REGISTRAR ENTRADAS</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
-                <li class=" treeview">
+                <li class="treeview">
                     <a href="../farmaciac/surtir_subalma.php">
-                        <i class="fa fa-folder"></i> <span>SURTIR SUBALMACENES</span>
+                        <i class="fas fa-truck-loading"></i> <span>SURTIR SUBALMACENES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
-                <li class=" treeview">
+                <li class="treeview">
                     <a href="../farmaciac/existencias.php">
-                        <i class="fa fa-folder"></i> <span>EXISTENCIAS</span>
+                        <i class="fas fa-warehouse"></i> <span>EXISTENCIAS</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
-                <li class=" treeview">
+                <li class="treeview">
                     <a href="../farmaciac/kardex.php">
-                        <i class="fa fa-folder"></i> <span>KARDEX</span>
+                        <i class="fas fa-clipboard-list"></i> <span>KARDEX</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
                 <li class="treeview">
                     <a href="../farmaciac/caducado.php">
-                        <i class="fa fa-folder"></i> <span>CONTROL DE <br> CADUCIDADES</span>
+                        <i class="fas fa-calendar-times"></i> <span>CONTROL DE <br> CADUCIDADES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
-            <!--<li class="treeview">
+                <li class="treeview">
                     <a href="../farmaciac/devoluciones.php">
-                        <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
+                        <i class="fas fa-undo-alt"></i> <span>DEVOLUCIONES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
-            -->
                 <li class="treeview">
                     <a href="../farmaciac/proveedores.php">
-                        <i class="fa fa-folder"></i> <span>PROVEEDORES</span>
+                        <i class="fas fa-truck"></i> <span>PROVEEDORES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
-                
-                
-               
                 <li class="treeview">
                     <a href="../farmaciac/ordenes_compra.php">
-                        <i class="fa fa-folder"></i> <span>COMPRAS</span>
+                        <i class="fas fa-shopping-cart"></i> <span>COMPRAS</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
 
             </ul>

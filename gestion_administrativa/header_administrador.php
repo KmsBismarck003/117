@@ -179,6 +179,8 @@ if (!($usuario['id_rol'] == 1 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     }
   </style>
 
+  <link rel="icon" type="image/png" href="../../imagenes/SIF.PNG">
+
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">

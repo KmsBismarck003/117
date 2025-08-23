@@ -25,8 +25,10 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>SIMA Venecia Metepec</title>
+        <title>INEO METEPEC</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+                <link rel="icon" href="../../imagenes/SIF.PNG">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="../../template/dist/js/pages/dashboard2.js" type="text/javascript"></script>
@@ -193,7 +195,7 @@
                         <!-- mini logo for sidebar mini 50x50 pixels -->
                         
                         <!-- logo for regular state and mobile devices -->
-                        <span class="logo-lg"><b><img src="../../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                        <span class="logo-lg"><b><img src="../../imagenes/SI.png" height="30" width="120"></b> SIMA</span>
                     </a>
                 <?php
                 } else if ($usuario1['id_rol'] == 5) {
@@ -203,7 +205,7 @@
                         <!-- mini logo for sidebar mini 50x50 pixels -->
                         
                         <!-- logo for regular state and mobile devices -->
-                        <span class="logo-lg"><b><img src="../../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                        <span class="logo-lg"><b><img src="../../imagenes/SI.png" height="30" width="120"></b> </span>
                     </a>
                 <?php
                 } else if ($usuario1['id_rol'] == 1) {
@@ -213,7 +215,7 @@
                         <!-- mini logo for sidebar mini 50x50 pixels -->
                         
                         <!-- logo for regular state and mobile devices -->
-                        <span class="logo-lg"><b><img src="../../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                        <span class="logo-lg"><b><img src="../../imagenes/SI.png" height="30" width="120"></b> </span>
                     </a>
                 <?php
                 } else if ($usuario1['id_rol'] == 3) {
@@ -223,14 +225,14 @@
                         <!-- mini logo for sidebar mini 50x50 pixels -->
                         
                         <!-- logo for regular state and mobile devices -->
-                        <span class="logo-lg"><b><img src="../../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                        <span class="logo-lg"><b><img src="../../imagenes/SI.png" height="30" width="120"></b> SIMA</span>
                     </a>
                 <?php } elseif ($usuario1['id_rol'] == 9) { ?>
                     <a href="../../template/menu_imagenologia.php" class="logo">
                         <!-- mini logo for sidebar mini 50x50 pixels -->
                         
                         <!-- logo for regular state and mobile devices -->
-                        <span class="logo-lg"><b><img src="../../imagenes/logo.jpg" height="30" width="120"></b> SIMA</span>
+                        <span class="logo-lg"><b><img src="../../imagenes/SI.png" height="30" width="120"></b> SIMA</span>
                     </a>
                 <?php
                 } else
@@ -310,41 +312,42 @@
 
                             <li class=" treeview">
                                 <a href="../farmaciah/surtir_paciente.php">
-                                    <i class="fa fa-folder"></i> <span>SURTIR MÉDICAMENTOS</span>
+                                    <i class="fas fa-bed" style="color:#3399cc;"></i> <span>SURTIR MÉDICAMENTOS <br>
+                                PACIENTES</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                             <li class=" treeview">
                                 <a href="../farmaciah/surtir_pacienteq.php">
-                                    <i class="fa fa-folder"></i> <span>SURTIR MÉDICAMENTOS <br> CIRUGÍAS y URGENCIAS</span>
+                                        <i class="fas fa-user-md" style="color:#3399cc;"></i><span>SURTIR MÉDICAMENTOS <br> CIRUGÍAS y URGENCIAS</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                             </li>
                             <li class=" treeview">
                                 <a href="../farmaciah/existenciash.php">
-                                    <i class="fa fa-folder"></i> <span>EXISTENCIAS</span>
+                                    <i class="fas fa-warehouse" style="color:#3399cc;"></i> <span>EXISTENCIAS</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                             <li class=" treeview">
                                 <a href="../farmaciah/kardexh.php">
-                                    <i class="fa fa-folder"></i> <span>KARDEX</span>
+                                    <i class="fas fa-clipboard-list" style="color:#3399cc;"></i> <span>KARDEX</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                             <li class=" treeview">
                                 <a href="../farmaciah/caducadoh.php">
-                                    <i class="fa fa-folder"></i> <span>CONTROL DE <br> CADUCIDADES</span>
+                                    <i class="fas fa-calendar-times" style="color:#3399cc;"></i><span>CONTROL DE <br> CADUCIDADES</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                             <li class=" treeview">
                                 <a href="../farmaciah/devolucionesh.php">
-                                    <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
+                                    <i class="fas fa-undo-alt" style="color:#3399cc;"></i><span>DEVOLUCIONES</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
@@ -352,46 +355,46 @@
 
                             <li class="treeview">
                                 <a href="../farmaciah/confirmar_envio.php">
-                                    <i class="fa fa-folder"></i> <span>CONFIRMAR ENTRADAS</span>
+                                    <i class="fas fa-check-circle" style="color:#3399cc;"></i> <span>CONFIRMAR ENTRADAS</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                             <li class="treeview">
                                 <a href="../farmaciah/pedir_almacen.php">
-                                    <i class="fa fa-folder"></i> <span>PEDIR A ALMACEN</span>
+                                    <i class="fas fa-truck-loading" style="color:#3399cc;"></i> <span>PEDIR A ALMACEN</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                             <li class="treeview">
                                 <a href="../farmaciah/salidash.php">
-                                    <i class="fa fa-folder"></i> <span>SALIDAS MEDICAMENTOS <br> E INSUMOS</span>
+                                    <i class="fas fa-sign-out-alt" style="color:#3399cc;"></i> <span>SALIDAS MEDICAMENTOS</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
                              <li class="treeview">
                                 <a href="../farmaciah/order_indica.php">
-                                    <i class="fa fa-folder"></i> <span>INDICACIONES <br>MÉDICAS </span>
+                                    <i class="fas fa-prescription" style="color:#3399cc;"></i> <span>INDICACIONES <br>MÉDICAS </span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                             </li>
 
                             <li class="treeview">
                                 <a href="../farmaciah/conc_de_ingreso.php">
-                                    <i class="fa fa-folder"></i> <span>CONCILIACION <br>DE INGRESO </span>
+                                    <i class="fas fa-balance-scale" style="color:#3399cc;"></i> <span>CONCILIACION <br>DE INGRESO </span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
                             </li>
-                       <!--     <li class="treeview">
+                           <li class="treeview">
                                 <a href="../farmaciah/select_pac.php">
-                                    <i class="fa fa-folder"></i> <span>PERFIL <br>FARMACOTERAPÉUTICO </span>
+                                    <i class="fas fa-user-circle" style="color:#3399cc;"></i> <span>PERFIL <br>FARMACOTERAPÉUTICO </span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
 
-                            </li>-->
+                            </li>
                         </ul>
                     <?php } ?>
                 </section>

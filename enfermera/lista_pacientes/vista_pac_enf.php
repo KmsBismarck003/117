@@ -11,6 +11,7 @@ $usuario = $_SESSION['login'];
 
 <head>
     <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″/>
+    <link rel="icon" href="../../imagenes/SIF.PNG">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -57,55 +58,21 @@ $usuario = $_SESSION['login'];
 
 
      <?php 
-     $rol=$usuario['id_rol'];
+$rol=$usuario['id_rol'];
 include "../../conexionbd.php";
 $id_at=$_SESSION['pac'];
 $resultado1 = $conexion->query("SELECT * FROM dat_ordenes_med  WHERE id_atencion =$id_at and visto='NO' order by id_ord_med desc limit 1" ) or die($conexion->error);
-        while ($f1 = mysqli_fetch_array($resultado1)) {
-         $id_ord_med=$f1['id_ord_med'];
-        }
-        if(isset($id_ord_med) && $rol != 1){
- ?>
-<!--<audio >
-    <source src="alerta.mp3" type="audio/mp3" autoplay>
-</audio>-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+while ($f1 = mysqli_fetch_array($resultado1)) {
+    $id_ord_med=$f1['id_ord_med'];
+}
+if(isset($id_ord_med) && $rol != 1){
+?>
+    <!--<audio>
+        <source src="alerta.mp3" type="audio/mp3" autoplay>
+    </audio>-->
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-    <script>
-$(document).ready(function() {
- var myAudio= document.createElement('audio');
- var myMessageAlert = "";
- myAudio.src = 'alerta.mp3';
- myAudio.addEventListener('ended', function(){
-    alert(myMessageAlert);
- });
-function Myalert(message) { 
-    myAudio.play();
-    myMessageAlert = message;
-} 
-Myalert("Mensaje");
-function alert(message) { 
-  myAudio.play();
-  myMessageAlert = message;
-} 
-alert("Mensaje");
-
-                        swal({
-                            title: "Nuevo Registro de Órdenes Médicas", 
-                            type: "error",
-                            confirmButtonText: "ACEPTAR"
-                        }, function(isConfirm) { 
-                            if (isConfirm) {
-                                window.location.href = "../ordenes_medico/vista_ordenes.php";
-                            }
-                        });
-                    });
-
-                </script>
-                
-                
 <?php } ?>
+
 
     <title>Menu Enfermería </title>
     <link rel="shortcut icon" href="logp.png">
