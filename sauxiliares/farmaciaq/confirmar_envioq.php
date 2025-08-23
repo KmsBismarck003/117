@@ -1,391 +1,573 @@
 <?php
-include "../../conexionbd.php";
-session_start();
-ob_start();
+// Habilitar reporte de errores para debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$usuario = $_SESSION['login'];
-$id_usua = $usuario['id_usua'];
-date_default_timezone_set('America/Guatemala');
+// Log de errores personalizado
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/error_log_confirmar_envio.txt');
+
+try {
+    include "../../conexionbd.php";
+    session_start();
+    ob_start();
+
+    if (!isset($_SESSION['login']) || !isset($_SESSION['login']['id_usua'])) {
+        error_log("Error: Usuario no logueado o sesión inválida");
+        echo "<script>alert('Sesión no válida'); window.location='../../index.php';</script>";
+        exit();
+    }
+
+    $usuario = $_SESSION['login'];
+    $id_usua = $usuario['id_usua'];
+    date_default_timezone_set('America/Guatemala');
+} catch (Exception $e) {
+    error_log("Error en inicialización: " . $e->getMessage());
+    echo "<script>alert('Error de inicialización: " . $e->getMessage() . "');</script>";
+    exit();
+}
 
 if (isset($usuario['id_rol'])) {
-    if ($usuario['id_rol'] == 11 || $usuario['id_rol'] == 4 || $usuario['id_rol'] == 5) {
-        include "../header_farmaciaq.php";
+    if ($usuario['id_rol'] == 11 || $usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] == 1) {
+        try {
+            include "../header_farmaciaq.php";
+        } catch (Exception $e) {
+            error_log("Error incluyendo header_farmaciaq.php: " . $e->getMessage());
+            echo "<script>alert('Error cargando header');</script>";
+        }
     } else {
+        error_log("Acceso denegado - Rol no autorizado: " . $usuario['id_rol']);
         session_unset();
         session_destroy();
         echo "<script>window.location='../../index.php';</script>";
         exit();
     }
+} else {
+    error_log("Error: id_rol no está definido en la sesión");
+    session_unset();
+    session_destroy();
+    echo "<script>window.location='../../index.php';</script>";
+    exit();
 }
 
 $query = "
-  SELECT 
+   SELECT 
+    MIN(c.id) as id,
     c.id_recib,
     c.item_id,
     i.item_name,
     c.fecha,
-    c.solicita,
-    SUM(c.entrega) AS total_entrega,
-    GROUP_CONCAT(c.existe_lote ORDER BY c.existe_caducidad ASC) AS lotes,
-    GROUP_CONCAT(CONCAT(c.existe_lote, ': ', c.existe_caducidad) ORDER BY c.existe_caducidad ASC) AS caducidades
+    cr.solicita,
+    SUM(c.entrega) as entrega_total,
+    GROUP_CONCAT(c.existe_lote ORDER BY c.existe_caducidad ASC) as lotes,
+    GROUP_CONCAT(c.existe_caducidad ORDER BY c.existe_caducidad ASC) as caducidades,
+    GROUP_CONCAT(c.entrega ORDER BY c.existe_caducidad ASC) as entregas_individuales,
+    c.confirmado,
+    cr.parcial,
+    CASE 
+        WHEN cr.solicita = SUM(c.entrega) THEN 'Completo'
+        ELSE 'Parcial' 
+    END as estado_real
 FROM 
     carrito_entradash AS c
 JOIN 
     item_almacen AS i ON c.item_id = i.item_id
 JOIN 
-    cart_recib AS cr ON c.id_recib = cr.id_recib AND cr.parcial = 'NO'
+    cart_recib AS cr ON c.id_recib = cr.id_recib
 WHERE 
     c.almacen = 'QUIROFANO' 
+    AND (c.confirmado IS NULL OR c.confirmado != 'SI')
 GROUP BY 
-    c.id_recib, c.item_id, i.item_name, c.fecha, c.solicita
+    c.id_recib, c.item_id, i.item_name, c.fecha, cr.solicita, c.confirmado, cr.parcial
 ORDER BY 
-    c.id_recib ASC;
+    c.id_recib ASC, MIN(c.existe_caducidad) ASC;
 
 ";
 
-
-
-$result = $conexion->query($query);
-if (!$result) {
-    die("Error en la consulta: " . $conexion->error);
+try {
+    $result = $conexion->query($query);
+    if (!$result) {
+        error_log("Error en consulta principal: " . $conexion->error);
+        die("Error en la consulta: " . $conexion->error);
+    }
+} catch (Exception $e) {
+    error_log("Excepción en consulta principal: " . $e->getMessage());
+    die("Error en la consulta: " . $e->getMessage());
 }
 
 $ubicaciones_query = "SELECT ubicacion_id, nombre_ubicacion FROM ubicaciones_almacen";
-$ubicaciones_result = $conexion->query($ubicaciones_query);
-$ubicaciones = [];
-if ($ubicaciones_result && $ubicaciones_result->num_rows > 0) {
-    while ($ubicacion = $ubicaciones_result->fetch_assoc()) {
-        $ubicaciones[] = $ubicacion;
+try {
+    $ubicaciones_result = $conexion->query($ubicaciones_query);
+    $ubicaciones = [];
+    if ($ubicaciones_result && $ubicaciones_result->num_rows > 0) {
+        while ($ubicacion = $ubicaciones_result->fetch_assoc()) {
+            $ubicaciones[] = $ubicacion;
+        }
     }
-} else {
-    die("Error al consultar ubicaciones: " . $conexion->error);
+} catch (Exception $e) {
+    error_log("Error consultando ubicaciones: " . $e->getMessage());
+    $ubicaciones = [];
 }
 
 
 if (isset($_POST['confirmar'])) {
-    $id_recib = isset($_POST['id_recib']) ? intval($_POST['id_recib']) : null;
-    $ubicacion_id = isset($_POST['ubicacion_id']) ? intval($_POST['ubicacion_id']) : null;
-    $fecha_actual = date('Y-m-d H:i:s');
+    try {
+        error_log("=== INICIANDO PROCESO DE CONFIRMACIÓN ===");
+        error_log("POST data: " . print_r($_POST, true));
 
-    if (is_null($id_recib) || is_null($ubicacion_id)) {
-        echo "<script>alert('Error: Faltan datos obligatorios.');</script>";
-        echo "<script>window.location.href = 'confirmar_envio.php';</script>";
-        exit();
-    }
+        $id_carrito_array = isset($_POST['seleccionados']) ? $_POST['seleccionados'] : [];
+        $ubicaciones_array = isset($_POST['ubicaciones']) ? $_POST['ubicaciones'] : [];
 
-    $query_costo = "SELECT item_costs FROM item_almacen WHERE item_id = ?";
-    $stmt_costo = $conexion->prepare($query_costo);
-    if (!$stmt_costo) {
-        echo "<script>alert('Error al preparar la consulta de costo.');</script>";
-        exit();
-    }
+        error_log("IDs de carrito recibidos: " . print_r($id_carrito_array, true));
+        error_log("Ubicaciones recibidas: " . print_r($ubicaciones_array, true));
 
-    if ($result->num_rows > 0) {
-        while ($fila = $result->fetch_assoc()) {
-            $solicita = $fila['solicita'];
-            $total_entrega = $fila['total_entrega'];
-
-            if ($solicita != $total_entrega) {
-                echo "<script>alert('Error: La entrega es parcial para el ítem {$fila['item_name']} (ID: {$fila['item_id']}).');</script>";
-                echo "<script>window.location.href = 'confirmar_envio.php';</script>";
-                exit();
-            }
+        if (empty($id_carrito_array)) {
+            error_log("ERROR: No se seleccionaron registros");
+            echo "<script>alert('Error: Debe seleccionar al menos un registro.');</script>";
+            echo "<script>window.location.href = 'confirmar_envioq.php';</script>";
+            exit();
         }
-    }
 
-    $query_insercion = "
-        SELECT 
-            c.id_recib,
-            c.item_id,
-            c.existe_lote,
-            c.existe_caducidad,
-            c.entrega,
-            cr.id_usua AS Surte
+        if (empty($ubicaciones_array)) {
+            error_log("ERROR: No se recibieron ubicaciones");
+            echo "<script>alert('Error: Faltan las ubicaciones.');</script>";
+            echo "<script>window.location.href = 'confirmar_envioq.php';</script>";
+            exit();
+        }
 
-        FROM 
-            carrito_entradash AS c
-        JOIN 
-            cart_recib AS cr ON c.id_recib = cr.id_recib AND cr.parcial = 'NO'
-        WHERE 
-            c.id_recib = ?
-        ORDER BY 
-            c.id_recib ASC, c.existe_caducidad ASC;
-    ";
-    $stmt_insercion = $conexion->prepare($query_insercion);
-    $stmt_insercion->bind_param("i", $id_recib);
-    $stmt_insercion->execute();
-    $result_insercion = $stmt_insercion->get_result();
+        foreach ($id_carrito_array as $id_carrito) {
+            try {
+                error_log("Procesando ID carrito: " . $id_carrito);
 
-    if ($result_insercion->num_rows > 0) {
-        $insert_entrada = "
-            INSERT INTO entradas_almacenq (
-                entrada_fecha, 
-                item_id, 
-                entrada_lote, 
-                entrada_caducidad, 
-                entrada_unidosis, 
-                entrada_costo, 
-                id_usua, 
-                ubicacion_id,
-                id_surte
-            ) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?)
-        ";
-        $stmt_entrada = $conexion->prepare($insert_entrada);
+                $id_carrito = intval($id_carrito);
+                $ubicacion_id = isset($ubicaciones_array[$id_carrito]) ? intval($ubicaciones_array[$id_carrito]) : null;
 
-        $insert_kardex = "
-                INSERT INTO kardex_almacenq (
-                    kardex_fecha,
-                    item_id,
-                    kardex_lote,
-                    kardex_caducidad,
-                    kardex_inicial,
-                    kardex_entradas,
-                    kardex_salidas,
-                    kardex_qty,
-                    kardex_dev_stock,
-                    kardex_dev_merma,
-                    kardex_movimiento,
-                    kardex_ubicacion,
-                    kardex_destino,
-                    id_usua,
-                    id_surte
-                ) VALUES (NOW(), ?, ?, ?, 0, ?, 0, 0, 0, 0, 'Resurtimiento', ?, 'QUIROFANO', ?,?)
+                if (!$ubicacion_id) {
+                    error_log("Error: Falta la ubicación para el ID carrito {$id_carrito}");
+                    echo "<script>alert('Error: Falta la ubicación para el ID carrito {$id_carrito}');</script>";
+                    continue;
+                }
+
+                // Obtener el id_recib e item_id del registro agrupado
+                $query_grupo = "
+                    SELECT c.id_recib, c.item_id 
+                    FROM carrito_entradash c
+                    WHERE c.id = ?
                 ";
-        $stmt_kardex = $conexion->prepare($insert_kardex);
+                $stmt_grupo = $conexion->prepare($query_grupo);
+                $stmt_grupo->bind_param("i", $id_carrito);
+                $stmt_grupo->execute();
+                $result_grupo = $stmt_grupo->get_result();
 
-
-        $select_existencia = "
-        SELECT existe_entradas, existe_qty 
-        FROM existencias_almacenq 
-        WHERE item_id = ? AND existe_lote = ? AND existe_caducidad = ?
-        ";
-        $stmt_select_existencia = $conexion->prepare($select_existencia);
-
-        $update_existencia = "
-        UPDATE existencias_almacenq 
-        SET existe_entradas = existe_entradas + ?, 
-            existe_qty = existe_qty + ?,
-            existe_fecha = NOW()
-        WHERE item_id = ? AND existe_lote = ? AND existe_caducidad = ?
-        ";
-        $stmt_update_existencia = $conexion->prepare($update_existencia);
-
-        $insert_existencia = "
-        INSERT INTO existencias_almacenq (
-            item_id, 
-            existe_lote, 
-            existe_caducidad, 
-            existe_inicial, 
-            existe_entradas, 
-            existe_salidas, 
-            existe_qty, 
-            existe_devoluciones, 
-            existe_fecha, 
-            ubicacion_id, 
-            id_usua
-        
-        ) VALUES (?, ?, ?, ?, ?, 0, ?, 0, NOW(), ?, ?)
-        ";
-        $stmt_insert_existencia = $conexion->prepare($insert_existencia);
-
-        $insert_salida = "
-        INSERT INTO salidas_almacen (
-            salida_fecha, 
-            salida_lote, 
-            salida_caducidad, 
-            salida_qty, 
-            salida_destino, 
-            id_usua, 
-            item_id, 
-            ubicacion_id
-        ) VALUES (NOW(), ?, ?, ?, 'QUIROFANO', ?, ?, ?)
-        ";
-        $stmt_salida = $conexion->prepare($insert_salida);
-
-
-
-        while ($row = $result_insercion->fetch_assoc()) {
-            $item_id = $row['item_id'];
-            $entrada_lote = $row['existe_lote'];
-            $entrada_caducidad = $row['existe_caducidad'];
-            $entrada_unidosis = $row['entrega'];
-            $Surte = $row['Surte'];
-
-            // Obtener el costo del ítem
-            $stmt_costo->bind_param("i", $item_id);
-            $stmt_costo->execute();
-            $result_costo = $stmt_costo->get_result();
-            $row_costo = $result_costo->fetch_assoc();
-            $entrada_costo = $row_costo['item_costs'];
-
-            $stmt_entrada->bind_param(
-                "issiiiii",
-                $item_id,
-                $entrada_lote,
-                $entrada_caducidad,
-                $entrada_unidosis,
-                $entrada_costo,
-                $id_usua,
-                $ubicacion_id,
-                $Surte
-            );
-            if ($stmt_entrada->execute()) {
-            } else {
-                exit('Error al insertar en entradas_almacenq: ' . $stmt_entrada->error);
-            }
-
-
-            $stmt_kardex->bind_param(
-                "issisii",
-                $item_id,
-                $entrada_lote,
-                $entrada_caducidad,
-                $entrada_unidosis,
-                $ubicacion_id,
-                $id_usua,
-                $Surte
-            );
-            if ($stmt_kardex->execute()) {
-            } else {
-                exit('Error al insertar en kardex_almacenq: ' . $stmt_kardex->error);
-            }
-
-
-            $insertKardexQuery = "INSERT INTO kardex_almacen (
-                    kardex_fecha, item_id, kardex_lote, kardex_caducidad, kardex_inicial, kardex_entradas,
-                    kardex_salidas, kardex_qty, kardex_dev_stock, kardex_dev_merma, kardex_movimiento,
-                    kardex_ubicacion, kardex_destino, id_usua
-                ) VALUES (NOW(), ?, ?, ?, 0, 0, ?, 0, 0, 0, 'Salida', ?,'QUIROFANO',?)";
-            $stmtInsertKardex = $conexion->prepare($insertKardexQuery);
-            $stmtInsertKardex->bind_param(
-                'issiii',
-                $item_id,
-                $entrada_lote,
-                $entrada_caducidad,
-                $entrada_unidosis,
-                $ubicacion_id,
-                $id_usua
-
-
-            );
-            if ($stmtInsertKardex->execute()) {
-            } else {
-                exit('Error al insertar en kardex_almacen: ' . $stmtInsertKardex->error);
-            }
-
-
-            $stmt_salida->bind_param(
-                "ssiiii",
-                $entrada_lote,
-                $entrada_caducidad,
-                $entrada_unidosis,
-                $id_usua,
-                $item_id,
-                $ubicacion_id
-            );
-
-            if ($stmt_salida->execute()) {
-            } else {
-                exit('Error al insertar en salidas_almacen: ' . $stmt_salida->error);
-            }
-
-
-
-
-            // Asociar los parámetros
-            if (!$stmt_select_existencia->bind_param("iss", $item_id, $entrada_lote, $entrada_caducidad)) {
-                exit("Error al asociar los parámetros de la consulta SELECT en existencias_almacen: " . $stmt_select_existencia->error);
-            }
-
-            // Ejecutar la consulta
-            if (!$stmt_select_existencia->execute()) {
-                exit("Error al ejecutar la consulta SELECT en existencias_almacen: " . $stmt_select_existencia->error);
-            }
-
-            // Obtener el resultado
-            $result_existencia = $stmt_select_existencia->get_result();
-
-            // Validar si la obtención del resultado fue exitosa
-            if (!$result_existencia) {
-                exit("Error al obtener el resultado de la consulta SELECT en existencias_almacen: " . $stmt_select_existencia->error);
-            }
-
-
-
-
-            if ($result_existencia->num_rows > 0) {
-                $stmt_update_existencia->bind_param("iiiss", $entrada_unidosis, $entrada_unidosis, $item_id, $entrada_lote, $entrada_caducidad);
-                $stmt_update_existencia->execute();
-
-                if ($stmt_update_existencia->execute()) {
-                } else {
-                    exit('Error al actualizar existencias_almacenq ' . $stmt_update_existencia->error);
+                if ($result_grupo->num_rows == 0) {
+                    error_log("ERROR: No se encontró el registro agrupado con ID {$id_carrito}");
+                    continue;
                 }
-            } else {
-                $stmt_insert_existencia->bind_param(
-                    "issiiiii",
-                    $item_id,
-                    $entrada_lote,
-                    $entrada_caducidad,
-                    $entrada_unidosis,
-                    $entrada_unidosis,
-                    $entrada_unidosis,
-                    $ubicacion_id,
-                    $id_usua
 
+                $grupo = $result_grupo->fetch_assoc();
+                $id_recib = $grupo['id_recib'];
+                $item_id = $grupo['item_id'];
 
-                );
-                if ($stmt_insert_existencia->execute()) {
-                } else {
-                    exit('Error al insertar en existencias_almacenq: ' . $stmt_insert_existencia->error);
+                // Obtener TODOS los registros individuales de este grupo (id_recib + item_id)
+                $query_registros_individuales = "
+                    SELECT c.id, c.id_recib, c.item_id, c.existe_lote, c.existe_caducidad, 
+                           c.entrega, c.solicita, cr.id_usua AS Surte
+                    FROM carrito_entradash c
+                    JOIN cart_recib cr ON c.id_recib = cr.id_recib
+                    WHERE c.id_recib = ? AND c.item_id = ? 
+                    AND c.almacen = 'QUIROFANO' 
+                    AND (c.confirmado IS NULL OR c.confirmado != 'SI')
+                ";
+                $stmt_registros = $conexion->prepare($query_registros_individuales);
+                $stmt_registros->bind_param("ii", $id_recib, $item_id);
+                $stmt_registros->execute();
+                $result_registros = $stmt_registros->get_result();
+
+                if ($result_registros->num_rows == 0) {
+                    error_log("ERROR: No se encontraron registros individuales para id_recib: {$id_recib}, item_id: {$item_id}");
+                    continue;
                 }
+
+                // Procesar cada registro individual
+                while ($registro = $result_registros->fetch_assoc()) {
+                    $id_registro_individual = $registro['id'];
+                    $entrada_lote = $registro['existe_lote'];
+                    $entrada_caducidad = $registro['existe_caducidad'];
+                    $entrada_unidosis = $registro['entrega'];
+                    $Surte = $registro['Surte'];
+
+                    error_log("Procesando registro individual ID: {$id_registro_individual}, Lote: {$entrada_lote}, Cantidad: {$entrada_unidosis}");
+
+                    // Actualizar el campo confirmado para este registro individual
+                    $update_confirmado = "UPDATE carrito_entradash SET confirmado = 'SI' WHERE id = ?";
+                    $stmt_update_confirmado = $conexion->prepare($update_confirmado);
+                    $stmt_update_confirmado->bind_param("i", $id_registro_individual);
+                    if (!$stmt_update_confirmado->execute()) {
+                        error_log('Error ejecutando update confirmado para ID: ' . $id_registro_individual);
+                        continue;
+                    }
+
+                    // Obtener costo del item
+                    $query_costo = "SELECT item_costs FROM item_almacen WHERE item_id = ?";
+                    $stmt_costo = $conexion->prepare($query_costo);
+                    $stmt_costo->bind_param("i", $item_id);
+                    $stmt_costo->execute();
+                    $result_costo = $stmt_costo->get_result();
+                    $row_costo = $result_costo->fetch_assoc();
+                    $entrada_costo = $row_costo['item_costs'];
+
+                    // Insertar en entradas_almacenq para cada registro individual
+                    $insert_entrada = "
+                        INSERT INTO entradas_almacenq (
+                            entrada_fecha, 
+                            item_id, 
+                            entrada_lote, 
+                            entrada_caducidad, 
+                            entrada_unidosis, 
+                            entrada_costo, 
+                            id_usua, 
+                            ubicacion_id,
+                            id_surte
+                        ) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?)
+                    ";
+                    $stmt_entrada = $conexion->prepare($insert_entrada);
+                    $stmt_entrada->bind_param(
+                        "issiiiii",
+                        $item_id,
+                        $entrada_lote,
+                        $entrada_caducidad,
+                        $entrada_unidosis,
+                        $entrada_costo,
+                        $id_usua,
+                        $ubicacion_id,
+                        $Surte
+                    );
+                    if (!$stmt_entrada->execute()) {
+                        error_log('Error al insertar en entradas_almacenq para lote: ' . $entrada_lote . ' - ' . $stmt_entrada->error);
+                        continue;
+                    }
+
+                    // Insertar en kardex_almacenq para cada registro individual
+                    $insert_kardex = "
+                        INSERT INTO kardex_almacenq (
+                            kardex_fecha,
+                            item_id,
+                            kardex_lote,
+                            kardex_caducidad,
+                            kardex_inicial,
+                            kardex_entradas,
+                            kardex_salidas,
+                            kardex_qty,
+                            kardex_dev_stock,
+                            kardex_dev_merma,
+                            kardex_movimiento,
+                            kardex_ubicacion,
+                            kardex_destino,
+                            id_usua,
+                            id_surte
+                        ) VALUES (NOW(), ?, ?, ?, 0, ?, 0, 0, 0, 0, 'Resurtimiento', ?, 'QUIROFANO', ?, ?);
+                    ";
+                    $stmt_kardex = $conexion->prepare($insert_kardex);
+                    $stmt_kardex->bind_param(
+                        "issisii",
+                        $item_id,
+                        $entrada_lote,
+                        $entrada_caducidad,
+                        $entrada_unidosis,
+                        $ubicacion_id,
+                        $id_usua,
+                        $Surte
+                    );
+                    if (!$stmt_kardex->execute()) {
+                        error_log('Error al insertar en kardex_almacenq para lote: ' . $entrada_lote . ' - ' . $stmt_kardex->error);
+                        continue;
+                    }
+
+                    // Insertar en kardex_almacen para cada registro individual
+                    $insert_kardexc = "
+                        INSERT INTO kardex_almacen (
+                            kardex_fecha,
+                            item_id,
+                            kardex_lote,
+                            kardex_caducidad,
+                            kardex_inicial,
+                            kardex_entradas,
+                            kardex_salidas,
+                            kardex_qty,
+                            kardex_dev_stock,
+                            kardex_dev_merma,
+                            kardex_movimiento,
+                            kardex_ubicacion,
+                            kardex_destino,
+                            id_usua
+                        ) VALUES (NOW(), ?, ?, ?, 0, 0, ?, 0, 0,0, 'Salida', ?, 'QUIROFANO', ?);
+                    ";
+                    $stmt_kardexc = $conexion->prepare($insert_kardexc);
+                    $stmt_kardexc->bind_param(
+                        "issiii",
+                        $item_id,
+                        $entrada_lote,
+                        $entrada_caducidad,
+                        $entrada_unidosis,
+                        $ubicacion_id,
+                        $id_usua
+                    );
+                    if (!$stmt_kardexc->execute()) {
+                        error_log('Error al insertar en kardex_almacen para lote: ' . $entrada_lote . ' - ' . $stmt_kardexc->error);
+                        continue;
+                    }
+
+                    // Verificar/actualizar existencias_almacenq para cada lote individual
+                    $select_existencia = "
+                        SELECT existe_entradas, existe_qty 
+                        FROM existencias_almacenq 
+                        WHERE item_id = ? AND existe_lote = ? AND existe_caducidad = ?
+                    ";
+                    $stmt_select_existencia = $conexion->prepare($select_existencia);
+                    $stmt_select_existencia->bind_param("iss", $item_id, $entrada_lote, $entrada_caducidad);
+                    $stmt_select_existencia->execute();
+                    $result_existencia = $stmt_select_existencia->get_result();
+
+                    if ($result_existencia->num_rows > 0) {
+                        // Actualizar existencia existente
+                        $update_existencia = "
+                            UPDATE existencias_almacenq 
+                            SET existe_entradas = existe_entradas + ?, 
+                                existe_qty = existe_qty + ?,
+                                existe_fecha = NOW()
+                            WHERE item_id = ? AND existe_lote = ? AND existe_caducidad = ?
+                        ";
+                        $stmt_update_existencia = $conexion->prepare($update_existencia);
+                        $stmt_update_existencia->bind_param("iiiss", $entrada_unidosis, $entrada_unidosis, $item_id, $entrada_lote, $entrada_caducidad);
+                        if (!$stmt_update_existencia->execute()) {
+                            error_log('Error al actualizar existencias_almacenq para lote: ' . $entrada_lote . ' - ' . $stmt_update_existencia->error);
+                            continue;
+                        }
+                    } else {
+                        // Insertar nueva existencia
+                        $insert_existencia = "
+                            INSERT INTO existencias_almacenq (
+                                item_id, 
+                                existe_lote, 
+                                existe_caducidad, 
+                                existe_inicial, 
+                                existe_entradas, 
+                                existe_salidas, 
+                                existe_qty, 
+                                existe_devoluciones, 
+                                existe_fecha, 
+                                ubicacion_id, 
+                                id_usua
+                            ) VALUES (?, ?, ?, ?, 0, 0, ?, 0, NOW(), ?, ?)
+                        ";
+                        $stmt_insert_existencia = $conexion->prepare($insert_existencia);
+                        $stmt_insert_existencia->bind_param(
+                            "issiiii",
+                            $item_id,
+                            $entrada_lote,
+                            $entrada_caducidad,
+                            $entrada_unidosis,
+                            $entrada_unidosis,
+                            $ubicacion_id,
+                            $id_usua
+                        );
+                        if (!$stmt_insert_existencia->execute()) {
+                            error_log('Error al insertar en existencias_almacenq para lote: ' . $entrada_lote . ' - ' . $stmt_insert_existencia->error);
+                            continue;
+                        }
+                    }
+
+                    // Insertar en salidas_almacen para cada registro individual
+                    $insert_salida = "
+                        INSERT INTO salidas_almacen (
+                            salida_fecha, 
+                            salida_lote, 
+                            salida_caducidad, 
+                            salida_qty, 
+                            salida_destino, 
+                            id_usua, 
+                            item_id, 
+                            ubicacion_id
+                        ) VALUES (NOW(), ?, ?, ?, 'QUIROFANO', ?, ?, ?)
+                    ";
+                    $stmt_salida = $conexion->prepare($insert_salida);
+                    $stmt_salida->bind_param(
+                        "ssiiii",
+                        $entrada_lote,
+                        $entrada_caducidad,
+                        $entrada_unidosis,
+                        $id_usua,
+                        $item_id,
+                        $ubicacion_id
+                    );
+                    if (!$stmt_salida->execute()) {
+                        error_log('Error al insertar en salidas_almacen para lote: ' . $entrada_lote . ' - ' . $stmt_salida->error);
+                        continue;
+                    }
+
+                    error_log("✓ Procesamiento completado para lote: {$entrada_lote}, cantidad: {$entrada_unidosis}");
+                }
+
+                // Verificar si la entrega está completa para este id_recib e item_id específicos DESPUÉS de procesar todos los lotes
+                $query_validacion = "
+                    SELECT c.item_id, i.item_name, cr.solicita, SUM(c.entrega) AS total_entrega
+                    FROM carrito_entradash c
+                    JOIN item_almacen i ON c.item_id = i.item_id
+                    JOIN cart_recib cr ON c.id_recib = cr.id_recib AND c.item_id = cr.item_id
+                    WHERE c.id_recib = ? AND c.item_id = ?
+                    GROUP BY c.item_id, i.item_name, cr.solicita
+                ";
+                $stmt_validacion = $conexion->prepare($query_validacion);
+                if (!$stmt_validacion) {
+                    echo "<script>alert('Error al preparar la consulta de validación.');</script>";
+                    exit();
+                }
+                $stmt_validacion->bind_param("ii", $id_recib, $item_id);
+                $stmt_validacion->execute();
+                $result_validacion = $stmt_validacion->get_result();
+
+                $es_entrega_completa = false;
+                if ($result_validacion->num_rows > 0) {
+                    $fila = $result_validacion->fetch_assoc();
+                    $solicita = $fila['solicita'];
+                    $total_entrega = $fila['total_entrega'];
+
+                    // Verificar si la entrega está completa para este item específico
+                    $es_entrega_completa = ($solicita == $total_entrega);
+
+                    error_log("ID recib: {$id_recib}, Item ID: {$item_id}, Solicitado: {$solicita}, Entregado: {$total_entrega}, Completa: " . ($es_entrega_completa ? 'SI' : 'NO'));
+                }
+
+                // Verificar si TODOS los items del id_recib están completos
+                $query_validacion_total = "
+                    SELECT 
+                        c.item_id, 
+                        cr.solicita, 
+                        SUM(c.entrega) AS total_entrega,
+                        CASE WHEN cr.solicita = SUM(c.entrega) THEN 1 ELSE 0 END AS es_completo
+                    FROM carrito_entradash c
+                    JOIN cart_recib cr ON c.id_recib = cr.id_recib AND c.item_id = cr.item_id
+                    WHERE c.id_recib = ?
+                    GROUP BY c.item_id, cr.solicita
+                ";
+                $stmt_validacion_total = $conexion->prepare($query_validacion_total);
+                if (!$stmt_validacion_total) {
+                    echo "<script>alert('Error al preparar la consulta de validación total.');</script>";
+                    exit();
+                }
+                $stmt_validacion_total->bind_param("i", $id_recib);
+                $stmt_validacion_total->execute();
+                $result_validacion_total = $stmt_validacion_total->get_result();
+
+                $todos_completos = true;
+                if ($result_validacion_total->num_rows > 0) {
+                    while ($fila_total = $result_validacion_total->fetch_assoc()) {
+                        if ($fila_total['es_completo'] == 0) {
+                            $todos_completos = false;
+                            break;
+                        }
+                    }
+                }
+
+                error_log("ID recib: {$id_recib} - Todos los items completos: " . ($todos_completos ? 'SI' : 'NO'));
+
+                // Solo actualizar parcial a 'NO' si TODOS los items del id_recib están completos
+                if ($todos_completos) {
+                    $update_parcial = "UPDATE cart_recib SET parcial = 'NO' WHERE id_recib = ?";
+                    $stmt_update_parcial = $conexion->prepare($update_parcial);
+                    if (!$stmt_update_parcial) {
+                        error_log("Error preparando update parcial: " . $conexion->error);
+                        echo "<script>alert('Error al preparar actualización de estado parcial.');</script>";
+                        exit();
+                    }
+                    $stmt_update_parcial->bind_param("i", $id_recib);
+                    if (!$stmt_update_parcial->execute()) {
+                        error_log("Error ejecutando update parcial: " . $stmt_update_parcial->error);
+                        echo "<script>alert('Error al actualizar estado parcial.');</script>";
+                        exit();
+                    }
+                    error_log("Estado actualizado a completo para ID recib: {$id_recib}");
+                } else {
+                    // Mantener como parcial si no todos los items están completos
+                    $update_parcial = "UPDATE cart_recib SET parcial = 'SI' WHERE id_recib = ?";
+                    $stmt_update_parcial = $conexion->prepare($update_parcial);
+                    if (!$stmt_update_parcial) {
+                        error_log("Error preparando update parcial: " . $conexion->error);
+                        echo "<script>alert('Error al preparar actualización de estado parcial.');</script>";
+                        exit();
+                    }
+                    $stmt_update_parcial->bind_param("i", $id_recib);
+                    if (!$stmt_update_parcial->execute()) {
+                        error_log("Error ejecutando update parcial: " . $stmt_update_parcial->error);
+                        echo "<script>alert('Error al actualizar estado parcial.');</script>";
+                        exit();
+                    }
+                    error_log("Manteniendo estado parcial para ID recib: {$id_recib}");
+                }
+
+                error_log("✓ Todas las inserciones completadas para el grupo id_recib: {$id_recib}, item_id: {$item_id}");
+
+                // Solo eliminar registros si TODOS los items del id_recib están completos
+                if ($todos_completos) {
+                    $delete_cart_recib = "DELETE FROM cart_recib WHERE id_recib = ?";
+                    $stmt_delete_cart_recib = $conexion->prepare($delete_cart_recib);
+                    if (!$stmt_delete_cart_recib) {
+                        error_log('Error preparando delete cart_recib: ' . $conexion->error);
+                        exit('Error preparando delete cart_recib');
+                    }
+                    $stmt_delete_cart_recib->bind_param("i", $id_recib);
+                    if (!$stmt_delete_cart_recib->execute()) {
+                        error_log('Error ejecutando delete cart_recib: ' . $stmt_delete_cart_recib->error);
+                    } else {
+                        error_log("Registro eliminado de cart_recib para ID: {$id_recib} (todos los items completos)");
+                    }
+
+                    $delete_carrito_entrada = "DELETE FROM carrito_entradash WHERE id_recib = ?";
+                    $stmt_delete_carrito_entrada = $conexion->prepare($delete_carrito_entrada);
+                    if (!$stmt_delete_carrito_entrada) {
+                        error_log('Error preparando delete carrito_entradash: ' . $conexion->error);
+                        exit('Error preparando delete carrito_entradash');
+                    }
+                    $stmt_delete_carrito_entrada->bind_param("i", $id_recib);
+                    if (!$stmt_delete_carrito_entrada->execute()) {
+                        error_log('Error ejecutando delete carrito_entradash: ' . $stmt_delete_carrito_entrada->error);
+                    } else {
+                        error_log("Registro eliminado de carrito_entradash para ID: {$id_recib} (todos los items completos)");
+                    }
+                } else {
+                    error_log("Manteniendo registros en cart_recib y carrito_entradash para ID recib: {$id_recib} (entrega parcial en uno o más items)");
+                }
+            } catch (Exception $e) {
+                error_log("Error procesando ID carrito {$id_carrito}: " . $e->getMessage());
+                echo "<script>alert('Error procesando registro carrito {$id_carrito}: " . $e->getMessage() . "');</script>";
+                continue;
             }
-
-
-
-            $delete_cart_recib = "DELETE FROM cart_recib WHERE id_recib = ?";
-            $stmt_delete_cart_recib = $conexion->prepare($delete_cart_recib);
-            $stmt_delete_cart_recib->bind_param("i", $id_recib);
-            $stmt_delete_cart_recib->execute();
-            $delete_carrito_entradash = "DELETE FROM carrito_entradash WHERE id_recib = ?";
-            $stmt_delete_carrito_entradash = $conexion->prepare($delete_carrito_entradash);
-            $stmt_delete_carrito_entradash->bind_param("i", $id_recib);
-            $stmt_delete_carrito_entradash->execute();
         }
 
-        $stmt_costo->close();
-        $stmt_entrada->close();
-        $stmt_kardex->close();
-        $stmt_select_existencia->close();
-        $stmt_update_existencia->close();
-        $stmt_insert_existencia->close();
-        $stmt_salida->close();
-
-
-        echo "<script>
-        alert('Surtido Confirmado Correctamente');
-        window.location.href = 'confirmar_envioq.php';
-      </script>";
+        error_log("Proceso de confirmación completado exitosamente");
+        header("Location: confirmar_envioq.php?success=1");
         exit();
-    } else {
-        echo "<script>alert('No hay registros para insertar.');</script>";
+    } catch (Exception $e) {
+        error_log("Error general en confirmación: " . $e->getMessage());
+        echo "<script>alert('Error en el proceso: " . $e->getMessage() . "');</script>";
+        echo "<script>window.location.href = 'confirmar_envioq.php';</script>";
+        exit();
     }
 }
+
 ?>
-
 <!DOCTYPE html>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmar Recibido - Farmacia Quirófano</title>
-
-
+    <title>Registros de Carritos Entradas</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #2b2d7f;
@@ -394,540 +576,356 @@ if (isset($_POST['confirmar'])) {
             --success-color: #28a745;
             --danger-color: #dc3545;
             --warning-color: #ffc107;
-            --info-color: #17a2b8;
         }
 
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
             margin: 0;
             padding: 20px 0;
-        }
-
-        .btn-custom {
-            border-radius: 25px;
-            padding: 10px 25px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-danger-custom {
-            background: linear-gradient(45deg, #dc3545, #c82333);
-            color: white;
-        }
-
-        .btn-danger-custom:hover {
-            background: linear-gradient(45deg, #c82333, #bd2130);
-            color: white;
-        }
-
-        .btn-success-custom {
-            background: linear-gradient(45deg, #28a745, #1e7e34);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-
-        .btn-success-custom:hover {
-            background: linear-gradient(45deg, #1e7e34, #155724);
-            color: white;
-            transform: translateY(-1px);
         }
 
         .page-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(43, 45, 127, 0.3);
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin: 0 0 16px 0;
             text-align: center;
         }
 
         .page-header h1 {
             margin: 0;
-            font-size: 2rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .stats-container {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            font-size: 2rem !important;
         }
 
         .table-container {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            max-height: 70vh;
-            overflow-y: auto;
+            border-radius: 10px;
+            /* permitir scroll horizontal para tablas anchas; dejar overflow-y visible para evitar recorte */
             overflow-x: auto;
-            width: 100%;
-            min-width: 100%;
+            overflow-y: visible;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            padding: 12px 12px 18px 12px;
+            /* espacio extra abajo para la barra de scroll */
         }
 
         .table thead th {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
-            padding: 18px 15px;
+            padding: 14px 12px;
             font-weight: 700;
+            font-size: 15px;
+            /* aumentado para mejor legibilidad */
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-size: 14px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .table thead th i {
-            margin-right: 8px;
-            font-size: 16px;
-        }
-
-        .table tbody tr {
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .table tbody tr:hover {
-            background-color: inherit;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .table tbody td {
-            padding: 16px 15px;
+            padding: 14px 12px;
             vertical-align: middle;
+            text-align: center;
             font-size: 15px;
-            font-weight: 500;
-            border: none;
-            text-align: center;
-            line-height: 1.4;
+            /* tamaño mayor para celdas */
         }
 
-        .table tbody td:first-child {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 16px;
-        }
-
-        .table tbody td:nth-child(2) {
-            text-align: left;
-            font-weight: 600;
-            color: #2c3e50;
-            max-width: 300px;
-            word-wrap: break-word;
-        }
-
-        .container-main {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .no-data-message {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            color: #6c757d;
-        }
-
-        .form-select-custom {
-            border-radius: 20px;
-            border: 2px solid #e9ecef;
-            padding: 8px 15px;
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
-
-        .form-select-custom:focus {
-            box-shadow: 0 0 0 0.2rem rgba(43, 45, 127, 0.25);
-            border-color: var(--primary-light);
-        }
-
-        .badge-status {
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .status-pending {
-            background: linear-gradient(45deg, #ffc107, #e0a800);
-            color: #333;
-        }
-
-        .status-complete {
-            background: linear-gradient(45deg, #28a745, #1e7e34);
-            color: white;
-        }
-
-        .status-partial {
-            background: linear-gradient(45deg, #fd7e14, #e55a00);
-            color: white;
-        }
-
-        .info-card {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .lote-badge {
-            background: linear-gradient(45deg, #17a2b8, #117a8b);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            margin: 2px;
-            display: inline-block;
-        }
-
-        .caducidad-info {
-            font-size: 0.8rem;
-            color: #6c757d;
-            margin-top: 5px;
-        }
-
-        .action-form {
-            display: inline-block;
-            width: 100%;
-        }
-
-        .quantity-match {
-            color: #28a745;
-            font-weight: bold;
-        }
-
-        .quantity-mismatch {
-            color: #dc3545;
-            font-weight: bold;
-        }
-
-        /* Estilos específicos para columnas de Lotes y Caducidades */
-        .table thead th:nth-child(5),
-        .table thead th:nth-child(6) {
-            min-width: 180px;
-            width: 180px;
-            font-size: 16px !important;
-            padding: 20px 18px !important;
-        }
-
-        .table tbody td:nth-child(5),
-        .table tbody td:nth-child(6) {
-            min-width: 180px;
-            width: 180px;
-            font-size: 16px !important;
-            padding: 18px !important;
-            line-height: 1.6;
-        }
-
-        /* Mejoras para badges de lotes */
-        .lote-badge {
-            background: linear-gradient(45deg, #17a2b8, #117a8b);
-            color: white;
-            padding: 6px 12px !important;
-            border-radius: 15px;
-            font-size: 14px !important;
-            margin: 3px;
-            display: inline-block;
-            font-weight: 600;
-        }
-
-        /* Mejoras para información de caducidades */
-        .caducidad-info {
-            font-size: 14px !important;
-            color: #495057;
-            margin-top: 5px;
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
-        /* Asegurar que la tabla sea completamente visible */
+        /* Forzar ancho mínimo para activar la barra horizontal cuando la tabla excede el contenedor */
         .table {
             min-width: 1200px;
-            width: 100%;
+            /* mantiene un ancho mínimo para evitar compactar columnas */
+            width: auto;
+            /* permitir que la tabla sea más ancha que el contenedor y se pueda scrollear */
             table-layout: auto;
+            border-collapse: collapse;
+            box-sizing: border-box;
         }
 
-        /* Ajustes responsive para scroll horizontal */
-        @media (max-width: 1400px) {
-            .table-container {
-                overflow-x: scroll;
+        /* Evitar que la última columna quede recortada al scrollear: añadir espacio extra al final */
+        .table::after {
+            content: "";
+            display: inline-block;
+            width: 48px;
+            /* espacio suficiente para ver el texto completo en la mayoría de casos */
+            height: 1px;
+        }
+
+        /* Aumentar padding de la última celda/encabezado para que el texto no pegue al borde */
+        .table th:last-child,
+        .table td:last-child {
+            padding-right: 30px;
+        }
+
+        /* Columna 'Código' (ID Recib): hacer registros más grandes y destacados */
+        .table th:nth-child(2),
+        .table td:nth-child(2) {
+            font-size: 17px;
+            /* más grande que el resto */
+            font-weight: 700;
+            padding-left: 16px;
+            padding-right: 16px;
+            white-space: nowrap;
+            /* evitar salto de línea en el código */
+        }
+
+        .lote-badge {
+            background: linear-gradient(45deg, #17a2b8, #117a8b);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 2px;
+            font-weight: 600;
+        }
+
+        .caducidad-info {
+            color: #495057;
+            font-size: 0.9rem;
+        }
+
+        .btn-return {
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(43, 45, 127, 0.18);
+        }
+
+        .enviar {
+            padding: 6px 12px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .table thead th {
+                font-size: 13px;
             }
 
-            .table-container::-webkit-scrollbar {
-                height: 8px;
-            }
-
-            .table-container::-webkit-scrollbar-track {
-                background: #f1f1f1;
-                border-radius: 10px;
-            }
-
-            .table-container::-webkit-scrollbar-thumb {
-                background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-                border-radius: 10px;
-            }
-
-            .table-container::-webkit-scrollbar-thumb:hover {
-                background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            .table tbody td {
+                font-size: 13px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="container-main">
+    <div class="container" style="max-width:1200px; margin:0 auto;">
+        <div class="page-header">
+            <h1><i class="fas fa-clipboard-check"></i> CONFIRMAR RECIBIDO</h1>
+        </div>
 
+        <div style="margin-bottom:12px;">
+            <a href="../../template/menu_farmaciaq.php" class="btn-return">&#8592; Regresar</a>
+        </div>
 
-            <!-- Encabezado -->
-            <div class="page-header">
-                <h1><i class="fas fa-clipboard-check"></i> CONFIRMAR RECIBIDO</h1>
-                <p class="mb-0">Confirmación de productos enviados desde almacén principal</p>
-            </div>
-            <div class="d-flex justify-content-start" style="margin: 20px 0; margin-left: 4px;">
-                <div class="d-flex">
-                    <!-- Botón Regresar -->
-                    <a href="../../template/menu_farmaciaq.php"
-                        style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
-            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
-            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
-            transition: all 0.3s ease; margin-right: 10px;">
-                        ← Regresar
-                    </a>
-                </div>
-            </div>
+        <div class="table-container">
+            <!-- Mantengo el formulario y la tabla tal cual, solo estilizo el encabezado abajo -->
 
-            <!-- Estadísticas rápidas -->
-            <div class="stats-container">
-                <h5><i class="fas fa-chart-bar"></i> Resumen de Envíos</h5>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, var(--primary-color), var(--primary-dark)); color: white;">
-                            <h3 id="stat-total">0</h3>
-                            <small>Total Envíos</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, #28a745, #1e7e34); color: white;">
-                            <h3 id="stat-complete">0</h3>
-                            <small>Completos</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, #fd7e14, #e55a00); color: white;">
-                            <h3 id="stat-partial">0</h3>
-                            <small>Parciales</small>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="stat-card" style="background: linear-gradient(45deg, #ffc107, #e0a800); color: #333;">
-                            <h3 id="stat-pending">0</h3>
-                            <small>Pendientes</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Información importante -->
-            <div class="info-card">
-                <h6><i class="fas fa-info-circle"></i> Instrucciones</h6>
-                <ul class="mb-0">
-                    <li>Verifique que las cantidades solicitadas coincidan con las entregadas</li>
-                    <li>Seleccione la ubicación donde se almacenarán los productos</li>
-                    <li>Solo se pueden confirmar envíos completos (sin entregas parciales)</li>
-                </ul>
-            </div>
-            <!-- Tabla de envíos pendientes -->
-            <div class="table-container">
-                <table class="table table-striped table-hover" id="enviosTable">
-                    <thead>
+            <form method="POST" action="" onsubmit="return confirmarEnvio();">
+                <table class="table table-bordered table-striped" id="mytable">
+                    <thead class="thead" style="background-color: #2b2d7f">
                         <tr>
-                            <th><i class="fas fa-calendar"></i> Fecha Envío</th>
-                            <th><i class="fas fa-pills"></i> Medicamento</th>
-                            <th><i class="fas fa-arrow-down"></i> Solicitado</th>
-                            <th><i class="fas fa-box"></i> Entregado</th>
-                            <th><i class="fas fa-flask"></i> Lotes</th>
-                            <th><i class="fas fa-calendar-times"></i> Caducidades</th>
-                            <th><i class="fas fa-map-marker-alt"></i> Ubicación</th>
-                            <th><i class="fas fa-cogs"></i> Acciones</th>
+                            <th><input type="checkbox" id="select-all" disabled></th>
+                            <th>
+                                <font color="white">ID Recib</font>
+                            </th>
+                            <th>
+                                <font color="white">Fecha.Envio</font>
+                            </th>
+                            <th>
+                                <font color="white">Medicamento</font>
+                            </th>
+                            <th>
+                                <font color="white">Solicitado</font>
+                            </th>
+                            <th>
+                                <font color="white">Entregado</font>
+                            </th>
+                            <th>
+                                <font color="white">Lote</font>
+                            </th>
+                            <th>
+                                <font color="white">Caducidad</font>
+                            </th>
+                            <th>
+                                <font color="white">Ubicación</font>
+                            </th>
+                            <th>
+                                <font color="white">Estado</font>
+                            </th>
+                            <th>
+                                <font color="white">Confirmado</font>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                // Determinar el estado de la entrega
-                                $isComplete = ($row['solicita'] == $row['total_entrega']);
-                                $statusClass = $isComplete ? 'status-complete' : 'status-partial';
-                                $statusText = $isComplete ? 'Completo' : 'Parcial';
-                                $quantityClass = $isComplete ? 'quantity-match' : 'quantity-mismatch';
+                        try {
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $es_completo = ($row['solicita'] == $row['entrega_total']);
+                                    $estado_texto = $es_completo ? 'Completo' : 'Parcial';
+                                    $row_class = $es_completo ? 'table-success' : 'table-warning';
+                                    $confirmado_texto = ($row['confirmado'] == 'SI') ? 'Confirmado' : 'Pendiente';
+                                    $confirmado_class = ($row['confirmado'] == 'SI') ? 'success' : 'secondary';
 
-                                echo "<tr>
-                        <td>" . date('d/m/Y H:i', strtotime($row['fecha'])) . "</td>
-                        <td>
-                            <strong>" . $row['item_name'] . "</strong>
-                        </td>
-                        <td><span class='badge badge-info'>" . $row['solicita'] . "</span></td>
-                        <td>
-                            <span class='badge $statusClass'>" . $row['total_entrega'] . "</span>
-                            <div class='$quantityClass' style='font-size: 0.8rem;'>$statusText</div>
-                        </td>
-                        <td>";
+                                    // Mostrar información de lotes
+                                    $lotes_array = explode(',', $row['lotes']);
+                                    $caducidades_array = explode(',', $row['caducidades']);
+                                    $entregas_array = explode(',', $row['entregas_individuales']);
 
-                                // Mostrar lotes como badges
-                                $lotes = explode(',', $row['lotes']);
-                                foreach ($lotes as $lote) {
-                                    if (trim($lote)) {
-                                        echo "<span class='lote-badge'>" . trim($lote) . "</span>";
+                                    $lotes_info = "";
+                                    for ($i = 0; $i < count($lotes_array); $i++) {
+                                        if ($i > 0) $lotes_info .= "<br>";
+                                        $lotes_info .= $lotes_array[$i] . " (" . $entregas_array[$i] . ")";
                                     }
-                                }
 
-                                echo "</td>
-                        <td>
-                            <div class='caducidad-info'>";
-
-                                // Mostrar caducidades formateadas
-                                $caducidades = explode(',', $row['caducidades']);
-                                foreach ($caducidades as $caducidad) {
-                                    if (trim($caducidad)) {
-                                        $parts = explode(':', trim($caducidad));
-                                        if (count($parts) == 2) {
-                                            $lote = trim($parts[0]);
-                                            $fecha = trim($parts[1]);
-                                            echo "<small><strong>$lote:</strong> " . date('d/m/Y', strtotime($fecha)) . "</small><br>";
-                                        }
+                                    $caducidades_info = "";
+                                    for ($i = 0; $i < count($caducidades_array); $i++) {
+                                        if ($i > 0) $caducidades_info .= "<br>";
+                                        $caducidades_info .= $caducidades_array[$i];
                                     }
+
+                                    echo "<tr class='{$row_class}'>
+                                    <td>
+                                        <input type='checkbox' name='seleccionados[]' value='{$row['id']}' disabled id='chk_{$row['id']}'>
+                                    </td>
+                                    <td>{$row['id_recib']}</td>
+                                    <td>{$row['fecha']}</td>
+                                    <td>{$row['item_name']}</td>
+                                    <td>{$row['solicita']}</td>
+                                    <td>{$row['entrega_total']}</td>
+                                    <td>{$lotes_info}</td>
+                                    <td>{$caducidades_info}</td>
+                                    <td>
+                                        <select name='ubicaciones[{$row['id']}]' onchange='habilitarCheckbox({$row['id']})' required>";
+                                    $primera = true;
+                                    foreach ($ubicaciones as $ubicacion) {
+                                        $selected = $primera ? "selected" : "";
+                                        echo "<option value='{$ubicacion['ubicacion_id']}' $selected>{$ubicacion['nombre_ubicacion']}</option>";
+                                        $primera = false;
+                                    }
+                                    echo "</select>
+                                    </td>
+                                    <td><span class='badge badge-" . ($es_completo ? "success" : "warning") . "'>{$estado_texto}</span></td>
+                                    <td><span class='badge badge-{$confirmado_class}'>{$confirmado_texto}</span></td>
+                                </tr>";
                                 }
-
-                                echo "</div>
-                        </td>
-                        <td>
-                            <form action='' method='POST' class='action-form'>
-                                <input type='hidden' name='id_recib' value='" . $row['id_recib'] . "'>
-                                <select name='ubicacion_id' class='form-select-custom' required>
-                                    <option value=''>Seleccionar ubicación...</option>";
-
-                                foreach ($ubicaciones as $ubicacion) {
-                                    echo "<option value='" . $ubicacion['ubicacion_id'] . "'>" . $ubicacion['nombre_ubicacion'] . "</option>";
-                                }
-
-                                echo "</select>
-                        </td>
-                        <td>";
-
-                                if ($isComplete) {
-                                    echo "<button type='submit' name='confirmar' class='btn btn-success-custom' title='Confirmar recepción'>
-                                        <i class='fas fa-check'></i> Confirmar
-                                    </button>";
-                                } else {
-                                    echo "<button type='button' class='btn btn-secondary btn-sm' disabled title='No se puede confirmar envío parcial'>
-                                        <i class='fas fa-times'></i> Parcial
-                                    </button>";
-                                }
-
-                                echo "</form>
-                        </td>
-                    </tr>";
+                            } else {
+                                echo "<tr><td colspan='11'>No se encontraron registros</td></tr>";
                             }
-                        } else {
-                            echo "<tr>
-                    <td colspan='9'>
-                        <div class='no-data-message'>
-                            <i class='fas fa-inbox fa-3x mb-3' style='color: #6c757d;'></i>
-                            <h4>No hay envíos pendientes</h4>
-                            <p>Todos los envíos han sido procesados o no hay envíos por confirmar.</p>
-                        </div>
-                    </td>
-                </tr>";
+                        } catch (Exception $e) {
+                            error_log("Error generando tabla HTML: " . $e->getMessage());
+                            echo "<tr><td colspan='11'>Error cargando datos: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
                         }
                         ?>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
+
+                <div style="margin-top: 10px;">
+                    <button type="submit" name="confirmar" class="enviar">Confirmar seleccionados</button>
+                </div>
+            </form>
+        </div> <!-- .table-container -->
+    </div> <!-- .container -->
 
     <script>
-        $(document).ready(function() {
-            // Función para actualizar estadísticas
-            function updateStats() {
-                var totalRows = $("#enviosTable tbody tr").length;
-                var completeRows = 0;
-                var partialRows = 0;
-                var pendingRows = 0;
+        function habilitarCheckbox(id) {
+            const select = document.querySelector(`select[name="ubicaciones[${id}]"]`);
+            const checkbox = document.getElementById(`chk_${id}`);
+            const selectAll = document.getElementById('select-all');
 
-                $("#enviosTable tbody tr").each(function() {
-                    var row = $(this);
-                    if (row.find('.status-complete').length > 0) {
-                        completeRows++;
-                    } else if (row.find('.status-partial').length > 0) {
-                        partialRows++;
-                    }
-
-                    if (row.find('button[name="confirmar"]:not(:disabled)').length > 0) {
-                        pendingRows++;
-                    }
-                });
-
-                $("#stat-total").text(totalRows);
-                $("#stat-complete").text(completeRows);
-                $("#stat-partial").text(partialRows);
-                $("#stat-pending").text(pendingRows);
+            // Habilitar el checkbox si hay una ubicación seleccionada (no vacía)
+            if (select.value && select.value !== "") {
+                checkbox.disabled = false;
+            } else {
+                checkbox.disabled = true;
+                checkbox.checked = false;
             }
 
-            // Confirmación antes de enviar
-            $('form').on('submit', function(e) {
-                var ubicacion = $(this).find('select[name="ubicacion_id"]').val();
-                if (!ubicacion) {
-                    e.preventDefault();
-                    alert('Por favor seleccione una ubicación antes de confirmar.');
-                    return false;
-                }
+            // Habilitar el select-all si hay al menos un checkbox habilitado
+            const checkboxes = document.querySelectorAll('input[name="seleccionados[]"]');
+            const hayHabilitado = Array.from(checkboxes).some(cb => !cb.disabled);
+            selectAll.disabled = !hayHabilitado;
+        }
 
-                var confirmMsg = '¿Está seguro de confirmar la recepción de este envío?';
-                if (!confirm(confirmMsg)) {
-                    e.preventDefault();
-                    return false;
+        document.querySelectorAll('input[name="seleccionados[]"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                const id = this.value;
+                const select = document.querySelector(`select[name="ubicaciones[${id}]"]`);
+
+                if (this.checked && select.value === "") {
+                    alert("Debe seleccionar una ubicación antes de marcar este registro.");
+                    this.checked = false;
+                } else {
+                    select.required = this.checked;
                 }
             });
+        });
 
-            // Inicializar estadísticas
-            updateStats();
+        // Select all marca todos los habilitados
+        document.getElementById('select-all').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('input[name="seleccionados[]"]');
+            checkboxes.forEach(cb => {
+                if (!cb.disabled) {
+                    cb.checked = this.checked;
+                    const id = cb.value;
+                    const select = document.querySelector(`select[name="ubicaciones[${id}]"]`);
+                    select.required = cb.checked;
+                }
+            });
+        });
+
+        // Inicializar checkboxes al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('select[name^="ubicaciones"]').forEach(select => {
+                const id = select.name.match(/\[(\d+)\]/)[1];
+                habilitarCheckbox(id);
+
+                // Como ya hay una ubicación preseleccionada, habilitar el checkbox
+                const checkbox = document.getElementById(`chk_${id}`);
+                if (select.value && select.value !== "") {
+                    checkbox.disabled = false;
+                }
+            });
         });
     </script>
+    <script>
+        function confirmarEnvio() {
+            // Debug: Mostrar qué checkboxes están marcados
+            const checkboxesMarcados = document.querySelectorAll('input[name="seleccionados[]"]:checked');
+            const ubicacionesSeleccionadas = [];
+
+            checkboxesMarcados.forEach(cb => {
+                const id = cb.value;
+                const select = document.querySelector(`select[name="ubicaciones[${id}]"]`);
+                ubicacionesSeleccionadas.push({
+                    id: id,
+                    ubicacion: select.value
+                });
+            });
+
+            console.log("Checkboxes marcados:", checkboxesMarcados.length);
+            console.log("Datos a enviar:", ubicacionesSeleccionadas);
+
+            if (checkboxesMarcados.length === 0) {
+                alert("Debe seleccionar al menos un registro para confirmar.");
+                return false;
+            }
+
+            return confirm(`¿Estás seguro de confirmar ${checkboxesMarcados.length} registro(s) seleccionado(s)?`);
+        }
+    </script>
+
 </body>
 
 </html>

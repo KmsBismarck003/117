@@ -66,6 +66,7 @@ $query_total = "
     SELECT COUNT(*) AS total 
     FROM salidas_almacenq s
     JOIN item_almacen i ON s.item_id = i.item_id
+    LEFT JOIN cat_aseg a ON s.id_aseg = a.id_aseg
     $where
 ";
 $resultado_total = $conexion->query($query_total) or die($conexion->error);
@@ -99,11 +100,14 @@ $query = "
         s.id_usua,
         s.motivo,
         s.tipo,
-        s.salio
+        s.salio,
+        a.aseg AS aseguradora
         FROM 
         salidas_almacenq s
     JOIN 
         item_almacen i ON s.item_id = i.item_id
+    LEFT JOIN 
+        cat_aseg a ON s.id_aseg = a.id_aseg
     $where
     ORDER BY 
         s.salida_fecha DESC
@@ -391,6 +395,7 @@ $resultado = $conexion->query($query) or die($conexion->error);
                                     <th>MOTIVO</th>
                                     <th>TIPO</th>
                                     <th>SALIO DE</th>
+                                    <th>ASEGURADORA</th>
                                     <th>IDUSUARIO</th>
                                 </tr>
                             </thead>
@@ -406,6 +411,7 @@ $resultado = $conexion->query($query) or die($conexion->error);
                                         <td class="disabled-field"><?= $row['motivo']; ?></td>
                                         <td class="disabled-field"><?= $row['tipo']; ?></td>
                                         <td class="disabled-field"><?= $row['salio']; ?></td>
+                                        <td class="disabled-field"><?= !empty($row['aseguradora']) ? $row['aseguradora'] : '-'; ?></td>
                                         <td class="disabled-field"><?= $row['id_usua']; ?></td>
                                     </tr>
                                 <?php endwhile; ?>

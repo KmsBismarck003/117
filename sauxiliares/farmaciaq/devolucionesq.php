@@ -4,10 +4,10 @@ include "../../conexionbd.php";
 
 // Verifica si la sesión está activa
 if (!isset($_SESSION['login'])) {
-echo "<script>
+    echo "<script>
     window.location = '../../index.php';
 </script>";
-exit;
+    exit;
 }
 
 $id_usua = $_SESSION['login']['id_usua']; // Obtiene el ID del usuario en sesión
@@ -15,23 +15,21 @@ include "../header_farmaciaq.php";
 ?>
 
 <!DOCTYPE html>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devoluciones Pendientes - Farmacia Quirófano</title>
-    
-    <!-- Bootstrap 4.0.0 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    
-    <!-- Font Awesome 6.0.0 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- jQuery y Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
+    <div style="margin-bottom:12px;">
+    </div>
+
     <style>
         :root {
             --primary-color: #2b2d7f;
@@ -41,7 +39,7 @@ include "../header_farmaciaq.php";
             --danger-color: #dc3545;
             --warning-color: #ffc107;
         }
-        
+
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -49,86 +47,90 @@ include "../header_farmaciaq.php";
             margin: 0;
             padding: 20px 0;
         }
-        
+
         .btn-custom {
             border-radius: 25px;
-            padding: 10px 25px;
+            padding: 10px 20px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 5px;
         }
-        
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
+
         .btn-danger-custom {
             background: linear-gradient(45deg, #dc3545, #c82333);
+            border: none;
             color: white;
         }
-        
+
         .btn-danger-custom:hover {
             background: linear-gradient(45deg, #c82333, #bd2130);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.3);
             color: white;
         }
-        
+
         .btn-success-custom {
             background: linear-gradient(45deg, #28a745, #1e7e34);
+            border: none;
             color: white;
         }
-        
+
         .btn-success-custom:hover {
             background: linear-gradient(45deg, #1e7e34, #155724);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
             color: white;
         }
-        
+
         .btn-warning-custom {
             background: linear-gradient(45deg, #ffc107, #e0a800);
-            color: #333;
+            border: none;
+            color: #212529;
         }
-        
+
         .btn-warning-custom:hover {
             background: linear-gradient(45deg, #e0a800, #d39e00);
-            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+            color: #212529;
         }
-        
+
         .page-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(43,45,127,0.3);
+            box-shadow: 0 8px 32px rgba(43, 45, 127, 0.3);
             text-align: center;
         }
-        
+
         .page-header h1 {
             margin: 0;
             font-size: 2rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .actions-container {
             background: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .search-container {
             background: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .search-input {
             border-radius: 25px;
             border: 2px solid #e9ecef;
@@ -136,12 +138,12 @@ include "../header_farmaciaq.php";
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .search-input:focus {
-            box-shadow: 0 0 0 0.2rem rgba(43,45,127,0.25);
+            box-shadow: 0 0 0 0.2rem rgba(43, 45, 127, 0.25);
             border-color: var(--primary-light);
         }
-        
+
         .search-icon {
             position: absolute;
             left: 20px;
@@ -149,67 +151,95 @@ include "../header_farmaciaq.php";
             transform: translateY(-50%);
             color: #6c757d;
         }
-        
+
         .table-container {
             background: white;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            max-height: 70vh;
+            /* permitir scroll horizontal cuando la tabla sea más ancha */
+            overflow-x: auto;
             overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
         }
-        
+
         .table thead th {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
-            padding: 15px 8px;
+            padding: 16px 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
+            /* fuente más grande */
             position: sticky;
             top: 0;
             z-index: 10;
         }
-        
+
         .table tbody tr {
             transition: all 0.3s ease;
         }
-        
+
         .table tbody tr:hover {
-            background-color: rgba(43,45,127,0.1);
+            background-color: rgba(43, 45, 127, 0.1);
             transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .table tbody td {
-            padding: 12px 8px;
+            padding: 14px 10px;
             vertical-align: middle;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
+            /* fuente ligeramente más grande */
             border: none;
         }
-        
+
+        /* Mejor contraste para la columna 'Código' (usa <code> en el HTML) */
+        .table td code {
+            color: #1f2937;
+            /* gris muy oscuro para buen contraste */
+            background: transparent;
+            /* quitar fondo por defecto */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        /* Si queremos apuntar solo a la columna 7 (Código) usar nth-child(7) */
+        .table td:nth-child(7) code {
+            color: #0b2a66;
+            /* color oscuro azulado que contrasta con fondo */
+        }
+
+        /* Permitir que la tabla crezca según su contenido para activar el scroll horizontal cuando sea necesario */
+        .table {
+            width: max-content;
+            min-width: 100%;
+        }
+
         .container-main {
             max-width: 98%;
             margin: 0 auto;
         }
-        
+
         .no-data-message {
             background: white;
             padding: 40px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             color: #6c757d;
         }
-        
+
         .modal-content {
             border-radius: 15px;
             border: none;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-        
+
         .modal-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -217,16 +247,16 @@ include "../header_farmaciaq.php";
             border-top-right-radius: 15px;
             border-bottom: none;
         }
-        
+
         .modal-body {
             padding: 30px;
         }
-        
+
         .modal-footer {
             border-top: 1px solid #e9ecef;
             padding: 20px 30px;
         }
-        
+
         .badge-pending {
             background: linear-gradient(45deg, #ffc107, #e0a800);
             color: #333;
@@ -235,31 +265,74 @@ include "../header_farmaciaq.php";
             font-size: 0.75rem;
             font-weight: 600;
         }
-        
+
         .stats-container {
             background: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .stat-card {
             text-align: center;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 10px;
         }
-        
+
         .action-buttons {
             display: flex;
             gap: 5px;
             justify-content: center;
         }
-        
+
         .action-buttons .btn {
             padding: 5px 10px;
             font-size: 0.8rem;
+        }
+
+        /* Igualar el espaciado de los botones en la sección de acciones (Regresar, Imprimir, Exportar, Actualizar) */
+        /* Agrupar los botones junto al de "Regresar" manteniendo espaciado similar a existenciasq */
+        .actions-container .row {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 12px;
+            /* espacio uniforme entre columnas */
+            align-items: center;
+            justify-content: flex-start;
+            /* agrupar a la izquierda junto a 'Regresar' */
+        }
+
+        .actions-container .col-md-3 {
+            display: flex;
+            justify-content: flex-start;
+            /* mantener botones alineados a la izquierda dentro de la columna */
+            align-items: center;
+            padding-left: 6px;
+            padding-right: 6px;
+            min-width: 0;
+            /* evitar expansión inesperada */
+            flex: 0 0 auto;
+            /* ajustar ancho a contenido para que no empuje el resto */
+        }
+
+        /* Forzar que botones del bloque tengan la misma altura y estén centrados */
+        .actions-container .col-md-3 .btn {
+            /* Mantener forma y usar tamaño natural como en existenciasq */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            min-width: 0;
+            margin: 5px;
+        }
+
+        /* Asegurar que btn-block no haga full width aquí */
+        .actions-container .btn-block {
+            display: inline-block;
+            width: auto;
+            margin: 5px;
         }
     </style>
 </head>
@@ -272,6 +345,31 @@ include "../header_farmaciaq.php";
                 <h1><i class="fas fa-undo-alt"></i> DEVOLUCIONES PENDIENTES</h1>
             </div>
 
+
+            <!-- Botones superiores con mismo margen arriba y abajo -->
+            <div class="d-flex justify-content-end" style="margin: 20px 0;">
+                <div class="d-flex">
+                    <!-- Botón Regresar -->
+                    <a href="../../template/menu_farmaciaq.php"
+                        style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
+        border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; text-decoration: none;
+        box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); transition: all 0.3s ease; margin-right: 10px;">
+                        ← Regresar
+                    </a>
+
+                    <!-- Botón Existencias Globales -->
+                    <a href="pdf_devoluciones.php" class="btn btn-custom btn-warning-custom mx-2">
+                        <i class="fas fa-globe"></i>Imprimir Reporte
+                    </a>
+
+
+
+                    <!-- Botón Exportar -->
+                    <a href="exceldevoluciones.php" class="btn btn-custom btn-success-custom">
+                        <i class="fas fa-file-excel"></i> Exportar a Excel
+                    </a>
+                </div>
+            </div>
             <!-- Estadísticas rápidas -->
             <div class="stats-container">
                 <h5><i class="fas fa-chart-bar"></i> Resumen de Devoluciones</h5>
@@ -300,29 +398,9 @@ include "../header_farmaciaq.php";
             <!-- Acciones principales -->
             <div class="actions-container">
                 <h5><i class="fas fa-tools"></i> Acciones</h5>
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="../../template/menu_farmaciaq.php" class="btn btn-custom btn-danger-custom btn-block">
-                            <i class="fas fa-arrow-left"></i> Regresar
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="pdf_devoluciones.php" class="btn btn-custom btn-warning-custom btn-block" target="_blank">
-                            <i class="fas fa-file-pdf"></i> Imprimir Reporte
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="exceldevoluciones.php" class="btn btn-custom btn-success-custom btn-block">
-                            <i class="fas fa-file-excel"></i> Exportar Excel
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="btn btn-custom btn-block" style="background: linear-gradient(45deg, var(--primary-color), var(--primary-dark)); color: white;" onclick="refreshTable()">
-                            <i class="fas fa-sync-alt"></i> Actualizar
-                        </button>
-                    </div>
-                </div>
+
             </div>
+
 
             <!-- Buscador -->
             <div class="search-container">
@@ -513,37 +591,37 @@ include "../header_farmaciaq.php";
                     else
                         $(this).show();
                 });
-                
+
                 // Actualizar estadísticas después de filtrar
                 updateStats();
             });
-            
+
             // Función para actualizar estadísticas
             function updateStats() {
                 var totalVisible = $("#devolucionesTable tbody tr:visible").length;
                 var inventoryItems = 0;
                 var wasteItems = 0;
-                
+
                 $("#devolucionesTable tbody tr:visible").each(function() {
                     var row = $(this);
                     // Contar elementos que pueden ir a inventario o merma
                     inventoryItems++;
                     wasteItems++;
                 });
-                
+
                 $("#stat-total").text(totalVisible);
                 $("#stat-inventory").text(inventoryItems);
                 $("#stat-waste").text(wasteItems);
             }
-            
+
             // Función para actualizar la tabla
             function refreshTable() {
                 location.reload();
             }
-            
+
             // Hacer la función global
             window.refreshTable = refreshTable;
-            
+
             // Inicializar estadísticas
             updateStats();
         });

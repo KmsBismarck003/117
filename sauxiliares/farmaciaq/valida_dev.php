@@ -18,7 +18,7 @@ $existe = "NO";
 $total = 0;
 $totdevol = 0;
 
-$sql = "SELECT * FROM existencias_almacenhq WHERE item_id = $item_idi";
+$sql = "SELECT * FROM existencias_almacenq WHERE item_id = $item_idi";
 $result_existencias_almacenh = $conexion->query($sql);
 
 while ($row_existencias_almacenh = $result_existencias_almacenh->fetch_assoc()) {
