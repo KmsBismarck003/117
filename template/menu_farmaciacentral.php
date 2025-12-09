@@ -55,92 +55,195 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-        .dropdwn {
-            float: left;
-            overflow: hidden;
-        }
+  <style>
+/* ============================================
+   ESTILOS PREMIUM FUTURISTAS - NEÓN AZUL
+   ============================================ */
 
-        .dropdwn .dropbtn {
-            cursor: pointer;
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .navbar a:hover,
-        .dropdwn:hover .dropbtn,
-        .dropbtn:focus {
-            background-color: #367fa9;
-        }
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%) !important;
+    font-family: 'Roboto', sans-serif !important;
+    min-height: 100vh;
+}
 
-        .dropdwn-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(64, 224, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(64, 224, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
 
-        .dropdwn-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
 
-        .dropdwn-content a:hover {
-            background-color: #ddd;
-        }
+/* Header */
+.main-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    border-bottom: 2px solid #40E0FF !important;
+    box-shadow: 0 4px 20px rgba(64, 224, 255, 0.2);
+}
 
-        .show {
-            display: block;
-        }
+.main-header .logo {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border-right: 2px solid #40E0FF !important;
+    color: #40E0FF !important;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+/* Sidebar */
+.main-sidebar {
+    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%) !important;
+    border-right: 2px solid #40E0FF !important;
+    box-shadow: 4px 0 20px rgba(64, 224, 255, 0.15);
+}
 
-        .todo-container {
-            max-width: 15000px;
-            height: auto;
-            display: flex;
-            overflow-y: scroll;
-            column-gap: 0.5em;
-            column-rule: 1px solid white;
-            column-width: 140px;
-            column-count: 7;
-        }
+.sidebar-menu > li > a {
+    color: #ffffff !important;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
 
-        .status {
-            width: 25%;
-            background-color: #ecf0f5;
-            position: relative;
-            padding: 60px 1rem 0.5rem;
-            height: 100%;
+.sidebar-menu > li > a:hover,
+.sidebar-menu > li.active > a {
+    background: rgba(64, 224, 255, 0.1) !important;
+    border-left: 3px solid #40E0FF !important;
+    color: #40E0FF !important;
+}
 
-        }
+/* Content wrapper */
+.content-wrapper {
+    background: transparent !important;
+    min-height: 100vh;
+}
 
-        .status h4 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #0b3e6f;
-            color: white;
-            margin: 0;
-            width: 100%;
+/* Breadcrumb */
+.breadcrumb {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border: 2px solid #40E0FF !important;
+    border-radius: 15px !important;
+    padding: 20px 30px !important;
+    margin-bottom: 40px !important;
+    box-shadow: 0 8px 30px rgba(64, 224, 255, 0.3);
+}
 
-            padding: 0.5rem 1rem;
-        }
-    </style>
+.breadcrumb h4 {
+    color: #ffffff !important;
+    margin: 0;
+    font-weight: 600 !important;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(64, 224, 255, 0.5);
+}
+
+/* Tarjetas de imágenes */
+.card-img-top {
+    transition: all 0.4s ease;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(64, 224, 255, 0.2);
+}
+
+.card-img-top:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 15px 40px rgba(64, 224, 255, 0.5);
+    filter: brightness(1.2);
+}
+
+/* Títulos h3 */
+h3 {
+    color: #40E0FF !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba(64, 224, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+h3:hover {
+    text-shadow: 0 0 25px rgba(64, 224, 255, 0.8);
+    transform: scale(1.05);
+}
+
+/* Contenedor de contenido */
+.content.box {
+    background: rgba(22, 33, 62, 0.3) !important;
+    border: 2px solid rgba(64, 224, 255, 0.2) !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Enlaces */
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.main-footer {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border-top: 2px solid #40E0FF !important;
+    color: #ffffff !important;
+    box-shadow: 0 -4px 20px rgba(64, 224, 255, 0.2);
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.col-lg-4 {
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.col-lg-4:nth-child(1) { animation-delay: 0.1s; }
+.col-lg-4:nth-child(2) { animation-delay: 0.2s; }
+.col-lg-4:nth-child(3) { animation-delay: 0.3s; }
+.col-lg-4:nth-child(4) { animation-delay: 0.4s; }
+.col-lg-4:nth-child(5) { animation-delay: 0.5s; }
+.col-lg-4:nth-child(6) { animation-delay: 0.6s; }
+.col-lg-4:nth-child(7) { animation-delay: 0.7s; }
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-left: 1px solid #40E0FF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #40E0FF 0%, #0f3460 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00D9FF 0%, #40E0FF 100%);
+}
+</style>
+
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -298,9 +401,9 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                     </a>
 
                 </li>
-                
-                
-               
+
+
+
                 <li class="treeview">
                     <a href="../sauxiliares/farmaciac/ordenes_compra.php">
                         <i class="fas fa-shopping-cart"></i> <span>COMPRAS</span>
@@ -308,7 +411,7 @@ if (!($usuario['id_rol'] == 4 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
                     </a>
 
                 </li>
-    <!--          
+    <!--
                 <li class="treeview">
                     <a href="">
                         <i class="fa fa-folder"></i> <span>TOMA DE INVENTARIO</span>

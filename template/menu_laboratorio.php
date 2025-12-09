@@ -149,10 +149,10 @@ $(document).ready(function() {
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <?php 
+    <?php
 
 $resultado = $conexion->query("select paciente.*, dat_ingreso.id_atencion, triage.id_triage
-from paciente 
+from paciente
 inner join dat_ingreso on paciente.Id_exp=dat_ingreso.Id_exp
 inner join triage on dat_ingreso.id_atencion=triage.id_atencion where id_triage=id_triage
 ") or die($conexion->error);
@@ -307,7 +307,7 @@ $resultado1 = $conexion->query("SELECT * FROM notificaciones_labo where realizad
 
             <a href="menu_laboratorio.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -326,7 +326,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_gerencia.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -345,7 +345,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_administrativo.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -520,7 +520,7 @@ while($f = mysqli_fetch_array($resultado)){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php   
+                                    <?php
 
                             include "../conexionbd.php";
 
@@ -531,7 +531,7 @@ while($f = mysqli_fetch_array($resultado)){
                             while ($row = $result->fetch_assoc()) {
                                 $habi = $row['habitacion'];
                                 $id_atencion = $row['id_atencion'];
-                                 
+
                             if ($habi <> 0)  {
                                 $query_pac = "SELECT * FROM dat_ingreso d, paciente p where d.id_atencion = $id_atencion and d.Id_exp = p.Id_exp";
                                 $result_pac = $conexion->query($query_pac);
@@ -548,15 +548,15 @@ while($f = mysqli_fetch_array($resultado)){
                                     $nom_tratante = $row_reg_usrt['papell'];
                                     $cedula = $row_reg_usrt['cedp'];
                                 }
-                                echo '<tr>'  
+                                echo '<tr>'
                                     . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $row['habitacion'] . '</td>'
                                     . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $pac . '</td>'
                                     . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $prefijo . '. ' . $nom_tratante . '   </td>'
                                     . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $row['fecha_ord'] . '</td>'
                                     . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $row['papell'] . ' ' . $row['sapell'] . ' ' . $row['nombre'] . '</td>'
-                                    . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $row['sol_estudios'].'/ '. $row['det_labo'] . '</td>'; 
-                                    
-                                echo '<td class="fondosan" style="background-color: #FF0000; color: white;"    
+                                    . '<td class="fondosan" style="background-color: #FF0000; color: white;">' . $row['sol_estudios'].'/ '. $row['det_labo'] . '</td>';
+
+                                echo '<td class="fondosan" style="background-color: #FF0000; color: white;"
                                 <center><a href="../sauxiliares/Laboratorio/pdf_solicitud_estu.php?id_atencion='.$row['id_atencion'].'&notid='.$row['not_id'].'&medico='.$row['papell'] . ' ' . $row['sapell'] . ' ' . $row['nombre'].'&paciente='.$pac.'&tipo='.$row['sol_estudios'].'" target="_blank" ><button type="button" class="btn btn-success"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button></td></center>'
                                     . '</td>'
                                     ;
@@ -565,7 +565,7 @@ while($f = mysqli_fetch_array($resultado)){
                                     . ' <a href="../sauxiliares/Laboratorio/subir_resultado.php?not_id=' . $row['not_id'] . '" title="Editar datos" class="btn btn-success "><span class="fa fa-cloud-upload" aria-hidden="true"></span></a>';
                                 echo '</center></td></tr>';
                                 $no++;
-                            }   
+                            }
                     }
                             ?>
                                 </tbody>

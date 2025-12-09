@@ -29,7 +29,7 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
   <meta charset="UTF-8">
     <title>MÉDICA SAN ISIDRO</title>
     <link rel="icon" href="../img/icono.png">
-    
+
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -48,7 +48,7 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <!-- AdminLTE Skins. Choose a skin from the css/skins
            folder instead of downloading all of them to reduce the load. -->
     <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    
+
     <link rel="stylesheet" href="css/estilos.css">
 
 
@@ -68,12 +68,12 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     display: inline-block;
     }
     .ancholi2{
-        
+
     width:139px;
     height:97px;
     display: inline-block;
     box-shadow:3px 5px 8px #2a6675;
-    
+
     }
     .dropdwn {
       float: left;
@@ -169,7 +169,7 @@ if (!($usuario['id_rol'] == 2 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
         font-size: 10.3px;
      }
         @media screen and (max-width: 980px){
-    
+
      .alert{
          padding-right: 38px;
          padding-left: 10px;
@@ -204,11 +204,11 @@ if($cambio_pass=='NO'){
       </div>
      <small> Nos preocupa tu seguridad. Cambiar la contraseña evita una serie de peligros, incluidos algunos que son menos obvios, como lo que ocurre con las contraseñas que ha guardado en equipos que ya no son de tu propiedad. Por favor, te invitamos a que la actualices en el siguiene enlace, Gracias!</small>
      <img src="css/pass.png" width="550">
-        
+
     <center>
           <a href="../gestion_medica/editar_perfil/editar_perfil.php?id_usua=<?php echo $usuario['id_usua'];?>">  <button type="button" class="btn btn ir">Ir ahora</button></a>
       </center>
-      
+
     </div>
   </div>
 </div>
@@ -227,7 +227,7 @@ if($cambio_pass=='NO'){
 
         <a href="menu_medico.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -245,7 +245,7 @@ while($f = mysqli_fetch_array($resultado)){
       ?>
         <a href="menu_gerencia.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
          <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -262,7 +262,7 @@ while($f = mysqli_fetch_array($resultado)){
       ?>
         <a href="menu_certificacion.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
          <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -274,11 +274,11 @@ while($f = mysqli_fetch_array($resultado)){
 }
 ?>
         </a>
-      <?php } else 
+      <?php } else
         //session_unset();
         session_destroy();
         echo "<script>window.Location='../index.php';</script>";
-      
+
       ?>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top" role="navigation">
@@ -293,7 +293,7 @@ while($f = mysqli_fetch_array($resultado)){
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
 
-           
+
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -350,7 +350,7 @@ while($f = mysqli_fetch_array($resultado)){
         <ul class="sidebar-menu">
 
          <li class="treeview">
-                        
+
               <?php
               if (isset($_SESSION['hospital']) ) {
               ?>
@@ -361,20 +361,20 @@ while($f = mysqli_fetch_array($resultado)){
                 <li><a href="select_pac_hosp.php"><i class="fa fa-print"></i> <span>IMPRIMIR DOCUMENTOS</span></a></li>
               <?php
               }
-              ?>         
+              ?>
           </li>
-            
+
          <?php
         if ($usuario['id_rol'] == 5 || $usuario['id_rol'] == 12 ) {
-        ?>    
+        ?>
         <!--  <li class="treeview">
-               <li><a href="../gestion_medica/ambulatorio/receta_ambulatoria.php"><i class="fa fa-user-md"></i> 
+               <li><a href="../gestion_medica/ambulatorio/receta_ambulatoria.php"><i class="fa fa-user-md"></i>
                CONSULTA </a></li>
-               
+
           </li>  -->
          <?php
               }
-        ?>  
+        ?>
 
           <li class="treeview">
               <a href="#"><i class="fa fa-ambulance"></i> <span>OBSERVACIÓN</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -385,7 +385,7 @@ while($f = mysqli_fetch_array($resultado)){
                <li><a href="../gestion_medica/hospitalizacion/nota_observacion.php"><i class="fa fa-circle"></i> NOTA DE OBSERVACIÓN</a></li>
             </li>
         </ul>
-                
+
 
         <?php
         if (isset($_SESSION['hospital'])) {
@@ -404,13 +404,13 @@ while($f = mysqli_fetch_array($resultado)){
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-               
-               
+
+
                 <li><a href="../gestion_medica/hospitalizacion/nota_ingreso.php">
                    <i class="fa fa-bed" aria-hidden="true"></i> NOTA DE INGRESO</a></li>
                 <li><a href="../gestion_medica/hospitalizacion/vista_nota_evolucion.php">
                    <i class="fa fa-stethoscope" aria-hidden="true"></i> NOTA DE EVOLUCIÓN</a></li>
-                
+
                 <li><a href="../gestion_medica/hospitalizacion/nota_interconsulta.php">
                    <i class="fa fa-hospital-o" aria-hidden="true"></i> NOTA INTERCONSULTA</a></li>
                 <li><a href="../gestion_medica/hospitalizacion/nota_translado.php">
@@ -420,9 +420,9 @@ while($f = mysqli_fetch_array($resultado)){
                 <li><a href="../gestion_medica/hospitalizacion/partograma.php">
                    <i class="fa fa-female"></i> NOTA PARTOGRAMA</a></li>
 
-               <!-- <li><a href="../gestion_medica/hospitalizacion/nota_posparto.php"> 
+               <!-- <li><a href="../gestion_medica/hospitalizacion/nota_posparto.php">
                    <i class="fa fa-female"></i> NOTA POST-PARTO</a></li>-->
-               
+
                 <!--<li><a href="../gestion_medica/hospitalizacion/vista_de_transfuciones.php">
                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> NOTA DE TRANSFUSIÓN </a></li>-->
                 <li><a href="../gestion_medica/hospitalizacion/nota_egreso.php">
@@ -435,17 +435,17 @@ while($f = mysqli_fetch_array($resultado)){
                    <i class="fa fa-files-o" aria-hidden="true"></i>RESUMEN CLÍNICO</a></li>
         <!-- NOTAS QUIRÚRGICAS-->
                 <li><center><strong>QUIRÚRGICAS</strong></center></li>
-                
+
                        <li><a href="../gestion_medica/quirurgico/hoja_progquir.php">
                    <i class="fa fa-bed" aria-hidden="true"></i>HOJA DE PROGRAMACIÓN<br> QUIRÚRGICA </a></li>
-                
+
                 <li><a href="../gestion_medica/quirurgico/nota_preoperatoria.php">
                    <i class="fa fa-bed" aria-hidden="true"></i> PROGRAMACIÓN QUIRÚRGICA </a></li>
                <!-- <li><a href="../gestion_medica/quirurgico/nota_cirugia_segura.php">
                    <i class="fa fa-medkit" aria-hidden="true"></i> CIRUGÍA SEGURA</a></li>-->
                 <li><a href="../gestion_medica/quirurgico/nota_intervencion_quirurgica.php">
                    <i class="fa fa-user-md" aria-hidden="true"></i> DESCRIPCIÓN INTERVENCIÓN <br> QUIRÚRGICA</a></li>
-                
+
         <!-- NOTAS ANESTÉSICAS-->
     <!--             <li class="treeview">
                     <a href="#">
@@ -453,7 +453,7 @@ while($f = mysqli_fetch_array($resultado)){
                        <i class="fa fa-angle-left pull-right"></i>
                     </a>
     -->
-                <li><center><strong>NOTAS ANESTÉSICAS</strong></center></li> 
+                <li><center><strong>NOTAS ANESTÉSICAS</strong></center></li>
                 <!--    <li><a href="../gestion_medica/nota_anestesica/nota_anestesica.php"><i class="fa fa-bed"></i> PRE-ANESTÉSICA</a>
                         <li><a href="../gestion_medica/nota_anestesica/nota_2da_evaluacion.php"><i class="fa fa-user-md"></i>EVALUACIÓN <br> PRE-ANESTÉSICA</a></li>
                         <li><a href="../gestion_medica/nota_anestesica/nota_registro_descriptivo.php">
@@ -462,13 +462,13 @@ while($f = mysqli_fetch_array($resultado)){
                         <i class="fa fa-heartbeat"></i> REGISTRO GRÁFICO <br> TRANS-ANESTÉSICO</a></li>-->
                        <li><a href="../gestion_medica/nota_anestesica/nota_unidad_cuidados.php"><i class="fa fa-bed"></i>HOJA ANESTESICA <br> COMPLETA</a></li>
                 <!--       <li><a href="../gestion_medica/nota_anestesica/nota_post_anestesica.php"><i class="fa fa-heart-o"></i>  POST-ANESTÉSICA</a></li>-->
-               
+
                </li>
               </ul>
             </li>
 
             <li class="treeview">
-             
+
               <?php
               if (isset($_SESSION['hospital'])) {
               ?>
@@ -481,7 +481,7 @@ while($f = mysqli_fetch_array($resultado)){
               }
               ?>
 
-            </li> 
+            </li>
 
             <li class="treeview">
                 <a href="../gestion_medica/hospitalizacion/signos_vitales.php">
@@ -502,7 +502,7 @@ while($f = mysqli_fetch_array($resultado)){
                    <i class="fa fa-flask" aria-hidden="true"></i> <span>RESULTADO DE ESTUDIOS</span>
                 </a>
             </li>
-            
+
              <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5){ ?>
             <li class="treeview">
                 <a href="../gestion_medica/hospitalizacion/hoja_alta_medica.php">
@@ -516,16 +516,16 @@ while($f = mysqli_fetch_array($resultado)){
               <a href="../gestion_medica/cartas_consentimientos/consent_medico.php">
                 <i class="fa fa-print" aria-hidden="true"></i> <span>IMPRIMIR DOCUMENTOS</span>
                 <i class="fa fa-angle-left pull-right"></i>
-              </a>        
+              </a>
           </li>-->
           <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5 || $usuario['id_rol'] == 2 || $usuario['id_rol'] == 19){ ?>
           <li class="treeview">
               <a href="../gestion_medica/selectpac_sincama/select_pac.php">
                 <i class="fa fa-print" aria-hidden="true"></i> <span>SELECCIONAR <br>OTROS PACIENTES</span>
-              </a>        
+              </a>
           </li>
         <?php } ?>
-         
+
         <?php
 
           } else {
@@ -564,7 +564,7 @@ while($f = mysqli_fetch_array($resultado)){
                      <i class="fa fa-angle-double-right" aria-hidden="true"></i> NOTA DE TRANSFUSIÓN </a></li>-->
                 <li><a href="select_pac_hosp.php">
                      <i class="fa fa-street-view" aria-hidden="true"></i> NOTA DE EGRESO</a></li>
-               
+
                   <li><a href="select_pac_hosp.php">
                      <i class="fa fa-check-square" aria-hidden="true"></i> NOTA DE NUTRICIÓN</a></li>
                 <li><a href="select_pac_hosp.php">
@@ -572,14 +572,14 @@ while($f = mysqli_fetch_array($resultado)){
                 <li><a href="select_pac_hosp.php">
                      <i class="fa fa-files-o" aria-hidden="true"></i> RESUMEN CLÍNICO</a></li>
           <!-- NOTAS QUIRÚRGICAS-->
-                <li><center><strong>QUIRÚRGICAS</strong></center></li>   
+                <li><center><strong>QUIRÚRGICAS</strong></center></li>
                 <li><a href="select_pac_hosp.php">
                    <i class="fa fa-bed" aria-hidden="true"></i> PRE-OPERATORIA </a></li>
                 <!-- <li><a href="select_pac_hosp.php">
                   <i class="fa fa-medkit" aria-hidden="true"></i> CIRUGÍA SEGURA</a></li>-->
                 <li><a href="select_pac_hosp.php">
                    <i class="fa fa-user-md" aria-hidden="true"></i> DESCRIPCIÓN INTERVENCIÓN <br> QUIRÚRGICA</a></li>
-                
+
         <!-- NOTAS ANESTÉSICAS-->
                  <li class="treeview">
                     <a href="#">
@@ -594,7 +594,7 @@ while($f = mysqli_fetch_array($resultado)){
                        <li><a href="select_pac_hosp.php"><i class="fa fa-heartbeat"></i> REGISTRO GRÁFICO <br> TRANS-ANESTÉSICO</a></li>
                     <!-- <li><a href="select_pac_hosp.php"><i class="fa fa-bed"></i>HOJA ANESTÉSICA <br> COMPLETA</a></li> -->
                        <li><a href="select_pac_hosp.php"><i class="fa fa-heart-o"></i> POST-ANESTÉSICA</a></li>
-                       
+
                    </ul>
                </li>
               </ul>
@@ -609,7 +609,7 @@ while($f = mysqli_fetch_array($resultado)){
                    <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>VISUALIZAR SIGNOS VITALES</span>
                 </a>
             </li>
-            
+
             <li class="treeview">
                 <a href="select_pac_hosp.php">
                    <i class="fa fa-files-o" aria-hidden="true"></i> <span>INDICACIONES MÉDICAS</span>
@@ -629,21 +629,21 @@ while($f = mysqli_fetch_array($resultado)){
                 </a>
             </li>
              <?php } ?>
- 
-         
+
+
             <!--<li class="treeview">
               <a a href="select_pac_hosp.php">
                 <i class="fa fa-print" aria-hidden="true"></i> <span>IMPRIMIR DOCUMENTOS</span>
                 <i class="fa fa-angle-left pull-right"></i>
-              </a>        
+              </a>
             </li>-->
            <?php if($usuario['id_rol'] == 12 || $usuario['id_rol'] == 5 || $usuario['id_rol'] == 2){ ?>
           <li class="treeview">
               <a href="../gestion_medica/selectpac_sincama/select_pac.php">
                 <i class="fa fa-print" aria-hidden="true"></i> <span>SELECCIONAR <br>OTROS PACIENTES</span>
-              </a>        
+              </a>
           </li>
-                     
+
         <?php } ?>
           <?php
           }
@@ -655,7 +655,7 @@ while($f = mysqli_fetch_array($resultado)){
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-         
+
               <li class="treeview">
                 <a href="#">
                  <i class="fa fa-stethoscope"></i> <span>NOTAS QUIRÚRGICAS</span>
@@ -668,11 +668,11 @@ while($f = mysqli_fetch_array($resultado)){
                       </i> INTERVENCIÓN Qx</a></li>
                   <li><a href="../gestion_medica/cirugia_ambulatoria/vista_cirugia.php"><i class="fa fa-circle">
                       </i> CIRUGÍA SEGURA</a></li>
-                  
+
                 </ul>
               </li>
 
-        
+
 
               <li class="treeview">
                 <a href="#">
@@ -720,10 +720,10 @@ while($f = mysqli_fetch_array($resultado)){
             </STRONG></li>
         </ol>
       </nav>
-  
- 
+
+
  <section class="content container-fluid">
-    
+
         <div class="container">
           <div class="row">
 
@@ -766,7 +766,7 @@ while($f = mysqli_fetch_array($resultado)){
       ?>
 
             </div>
-            
+
                         <div class="row">
                 <br>
                 <div class="col-sm-1">
@@ -793,7 +793,7 @@ while($f = mysqli_fetch_array($resultado)){
 </div> <p></p>
 <div class="container box">
         <div class= "row">
-        
+
 
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=1 and seccion=1 ORDER BY num_cama ASC';
@@ -840,7 +840,7 @@ $pr="POR LIBERAR";
 <?php
           }else{
           ?>
-          <?php  
+          <?php
 $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp  order by di.fecha DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
@@ -862,10 +862,10 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
-              
+
                 <?php
                 $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5 from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.fecha DESC";
                 $result_pac = $conexion->query($sql_pac);
@@ -885,15 +885,15 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
           <br><br>
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
-        
+
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=1 and seccion=2 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -925,13 +925,13 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua
                 <br>
                 <h7><font size="2"><?php echo $esta ?></font></h7>
                 <br>
- 
+
               </div>
             </div>
             <?php
           } else {
           ?>
-<?php  
+<?php
 $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua2,di.id_usua3,di.id_usua4,di.id_usua5  from dat_ingreso di, paciente p, cat_camas cc where $id_atencion = di.id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.id_atencion DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
@@ -949,7 +949,7 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp,di.id_usua,di.id_usua
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -965,9 +965,9 @@ $id_exp = $row_cam['Id_exp'];
                   $id_usua5 = $row_cam['id_usua5'];
                 }
                 ?>
-                <font size="2"><?php echo $nombre_pac?></font> 
+                <font size="2"><?php echo $nombre_pac?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -976,10 +976,10 @@ $id_exp = $row_cam['Id_exp'];
         ?>
 </div>
 </div>
-       
+
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
   <center><strong>RECUPERACIÓN</strong></center><p>
-</div> 
+</div>
 
 <div class="container box col-12">
   <div class= "row">
@@ -1047,7 +1047,7 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1073,7 +1073,7 @@ $pr="POR LIBERAR";
         <?php
           }
         }
-        ?>      
+        ?>
 
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
@@ -1117,7 +1117,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1125,12 +1125,12 @@ $pr="POR LIBERAR";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
                   $nombre_pac = $row_cam['papell'] . ' ' .$row_cam['nom_pac'] ;
-                 
+
                 }
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1209,7 +1209,7 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
               <br>
@@ -1221,21 +1221,21 @@ $pr="POR LIBERAR";
         <?php
           }
         }
-        ?>      
+        ?>
 
 
-        
+
  </div>
- </div>             
-        
+ </div>
+
 
 <!-- camas de Terapia -->
-<!--<div class="container headt" style="background-image: linear-gradient(to right ,#2a6675,  #2a6675 ,  #57c1c2); color: white; font-size: 20px;"> 
+<!--<div class="container headt" style="background-image: linear-gradient(to right ,#2a6675,  #2a6675 ,  #57c1c2); color: white; font-size: 20px;">
         <strong><center>TERAPIA INTENSIVA</center></strong>
 </div><p></p> -->
 <div class="container box col-12">
         <div class= "row">
-        
+
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=4 and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1299,24 +1299,24 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
-               
+
                <br>
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
           <br><br>
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
  <!-- camas de ucin -->
-       
+
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=4 and seccion=2 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1359,7 +1359,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1371,7 +1371,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1381,16 +1381,16 @@ $pr="POR LIBERAR";
   </div>
 </div>
 <!-- camas de urgencias -->
-            
-<!-- <div class="container headt" style="background-image: linear-gradient(to right ,#2a6675,  #2a6675 ,  #57c1c2); color: white; font-size: 20px;"> 
+
+<!-- <div class="container headt" style="background-image: linear-gradient(to right ,#2a6675,  #2a6675 ,  #57c1c2); color: white; font-size: 20px;">
         <strong><center>OBSERVACIÓN</center></strong>
 </div><p></p> -->
 
 <div class="container box col-12">
         <div class= "row">
-        
+
         <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=5 
+        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=5
         and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
         //  $id_atencion = $_GET['id_atencion'];
@@ -1453,15 +1453,15 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
-                
+
                <br>
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
           <br><br>
-                
+
               </div>
             </div></a>
         <?php
@@ -1519,10 +1519,10 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger ancholi2" role="alert">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
-              
+
             <br>
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
@@ -1533,7 +1533,7 @@ $pr="POR LIBERAR";
           }
         }
         ?>
-        
+
   </div>
 </div>
 
@@ -1546,8 +1546,8 @@ $pr="POR LIBERAR";
 
 <div class="container box col-12">
         <div class= "row">
-        
-       
+
+
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=5 and seccion=3 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1611,24 +1611,24 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                <br>
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
           <br><br>
-                
-                
+
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
  <!-- camas de ucin -->
-       
+
 
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=4 and seccion=2 ORDER BY num_cama ASC';
@@ -1672,7 +1672,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1684,7 +1684,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1703,8 +1703,8 @@ $pr="POR LIBERAR";
 
 <div class="container box col-12">
         <div class= "row">
-        
-       
+
+
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=5 and seccion=4 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1768,7 +1768,7 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                <br>
@@ -1780,10 +1780,10 @@ $pr="POR LIBERAR";
         <?php
           }
         }
-        ?>      
+        ?>
 
  <!-- camas de ucin -->
-       
+
 
         <?php
         $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=4 and seccion=2 ORDER BY num_cama ASC';
@@ -1827,7 +1827,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1839,7 +1839,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1854,12 +1854,12 @@ $pr="POR LIBERAR";
          <strong><center>AMBULATORIO</center></strong>
 </div><p></p> -->
 
-       
+
 <div class="container box col-12">
         <div class= "row">
-        
+
         <?php
-        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=6 
+        $sql = 'SELECT id,estatus,tipo,num_cama, id_atencion from cat_camas where piso=6
         and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
         //  $id_atencion = $_GET['id_atencion'];
@@ -1922,14 +1922,14 @@ $pr="POR LIBERAR";
               <div class="alert alert ancholi2" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                <br>
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
           <br><br>
-                
+
               </div>
             </div></a>
         <?php
@@ -1987,10 +1987,10 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger ancholi2" role="alert">
 
                 <i style="font-size:18px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="2"><?php echo $num_cama ?></font></h7>
               <!--  <h7>Estatus: OCUPADA</h7>-->
-              
+
                 <br>
                 <h7 class="nompac"><?php echo $papell ?></h7><br>
                 <h7 class="nompac"><?php echo $nombre_pac ?></h7>
@@ -2001,16 +2001,16 @@ $pr="POR LIBERAR";
           }
         }
         ?>
-        
+
   </div>
 </div>
 
-                       
+
 </div>
 
 </section>
 
-   
+
     <footer class="main-footer">
       <?php
       include("footer.php");

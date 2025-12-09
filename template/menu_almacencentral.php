@@ -55,132 +55,294 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
     <![endif]-->
 
     <style>
-      h3 {
-            text-align: center;
+* {
+    box-sizing: border-box;
+}
 
-        }
-        .dropdwn {
-            float: left;
-            overflow: hidden;
-        }
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%) !important;
+    font-family: 'Roboto', sans-serif !important;
+    min-height: 100vh;
+}
 
-        .dropdwn .dropbtn {
-            cursor: pointer;
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
+/* Efecto de partículas en el fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(64, 224, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(64, 224, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
 
-        .navbar a:hover,
-        .dropdwn:hover .dropbtn,
-        .dropbtn:focus {
-            background-color: #367fa9;
-        }
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
 
-        .dropdwn-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
+/* Header personalizado */
+.main-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    border-bottom: 2px solid #40E0FF !important;
+    box-shadow: 0 4px 20px rgba(64, 224, 255, 0.2);
+}
 
-        .dropdwn-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
+.main-header .logo {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border-right: 2px solid #40E0FF !important;
+    color: #40E0FF !important;
+}
 
-        .dropdwn-content a:hover {
-            background-color: #ddd;
-        }
+.main-header .navbar {
+    background: transparent !important;
+}
 
-        .show {
-            display: block;
-        }
+/* Sidebar personalizado */
+.main-sidebar {
+    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%) !important;
+    border-right: 2px solid #40E0FF !important;
+    box-shadow: 4px 0 20px rgba(64, 224, 255, 0.15);
+}
 
-        * {
-            box-sizing: border-box;
-        }
+.sidebar-menu > li > a {
+    color: #ffffff !important;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
 
-        .todo-container {
-            max-width: 15000px;
-            height: auto;
-            display: flex;
-            overflow-y: scroll;
-            column-gap: 0.5em;
-            column-rule: 1px solid white;
-            column-width: 140px;
-            column-count: 7;
-        }
+.sidebar-menu > li > a:hover,
+.sidebar-menu > li.active > a {
+    background: rgba(64, 224, 255, 0.1) !important;
+    border-left: 3px solid #40E0FF !important;
+    color: #40E0FF !important;
+}
 
-        .status {
-            width: 25%;
-            background-color: #ecf0f5;
-            position: relative;
-            padding: 60px 1rem 0.5rem;
-            height: 100%;
+.user-panel {
+    border-bottom: 1px solid rgba(64, 224, 255, 0.2);
+}
 
-        }
+.user-panel .info {
+    color: #ffffff !important;
+}
 
-        .status h4 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #0b3e6f;
-            color: white;
-            margin: 0;
-            width: 100%;
+/* Content wrapper */
+.content-wrapper {
+    background: transparent !important;
+    min-height: 100vh;
+}
 
-            padding: 0.5rem 1rem;
-        }
-         .cdev{
-              top:2px;
-        }
-        @media screen and (min-width: 320px) and (max-width: 980px){
-    .content{
-        width:300px;
-       margin-left:-0px;
-   }
-      .card-img-top{
- width:70px;
- height: auto;
-      }
-      h3 {
-            text-align: center;
-            font-size:10px;
+/* Breadcrumb mejorado */
+.breadcrumb {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border: 2px solid #40E0FF !important;
+    border-radius: 15px !important;
+    padding: 20px 30px !important;
+    margin-bottom: 40px !important;
+    box-shadow: 0 8px 30px rgba(64, 224, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
 
-        }
-        
-        .inventario{
-            top:-105px;
-        }
-        
-        .dinventario{
-            margin-top:11px;
-        }
-        
-         .cdev{
-              top:-100px;
-        }
-        }
-        
-        .catdp{
-               margin-top:-1px;
-        }
-        
-        
-        
-    </style>
+.breadcrumb::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(64, 224, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.breadcrumb h4 {
+    color: #ffffff !important;
+    margin: 0;
+    font-weight: 600 !important;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(64, 224, 255, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenedor de imágenes/tarjetas */
+.content.box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.row .col-lg-4,
+.row .col-xs-6 {
+    margin-bottom: 30px;
+}
+
+/* Efecto en las imágenes */
+.card-img-top {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 15px;
+    border: 2px solid #40E0FF;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(64, 224, 255, 0.2);
+}
+
+.card-img-top:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #00D9FF;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7),
+                0 0 50px rgba(64, 224, 255, 0.5);
+}
+
+/* Títulos bajo las imágenes */
+h3 {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(64, 224, 255, 0.5);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+h3:hover {
+    color: #40E0FF !important;
+    text-shadow: 0 0 25px rgba(64, 224, 255, 0.8);
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.col-lg-4,
+.col-xs-6 {
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.col-lg-4:nth-child(1),
+.col-xs-6:nth-child(1) { animation-delay: 0.1s; }
+.col-lg-4:nth-child(2),
+.col-xs-6:nth-child(2) { animation-delay: 0.2s; }
+.col-lg-4:nth-child(3),
+.col-xs-6:nth-child(3) { animation-delay: 0.3s; }
+.col-lg-4:nth-child(4),
+.col-xs-6:nth-child(4) { animation-delay: 0.4s; }
+.col-lg-4:nth-child(5),
+.col-xs-6:nth-child(5) { animation-delay: 0.5s; }
+.col-lg-4:nth-child(6),
+.col-xs-6:nth-child(6) { animation-delay: 0.6s; }
+.col-lg-4:nth-child(7),
+.col-xs-6:nth-child(7) { animation-delay: 0.7s; }
+
+/* Footer */
+.main-footer {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border-top: 2px solid #40E0FF !important;
+    color: #ffffff !important;
+    box-shadow: 0 -4px 20px rgba(64, 224, 255, 0.2);
+}
+
+/* Modal mejorado */
+.modal-content {
+    background: linear-gradient(135deg, #16213e 0%, #0f3460 100%) !important;
+    border: 2px solid #40E0FF !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(64, 224, 255, 0.4);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border-bottom: 2px solid #40E0FF !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.modal-title {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 15px rgba(64, 224, 255, 0.5);
+}
+
+.modal-body {
+    background: transparent !important;
+}
+
+.modal-footer {
+    border-top: 2px solid #40E0FF !important;
+    background: rgba(15, 52, 96, 0.5) !important;
+}
+
+/* Botones */
+.btn {
+    border-radius: 25px !important;
+    padding: 10px 30px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease !important;
+    border: 2px solid #40E0FF !important;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    color: #ffffff !important;
+}
+
+.btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(64, 224, 255, 0.4) !important;
+    background: linear-gradient(135deg, #16213e 0%, #0f3460 100%) !important;
+    border-color: #00D9FF !important;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-left: 1px solid #40E0FF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #40E0FF 0%, #0f3460 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00D9FF 0%, #40E0FF 100%);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    h3 {
+        font-size: 0.9rem !important;
+    }
+
+    .breadcrumb {
+        padding: 15px 20px !important;
+    }
+
+    .breadcrumb h4 {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+}
+</style>
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -195,7 +357,7 @@ if (!($usuario['id_rol'] == 11 || $usuario['id_rol'] == 5 || $usuario['id_rol'] 
 
             <a href="menu_almacencentral.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -213,7 +375,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_gerencia.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -231,7 +393,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_sauxiliares.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -278,7 +440,7 @@ while($f = mysqli_fetch_array($resultado)){
                                      alt="User Image">
 
                                 <p>
-                                     <?php echo $usuario['papell']; ?> 
+                                     <?php echo $usuario['papell']; ?>
 
                                 </p>
                             </li>
@@ -291,10 +453,10 @@ while($f = mysqli_fetch_array($resultado)){
                                         <a href="../sauxiliares/editar_perfil/editar_perfil_saux.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
                                      <?php
                                     }else  {?>
-            
+
                                         <a href="../sauxiliares/editar_perfil/editar_perfil_alma.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
                                     <?php }?>
-                                    </div>    
+                                    </div>
                                 <div class="pull-right">
                                     <a href="../cerrar_sesion.php" class="btn btn-default btn-flat">CERRAR SESIÓN</a>
                                 </div>
@@ -408,7 +570,7 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
 
                         </div>
-                        
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -425,7 +587,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                             </div>
                         </div>
-                     
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -440,7 +602,7 @@ while($f = mysqli_fetch_array($resultado)){
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-4 col-xs-6 inventario">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -457,8 +619,8 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
                         </div>
 
-                  
-                            
+
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -485,7 +647,7 @@ while($f = mysqli_fetch_array($resultado)){
                                 <div class="col-lg-12">
                                     <center>
                                         <a title="Devoluciones" href="../sauxiliares/AlmacenC/devoluciones.php"><img
-                                                        class="card-img-top" src="../img/dev.jpg" 
+                                                        class="card-img-top" src="../img/dev.jpg"
                                                         alt="Devoluciones"
                                                         height="150" width="160"/></a>
                                     </center>
@@ -495,13 +657,13 @@ while($f = mysqli_fetch_array($resultado)){
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <center>
                                         <a title="Compras" href="../sauxiliares/AlmacenC/compras.php"><img
-                                                        class="card-img-top" src="../img/compras.jpg" 
+                                                        class="card-img-top" src="../img/compras.jpg"
                                                         alt="Compras"
                                                         height="150" width="160"/></a>
                                     </center>
@@ -533,7 +695,7 @@ while($f = mysqli_fetch_array($resultado)){
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                      
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -553,7 +715,7 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
 
                         </div>
-                        
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -570,7 +732,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                             </div>
                         </div>
-                     
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -585,7 +747,7 @@ while($f = mysqli_fetch_array($resultado)){
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -602,8 +764,8 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
                         </div>
 
-                  
-                            
+
+
                             <div class="col-lg-4 col-xs-6">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -630,7 +792,7 @@ while($f = mysqli_fetch_array($resultado)){
                                     <div class="col-lg-12">
                                         <center>
                                             <a title="Devoluciones" href="../sauxiliares/AlmacenC/devoluciones.php"><img
-                                                        class="card-img-top" src="../img/dev.jpg" 
+                                                        class="card-img-top" src="../img/dev.jpg"
                                                         alt="Devoluciones"
                                                         height="150" width="160"/></a>
                                         </center>
@@ -642,7 +804,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                                 </div>
                             </div>
-                        
+
                     </div>
 
 

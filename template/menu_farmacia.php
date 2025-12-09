@@ -41,22 +41,22 @@ $(document).ready(function() {
  myAudio.addEventListener('ended', function(){
     alert(myMessageAlert);
  });
-function Myalert(message) { 
+function Myalert(message) {
     myAudio.play();
     myMessageAlert = message;
-} 
+}
 Myalert("Mensaje");
-function alert(message) { 
+function alert(message) {
   myAudio.play();
   myMessageAlert = message;
-} 
+}
 alert("Mensaje");
 
                         swal({
-                            title: "SURTIR VALES DE FARMACIA", 
+                            title: "SURTIR VALES DE FARMACIA",
                             type: "error",
                             confirmButtonText: "ACEPTAR"
-                        }, function(isConfirm) { 
+                        }, function(isConfirm) {
                             if (isConfirm) {
                                 window.location.href = "../sauxiliares/Farmacia/order.php";
                             }
@@ -64,8 +64,8 @@ alert("Mensaje");
                     });
 
                 </script>
-                
-                
+
+
 <?php } ?>
 
 
@@ -102,9 +102,9 @@ alert("Mensaje");
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-<?php 
+<?php
 $resultado = $conexion->query("select paciente.*, dat_ingreso.id_atencion, triage.id_triage
-from paciente 
+from paciente
 inner join dat_ingreso on paciente.Id_exp=dat_ingreso.Id_exp
 inner join triage on dat_ingreso.id_atencion=triage.id_atencion where id_triage=id_triage
 ") or die($conexion->error);
@@ -136,22 +136,22 @@ $(document).ready(function() {
  myAudio.addEventListener('ended', function(){
     alert(myMessageAlert);
  });
-function Myalert(message) { 
+function Myalert(message) {
     myAudio.play();
     myMessageAlert = message;
-} 
+}
 Myalert("Mensaje");
-function alert(message) { 
+function alert(message) {
   myAudio.play();
   myMessageAlert = message;
-} 
+}
 alert("Mensaje");
 
                         swal({
-                            title: "NUEVA SOLICITUD DE FARMACIA", 
+                            title: "NUEVA SOLICITUD DE FARMACIA",
                             type: "error",
                             confirmButtonText: "ACEPTAR"
-                        }, function(isConfirm) { 
+                        }, function(isConfirm) {
                             if (isConfirm) {
                                 window.location.href = "../sauxiliares/Farmacia/order.php";
                             }
@@ -159,8 +159,8 @@ alert("Mensaje");
                     });
 
                 </script>
-                
-                
+
+
 <?php } ?>
     <style>
         .dropdwn {
@@ -256,17 +256,17 @@ alert("Mensaje");
  width:70px;
  height: auto;
       }
-      
+
       h3{
           font-size:10px;
       }
 
 .CC{
-top:-115px;    
+top:-115px;
 }
 
 .SAL{
-   top:-186px;  
+   top:-186px;
 }
 
 }
@@ -285,7 +285,7 @@ top:-115px;
 
                 <a href="menu_farmacia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -303,7 +303,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                 <a href="menu_sauxiliares.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -316,13 +316,13 @@ while($f = mysqli_fetch_array($resultado)){
 ?>
                 </a>
             <?php
-            } 
+            }
             else if ($usuario['id_rol'] == 5) {
 
             ?>
                 <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                    <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -340,7 +340,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                 <a href="menu_administrativo.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -358,7 +358,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                 <a href="menu_enfermera.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                   <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -373,7 +373,7 @@ while($f = mysqli_fetch_array($resultado)){
                 <?php } elseif($usuario['id_rol'] == 9) { ?>
          <a href="menu_imagenologia.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
           <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -424,17 +424,17 @@ while($f = mysqli_fetch_array($resultado)){
                                 </li>
 
                                 <!-- Menu Footer-->
-                                <li class="user-footer">    
+                                <li class="user-footer">
                                     <div class="pull-left">
                                            <?php
                                     if ($usuario['id_rol'] == 4) {?>
                                         <a href="../sauxiliares/editar_perfil/editar_perfil_saux.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
                                      <?php
                                     }else  {?>
-            
+
                                         <a href="../sauxiliares/editar_perfil/editar_perfil_farma.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
                                     <?php }?>
-                                    </div>                                
+                                    </div>
                                     <div class="pull-right">
                                         <a href="../cerrar_sesion.php" class="btn btn-default btn-flat">CERRAR SESIÓN</a>
                                     </div>
@@ -472,11 +472,11 @@ while($f = mysqli_fetch_array($resultado)){
                         </a>
 
                     </li>
-                     
+
                 </ul>
                 <?php }else{ ?>
                 <ul class="sidebar-menu">
-                   
+
                     <li class=" treeview">
                         <a href="../sauxiliares/Farmacia/order.php">
                             <i class="fa fa-folder"></i> <span>SURTIR MEDICAMENTOS</span>
@@ -498,7 +498,7 @@ while($f = mysqli_fetch_array($resultado)){
                         </a>
 
                     </li>
-           
+
                     <li class=" treeview">
                         <a href="../sauxiliares/Farmacia/inventario.php">
                             <i class="fa fa-folder"></i> <span>DETALLE DE INVENTARIO</span>
@@ -506,7 +506,7 @@ while($f = mysqli_fetch_array($resultado)){
                         </a>
 
                     </li>
-               
+
                     <li class="treeview">
                         <a href="../sauxiliares/Farmacia/devoluciones.php">
                             <i class="fa fa-folder"></i> <span>CONFIRMAR <br> DEVOLUCIONES</span>
@@ -611,7 +611,7 @@ while($f = mysqli_fetch_array($resultado)){
                     <div class="content box">
                         <!-- CONTENIDOO -->
                         <div class="row">
-                           
+
                             <div class="col-lg-4 col-xs-6">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -669,7 +669,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                                 </div>
                             </div>
-                            
+
 
                             <div class="col-lg-4 col-xs-6 CC">
                                 <div class="row">
@@ -743,7 +743,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                                 </div>
                              </div>
-                        </div>    
+                        </div>
                         </div>
 
 
@@ -826,7 +826,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                             </div>
                             <div class="row">
-                               
+
                                 <div class="col-lg-4 col-xs-5">
                                     <div class="row">
                                         <div class="col-lg-8">

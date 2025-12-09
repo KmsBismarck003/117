@@ -24,10 +24,10 @@ if (!($usuario['id_rol'] == 5 || $usuario['id_rol'] == 16)) {
 <html>
 
 <head>
-    
+
     <title>MÉDICA SAN ISIDRO</title>
         <link rel="icon" href="../imagenes/SIF.PNG">
-    
+
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -144,8 +144,8 @@ if (!($usuario['id_rol'] == 5 || $usuario['id_rol'] == 16)) {
     .container{
         width:610px;
        margin-left:-20px;
-      
-        
+
+
     }
      .alert{
          padding-right: 38px;
@@ -179,7 +179,7 @@ if (!($usuario['id_rol'] == 5 || $usuario['id_rol'] == 16)) {
 
                 <a href="menu_enfermera.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                    <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -197,7 +197,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                 <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                    <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -212,7 +212,7 @@ while($f = mysqli_fetch_array($resultado)){
             <?php }elseif($usuario['id_rol'] == 12) { ?>
          <a href="menu_residente.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
         <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -227,7 +227,7 @@ while($f = mysqli_fetch_array($resultado)){
          <?php }elseif($usuario['id_rol'] == 1) { ?>
          <a href="menu_administrativo.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
         <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -243,7 +243,7 @@ while($f = mysqli_fetch_array($resultado)){
             }elseif($usuario['id_rol'] == 16) { ?>
          <a href="menu_intendencia.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
        <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -322,16 +322,16 @@ while($f = mysqli_fetch_array($resultado)){
                     </div>
                 </div>
 
-<?php  
+<?php
 if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3)) {
 ?>
 <ul class="sidebar-menu">
 
             <li class="treeview">
-                        <a href="../enfermera/pdf/vista_pdf.php"> 
+                        <a href="../enfermera/pdf/vista_pdf.php">
                           <i class="fa fa-print" aria-hidden="true"></i><span>IMPRIMIR DOCUMENTOS</span>
                         </a>
-            </li>   
+            </li>
             <li class=" treeview">
               <a href="#">
                 <i class="fa fa-bed"></i><font size ="2"><span>GESTIÓN DE CAMAS</span></font><i class="fa fa-angle-left pull-right"></i>
@@ -342,14 +342,14 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-bed" aria-hidden="true"></i><span>ASIGNAR HABITACIÓN</span>
                        </a>
                    </li>
-                    
+
                    <li class="treeview">
                        <a href="../enfermera/censo/cambio_habitacion.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>CAMBIO DE HABITACIÓN</span>
                        </a>
                    </li>
             </ul>
-        </li>    
+        </li>
         <li class="treeview">
                         <a href="../enfermera/ordenes_medico/vista_ordenes.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -369,8 +369,8 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
               <li><a href="../enfermera/registro_clinico_neonatal/nota_bebes.php"><i class="fa fa-folder"></i> <span>NEONATAL </span></a></li>
               <li><a href="../enfermera/transfucion_de_sangre/nota_trasfusion_new.php"><i class="fa fa-folder"></i> <span>TRANSFUSIONES<br>SANGUÍNEAS</span></a></li>
             </ul>
-        </li>   
-                    
+        </li>
+
             <li class="treeview">
                 <a href="select_pac_enf.php">
                   <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>SIGNOS VITALES</span>
@@ -401,7 +401,7 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                             <i class="fa fa-medkit" aria-hidden="true"></i> <span>SOLICITAR MEDICAMENTOS<br>A FARMACIA (AMBULATORIO)</span>
                         </a>
             </li>-->
-           
+
         <li class=" treeview">
             <a href="#">
               <i class="fa fa-folder"></i><font size ="2"><span>VALES DE MEDICAMENTOS</span></font><i class="fa fa-angle-left pull-right"></i>
@@ -412,16 +412,16 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> FARMACIA</span>
                        </a>
                    </li>
-                    
+
                    <li class="treeview">
                        <a href="../enfermera/vales_ceye/salidas.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> CEYE (QUIRÓFANO)</span>
                        </a>
                    </li>
             </ul>
-        </li> 
-        
-                   
+        </li>
+
+
                   </ul>
 <?php
 }elseif(!isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3)){
@@ -442,14 +442,14 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-bed" aria-hidden="true"></i><span>ASIGNAR HABITACIÓN</span>
                        </a>
                    </li>
-                    
+
                    <li class="treeview">
                        <a href="../enfermera/censo/cambio_habitacion.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>CAMBIO DE HABITACIÓN</span>
                        </a>
                    </li>
             </ul>
-        </li>                  
+        </li>
     <li class="treeview">
                         <a href="select_pac_enf.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -470,7 +470,7 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
               <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>TRANSFUSIONES<br>SANGUÍNEAS</span></a></li>
             </ul>
           </li>
-                
+
                 <li class="treeview">
                 <a href="../enfermera/signos_vitales/signos.php">
                 <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>SIGNOS VITALES</span>
@@ -491,8 +491,8 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                             <i class="fa fa-medkit" aria-hidden="true"></i> <span>SOLICITAR MEDICAMENTOS<br>A FARMACIA (AMBULATORIO)</span>
                         </a>
                 </li>  -->
-                
-               
+
+
                    <li class=" treeview">
             <a href="#">
               <i class="fa fa-folder"></i><font size ="2"><span>VALES DE MEDICAMENTOS</span></font><i class="fa fa-angle-left pull-right"></i>
@@ -503,7 +503,7 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> FARMACIA</span>
                        </a>
                    </li>
-                    
+
                   <li class="treeview">
                        <a href="../enfermera/vales_ceye/salidas.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> CEYE (QUIRÓFANO)</span>
@@ -511,14 +511,14 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                    </li>
             </ul>
         </li>
-                    
-                   
+
+
 
                   </ul>
 <?php
 }
 ?>
-<?php  
+<?php
 if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
 ?>
 <ul class="sidebar-menu">
@@ -528,7 +528,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
 
                         </a>
 
-                    </li> 
+                    </li>
                     <li class="treeview">
                         <a href="../enfermera/ordenes_medico/vista_ordenes.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -550,7 +550,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
 
                         </a>
 
-                    </li> 
+                    </li>
                     <li class="treeview">
                         <a href="select_pac_enf.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -561,12 +561,12 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
                            <i class="fa fa-medkit" aria-hidden="true"></i> <span>SOLICITAR MEDICAMENTOS<br>A FARMACIA</span>
                         </a>
                     </li>
-                    
+
                   </ul>
 <?php
 }
 ?>
-<?php  
+<?php
 if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 ?>
 <ul class="sidebar-menu">
@@ -599,7 +599,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
                         <a href="menu_enfermera.php">
                             <i class="fa fa-bed" aria-hidden="true"></i><span><font size ="2"> SELECCIONAR PACIENTE </font></span>
                         </a>
-                    </li> 
+                    </li>
                     <li class="treeview">
                         <a href="../enfermera/ordenes_medico/vista_ordenes.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -622,7 +622,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
-                
+
       </section>
       <!-- /.sidebar -->
     </aside>
@@ -643,7 +643,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 <section class="content container-fluid">
     <!--<div class="container">
         <div class="row">
-         
+
             <div class="col-sm-4">
               <a href="../enfermera/censo/tabla_censo.php"><button type="button" class="btn btn-warning">VER CENSO <i class="fa fa-bed"></i></button></a>
             </div>
@@ -653,7 +653,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
         </div>
     </div>-->
 
-<?php 
+<?php
 function tiempoTranscurridoFechas($fechaInicio,$fechaFin){
 $fecha1 = new DateTime($fechaInicio);
 $fecha2 = new DateTime($fechaFin);
@@ -708,10 +708,10 @@ return $tiempo;
 
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
   <center><strong>HOSPITALIZACIÓN</strong></center><p>
-</div> 
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
+
         <?php
         $sql = 'SELECT * from cat_camas where piso=1 and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -746,7 +746,7 @@ return $tiempo;
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -765,7 +765,7 @@ $pr="POR LIBERAR";
               </div>
             </div>
 <?php
-          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){  
+          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){
 $pr="POR LIBERAR";
 $fecha_actual = date("d-m-Y H:i");
 $tiempoa = 'Listo';
@@ -809,7 +809,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -821,13 +821,13 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br>
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
         <?php
         $sql = 'SELECT * from cat_camas where piso=1 and seccion=2 ORDER BY num_cama ASC';
@@ -864,7 +864,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-          
+
               </div>
             </div>
             <?php
@@ -875,7 +875,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -887,7 +887,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -910,8 +910,8 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
            $biomedica = $row['biomedica'];
             $mantenimiento = $row['mantenimiento'];
              $serv_generales = $row['serv_generales'];
-          
-          
+
+
           if ($estaus == "LIBRE" or $estaus == "Libre") {
         ?>
              <div class="col-lg-1.9 col-xs-1">
@@ -935,7 +935,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-              
+
               </div>
             </div>
           <?php
@@ -953,7 +953,7 @@ $pr="POR LIBERAR";
               </div>
             </div>
 <?php
-          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){  
+          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){
 $pr="POR LIBERAR";
 $fecha_actual = date("d-m-Y H:i");
 $tiempoa = 'Listo';
@@ -997,7 +997,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
                <!--<h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1009,13 +1009,13 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
         <?php
         $sql = 'SELECT * from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
@@ -1052,7 +1052,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-           
+
               </div>
             </div>
           <?php
@@ -1063,7 +1063,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1075,7 +1075,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1123,7 +1123,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-                
+
               </div>
             </div>
           <?php
@@ -1141,7 +1141,7 @@ $pr="POR LIBERAR";
               </div>
             </div>
 <?php
-          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){  
+          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){
 $pr="POR LIBERAR";
 $fecha_actual = date("d-m-Y H:i");
 $tiempoa = 'Listo';
@@ -1185,7 +1185,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1197,27 +1197,27 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
 
-        
+
  </div>
- </div>             
-            
+ </div>
+
 
 <!-- camas de Terapia -->
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <strong><center>TERAPIA INTENSIVA</center></strong>
-</div>         
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
+
        <?php
         $sql = 'SELECT * from cat_camas where piso=4 and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1253,7 +1253,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-             
+
               </div>
             </div>
            <?php
@@ -1271,7 +1271,7 @@ $pr="POR LIBERAR";
               </div>
             </div>
 <?php
-          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){  
+          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){
 $pr="POR LIBERAR";
 $fecha_actual = date("d-m-Y H:i");
 $tiempoa = 'Listo';
@@ -1315,7 +1315,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1327,13 +1327,13 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
  <!-- camas de ucin -->
 
@@ -1372,7 +1372,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-              
+
               </div>
             </div>
           <?php
@@ -1383,7 +1383,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1395,7 +1395,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1405,14 +1405,14 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
   </div>
 </div>
 <!-- camas de urgencias -->
-            
+
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <strong><center>OBSERVACIÓN</center></strong>
-</div>         
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
-        
+
+
         <?php
         $sql = 'SELECT * from cat_camas where piso=5 and seccion = 1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1448,7 +1448,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-                
+
               </div>
             </div>
            <?php
@@ -1466,7 +1466,7 @@ $pr="POR LIBERAR";
               </div>
             </div>
 <?php
-          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){  
+          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){
 $pr="POR LIBERAR";
 $fecha_actual = date("d-m-Y H:i");
 $tiempoa = 'Listo';
@@ -1510,7 +1510,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1522,7 +1522,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1569,7 +1569,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-                
+
               </div>
             </div>
            <?php
@@ -1587,7 +1587,7 @@ $pr="POR LIBERAR";
               </div>
             </div>
 <?php
-          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){  
+          }elseif ($biomedica=="No liberada" || $mantenimiento=="No liberada" || $serv_generales=="No liberada"){
 $pr="POR LIBERAR";
 $fecha_actual = date("d-m-Y H:i");
 $tiempoa = 'Listo';
@@ -1631,7 +1631,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1643,14 +1643,14 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
         ?>
-        
+
 
   </div>
 </div>

@@ -158,7 +158,7 @@ if (!($usuario['id_rol'] == 9 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 
             <a href="menu_imagenologia.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
               <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -176,7 +176,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_gerencia.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -194,7 +194,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_medico.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -212,7 +212,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_residente.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -230,7 +230,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_laboratorio.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -311,14 +311,14 @@ while($f = mysqli_fetch_array($resultado)){
                 </div>
             </div>
 
-            
+
             <ul class="sidebar-menu">
-               
+
                 <li class="treeview">
                     <a href="../sauxiliares/Imagenologia/sol_imagen.php">
                         <i class="fa fa-file-text"></i> <span>SOLICITUD DE ESTUDIOS <br> DE IMAGENOLOGÍA</span>
 
-                    </a>    
+                    </a>
 
                 </li>
                 <li class="treeview">
@@ -327,7 +327,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                     </a>
                 </li>
-               
+
             </ul>
 
 
@@ -354,7 +354,7 @@ while($f = mysqli_fetch_array($resultado)){
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <tr><strong><center>ESTUDIOS DE IMAGENOLOGÍA PENDIENTES</center></strong>
       </div><br>
-      
+
             <section class="content container-fluid">
                 <div class="content box">
                     <!-- CONTENIDOO -->
@@ -379,7 +379,7 @@ while($f = mysqli_fetch_array($resultado)){
                                 <th><font color="white">Estudio(s)</th>
                                 <th><font color="white">Realizado</th>
                                 <th><font color="white">Interpretado</th>
-                                <th><font color="white">Solicitud de estudio</th> 
+                                <th><font color="white">Solicitud de estudio</th>
                                 <th><font color="white">Subir Qr</th>
                                 <th><font color="white">Ver estudio</th>
                                 <th><font color="white">Subir interpretación</th>
@@ -407,7 +407,7 @@ $sql_dat_ingi = "SELECT * from cat_servicios where serv_desc='$es'";
                      while ($row_dat_ingu = $result_dat_inga->fetch_assoc()) {
                     //$desc = $row_dat_ingu['serv_desc'];
                     $tipins = $row_dat_ingu['tip_insumo'];
-  
+
                     }
 
 
@@ -431,7 +431,7 @@ $sql_dat_ingi = "SELECT * from cat_servicios where serv_desc='$es'";
     . '<td class="fondo" style="color:white;"><center>' . $row['realizado'] . '</td></center>'
     . '<td class="fondo" style="color:white;"><center>' . $row['interpretado'] . '</center></td>'
     .' <td class="fondo" style="color:white;"><center><a href="../sauxiliares/Imagenologia/pdf_solicitud_estu.php?id_atencion='.$row['id_atencion'].'&notid='.$row['not_id'].'&medico='.$row['papell'] . ' ' . $row['sapell'] . ' ' . $row['nombre'].'&paciente='.$pac.'&tipo='.$row['sol_estudios'].'" target="_blank" ><button type="button" class="btn btn-success"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button></td></center>';
-                               
+
 
                                 echo '<td class="fondo" style="color:white;"><center>'
                                     . ' <a href="../sauxiliares/Imagenologia/subir_resultado.php?not_id=' . $row['not_id'] . '&id_usua=' . $row['id_usua'] . '" title="Subir Qr" class="btn btn-success "><span class="fa fa-cloud-upload" aria-hidden="true"></span></a>'
@@ -443,7 +443,7 @@ $sql_dat_ingi = "SELECT * from cat_servicios where serv_desc='$es'";
 
                                 echo '</center></td></tr>';
                                 $no++;
-                            
+
                              } else  {
                                 $query_rec = "SELECT * FROM receta_ambulatoria where id_rec_amb = $id_atencion";
                                 $result_rec = $conexion->query($query_rec);
@@ -461,7 +461,7 @@ $sql_dat_ingi = "SELECT * from cat_servicios where serv_desc='$es'";
                                     . '<td class="fondo" style="color:white;">' . $row['sol_estudios'] . '</a></td>'
                                     . '<td class="fondo" style="color:white;">' . $row['realizado'] . '</td>';
 
-                               
+
 
                                 echo '<td class="fondo" style="color:white;"><center>'
                                     . ' <a href="../sauxiliares/Imagenologia/subir_resultado.php?not_id=' . $row['not_id'] . '" title="Editar datos" class="btn btn-success "><span class="fa fa-cloud-upload" aria-hidden="true"></span></a>';
@@ -481,7 +481,7 @@ $sql_dat_ingi = "SELECT * from cat_servicios where serv_desc='$es'";
     </div><!-- /.content-wrapper -->
 
 
-    
+
 
     <footer class="main-footer">
         <?php

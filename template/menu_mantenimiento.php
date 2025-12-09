@@ -24,10 +24,10 @@ if (!($usuario['id_rol'] == 5 || $usuario['id_rol'] == 14)) {
 <html>
 
 <head>
-    
+
     <title>MÉDICA SAN ISIDRO</title>
         <link rel="icon" href="../imagenes/SIF.PNG">
-    
+
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -144,8 +144,8 @@ if (!($usuario['id_rol'] == 5 || $usuario['id_rol'] == 14)) {
     .container{
         width:610px;
        margin-left:-20px;
-      
-        
+
+
     }
      .alert{
          padding-right: 38px;
@@ -179,7 +179,7 @@ if (!($usuario['id_rol'] == 5 || $usuario['id_rol'] == 14)) {
 
                 <a href="menu_enfermera.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                    <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -197,7 +197,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
                 <a href="menu_gerencia.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    
+
                     <!-- logo for regular state and mobile devices -->
                    <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -212,7 +212,7 @@ while($f = mysqli_fetch_array($resultado)){
             <?php }elseif($usuario['id_rol'] == 12) { ?>
          <a href="menu_residente.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
         <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -227,7 +227,7 @@ while($f = mysqli_fetch_array($resultado)){
          <?php }elseif($usuario['id_rol'] == 1) { ?>
          <a href="menu_administrativo.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
         <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -243,7 +243,7 @@ while($f = mysqli_fetch_array($resultado)){
             }elseif($usuario['id_rol'] == 14) { ?>
          <a href="menu_mantenimiento.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
        <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -322,16 +322,16 @@ while($f = mysqli_fetch_array($resultado)){
                     </div>
                 </div>
 
-<?php  
+<?php
 if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3)) {
 ?>
 <ul class="sidebar-menu">
 
             <li class="treeview">
-                        <a href="../enfermera/pdf/vista_pdf.php"> 
+                        <a href="../enfermera/pdf/vista_pdf.php">
                           <i class="fa fa-print" aria-hidden="true"></i><span>IMPRIMIR DOCUMENTOS</span>
                         </a>
-            </li>   
+            </li>
             <li class=" treeview">
               <a href="#">
                 <i class="fa fa-bed"></i><font size ="2"><span>GESTIÓN DE CAMAS</span></font><i class="fa fa-angle-left pull-right"></i>
@@ -342,14 +342,14 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-bed" aria-hidden="true"></i><span>ASIGNAR HABITACIÓN</span>
                        </a>
                    </li>
-                    
+
                    <li class="treeview">
                        <a href="../enfermera/censo/cambio_habitacion.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>CAMBIO DE HABITACIÓN</span>
                        </a>
                    </li>
             </ul>
-        </li>    
+        </li>
         <li class="treeview">
                         <a href="../enfermera/ordenes_medico/vista_ordenes.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -369,8 +369,8 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
               <li><a href="../enfermera/registro_clinico_neonatal/nota_bebes.php"><i class="fa fa-folder"></i> <span>NEONATAL </span></a></li>
               <li><a href="../enfermera/transfucion_de_sangre/nota_trasfusion_new.php"><i class="fa fa-folder"></i> <span>TRANSFUSIONES<br>SANGUÍNEAS</span></a></li>
             </ul>
-        </li>   
-                    
+        </li>
+
             <li class="treeview">
                 <a href="select_pac_enf.php">
                   <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>SIGNOS VITALES</span>
@@ -401,7 +401,7 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                             <i class="fa fa-medkit" aria-hidden="true"></i> <span>SOLICITAR MEDICAMENTOS<br>A FARMACIA (AMBULATORIO)</span>
                         </a>
             </li>-->
-           
+
         <li class=" treeview">
             <a href="#">
               <i class="fa fa-folder"></i><font size ="2"><span>VALES DE MEDICAMENTOS</span></font><i class="fa fa-angle-left pull-right"></i>
@@ -412,16 +412,16 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> FARMACIA</span>
                        </a>
                    </li>
-                    
+
                    <li class="treeview">
                        <a href="../enfermera/vales_ceye/salidas.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> CEYE (QUIRÓFANO)</span>
                        </a>
                    </li>
             </ul>
-        </li> 
-        
-                   
+        </li>
+
+
                   </ul>
 <?php
 }elseif(!isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3)){
@@ -442,14 +442,14 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-bed" aria-hidden="true"></i><span>ASIGNAR HABITACIÓN</span>
                        </a>
                    </li>
-                    
+
                    <li class="treeview">
                        <a href="../enfermera/censo/cambio_habitacion.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>CAMBIO DE HABITACIÓN</span>
                        </a>
                    </li>
             </ul>
-        </li>                  
+        </li>
     <li class="treeview">
                         <a href="select_pac_enf.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -470,7 +470,7 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
               <li><a href="select_pac_enf.php"><i class="fa fa-folder"></i> <span>TRANSFUSIONES<br>SANGUÍNEAS</span></a></li>
             </ul>
           </li>
-                
+
                 <li class="treeview">
                 <a href="../enfermera/signos_vitales/signos.php">
                 <i class="fa fa-heartbeat" aria-hidden="true"></i> <span>SIGNOS VITALES</span>
@@ -491,8 +491,8 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                             <i class="fa fa-medkit" aria-hidden="true"></i> <span>SOLICITAR MEDICAMENTOS<br>A FARMACIA (AMBULATORIO)</span>
                         </a>
                 </li>  -->
-                
-               
+
+
                    <li class=" treeview">
             <a href="#">
               <i class="fa fa-folder"></i><font size ="2"><span>VALES DE MEDICAMENTOS</span></font><i class="fa fa-angle-left pull-right"></i>
@@ -503,7 +503,7 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> FARMACIA</span>
                        </a>
                    </li>
-                    
+
                   <li class="treeview">
                        <a href="../enfermera/vales_ceye/salidas.php">
                           <i class="fa fa-medkit" aria-hidden="true"></i><span>VALES DE MEDICAMENTOS<br> CEYE (QUIRÓFANO)</span>
@@ -511,14 +511,14 @@ if (isset($_SESSION['pac']) && ($usuario['id_rol']== 5 || $usuario['id_rol']== 3
                    </li>
             </ul>
         </li>
-                    
-                   
+
+
 
                   </ul>
 <?php
 }
 ?>
-<?php  
+<?php
 if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
 ?>
 <ul class="sidebar-menu">
@@ -528,7 +528,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
 
                         </a>
 
-                    </li> 
+                    </li>
                     <li class="treeview">
                         <a href="../enfermera/ordenes_medico/vista_ordenes.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -550,7 +550,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
 
                         </a>
 
-                    </li> 
+                    </li>
                     <li class="treeview">
                         <a href="select_pac_enf.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -561,12 +561,12 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 12) {
                            <i class="fa fa-medkit" aria-hidden="true"></i> <span>SOLICITAR MEDICAMENTOS<br>A FARMACIA</span>
                         </a>
                     </li>
-                    
+
                   </ul>
 <?php
 }
 ?>
-<?php  
+<?php
 if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 ?>
 <ul class="sidebar-menu">
@@ -599,7 +599,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
                         <a href="menu_enfermera.php">
                             <i class="fa fa-bed" aria-hidden="true"></i><span><font size ="2"> SELECCIONAR PACIENTE </font></span>
                         </a>
-                    </li> 
+                    </li>
                     <li class="treeview">
                         <a href="../enfermera/ordenes_medico/vista_ordenes.php">
                             <i class="fa fa-stethoscope"></i> <span>INDICACIONES DEL MÉDICO</span>
@@ -622,7 +622,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
-                
+
       </section>
       <!-- /.sidebar -->
     </aside>
@@ -643,7 +643,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 <section class="content container-fluid">
     <!--<div class="container">
         <div class="row">
-         
+
             <div class="col-sm-4">
               <a href="../enfermera/censo/tabla_censo.php"><button type="button" class="btn btn-warning">VER CENSO <i class="fa fa-bed"></i></button></a>
             </div>
@@ -655,10 +655,10 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
 
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
   <center><strong>HOSPITALIZACIÓN</strong></center><p>
-</div> 
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
+
         <?php
         $sql = 'SELECT * from cat_camas where piso=1 and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -693,7 +693,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol']== 1) {
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -708,7 +708,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica">
                <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -723,7 +723,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
               <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -739,7 +739,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
              <br><br>
-               
+
               </div>
             </div>
 <?php
@@ -766,7 +766,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-             
+
                 <img src="../img/manten.jpg" width="20" class="img-fluid" title="Mantenimiento">
                 <br>
                 <br>
@@ -782,7 +782,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
+
             <img src="../img/intendencia.png" width="16" class="img-fluid" title="Intendencia">
                 <img src="../img/manten.jpg" width="16" class="img-fluid" title="Mantenimiento">
               </div>
@@ -797,7 +797,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-              
+
              <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
                <br><br>
               </div>
@@ -827,8 +827,8 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica"><img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-            
-               
+
+
               </div>
             </div>
 <?php
@@ -841,8 +841,8 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
-             
+
+
                 <img src="../img/manten.jpg" width="15" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -902,7 +902,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -914,7 +914,7 @@ $pr="POR LIBERAR";
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -926,13 +926,13 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br>
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
         <?php
         $sql = 'SELECT * from cat_camas where piso=1 and seccion=2 ORDER BY num_cama ASC';
@@ -969,7 +969,7 @@ $pr="POR LIBERAR";
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-          
+
               </div>
             </div>
             <?php
@@ -980,7 +980,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -992,7 +992,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1001,7 +1001,7 @@ $pr="POR LIBERAR";
         ?>
 </div>
 </div>
-       
+
 <div class="container box col-12">
   <div class= "row">
 
@@ -1040,7 +1040,7 @@ $pr="POR LIBERAR";
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-              
+
               </div>
             </div>
           <?php
@@ -1053,7 +1053,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica">
                <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1068,7 +1068,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
               <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1083,7 +1083,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
-             
+
                <br><br>
               </div>
             </div>
@@ -1111,7 +1111,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-             
+
                 <img src="../img/manten.jpg" width="20" class="img-fluid" title="Mantenimiento">
                 <br>
                 <br>
@@ -1127,7 +1127,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
+
             <img src="../img/intendencia.png" width="16" class="img-fluid" title="Intendencia">
                 <img src="../img/manten.jpg" width="16" class="img-fluid" title="Mantenimiento">
               </div>
@@ -1142,7 +1142,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-              
+
              <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
                <br><br>
               </div>
@@ -1172,8 +1172,8 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica"><img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-            
-               
+
+
               </div>
             </div>
 <?php
@@ -1186,8 +1186,8 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
-             
+
+
                 <img src="../img/manten.jpg" width="15" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1231,7 +1231,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -1243,7 +1243,7 @@ $pr="POR LIBERAR";
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
                <!--<h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1255,13 +1255,13 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
         <?php
         $sql = 'SELECT * from cat_camas where piso=2 and seccion=2 ORDER BY num_cama ASC';
@@ -1298,7 +1298,7 @@ $pr="POR LIBERAR";
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-           
+
               </div>
             </div>
           <?php
@@ -1309,7 +1309,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1321,7 +1321,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1368,7 +1368,7 @@ $pr="POR LIBERAR";
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-                
+
               </div>
             </div>
           <?php
@@ -1382,7 +1382,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica">
                <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1397,7 +1397,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
               <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1413,7 +1413,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
              <br><br>
-               
+
               </div>
             </div>
 <?php
@@ -1440,7 +1440,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-             
+
                 <img src="../img/manten.jpg" width="20" class="img-fluid" title="Mantenimiento">
                 <br>
                 <br>
@@ -1471,7 +1471,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
+
             <img src="../img/intendencia.png" width="16" class="img-fluid" title="Intendencia">
                 <img src="../img/manten.jpg" width="16" class="img-fluid" title="Mantenimiento">
               </div>
@@ -1486,7 +1486,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-              
+
              <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
                <br><br>
               </div>
@@ -1516,8 +1516,8 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica"><img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-            
-               
+
+
               </div>
             </div>
 <?php
@@ -1530,8 +1530,8 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
-             
+
+
                 <img src="../img/manten.jpg" width="15" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1590,7 +1590,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -1602,7 +1602,7 @@ $pr="POR LIBERAR";
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1614,27 +1614,27 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
 
-        
+
  </div>
- </div>             
-            
+ </div>
+
 
 <!-- camas de Terapia -->
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <strong><center>TERAPIA INTENSIVA</center></strong>
-</div>         
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
+
        <?php
         $sql = 'SELECT * from cat_camas where piso=4 and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1670,7 +1670,7 @@ $pr="POR LIBERAR";
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-             
+
               </div>
             </div>
            <?php
@@ -1684,7 +1684,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica">
                <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1699,7 +1699,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
               <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1715,7 +1715,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
              <br><br>
-               
+
               </div>
             </div>
 <?php
@@ -1742,7 +1742,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-             
+
                 <img src="../img/manten.jpg" width="20" class="img-fluid" title="Mantenimiento">
                 <br>
                 <br>
@@ -1773,7 +1773,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
+
             <img src="../img/intendencia.png" width="16" class="img-fluid" title="Intendencia">
                 <img src="../img/manten.jpg" width="16" class="img-fluid" title="Mantenimiento">
               </div>
@@ -1788,7 +1788,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-              
+
              <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
                <br><br>
               </div>
@@ -1818,8 +1818,8 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica"><img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-            
-               
+
+
               </div>
             </div>
 <?php
@@ -1832,8 +1832,8 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
-             
+
+
                 <img src="../img/manten.jpg" width="15" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -1892,7 +1892,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -1904,7 +1904,7 @@ $pr="POR LIBERAR";
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1916,16 +1916,16 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
  <!-- camas de ucin -->
-       
+
         <?php
         $sql = 'SELECT * from cat_camas where piso=4 and seccion=2 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -1961,7 +1961,7 @@ $pr="POR LIBERAR";
                 <br>
                 <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>
-              
+
               </div>
             </div>
           <?php
@@ -1972,7 +1972,7 @@ $pr="POR LIBERAR";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1984,7 +1984,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -1994,14 +1994,14 @@ $pr="POR LIBERAR";
   </div>
 </div>
 <!-- camas de urgencias -->
-            
+
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <strong><center>OBSERVACIÓN</center></strong>
-</div>         
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
-        
+
+
         <?php
         $sql = 'SELECT * from cat_camas where piso=5 and seccion = 1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -2037,7 +2037,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica">
                <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -2052,7 +2052,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
               <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -2068,7 +2068,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
              <br><br>
-               
+
               </div>
             </div>
 <?php
@@ -2095,7 +2095,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-             
+
                 <img src="../img/manten.jpg" width="20" class="img-fluid" title="Mantenimiento">
                 <br>
                 <br>
@@ -2126,7 +2126,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
+
             <img src="../img/intendencia.png" width="16" class="img-fluid" title="Intendencia">
                 <img src="../img/manten.jpg" width="16" class="img-fluid" title="Mantenimiento">
               </div>
@@ -2141,7 +2141,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-              
+
              <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
                <br><br>
               </div>
@@ -2171,8 +2171,8 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica"><img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-            
-               
+
+
               </div>
             </div>
 <?php
@@ -2185,8 +2185,8 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
-             
+
+
                 <img src="../img/manten.jpg" width="15" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -2245,7 +2245,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -2257,7 +2257,7 @@ $pr="POR LIBERAR";
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -2269,7 +2269,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php
@@ -2316,7 +2316,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica">
                <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -2331,7 +2331,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
               <img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-             
+
                 <img src="../img/manten.jpg" width="10" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -2347,7 +2347,7 @@ $pr="POR LIBERAR";
             <p>
                <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
              <br><br>
-               
+
               </div>
             </div>
 <?php
@@ -2374,7 +2374,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-             
+
                 <img src="../img/manten.jpg" width="20" class="img-fluid" title="Mantenimiento">
                 <br>
                 <br>
@@ -2405,7 +2405,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
+
             <img src="../img/intendencia.png" width="16" class="img-fluid" title="Intendencia">
                 <img src="../img/manten.jpg" width="16" class="img-fluid" title="Mantenimiento">
               </div>
@@ -2420,7 +2420,7 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-              
+
              <img src="../img/intendencia.png" width="19" class="img-fluid" title="Intendencia">
                <br><br>
               </div>
@@ -2450,8 +2450,8 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
                <img src="../img/biomedica.png" width="10" class="img-fluid" title="Biomedica"><img src="../img/intendencia.png" width="10" class="img-fluid" title="Intendencia">
-            
-               
+
+
               </div>
             </div>
 <?php
@@ -2464,8 +2464,8 @@ $pr="POR LIBERAR";
                 <a href="../mantenimiento/liberacion_camas.php?num_cama=<?php echo $num_cama ?>" class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
             <p>
-               
-             
+
+
                 <img src="../img/manten.jpg" width="15" class="img-fluid" title="Mantenimiento">
               </div>
             </div>
@@ -2524,7 +2524,7 @@ $pr="POR LIBERAR";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                 <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>
               </div>
             </div>
@@ -2536,7 +2536,7 @@ $pr="POR LIBERAR";
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -2548,7 +2548,7 @@ $pr="POR LIBERAR";
                 ?>
                 <font size="2" class="nompac"><?php echo $nombre_pac ?></font>
                 <br />
-                
+
               </div>
             </div></a>
         <?php

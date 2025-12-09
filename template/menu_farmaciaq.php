@@ -231,14 +231,14 @@ if (isset($usuario['id_rol'])) {
 
 <!-- Main content -->
 <section class="content">
-    
+
 <div class="d-flex justify-content-start" style="margin:3px;">
     <div class="d-flex">
         <!-- Botón Regresar -->
         <a href="../../template/menu_sauxiliares.php"
             style="color: white; background: linear-gradient(135deg, #2b2d7f 0%, #1a1c5a 100%);
-            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block; 
-            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3); 
+            border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; display: inline-block;
+            text-decoration: none; box-shadow: 0 2px 8px rgba(43, 45, 127, 0.3);
             transition: all 0.3s ease; margin-top: 5px; margin-bottom: 5px; margin-right: 10px;">
             ← Regresar
         </a>
@@ -277,7 +277,7 @@ if (isset($usuario['id_rol'])) {
                 </a>
             </div>
 
-           
+
 
             <!-- Devoluciones -->
             <div class="col-lg-4 col-md-6 col-sm-12">
@@ -319,7 +319,7 @@ if (isset($usuario['id_rol'])) {
                 </a>
             </div>
 
-            
+
     </div>
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->

@@ -25,7 +25,7 @@ $usuario = $_SESSION['login'];
   <meta charset="UTF-8">
   <title>INEO Metepec</title>
 <link rel="icon" href="../imagenes/SIF.PNG">
-    
+
     <!-- Bootstrap 3.3.2 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -45,121 +45,227 @@ $usuario = $_SESSION['login'];
            folder instead of downloading all of them to reduce the load. -->
     <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
-  <style>
-    .dropdwn {
-      float: left;
-      overflow: hidden;
-    }
+ <style>
+/* ============================================
+   ESTILOS PREMIUM FUTURISTAS - SISTEMA DE CAMAS
+   ============================================ */
 
-    .dropdwn .dropbtn {
-      cursor: pointer;
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
-    }
-
-    .navbar a:hover,
-    .dropdwn:hover .dropbtn,
-    .dropbtn:focus {
-      background-color: #367fa9;
-    }
-
-    .dropdwn-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
-
-    .dropdwn-content a {
-      float: none;
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
-
-    .dropdwn-content a:hover {
-      background-color: #ddd;
-    }
-
-    .show {
-      display: block;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    .todo-container {
-      max-width: 10000px;
-      height: auto;
-      display: flex;
-      overflow-y: scroll;
-      column-gap: 0.5em;
-      column-rule: 10px solid white;
-      column-width: 100px;
-      column-count: 7;
-    }
-
-    .status {
-      width: 25%;
-      background-color: #ecf0f5;
-      position: relative;
-      padding: 60px 1rem 0.5rem;
-      height: 100%;
-
-    }
-
-    .status h4 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #0b3e6f;
-      color: white;
-      margin: 0;
-      width: 100%;
-
-      padding: 0.5rem 1rem;
-    }
-
-    .alert{
-         padding-right: 40px;
-         padding-left:6px;
-     }
-.nod{
-
-        font-size: 10.3px;
-     }
-        @media screen and (max-width: 980px){
-    .container{
-        width:610px;
-       margin-left:-20px;
-      
-        
-    }
-     .alert{
-         padding-right: 38px;
-         padding-left: 10px;
-     }
-     .nompac{
-         margin-left:-3px;
-        font-size: 10px;
-
-     }
-     .nod{
-        font-size: 7px;
-     }
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%) !important;
+    font-family: 'Roboto', sans-serif !important;
 }
-  </style>
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(64, 224, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(64, 224, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header y Sidebar */
+.main-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    border-bottom: 2px solid #40E0FF !important;
+    box-shadow: 0 4px 20px rgba(64, 224, 255, 0.2);
+}
+
+.main-sidebar {
+    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%) !important;
+    border-right: 2px solid #40E0FF !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    border: 2px solid #40E0FF !important;
+    border-radius: 15px !important;
+    box-shadow: 0 8px 30px rgba(64, 224, 255, 0.3);
+}
+
+/* Headers de sección */
+.thead {
+    background: linear-gradient(135deg, #16213e 0%, #0f3460 100%) !important;
+    border: 2px solid #40E0FF !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 20px rgba(64, 224, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+/* Tarjetas de camas - Estados */
+.alert {
+    border-radius: 15px !important;
+    border: 2px solid !important;
+    transition: all 0.4s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+}
+
+.alert:hover::before {
+    left: 100%;
+}
+
+/* Cama LIBRE - Verde brillante */
+.alert-success {
+    background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%) !important;
+    border-color: #00ff00 !important;
+    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.4);
+}
+
+.alert-success:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(0, 255, 0, 0.6);
+}
+
+/* Cama OCUPADA - Azul neón */
+.alert[style*="background-color: #2b2d7f"],
+.alert[style*="background-color:#2b2d7f"] {
+    background: linear-gradient(135deg, #2b2d7f 0%, #1a1f4d 100%) !important;
+    border-color: #40E0FF !important;
+    box-shadow: 0 5px 20px rgba(64, 224, 255, 0.4);
+}
+
+.alert[style*="background-color: #2b2d7f"]:hover,
+.alert[style*="background-color:#2b2d7f"]:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(64, 224, 255, 0.6);
+}
+
+/* Cama EN MANTENIMIENTO - Rojo */
+.alert-danger {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%) !important;
+    border-color: #ff0000 !important;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+}
+
+.alert-danger:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.6);
+}
+
+/* Cama EN PROCESO - Amarillo */
+.alert-warning {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff8800 100%) !important;
+    border-color: #ffaa00 !important;
+    box-shadow: 0 5px 20px rgba(255, 170, 0, 0.4);
+}
+
+.alert-warning:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(255, 170, 0, 0.6);
+}
+
+/* Cama LISTA - Azul cielo */
+.alert[style*="background-color:#00B9FF"],
+.alert[style*="background-color: #00B9FF"] {
+    background: linear-gradient(135deg, #00B9FF 0%, #0088cc 100%) !important;
+    border-color: #00B9FF !important;
+    box-shadow: 0 5px 20px rgba(0, 185, 255, 0.4);
+}
+
+.alert[style*="background-color:#00B9FF"]:hover,
+.alert[style*="background-color: #00B9FF"]:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(0, 185, 255, 0.6);
+}
+
+/* Cama con liberación pendiente - Morado */
+.alert[style*="background-color: #9A0C71"],
+.alert[style*="background-color:#9A0C71"] {
+    background: linear-gradient(135deg, #9A0C71 0%, #6a0850 100%) !important;
+    border-color: #9A0C71 !important;
+    box-shadow: 0 5px 20px rgba(154, 12, 113, 0.4);
+}
+
+.alert[style*="background-color: #9A0C71"]:hover,
+.alert[style*="background-color:#9A0C71"]:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(154, 12, 113, 0.6);
+}
+
+/* Iconos de cama */
+.fa-bed {
+    filter: drop-shadow(0 0 10px currentColor);
+    transition: all 0.3s ease;
+}
+
+.alert:hover .fa-bed {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+/* Texto de nombres de pacientes */
+.nompac {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+/* Botones */
+.btn {
+    border-radius: 25px !important;
+    border: 2px solid #40E0FF !important;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 5px 15px rgba(64, 224, 255, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(64, 224, 255, 0.5) !important;
+    border-color: #00D9FF !important;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.col-lg-1.9, .col-lg-1.5 {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-left: 1px solid #40E0FF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #40E0FF 0%, #0f3460 100%);
+    border-radius: 10px;
+}
+</style>
+
 </head>
 
 <body class=" hold-transition skin-blue sidebar-mini">
@@ -174,7 +280,7 @@ $usuario = $_SESSION['login'];
       ?>
         <a href="menu_calidad_pac.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
          <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -189,7 +295,7 @@ while($f = mysqli_fetch_array($resultado)){
       <?php //}elseif($usuario['id_rol'] == 17) { ?>
          <a href="menu_calidad_pac.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          
+
           <!-- logo for regular state and mobile devices -->
           <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -221,7 +327,7 @@ while($f = mysqli_fetch_array($resultado)){
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
 
-           
+
             <!-- User Account: style can be found in dropdown.less -->
            <!-- <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -230,7 +336,7 @@ while($f = mysqli_fetch_array($resultado)){
                 <span class="hidden-xs"> <?php echo $usuario['papell']; ?></span>
               </a>
               <ul class="dropdown-menu">
-              
+
                 <li class="user-header">
 
                   <img src="../imagenes/<?php echo $usuario['img_perfil']; ?>" class="img-circle" alt="User Image">
@@ -241,7 +347,7 @@ while($f = mysqli_fetch_array($resultado)){
                   </p>
                 </li>
 
-     
+
                 <li class="user-footer">
                   <div class="pull-left">
                     <a href="../gestion_medica/editar_perfil/editar_perfil.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
@@ -277,22 +383,22 @@ while($f = mysqli_fetch_array($resultado)){
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
 
-        
+
 <!--
           <li class="treeview">
-               <li><a href="../gestion_medica/ambulatorio/receta_ambulatoria.php"><i class="fa fa-user-md"></i> 
+               <li><a href="../gestion_medica/ambulatorio/receta_ambulatoria.php"><i class="fa fa-user-md"></i>
                CONSULTA EXTERNA</a></li>
           </li>  -->
 
-          
+
         </ul>
-                
 
-       
 
-            </li> 
 
-            
+
+            </li>
+
+
 
 
              <!--
@@ -303,7 +409,7 @@ while($f = mysqli_fetch_array($resultado)){
                 </a>
             </li>-->
 <ul class="sidebar-menu">
-                
+
             <li class="">
 
                 <a href="../index.php">
@@ -320,31 +426,31 @@ while($f = mysqli_fetch_array($resultado)){
                     </font></span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
             </li>-->
-          
+
             <!--<li class="">
                 <a href="../calidad/personal/alta_usuarios.php">
                     <i class="fa fa-user" aria-hidden="true"></i> <span><font size ="2">GESTIÓN DE PERSONAL </font></span> <i class="fa fa-angle-right pull-right"></i>
                 </a>
             </li>-->
-            
+
             <?php if ($usuario['id_rol'] == 5){?>
            <li class="">
                 <a href="../calidad/reportes/reporte_medico.php">
                     <i class="fa fa-heart" aria-hidden="true"></i> <span><font size ="2">REPORTE MÉDICO <BR>  (INEGI) </font></span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
             </li>
-            
+
             <li class="">
                 <a href="../calidad/reportes_admin/reportes_admin.php">
                     <i class="fa fa-archive" aria-hidden="true"></i> <span><font size ="2">REPORTE <br> OPERATIVO </font></span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
             </li>
             <?php }?>
-            
-            
+
+
             </ul>
 
-         
+
         </ul>
       </section>
       <!-- /.sidebar -->
@@ -362,14 +468,14 @@ while($f = mysqli_fetch_array($resultado)){
             </STRONG></li>
         </ol>
       </nav>
-      
+
         <!--<div class="col-sm-2">
                 <a href="../calidad/censo/tabla_censo.php"><button type="button" class="btn btn-warning">VER <i class="fa fa-bed">  SERVICIOS GENERALES </i></button></a>
         </div>-->
 
   <section class="content container-fluid">
 
- <?php 
+ <?php
 function tiempoTranscurridoFechas($fechaInicio,$fechaFin){
 $fecha1 = new DateTime($fechaInicio);
 $fecha2 = new DateTime($fechaFin);
@@ -426,11 +532,11 @@ return $tiempo;
 
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
   <center><strong>HOSPITALIZACIÓN</strong></center><p>
-</div> 
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
-      
+
+
         <?php
         $sql = 'SELECT * from cat_camas where piso=1 and seccion=1 ORDER BY num_cama ASC';
         $result = $conexion->query($sql);
@@ -453,7 +559,7 @@ return $tiempo;
              <!--   <h7><font size="2"><?php echo $estaus ?></font></h7>
               <br>
                 <br>-->
-               
+
               </div>
             </div>
           <?php
@@ -465,7 +571,7 @@ return $tiempo;
                 <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
 
               </div>
@@ -478,9 +584,9 @@ $pr="CAMA LISTA";
               <div class="alert" role="alert" style="background-color:#00B9FF; color: white;">
                 <a  class="small-box-footer"><i style="font-size:24px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                <br> 
+                <br>
              <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -524,7 +630,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
 <?php
           }else{
           ?>
-          <?php  
+          <?php
 $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where  di.id_atencion=$id_atencion and di.Id_exp = p.Id_exp  order by di.fecha DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
@@ -537,7 +643,7 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
               <p></p>
@@ -551,15 +657,15 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
                 ?>
               <!--  <font size="2" class="nompac"><?php echo $nombre_pac?></font>
                 <br>-->
-                
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
-        
+
         <!--<div class="col-lg-1.5 col-xs-1">
         <center><strong><div class="thead" style="background-color: darkblue ; color: white; font-size: 18px;"><p><br>PISO 1<br><br> VENECIA 2<br></p></div></strong>
         </center>
@@ -582,9 +688,9 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
               <div class="alert alert-success" role="alert">
                <a  class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
-                
+
                 <!--<h7><font size="2"><?php echo $estaus ?></font></h7>-->
-                
+
               </div>
             </div>
           <?php
@@ -596,9 +702,9 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
                 <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
- 
+
               </div>
             </div>
             <?php
@@ -611,14 +717,14 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
 <?php
           }else {
           ?>
-<?php  
+<?php
 $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where di.id_atencion=$id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.id_atencion DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
@@ -631,7 +737,7 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -642,8 +748,8 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
                 }
                 ?>
           <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
@@ -652,7 +758,7 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
         ?>
 </div>
 </div>
-       
+
 <!--<div class="thead" style="background-color: #2b2d7f; color: white; font-size: 24px;">
   <center><strong>HOSPITALIZACIÓN PISO 2</strong></center><p>
 </div>-->
@@ -686,7 +792,7 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
                  <br>
                 <br>
                  -->
-                
+
               </div>
             </div>
           <?php
@@ -698,7 +804,7 @@ $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, 
               <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
 
               </div>
@@ -713,7 +819,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -768,7 +874,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -779,14 +885,14 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 }
                 ?>
                  <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
 
         <!--<div class="col-lg-1.5 col-xs-1">
@@ -827,7 +933,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 <a  class="small-box-footer" disabled><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
 
               </div>
@@ -842,7 +948,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -861,7 +967,7 @@ $pr="CAMA LISTA";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -872,8 +978,8 @@ $pr="CAMA LISTA";
                 }
                 ?>
                 <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
@@ -927,7 +1033,7 @@ $pr="CAMA LISTA";
                 <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
 
               </div>
@@ -942,7 +1048,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
               <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -986,11 +1092,11 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
 <?php
           }else{
           ?>
-          
-          
-          
-          
-          
+
+
+
+
+
           <?php $sql_pac = "SELECT p.nom_pac, p.papell,p.sapell, di.Id_exp from dat_ingreso di, paciente p, cat_camas cc where di.id_atencion=$id_atencion and di.Id_exp = p.Id_exp and alta_adm='NO' order by di.id_atencion DESC";
                 $result_pac = $conexion->query($sql_pac);
                 while ($row_cam = $result_pac->fetch_assoc()) {
@@ -1002,7 +1108,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1013,28 +1119,28 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 }
                 ?>
                <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
 
-        
+
  </div>
- </div>             
-        
+ </div>
+
 
 <!-- camas de Terapia -->
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <strong><center>TERAPIA INTENSIVA</center></strong>
-</div>         
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
+
         <!--<div class="col-lg-1.5 col-xs-1">
         <center><strong><div class="thead" style="background-color: darkblue; color: white; font-size: 18px;"><p><br>UCI<br><br> VENECIA 2 <br></p></div></strong>
         </center>
@@ -1073,7 +1179,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
 
               </div>
@@ -1088,7 +1194,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
               <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -1143,7 +1249,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1154,17 +1260,17 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 }
                 ?>
                 <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
           }
         }
-        ?>      
+        ?>
 
  <!-- camas de ucin -->
-       
+
 <!--<div class="col-lg-1.5 col-xs-1">
         <center><strong><div class="thead" style="background-color: darkblue; color: white; font-size: 18px;"><p><br>UCIN<br><br> VENECIA 2 <br></p></div></strong>
         </center>
@@ -1203,7 +1309,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+                <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
 
               </div>
@@ -1218,7 +1324,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
               <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -1236,7 +1342,7 @@ $pr="CAMA LISTA";
               <div class="alert alert-danger" role="alert">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1247,8 +1353,8 @@ $pr="CAMA LISTA";
                 }
                 ?>
                   <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
@@ -1258,13 +1364,13 @@ $pr="CAMA LISTA";
   </div>
 </div>
 <!-- camas de urgencias -->
-            
+
 <div class="thead" style="background-color: #2b2d7f; color: white; font-size: 20px;">
          <strong><center>OBSERVACIÓN</center></strong>
-</div>         
+</div>
 <div class="container box col-12">
         <div class= "row">
-        
+
         <!--<div class="col-lg-1.5 col-xs-1">
         <center><strong><div class="thead" style="background-color: steelblue ; color: white; font-size: 18px;">
           <p><br>URGENCIAS<br><br> VENECIA 1 <br></p></div></strong>
@@ -1304,7 +1410,7 @@ $pr="CAMA LISTA";
                 <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+               <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
               </div>
             </div>
@@ -1318,7 +1424,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
                <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -1373,7 +1479,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1384,8 +1490,8 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 }
                 ?>
                 <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-                
-                
+
+
               </div>
             </div></a>
         <?php
@@ -1430,7 +1536,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <a href="../calidad/estadisticas/edita_cama.php?id=<?php echo $row['id']?>" class="small-box-footer"><i style="font-size:23px;" class="fa fa-bed"></i></a>
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
-             <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7> 
+             <!--   <h7><font size="2" class="nod"><?php echo $esta ?></font></h7>
                 <br>-->
               </div>
             </div>
@@ -1444,7 +1550,7 @@ $pr="CAMA LISTA";
                 <h7><font size="3"><?php echo $num_cama ?></font></h7>
                 <br>
              <!--   <h7><font size="1"><?php echo $pr ?></font></h7>
-            
+
                 <br>-->
               </div>
             </div>
@@ -1499,7 +1605,7 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
               <div class="alert alert" role="alert" style="background-color: #2b2d7f; color:white;">
 
                 <i style="font-size:25px;" class="fa fa-bed"></i>
-                
+
                 <h7><font size="3"><?php echo $num_cama ?></font></h7><br>
               <!--  <h7>Estatus: OCUPADA</h7>-->
                 <?php
@@ -1510,8 +1616,8 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
                 }
                 ?>
                   <!--      <font size="2"><?php echo $nombre_pac ?></font> -->
-              
-                
+
+
               </div>
             </div></a>
         <?php
@@ -1520,12 +1626,12 @@ $tiempom=tiempoTranscurridoFechas($i,$fecha_actual);}
         ?>
   </div>
 </div>
-                       
+
 </div>
 
 </section>
 
-   
+
     <footer class="main-footer">
       <?php
       include("footer.php");

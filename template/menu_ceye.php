@@ -54,8 +54,8 @@ if (!($usuario['id_rol'] == 8 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
     <![endif]-->
 
     <style>
-   
-    
+
+
         .dropdwn {
             float: left;
             overflow: hidden;
@@ -140,7 +140,7 @@ if (!($usuario['id_rol'] == 8 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
 
             padding: 0.5rem 1rem;
         }
-        
+
          @media screen and (min-width: 320px) and (max-width: 980px){
     .content{
         width:300px;
@@ -151,15 +151,15 @@ if (!($usuario['id_rol'] == 8 || $usuario['id_rol'] == 5 || $usuario['id_rol'] =
  height: auto;
       }
 .dde{
-top:-105px;   
+top:-105px;
 }
 
 h3{
-font-size:10px;    
+font-size:10px;
 }
 
 .ss{
-    top:-190px;  
+    top:-190px;
 }
 
 .lp{
@@ -185,7 +185,7 @@ font-size:10px;
             ?>
             <a href="menu_gerencia.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -203,7 +203,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_sauxiliares.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -221,7 +221,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_ceye.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -239,7 +239,7 @@ while($f = mysqli_fetch_array($resultado)){
             ?>
             <a href="menu_administrativo.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                
+
                 <!-- logo for regular state and mobile devices -->
                 <?php
 $resultado = $conexion->query("SELECT * from img_sistema ORDER BY id_simg DESC") or die($conexion->error);
@@ -284,7 +284,7 @@ while($f = mysqli_fetch_array($resultado)){
                                 <img src="../imagenes/<?php echo $usuario['img_perfil']; ?>" class="img-circle" alt="User Image">
 
                                 <p>
-                                    <?php echo $usuario['papell']; ?> 
+                                    <?php echo $usuario['papell']; ?>
                                 </p>
                             </li>
 
@@ -296,10 +296,10 @@ while($f = mysqli_fetch_array($resultado)){
                                         <a href="../sauxiliares/editar_perfil/editar_perfil_saux.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
                                      <?php
                                     }else  {?>
-            
+
                                         <a href="../sauxiliares/editar_perfil/editar_perfil_ceye.php?id_usua=<?php echo $usuario['id_usua'];?>" class="btn btn-default btn-flat">MIS DATOS</a>
                                     <?php }?>
-                                </div> 
+                                </div>
                                 <div class="pull-right">
                                     <a href="../cerrar_sesion.php" class="btn btn-default btn-flat">CERRAR SESIÓN</a>
                                 </div>
@@ -352,7 +352,7 @@ while($f = mysqli_fetch_array($resultado)){
                     </a>
 
                 </li>
-              
+
                 <li class=" treeview">
                     <a href="../sauxiliares/Ceye/inventario_ceye.php">
                         <i class="fa fa-folder"></i> <span>DETALLE DE INVENTARIO</span>
@@ -360,7 +360,7 @@ while($f = mysqli_fetch_array($resultado)){
                     </a>
 
                 </li>
-               
+
                 <li class=" treeview">
                     <a href="../sauxiliares/Ceye/devoluciones_ceye.php">
                         <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
@@ -387,18 +387,18 @@ while($f = mysqli_fetch_array($resultado)){
                         <i class="fa fa-folder"></i> <span>SALIDAS DE QUIRÓFANO</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-                </li> 
+                </li>
                 <li class="treeview">
                     <a href="../sauxiliares/Ceye/lista_paquetes_ceye.php">
                         <i class="fa fa-folder"></i> <span>LISTA DE PAQUETES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-                </li> 
-                    
+                </li>
+
             </ul>
                 <?php }else{ ?>
             <ul class="sidebar-menu">
-             
+
                  <li class=" treeview">
                     <a href="../sauxiliares/Ceye/order.php">
                         <font size="2">
@@ -421,7 +421,7 @@ while($f = mysqli_fetch_array($resultado)){
                     </a>
 
                 </li>
-              
+
                 <li class=" treeview">
                     <a href="../sauxiliares/Ceye/inventario_ceye.php">
                         <i class="fa fa-folder"></i> <span>DETALLE DE INVENTARIO</span>
@@ -429,7 +429,7 @@ while($f = mysqli_fetch_array($resultado)){
                     </a>
 
                 </li>
-               
+
                 <li class=" treeview">
                     <a href="../sauxiliares/Ceye/devoluciones_ceye.php">
                         <i class="fa fa-folder"></i> <span>DEVOLUCIONES</span>
@@ -462,8 +462,8 @@ while($f = mysqli_fetch_array($resultado)){
                         <i class="fa fa-folder"></i> <span>LISTA DE PAQUETES</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
-                </li> 
-                    
+                </li>
+
             </ul>
             <?php } ?>
         </section>
@@ -482,7 +482,7 @@ while($f = mysqli_fetch_array($resultado)){
                     </STRONG></li>
             </ol>
         </nav>
-        
+
         <!-- Main content -->
         <?php if($usuario['id_rol']==4){ ?>
         <section class="content">
@@ -516,7 +516,7 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
 
                         </div>
-                            
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -531,8 +531,8 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
 
                         </div>
-             
-                
+
+
                             <div class="col-lg-4 col-xs-6">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -547,7 +547,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-4 col-xs-6 dde">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -616,12 +616,12 @@ while($f = mysqli_fetch_array($resultado)){
                                         </div>
                                     </div>
                             </div>
-                                
+
                         </div>
                     </div>
             </section><!-- /.content -->
               <?php }else{?>
-         
+
             <section class="content">
             <section class="content container-fluid">
                 <div class="content box">
@@ -668,7 +668,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                         </div>
                     </div>
-                    <div class="row">   
+                    <div class="row">
                             <div class="col-lg-4 col-xs-6">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -683,7 +683,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-4 col-xs-6 dde">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -713,7 +713,7 @@ while($f = mysqli_fetch_array($resultado)){
                                     </div>
                             </div>
                         </div>
-                        <div class="row">   
+                        <div class="row">
                             <div class="col-lg-4 col-xs-6">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -728,7 +728,7 @@ while($f = mysqli_fetch_array($resultado)){
 
                                     </div>
                              </div>
-                             
+
                               <div class="col-lg-4 col-xs-6 ss">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -774,7 +774,7 @@ while($f = mysqli_fetch_array($resultado)){
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                       
+
                         <div class="col-lg-4 col-xs-6">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -816,7 +816,7 @@ while($f = mysqli_fetch_array($resultado)){
                             </div>
 
                         </div>
-                       
+
                         <div class="row">
                             <div class="col-lg-4 col-xs-6">
                                 <div class="row">
@@ -832,7 +832,7 @@ while($f = mysqli_fetch_array($resultado)){
                                     <div class="col-lg-1"></div>
                                 </div>
                             </div>
-                           
+
 
                             <div class="col-lg-4 col-xs-6">
                                 <div class="row">
@@ -888,7 +888,7 @@ while($f = mysqli_fetch_array($resultado)){
         </div>
     </div>
 
-   
+
 
 </div><!-- ./wrapper -->
 
