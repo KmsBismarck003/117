@@ -1014,7 +1014,7 @@ $usuario = $_SESSION['login'];
                                             }
                                             ?>
                                             <br>
-                                            <h7 class="nompac"><?php echo $papell ?></h7><br>
+<h7 class="nompac"><?php echo $papell ?? '' ?></h7><br>
                                             <h7 class="nompac"><?php echo $nombre_pac ?></h7>
                                             <br><br>
                                         </div>
@@ -1088,7 +1088,7 @@ $usuario = $_SESSION['login'];
                                             }
                                             ?>
                                             <br>
-                                            <h7 class="nompac"><?php echo $papell ?></h7><br>
+<h7 class="nompac"><?php echo $papell ?? '' ?></h7><br>
                                             <h7 class="nompac"><?php echo $nombre_pac ?></h7>
                                             <br><br>
                                         </div>
@@ -1228,7 +1228,7 @@ $usuario = $_SESSION['login'];
                                             }
                                             ?>
                                             <br>
-                                            <h7 class="nompac"><?php echo $papell ?></h7><br>
+<h7 class="nompac"><?php echo $papell ?? '' ?></h7><br>
                                             <h7 class="nompac"><?php echo $nombre_pac ?></h7>
                                             <br><br>
                                         </div>

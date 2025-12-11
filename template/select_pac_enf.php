@@ -829,7 +829,7 @@ if (isset($_SESSION['pac']) && $usuario['id_rol'] == 12) {
           $biomedica = $row['biomedica'];
           $mantenimiento = $row['mantenimiento'];
           $serv_generales = $row['serv_generales'];
-            $intendencia = $row['intendencia'];
+$intendencia = $row['intendencia'] ?? '';
 
           if ($estaus == "LIBRE" or $estaus == "Libre") {
         ?>
@@ -916,7 +916,7 @@ $pr="POR LIBERAR";
           $biomedica = $row['biomedica'];
           $mantenimiento = $row['mantenimiento'];
           $serv_generales = $row['serv_generales'];
-            $intendencia = $row['intendencia'];
+$intendencia = $row['intendencia'] ?? '';
           if ($estaus == "LIBRE" or $estaus == "Libre") {
         ?>
          <div class="col-lg-1.9 col-xs-1">
